@@ -1,1 +1,147 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact the BISOVIA platform team.">
+  <meta name="theme-color" content="#111827">
+  <title>Contact — BISOVIA</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">
+</head><body>  <header class="site-header">
+    <div class="container header-inner">  <a class="brand" href="../index.html" aria-label="BISOVIA home">
+    <img class="brand-logo" src="../assets/logo.svg" alt="BISOVIA">
+    <span class="brand-name">BISOVIA</span>
+  </a>
 
+  <button id="menu-toggle" class="icon-button" type="button" aria-label="Open navigation" aria-expanded="false">
+    ☰
+  </button>
+
+  <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
+    <a href="../index.html">Home</a>
+    <a href="./about.html">About</a>
+    <a href="./services.html">Services</a>
+    <a href="./community.html">Community</a>
+    <a href="./contact.html">Contact</a>
+  </nav>
+
+  <div class="header-actions">
+    <button id="theme-toggle" class="secondary-button" type="button" aria-label="Toggle theme">
+      ◐
+    </button>
+
+    <select id="language-select" class="language-select" aria-label="Language">
+      <option value="en">EN</option>
+      <option value="fr">FR</option>
+      <option value="rn">RN</option>
+      <option value="sw">SW</option>
+    </select>
+
+    <a class="primary-button" href="../index.html#pi-login">
+      Sign in with Pi
+    </a>
+  </div>
+
+</div>
+
+  </header>  <main><section class="hero-section">
+  <div class="container">
+
+    <span class="eyebrow">CONTACT BISOVIA</span>
+
+    <h1>
+      Let's build something
+      <span>useful.</span>
+    </h1>
+
+    <p class="hero-text">
+      Questions, suggestions or ideas about BISOVIA can be
+      prepared here. The contact service will be connected
+      to the backend during the next development stage.
+    </p>
+
+  </div>
+</section>
+
+<section class="features-section">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">CONTACT FORM</span>
+      <h2>Send us a message.</h2>
+      <p>
+        The form is currently a frontend interface. We will
+        connect it to a secure backend endpoint later.
+      </p>
+    </div>
+
+    <form class="contact-form" id="contact-form">
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          autocomplete="name"
+          required
+          placeholder="Your name">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          placeholder="you@example.com">
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="7"
+          required
+          placeholder="Write your message..."></textarea>
+      </div>
+
+      <button
+        class="primary-button"
+        type="submit">
+        Prepare message
+      </button>
+
+      <p
+        id="contact-status"
+        class="status-message"
+        aria-live="polite">
+      </p>
+
+    </form>
+
+  </div>
+</section>
+
+  </main>  <footer class="site-footer">
+    <div class="container footer-inner">  <div>
+    <strong>BISOVIA</strong>
+    <p>A new Pi-native utility platform.</p>
+  </div>
+
+  <div class="footer-links">
+    <a href="./about.html">About</a>
+    <a href="./services.html">Services</a>
+  </div>
+
+  <p class="copyright">
+    © <span id="current-year"></span> BISOVIA
+  </p>
+
+</div>
+
+  </footer>  <script src="../script.js"></script></body>
+</html>
