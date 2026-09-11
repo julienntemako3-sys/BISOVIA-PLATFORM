@@ -1,35 +1,34 @@
-
 <!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover the BISOVIA community space.">
+  <meta name="description" content="BISOVIA community — connect through a Pi-native utility platform.">
   <meta name="theme-color" content="#111827">
-  <title>Community — BISOVIA</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="stylesheet" href="../style.css">
-</head><body>  <header class="site-header">
+  <title>BISOVIA — Community</title>  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="apple-touch-icon" href="../assets/favicon.svg">  <script src="https://sdk.minepi.com/pi-sdk.js"></script>  <link rel="stylesheet" href="../style.css">
+</head><body>
+  <header class="site-header">
     <div class="container header-inner">  <a class="brand" href="../index.html" aria-label="BISOVIA home">
-    <img class="brand-logo" src="../assets/logo.svg" alt="BISOVIA">
+    <img src="../assets/logo.svg" alt="BISOVIA" class="brand-logo">
     <span class="brand-name">BISOVIA</span>
   </a>
 
-  <button id="menu-toggle" class="icon-button" type="button" aria-label="Open navigation" aria-expanded="false">
+  <button id="menu-toggle" class="icon-button" type="button"
+    aria-label="Open navigation" aria-expanded="false">
     ☰
   </button>
 
   <nav id="main-navigation" class="main-navigation" aria-label="Main navigation">
-    <a href="../index.html">Home</a>
-    <a href="./about.html">About</a>
-    <a href="./services.html">Services</a>
-    <a href="./community.html">Community</a>
-    <a href="./contact.html">Contact</a>
+    <a href="../index.html" data-page="home">Home</a>
+    <a href="./about.html" data-page="about">About</a>
+    <a href="./services.html" data-page="services">Services</a>
+    <a href="./community.html" data-page="community">Community</a>
+    <a href="./contact.html" data-page="contact">Contact</a>
   </nav>
 
   <div class="header-actions">
-    <button id="theme-toggle" class="secondary-button" type="button" aria-label="Toggle theme">
-      ◐
-    </button>
+    <button id="theme-toggle" class="secondary-button" type="button"
+      aria-label="Toggle theme">◐</button>
 
     <select id="language-select" class="language-select" aria-label="Language">
       <option value="en">EN</option>
@@ -38,130 +37,110 @@
       <option value="sw">SW</option>
     </select>
 
-    <a class="primary-button" href="../index.html#pi-login">
+    <button id="pi-login" class="primary-button" type="button">
       Sign in with Pi
-    </a>
+    </button>
   </div>
 
 </div>
 
-  </header>  <main><section class="hero-section">
-  <div class="container">
+  </header>  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">      <p class="eyebrow">BISOVIA COMMUNITY</p>
 
-    <span class="eyebrow">BISOVIA COMMUNITY</span>
+      <h1>People are part of the platform.</h1>
 
-    <h1>
-      Connect through
-      <span>useful participation.</span>
-    </h1>
+      <p class="hero-text">
+        BISOVIA aims to create a useful environment where people can
+        discover services, interact with the platform and participate
+        in its future development.
+      </p>
 
-    <p class="hero-text">
-      The BISOVIA community space will bring people together
-      around practical services, ideas and activities.
-    </p>
-
+    </div>
   </div>
 </section>
 
-<section class="features-section">
+<section class="features">
   <div class="container">
 
     <div class="section-heading">
-      <span class="eyebrow">COMMUNITY PRINCIPLES</span>
-      <h2>A community with purpose.</h2>
+      <p class="eyebrow">COMMUNITY DIRECTION</p>
+      <h2>Built around people and practical needs.</h2>
       <p>
-        Community features will be introduced with attention
-        to clarity, safety and useful participation.
+        The community layer will grow gradually as BISOVIA services and
+        platform capabilities become available.
       </p>
     </div>
 
     <div class="feature-grid">
 
       <article class="feature-card">
-        <div class="feature-number">01</div>
-        <h3>Discover</h3>
-        <p>
-          Find useful services, activities and information
-          available through BISOVIA.
-        </p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-number">02</div>
-        <h3>Participate</h3>
-        <p>
-          Give users opportunities to contribute and take
-          part in platform activities.
-        </p>
-      </article>
-
-      <article class="feature-card">
-        <div class="feature-number">03</div>
+        <div class="feature-icon">◎</div>
         <h3>Connect</h3>
         <p>
-          Create structured interaction between users without
-          making the platform unnecessarily complicated.
+          Create a simple environment where users can discover useful
+          services and opportunities.
         </p>
       </article>
 
       <article class="feature-card">
-        <div class="feature-number">04</div>
-        <h3>Grow</h3>
+        <div class="feature-icon">↗</div>
+        <h3>Participate</h3>
         <p>
-          Expand the community through tested features and
-          genuine utility.
+          Community participation can help shape the future direction
+          of BISOVIA.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">◇</div>
+        <h3>Discover</h3>
+        <p>
+          Explore new services and practical possibilities as they are
+          introduced to the platform.
+        </p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon">π</div>
+        <h3>Pi Ecosystem</h3>
+        <p>
+          BISOVIA is designed to evolve within the Pi ecosystem while
+          keeping utility and responsible development at the center.
         </p>
       </article>
 
     </div>
-
   </div>
 </section>
 
 <section class="status-section">
   <div class="container">
-
     <div class="status-card">
-
-      <div>
-        <span class="eyebrow">COMING IN STAGES</span>
-
-        <h2>
-          The community layer will grow with the platform.
-        </h2>
-
-        <p>
-          Interactive community features require backend
-          services. They will therefore be connected after
-          the frontend foundation and API architecture are ready.
-        </p>
-      </div>
-
-      <div class="status-indicator">
-        <span class="status-dot"></span>
-        <span>Preparing</span>
-      </div>
-
+      <p class="eyebrow">COMMUNITY STATUS</p>
+      <h2>The community layer is coming progressively.</h2>
+      <p>
+        BISOVIA is first establishing a reliable platform foundation.
+        Community features will be added when their technical foundation
+        is ready.
+      </p>
+      <span class="status-badge">In development</span>
     </div>
-
   </div>
 </section>
 
   </main>  <footer class="site-footer">
-    <div class="container footer-inner">  <div>
-    <strong>BISOVIA</strong>
-    <p>A new Pi-native utility platform.</p>
-  </div>
-
-  <div class="footer-links">
+    <div class="container footer-inner">
+      <div>
+        <strong>BISOVIA</strong>
+        <p>A new Pi-native utility platform.</p>
+      </div>  <div class="footer-links">
+    <a href="../index.html">Home</a>
     <a href="./about.html">About</a>
-    <a href="./services.html">Services</a>
   </div>
 
-  <p class="copyright">
-    © <span id="current-year"></span> BISOVIA
-  </p>
-
+  <p>© <span id="current-year"></span> BISOVIA</p>
 </div>
 
   </footer>  <script src="../script.js"></script></body>
