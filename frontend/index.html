@@ -29,78 +29,86 @@
 <body>
 
   <header class="site-header">
-    <div class="container header-inner">
+  <div class="container header-inner">
 
-      <a
-        class="brand"
-        href="./index.html"
-        aria-label="BISOVIA home"
+    <a
+      class="brand"
+      href="./index.html"
+      aria-label="BISOVIA home"
+    >
+      <img
+        src="./assets/logo.svg"
+        alt="BISOVIA"
+        class="brand-logo"
       >
-        <img
-          src="./assets/logo.svg"
-          alt="BISOVIA"
-          class="brand-logo"
-        >
 
-        <span class="brand-name">BISOVIA</span>
+      <span class="brand-name">BISOVIA</span>
+    </a>
+
+    <button
+      id="menu-toggle"
+      class="icon-button"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+    <nav
+      id="main-navigation"
+      class="main-navigation"
+      aria-label="Main navigation"
+    >
+      <a href="./index.html" data-page="home">Home</a>
+
+      <a href="./pages/about.html" data-page="about">About</a>
+
+      <a href="./pages/services.html" data-page="services">Services</a>
+
+      <a href="./pages/community.html" data-page="community">Community</a>
+
+      <a href="./pages/contact.html" data-page="contact">Contact</a>
+
+      <a href="./pages/payment.html" data-page="payment">
+        Payments
       </a>
+    </nav>
+
+    <div class="header-actions">
 
       <button
-        id="menu-toggle"
-        class="icon-button"
+        id="theme-toggle"
+        class="secondary-button"
         type="button"
-        aria-label="Open navigation"
-        aria-expanded="false"
+        aria-label="Toggle theme"
       >
-        ☰
+        ◐
       </button>
 
-      <nav
-        id="main-navigation"
-        class="main-navigation"
-        aria-label="Main navigation"
+      <select
+        id="language-select"
+        class="language-select"
+        aria-label="Language"
       >
-        <a href="./index.html" data-page="home">Home</a>
-        <a href="./pages/about.html" data-page="about">About</a>
-        <a href="./pages/services.html" data-page="services">Services</a>
-        <a href="./pages/community.html" data-page="community">Community</a>
-        <a href="./pages/contact.html" data-page="contact">Contact</a>
-      </nav>
-<a href="./pages/payment.html" data-page="payment">Payment</a>
-      <div class="header-actions">
+        <option value="en">EN</option>
+        <option value="fr">FR</option>
+        <option value="rn">RN</option>
+        <option value="sw">SW</option>
+      </select>
 
-        <button
-          id="theme-toggle"
-          class="secondary-button"
-          type="button"
-          aria-label="Toggle theme"
-        >
-          ◐
-        </button>
-
-        <select
-          id="language-select"
-          class="language-select"
-          aria-label="Language"
-        >
-          <option value="en">EN</option>
-          <option value="fr">FR</option>
-          <option value="rn">RN</option>
-          <option value="sw">SW</option>
-        </select>
-
-        <button
-          id="pi-login"
-          class="primary-button"
-          type="button"
-        >
-          Sign in with Pi
-        </button>
-
-      </div>
+      <button
+        id="pi-login"
+        class="primary-button"
+        type="button"
+      >
+        Sign in with Pi
+      </button>
 
     </div>
-  </header>
+
+  </div>
+</header>
 
   <main>
 
@@ -265,7 +273,7 @@
   </main>
 
 
-  <<footer class="site-footer">
+  <footer class="site-footer">
   <div class="container footer-inner">
 
     <div>
