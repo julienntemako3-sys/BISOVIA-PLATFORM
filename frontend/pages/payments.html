@@ -1,457 +1,581 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta
-name="description"
-content="BISOVIA Pi payment page — select a service, review the Pi amount and prepare your payment."
 
-«»
-
-  <meta name="theme-color" content="#111827">  <title>BISOVIA — Pay with Pi</title>  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="apple-touch-icon" href="../assets/favicon.svg">  <script src="https://sdk.minepi.com/pi-sdk.js"></script>  <link rel="stylesheet" href="../style.css">
-</head><body><header class="site-header">  <div class="container header-inner"><a
-  class="brand"
-  href="../index.html"
-  aria-label="BISOVIA home"
->
-  <img
-    class="brand-logo"
-    src="../assets/logo.svg"
-    alt="BISOVIA"
-    class="brand-logo"
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
   >
 
-  <span class="brand-name">
-    BISOVIA
-  </span>
-</a>
-
-
-<button
-  id="menu-toggle"
-  class="icon-button"
-  type="button"
-  aria-label="Open navigation"
-  aria-expanded="false"
->
-  ☰
-</button>
-
-
-<nav
-  id="main-navigation"
-  class="main-navigation"
-  aria-label="Main navigation"
->
-  <a href="../index.html">Home</a>
-  <a href="./about.html">About</a>
-  <a href="./services.html">Services</a>
-  <a href="./community.html">Community</a>
-  <a href="./contact.html">Contact</a>
-  <a href="./payment.html">Payment</a>
-</nav>
-
-
-<div class="header-actions">
-
-  <button
-    id="theme-toggle"
-    class="secondary-button"
-    type="button"
-    aria-label="Toggle theme"
+  <meta
+    name="description"
+    content="BISOVIA Pi payment page — select a service, review the Pi amount and continue with a Pi payment."
   >
-    ◐
-  </button>
 
-
-  <select
-    id="language-select"
-    class="language-select"
-    aria-label="Language"
+  <meta
+    name="theme-color"
+    content="#111827"
   >
-    <option value="en">EN</option>
-    <option value="fr">FR</option>
-    <option value="rn">RN</option>
-    <option value="sw">SW</option>
-  </select>
 
+  <title>BISOVIA — Pay with Pi</title>
 
-  <button
-    id="pi-login"
-    class="primary-button"
-    type="button"
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../assets/favicon.svg"
   >
-    Sign in with Pi
-  </button>
 
-</div>
+  <link
+    rel="apple-touch-icon"
+    href="../assets/favicon.svg"
+  >
 
-  </div></header><main>  <section class="hero-section"><div class="container">
+  <!-- Pi Network SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
 
-  <span class="eyebrow">
-    BISOVIA PAY WITH PI
-  </span>
+  <link
+    rel="stylesheet"
+    href="../style.css"
+  >
+</head>
 
-  <h1>
-    Choose a service.
-    <span>Pay with Pi.</span>
-  </h1>
+<body>
 
-  <p class="hero-text">
-    Select the BISOVIA service you want to use, review the
-    amount in Pi and continue to the Pi payment process.
-    BISOVIA does not use USD or USDT for this payment interface.
-  </p>
+<header class="site-header">
 
-</div>
+  <div class="container header-inner">
 
-  </section>  <section class="features-section"><div class="container">
+    <a
+      class="brand"
+      href="../index.html"
+      aria-label="BISOVIA home"
+    >
 
-  <div class="section-heading">
+      <img
+        class="brand-logo"
+        src="../assets/logo.svg"
+        alt="BISOVIA"
+      >
 
-    <span class="eyebrow">
-      CREATE YOUR PAYMENT
-    </span>
+      <span class="brand-name">
+        BISOVIA
+      </span>
 
-    <h2>
-      What are you paying for?
-    </h2>
+    </a>
 
-    <p>
-      Choose a service below and enter the amount required
-      for that service in Pi.
+
+    <button
+      id="menu-toggle"
+      class="icon-button"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
+
+
+    <nav
+      id="main-navigation"
+      class="main-navigation"
+      aria-label="Main navigation"
+    >
+
+      <a href="../index.html">
+        Home
+      </a>
+
+      <a href="./about.html">
+        About
+      </a>
+
+      <a href="./services.html">
+        Services
+      </a>
+
+      <a href="./community.html">
+        Community
+      </a>
+
+      <a href="./contact.html">
+        Contact
+      </a>
+
+      <a href="./payment.html">
+        Payment
+      </a>
+
+    </nav>
+
+
+    <div class="header-actions">
+
+      <button
+        id="theme-toggle"
+        class="secondary-button"
+        type="button"
+        aria-label="Toggle theme"
+      >
+        ◐
+      </button>
+
+
+      <select
+        id="language-select"
+        class="language-select"
+        aria-label="Language"
+      >
+
+        <option value="en">
+          EN
+        </option>
+
+        <option value="fr">
+          FR
+        </option>
+
+        <option value="rn">
+          RN
+        </option>
+
+        <option value="sw">
+          SW
+        </option>
+
+      </select>
+
+
+      <button
+        id="pi-login"
+        class="primary-button"
+        type="button"
+      >
+        Sign in with Pi
+      </button>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<main>
+
+  <section class="hero-section">
+
+    <div class="container">
+
+      <span class="eyebrow">
+        BISOVIA PAY WITH PI
+      </span>
+
+      <h1>
+        Choose a service.
+        <span>Pay with Pi.</span>
+      </h1>
+
+      <p class="hero-text">
+        Select the BISOVIA service you want to use,
+        review the amount in Pi and continue to the
+        Pi payment process.
+        BISOVIA does not use USD or USDT for this
+        payment interface.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <section class="features-section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          CREATE YOUR PAYMENT
+        </span>
+
+        <h2>
+          What are you paying for?
+        </h2>
+
+        <p>
+          Choose a service below and enter the amount
+          required for that service in Pi.
+        </p>
+
+      </div>
+
+
+      <div class="feature-grid">
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            01
+          </div>
+
+          <h3>
+            Transport &amp; Mobility
+          </h3>
+
+          <p>
+            Pi payment for an eligible BISOVIA mobility
+            or transport service.
+          </p>
+
+          <button
+            class="secondary-button service-select"
+            type="button"
+            data-service="Transport & Mobility"
+          >
+            Select service
+          </button>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            02
+          </div>
+
+          <h3>
+            Vehicle &amp; Garage
+          </h3>
+
+          <p>
+            Pi payment for an eligible vehicle maintenance,
+            assistance or garage service.
+          </p>
+
+          <button
+            class="secondary-button service-select"
+            type="button"
+            data-service="Vehicle & Garage"
+          >
+            Select service
+          </button>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            03
+          </div>
+
+          <h3>
+            Hospitality
+          </h3>
+
+          <p>
+            Pi payment for an eligible BISOVIA accommodation,
+            meal or hospitality service.
+          </p>
+
+          <button
+            class="secondary-button service-select"
+            type="button"
+            data-service="Hospitality"
+          >
+            Select service
+          </button>
+
+        </article>
+
+
+        <article class="feature-card">
+
+          <div class="feature-number">
+            04
+          </div>
+
+          <h3>
+            Digital Utility
+          </h3>
+
+          <p>
+            Pi payment for an eligible digital utility
+            or platform service.
+          </p>
+
+          <button
+            class="secondary-button service-select"
+            type="button"
+            data-service="Digital Utility"
+          >
+            Select service
+          </button>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="features-section">
+
+    <div class="container">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          PAYMENT DETAILS
+        </span>
+
+        <h2>
+          Review your Pi payment.
+        </h2>
+
+      </div>
+
+
+      <div class="contact-form">
+
+        <div class="form-group">
+
+          <label for="payment-service">
+            Selected service
+          </label>
+
+          <select
+            id="payment-service"
+            class="language-select"
+          >
+
+            <option value="">
+              Select a service
+            </option>
+
+            <option value="Transport & Mobility">
+              Transport & Mobility
+            </option>
+
+            <option value="Vehicle & Garage">
+              Vehicle & Garage
+            </option>
+
+            <option value="Hospitality">
+              Hospitality
+            </option>
+
+            <option value="Digital Utility">
+              Digital Utility
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="payment-amount">
+            Amount in Pi
+          </label>
+
+          <input
+            id="payment-amount"
+            name="payment-amount"
+            type="number"
+            min="0.000001"
+            step="0.000001"
+            inputmode="decimal"
+            placeholder="Enter Pi amount"
+          >
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label for="payment-note">
+            Payment description
+          </label>
+
+          <textarea
+            id="payment-note"
+            name="payment-note"
+            rows="4"
+            placeholder="Describe the service or payment purpose"
+          ></textarea>
+
+        </div>
+
+
+        <div class="status-card">
+
+          <div>
+
+            <span class="eyebrow">
+              PAYMENT SUMMARY
+            </span>
+
+            <h3 id="payment-summary-service">
+              No service selected
+            </h3>
+
+            <p id="payment-summary-amount">
+              Amount: — Pi
+            </p>
+
+            <p id="payment-summary-note">
+              Your payment details will appear here before
+              continuing.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <button
+          id="pay-with-pi"
+          class="primary-button"
+          type="button"
+        >
+          Pay with Pi
+        </button>
+
+
+        <p
+          id="payment-status"
+          class="status-message"
+          aria-live="polite"
+        ></p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="status-section">
+
+    <div class="container">
+
+      <div class="status-card">
+
+        <div>
+
+          <span class="eyebrow">
+            PAYMENT SECURITY
+          </span>
+
+          <h2>
+            Every payment must be verified.
+          </h2>
+
+          <p>
+            Selecting a service and entering an amount does
+            not mean that a payment has been completed.
+            The final BISOVIA payment flow requires Pi
+            authorization, backend approval, transaction
+            completion and server-side verification.
+          </p>
+
+        </div>
+
+
+        <div class="status-indicator">
+
+          <span class="status-dot"></span>
+
+          <span>
+            Pi Payment Ready
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<footer class="site-footer">
+
+  <div class="container footer-inner">
+
+    <div>
+
+      <strong>
+        BISOVIA
+      </strong>
+
+      <p>
+        A Pi-native utility platform designed to connect
+        practical services with responsible Pi technology.
+      </p>
+
+    </div>
+
+
+    <div class="footer-links">
+
+      <a href="../index.html">
+        Home
+      </a>
+
+      <a href="./about.html">
+        About
+      </a>
+
+      <a href="./services.html">
+        Services
+      </a>
+
+      <a href="./community.html">
+        Community
+      </a>
+
+      <a href="./contact.html">
+        Contact
+      </a>
+
+    </div>
+
+
+    <p class="copyright">
+      © <span id="current-year"></span> BISOVIA
     </p>
 
   </div>
 
+</footer>
 
-  <div class="feature-grid">
 
-    <article class="feature-card">
+<!-- Main BISOVIA JavaScript -->
+<script src="../script.js"></script>
 
-      <div class="feature-number">
-        01
-      </div>
 
-      <h3>
-        Transport & Mobility
-      </h3>
+<!-- Payment page logic -->
+<script>
 
-      <p>
-        Pi payment for an eligible BISOVIA mobility or
-        transport service.
-      </p>
-
-      <button
-        class="secondary-button service-select"
-        type="button"
-        data-service="Transport & Mobility"
-      >
-        Select service
-      </button>
-
-    </article>
-
-
-    <article class="feature-card">
-
-      <div class="feature-number">
-        02
-      </div>
-
-      <h3>
-        Vehicle & Garage
-      </h3>
-
-      <p>
-        Pi payment for an eligible vehicle maintenance,
-        assistance or garage service.
-      </p>
-
-      <button
-        class="secondary-button service-select"
-        type="button"
-        data-service="Vehicle & Garage"
-      >
-        Select service
-      </button>
-
-    </article>
-
-
-    <article class="feature-card">
-
-      <div class="feature-number">
-        03
-      </div>
-
-      <h3>
-        Hospitality
-      </h3>
-
-      <p>
-        Pi payment for an eligible BISOVIA accommodation,
-        meal or hospitality service.
-      </p>
-
-      <button
-        class="secondary-button service-select"
-        type="button"
-        data-service="Hospitality"
-      >
-        Select service
-      </button>
-
-    </article>
-
-
-    <article class="feature-card">
-
-      <div class="feature-number">
-        04
-      </div>
-
-      <h3>
-        Digital Utility
-      </h3>
-
-      <p>
-        Pi payment for an eligible digital utility or
-        platform service.
-      </p>
-
-      <button
-        class="secondary-button service-select"
-        type="button"
-        data-service="Digital Utility"
-      >
-        Select service
-      </button>
-
-    </article>
-
-  </div>
-
-</div>
-
-  </section>  <section class="features-section"><div class="container">
-
-  <div class="section-heading">
-
-    <span class="eyebrow">
-      PAYMENT DETAILS
-    </span>
-
-    <h2>
-      Review your Pi payment.
-    </h2>
-
-  </div>
-
-
-  <div class="contact-form">
-
-    <div class="form-group">
-
-      <label for="payment-service">
-        Selected service
-      </label>
-
-      <select
-        id="payment-service"
-        class="language-select"
-      >
-        <option value="">
-          Select a service
-        </option>
-
-        <option value="Transport & Mobility">
-          Transport & Mobility
-        </option>
-
-        <option value="Vehicle & Garage">
-          Vehicle & Garage
-        </option>
-
-        <option value="Hospitality">
-          Hospitality
-        </option>
-
-        <option value="Digital Utility">
-          Digital Utility
-        </option>
-      </select>
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label for="payment-amount">
-        Amount in Pi
-      </label>
-
-      <input
-        id="payment-amount"
-        name="payment-amount"
-        type="number"
-        min="0.000001"
-        step="0.000001"
-        inputmode="decimal"
-        placeholder="Enter Pi amount"
-      >
-
-    </div>
-
-
-    <div class="form-group">
-
-      <label for="payment-note">
-        Payment description
-      </label>
-
-      <textarea
-        id="payment-note"
-        name="payment-note"
-        rows="4"
-        placeholder="Describe the service or payment purpose"
-      ></textarea>
-
-    </div>
-
-
-    <div class="status-card">
-
-      <div>
-
-        <span class="eyebrow">
-          PAYMENT SUMMARY
-        </span>
-
-        <h3 id="payment-summary-service">
-          No service selected
-        </h3>
-
-        <p id="payment-summary-amount">
-          Amount: — Pi
-        </p>
-
-        <p id="payment-summary-note">
-          Your payment details will appear here before
-          continuing.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <button
-      id="pay-with-pi"
-      class="primary-button"
-      type="button"
-    >
-      Pay with Pi
-    </button>
-
-
-    <p
-      id="payment-status"
-      class="status-message"
-      aria-live="polite"
-    ></p>
-
-  </div>
-
-</div>
-
-  </section>  <section class="status-section"><div class="container">
-
-  <div class="status-card">
-
-    <div>
-
-      <span class="eyebrow">
-        PAYMENT SECURITY
-      </span>
-
-      <h2>
-        Every payment must be verified.
-      </h2>
-
-      <p>
-        Selecting a service and entering an amount does not
-        mean that a payment has been completed. The final
-        BISOVIA payment flow will require Pi authorization,
-        backend verification and confirmation of the
-        transaction before the service is considered paid.
-      </p>
-
-    </div>
-
-
-    <div class="status-indicator">
-
-      <span class="status-dot"></span>
-
-      <span>
-        Pi Payment Ready
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-
-  </section></main><footer class="site-footer">  <div class="container footer-inner"><div>
-
-  <strong>
-    BISOVIA
-  </strong>
-
-  <p>
-    A Pi-native utility platform designed to connect
-    practical services with responsible Pi technology.
-  </p>
-
-</div>
-
-
-<div class="footer-links">
-
-  <a href="../index.html">
-    Home
-  </a>
-
-  <a href="./about.html">
-    About
-  </a>
-
-  <a href="./services.html">
-    Services
-  </a>
-
-  <a href="./community.html">
-    Community
-  </a>
-
-  <a href="./contact.html">
-    Contact
-  </a>
-
-</div>
-
-
-<p class="copyright">
-  © <span id="current-year"></span> BISOVIA
-</p>
-
-  </div></footer><script src="../script.js"></script><script>
 document.addEventListener("DOMContentLoaded", function () {
 
-  const serviceSelect = document.getElementById("payment-service");
-  const amountInput = document.getElementById("payment-amount");
-  const noteInput = document.getElementById("payment-note");
+  const serviceSelect =
+    document.getElementById("payment-service");
+
+  const amountInput =
+    document.getElementById("payment-amount");
+
+  const noteInput =
+    document.getElementById("payment-note");
 
   const summaryService =
     document.getElementById("payment-summary-service");
@@ -472,6 +596,13 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".service-select");
 
 
+  function setStatus(message) {
+
+    paymentStatus.textContent = message;
+
+  }
+
+
   function updateSummary() {
 
     const service =
@@ -483,13 +614,18 @@ document.addEventListener("DOMContentLoaded", function () {
         : "—";
 
     const note =
-      noteInput.value.trim()
-        || "Your payment details will appear here before continuing.";
+      noteInput.value.trim() ||
+      "Your payment details will appear here before continuing.";
 
-    summaryService.textContent = service;
+    summaryService.textContent =
+      service;
+
     summaryAmount.textContent =
       "Amount: " + amount + " Pi";
-    summaryNote.textContent = note;
+
+    summaryNote.textContent =
+      note;
+
   }
 
 
@@ -525,19 +661,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         updateSummary();
 
-        document
-          .getElementById("payment-amount")
-          .focus();
+        amountInput.focus();
 
         window.scrollTo({
+
           top:
-            document
-              .getElementById("payment-service")
-              .getBoundingClientRect()
-              .top
-            + window.scrollY
-            - 120,
+            serviceSelect.getBoundingClientRect().top +
+            window.scrollY -
+            120,
+
           behavior: "smooth"
+
         });
 
       }
@@ -548,7 +682,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   payButton.addEventListener(
     "click",
-    function () {
+    async function () {
 
       const service =
         serviceSelect.value;
@@ -556,21 +690,29 @@ document.addEventListener("DOMContentLoaded", function () {
       const amount =
         Number(amountInput.value);
 
+      const note =
+        noteInput.value.trim();
+
+
       if (!service) {
 
-        paymentStatus.textContent =
-          "Please select a BISOVIA service first.";
+        setStatus(
+          "Please select a BISOVIA service first."
+        );
 
         return;
+
       }
 
 
-      if (!amount || amount <= 0) {
+      if (!Number.isFinite(amount) || amount <= 0) {
 
-        paymentStatus.textContent =
-          "Please enter a valid amount in Pi.";
+        setStatus(
+          "Please enter a valid amount in Pi."
+        );
 
         return;
+
       }
 
 
@@ -579,79 +721,287 @@ document.addEventListener("DOMContentLoaded", function () {
         typeof window.Pi.createPayment !== "function"
       ) {
 
-        paymentStatus.textContent =
-          "Pi payment is not available in this browser. Please open BISOVIA in Pi Browser.";
+        setStatus(
+          "Pi payment is not available here. Please open BISOVIA in Pi Browser."
+        );
 
         return;
+
       }
 
 
-      paymentStatus.textContent =
-        "Your Pi payment request is being prepared...";
+      payButton.disabled = true;
+
+      setStatus(
+        "Connecting to Pi and preparing your payment..."
+      );
 
 
-      const memo =
-        noteInput.value.trim()
-        || "BISOVIA payment for " + service;
+      try {
+
+        let authResult;
 
 
-      const paymentData = {
+        if (
+          typeof window.Pi.authenticate === "function"
+        ) {
 
-        amount: amount,
+          authResult =
+            await window.Pi.authenticate(
+              ["payments"],
+              function (incompletePayment) {
 
-        memo: memo,
+                console.warn(
+                  "Incomplete Pi payment:",
+                  incompletePayment
+                );
 
-        metadata: {
-          platform: "BISOVIA",
-          service: service
+              }
+            );
+
         }
 
-      };
+
+        const memo =
+          note ||
+          "BISOVIA payment for " + service;
 
 
-      window.Pi.createPayment(
+        const paymentData = {
 
-        paymentData,
+          amount: amount,
 
-        {
+          memo: memo,
 
-          onReadyForServerApproval: function (paymentId) {
+          metadata: {
 
-            paymentStatus.textContent =
-              "Payment created. Server approval is required before the transaction can continue.";
-          },
+            platform: "BISOVIA",
 
+            service: service,
 
-          onReadyForServerCompletion: function (
-            paymentId,
-            txid
-          ) {
-
-            paymentStatus.textContent =
-              "Payment received by Pi. Server-side completion and verification are required.";
-          },
-
-
-          onCancel: function (paymentId) {
-
-            paymentStatus.textContent =
-              "Payment cancelled.";
-          },
-
-
-          onError: function (error) {
-
-            paymentStatus.textContent =
-              "Pi payment could not be completed: "
-              + (error && error.message
-                ? error.message
-                : "Unknown error.");
+            description: note || memo
 
           }
 
-        }
+        };
 
-      );
+
+        setStatus(
+          "Pi is waiting for your authorization..."
+        );
+
+
+        window.Pi.createPayment(
+
+          paymentData,
+
+          {
+
+            onReadyForServerApproval:
+              async function (paymentId) {
+
+                setStatus(
+                  "Payment created. BISOVIA server approval is being requested..."
+                );
+
+
+                try {
+
+                  const response =
+                    await fetch(
+                      "/api/payments/approve",
+                      {
+
+                        method: "POST",
+
+                        headers: {
+                          "Content-Type":
+                            "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                          paymentId:
+                            paymentId,
+
+                          service:
+                            service,
+
+                          amount:
+                            amount,
+
+                          note:
+                            note
+
+                        })
+
+                      }
+                    );
+
+
+                  if (!response.ok) {
+
+                    throw new Error(
+                      "Server approval failed."
+                    );
+
+                  }
+
+
+                  setStatus(
+                    "Payment approved. Continue in Pi..."
+                  );
+
+                } catch (error) {
+
+                  console.error(
+                    "Approval error:",
+                    error
+                  );
+
+                  setStatus(
+                    "BISOVIA could not approve the Pi payment on the server."
+                  );
+
+                }
+
+              },
+
+
+            onReadyForServerCompletion:
+              async function (
+                paymentId,
+                txid
+              ) {
+
+                setStatus(
+                  "Pi transaction received. BISOVIA is verifying the payment..."
+                );
+
+
+                try {
+
+                  const response =
+                    await fetch(
+                      "/api/payments/complete",
+                      {
+
+                        method: "POST",
+
+                        headers: {
+                          "Content-Type":
+                            "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                          paymentId:
+                            paymentId,
+
+                          txid:
+                            txid,
+
+                          service:
+                            service,
+
+                          amount:
+                            amount,
+
+                          note:
+                            note
+
+                        })
+
+                      }
+                    );
+
+
+                  if (!response.ok) {
+
+                    throw new Error(
+                      "Server completion failed."
+                    );
+
+                  }
+
+
+                  setStatus(
+                    "Payment completed and sent for BISOVIA verification."
+                  );
+
+                } catch (error) {
+
+                  console.error(
+                    "Completion error:",
+                    error
+                  );
+
+                  setStatus(
+                    "Pi transaction received, but BISOVIA server verification is still required."
+                  );
+
+                }
+
+              },
+
+
+            onCancel:
+              function (paymentId) {
+
+                console.log(
+                  "Payment cancelled:",
+                  paymentId
+                );
+
+                setStatus(
+                  "Payment cancelled."
+                );
+
+                payButton.disabled = false;
+
+              },
+
+
+            onError:
+              function (error) {
+
+                console.error(
+                  "Pi payment error:",
+                  error
+                );
+
+                setStatus(
+                  "Pi payment could not be completed: " +
+                  (
+                    error &&
+                    error.message
+                      ? error.message
+                      : "Unknown error."
+                  )
+                );
+
+                payButton.disabled = false;
+
+              }
+
+          }
+
+        );
+
+      } catch (error) {
+
+        console.error(
+          "Pi authentication/payment error:",
+          error
+        );
+
+        setStatus(
+          "Unable to start the Pi payment. Please try again in Pi Browser."
+        );
+
+        payButton.disabled = false;
+
+      }
 
     }
   );
@@ -660,5 +1010,8 @@ document.addEventListener("DOMContentLoaded", function () {
   updateSummary();
 
 });
-</script></body>
+
+</script>
+
+</body>
 </html>
