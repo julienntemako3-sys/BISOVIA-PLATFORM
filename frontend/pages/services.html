@@ -1,292 +1,309 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>BISOVIA — Services</title><meta
+name="description"
+content="BISOVIA services — practical Pi-native services for mobility, vehicles, hospitality and community."
 
-  <meta
-    name="description"
-    content="Explore the service direction of BISOVIA, a Pi-native utility platform."
+«»
+
+  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">  <style>
+    .services-page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 70px 20px 90px;
+    }
+
+    .services-header {
+      max-width: 760px;
+      margin-bottom: 50px;
+    }
+
+    .services-eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .services-header h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      line-height: 1.05;
+    }
+
+    .services-header p {
+      margin: 0;
+      max-width: 680px;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      opacity: 0.78;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      position: relative;
+      padding: 30px;
+      border: 1px solid rgba(127, 127, 127, 0.22);
+      border-radius: 22px;
+      background: rgba(127, 127, 127, 0.06);
+      transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(127, 127, 127, 0.45);
+      background: rgba(127, 127, 127, 0.1);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 22px;
+      border-radius: 16px;
+      background: rgba(127, 127, 127, 0.12);
+      font-size: 1.7rem;
+    }
+
+    .service-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.45rem;
+    }
+
+    .service-card p {
+      margin: 0 0 24px;
+      line-height: 1.65;
+      opacity: 0.76;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .service-link span {
+      transition: transform 0.2s ease;
+    }
+
+    .service-link:hover span {
+      transform: translateX(4px);
+    }
+
+    .core-note {
+      margin-top: 55px;
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      background: rgba(127, 127, 127, 0.05);
+    }
+
+    .core-note strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .core-note p {
+      margin: 0;
+      line-height: 1.6;
+      opacity: 0.75;
+    }
+
+    @media (max-width: 700px) {
+      .services-page {
+        padding: 45px 16px 70px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        padding: 24px;
+      }
+    }
+  </style></head><body>  <!-- CORE NAVIGATION -->  <header class="site-header">
+    <nav class="navbar">  <a href="../index.html" class="brand">
+    <img src="../assets/logo.svg" alt="BISOVIA" class="brand-logo">
+    <span>BISOVIA</span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
   >
+    ☰
+  </button>
 
-  <meta name="theme-color" content="#111827">
-
-  <title>BISOVIA — Services</title>
-
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="apple-touch-icon" href="../assets/favicon.svg">
-
-  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-
-  <link rel="stylesheet" href="../style.css">
-</head>
-
-<body>
-
-<header class="site-header">
-  <div class="container header-inner">
-
-    <a class="brand" href="../index.html" aria-label="BISOVIA home">
-      <img
-        src="../assets/logo.svg"
-        alt="BISOVIA"
-        class="brand-logo"
-      >
-      <span class="brand-name">BISOVIA</span>
-    </a>
-
-    <button
-      id="menu-toggle"
-      class="icon-button"
-      type="button"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-    <nav
-      id="main-navigation"
-      class="main-navigation"
-      aria-label="Main navigation"
-    >
-      <a href="../index.html" data-page="home">Home</a>
-      <a href="./about.html" data-page="about">About</a>
-      <a href="./services.html" data-page="services">Services</a>
-      <a href="./community.html" data-page="community">Community</a>
-      <a href="./contact.html" data-page="contact">Contact</a>
-    </nav>
-
-    <div class="header-actions">
-
-      <button
-        id="theme-toggle"
-        class="secondary-button"
-        type="button"
-        aria-label="Toggle theme"
-      >
-        ◐
-      </button>
-
-      <select
-        id="language-select"
-        class="language-select"
-        aria-label="Language"
-      >
-        <option value="en">EN</option>
-        <option value="fr">FR</option>
-        <option value="rn">RN</option>
-        <option value="sw">SW</option>
-      </select>
-
-      <button
-        id="pi-login"
-        class="primary-button"
-        type="button"
-      >
-        Sign in with Pi
-      </button>
-
-    </div>
-
+  <div class="nav-links" id="navLinks">
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" class="active">Services</a>
+    <a href="payments.html">Payments</a>
+    <a href="profile.html">Profile</a>
+    <a href="trust.html">Trust &amp; Safety</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="settings.html">Settings</a>
   </div>
-</header>
 
+</nav>
 
-<main>
+  </header>  <!-- SERVICES -->  <main class="services-page"><section class="services-header">
+  <span class="services-eyebrow">BISOVIA SERVICES</span>
 
-  <section class="hero">
-    <div class="container">
+  <h1>
+    Practical utility, connected through one platform.
+  </h1>
 
-      <div class="hero-card">
+  <p>
+    Explore the services growing within BISOVIA. Each service module
+    connects to the same Core for identity, payments, profiles,
+    trust and notifications.
+  </p>
+</section>
 
-        <p class="eyebrow">
-          BISOVIA SERVICES
-        </p>
 
-        <h1>
-          Useful services, connected in one platform.
-        </h1>
+<section class="services-grid">
 
-        <p class="hero-text">
-          BISOVIA is being developed to bring practical service areas
-          together in one clear environment, with each major service
-          introduced progressively as its foundation becomes ready.
-        </p>
+  <!-- MOBILITY -->
+  <article class="service-card">
 
-      </div>
+    <div class="service-icon">🚐</div>
 
-    </div>
-  </section>
+    <h2>Mobility</h2>
 
-
-  <section class="features">
-    <div class="container">
-
-      <div class="section-heading">
-
-        <p class="eyebrow">
-          SERVICE AREAS
-        </p>
-
-        <h2>
-          Designed around real-world needs.
-        </h2>
-
-        <p>
-          These service areas describe the direction of BISOVIA.
-          They will be activated progressively and should not be
-          understood as fully operational services until their
-          respective modules are completed and tested.
-        </p>
-
-      </div>
-
-
-      <div class="feature-grid">
-
-        <article class="feature-card">
-
-          <div class="feature-icon">◆</div>
-
-          <h3>
-            Transport &amp; Mobility
-          </h3>
-
-          <p>
-            A planned utility area for practical mobility and
-            transport services, with future support for Pi-based
-            service experiences.
-          </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-          <div class="feature-icon">⚙</div>
-
-          <h3>
-            Vehicle &amp; Garage Services
-          </h3>
-
-          <p>
-            A planned area connecting vehicle users with useful
-            maintenance, assistance and garage-related services.
-          </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-          <div class="feature-icon">⌂</div>
-
-          <h3>
-            Hospitality
-          </h3>
-
-          <p>
-            A future service area for accommodation, meals and
-            related hospitality needs, introduced when the required
-            infrastructure is ready.
-          </p>
-
-        </article>
-
-
-        <article class="feature-card">
-
-          <div class="feature-icon">◈</div>
-
-          <h3>
-            Digital Utilities
-          </h3>
-
-          <p>
-            Practical digital tools and additional utility modules
-            can be introduced progressively as BISOVIA expands.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-
-  <section class="status-section">
-    <div class="container">
-
-      <div class="status-card">
-
-        <div>
-
-          <p class="eyebrow">
-            SERVICE DEVELOPMENT
-          </p>
-
-          <h2>
-            Services will be activated progressively.
-          </h2>
-
-          <p>
-            BISOVIA will clearly distinguish planned services from
-            active functionality. Each major module will be developed,
-            tested and connected to the appropriate Pi infrastructure
-            before being presented as an operational service.
-          </p>
-
-        </div>
-
-        <div class="status-indicator">
-          <span class="status-dot"></span>
-          <span>Preparing</span>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-</main>
-
-
-<footer class="site-footer">
-  <div class="container footer-inner">
-
-    <div>
-
-      <strong>BISOVIA</strong>
-
-      <p>
-        A Pi-native utility platform designed to grow through
-        practical services, community and responsible innovation.
-      </p>
-
-    </div>
-
-
-    <div class="footer-links">
-
-      <a href="../index.html">Home</a>
-      <a href="./about.html">About</a>
-      <a href="./community.html">Community</a>
-      <a href="./contact.html">Contact</a>
-
-    </div>
-
-
-    <p class="copyright">
-      © <span id="current-year"></span> BISOVIA
+    <p>
+      Discover practical mobility services for everyday movement,
+      including rides and transport-oriented services as BISOVIA grows.
     </p>
 
-  </div>
-</footer>
+    <a class="service-link" href="mobility.html">
+      Explore Mobility
+      <span>→</span>
+    </a>
+
+  </article>
 
 
-<script src="../script.js"></script>
+  <!-- AUTO -->
+  <article class="service-card">
 
-</body>
+    <div class="service-icon">🔧</div>
+
+    <h2>Auto &amp; Garages</h2>
+
+    <p>
+      Access vehicle-related services, garages and practical automotive
+      support through the BISOVIA ecosystem.
+    </p>
+
+    <a class="service-link" href="auto.html">
+      Explore Auto
+      <span>→</span>
+    </a>
+
+  </article>
+
+
+  <!-- HOSPITALITY -->
+  <article class="service-card">
+
+    <div class="service-icon">🏨</div>
+
+    <h2>Hospitality</h2>
+
+    <p>
+      Find accommodation and hospitality services designed to connect
+      users with participating service providers.
+    </p>
+
+    <a class="service-link" href="hospitality.html">
+      Explore Hospitality
+      <span>→</span>
+    </a>
+
+  </article>
+
+
+  <!-- COMMUNITY -->
+  <article class="service-card">
+
+    <div class="service-icon">🤝</div>
+
+    <h2>Community</h2>
+
+    <p>
+      Connect with the BISOVIA community through useful interactions,
+      participation and community-oriented services.
+    </p>
+
+    <a class="service-link" href="community.html">
+      Explore Community
+      <span>→</span>
+    </a>
+
+  </article>
+
+</section>
+
+
+<!-- CORE EXPLANATION -->
+<section class="core-note">
+
+  <strong>Powered by the BISOVIA Core</strong>
+
+  <p>
+    Service modules do not manage the platform's fundamental identity,
+    payment or trust systems independently. They connect to the BISOVIA
+    Core through standard contracts for authentication, payments,
+    profiles, trust and notifications.
+  </p>
+
+</section>
+
+  </main>  <!-- FOOTER -->  <footer class="site-footer"><p>
+  © <span id="currentYear"></span> BISOVIA.
+  Built for practical utility and community interaction.
+</p>
+
+  </footer>  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+      });
+    }
+
+    const currentYear = document.getElementById("currentYear");
+
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
+    }
+  </script></body>
 </html>
