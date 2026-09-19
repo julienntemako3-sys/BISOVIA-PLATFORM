@@ -1,1 +1,553 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Profile — BISOVIA</title><meta
+name="description"
+content="Manage your BISOVIA profile, identity, preferences and service participation."
 
+«»
+
+  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">  <style>
+    .profile-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 20px 90px;
+    }
+
+    .profile-header {
+      margin-bottom: 45px;
+    }
+
+    .profile-eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .profile-header h1 {
+      margin: 0 0 15px;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .profile-header p {
+      max-width: 700px;
+      margin: 0;
+      line-height: 1.7;
+      opacity: 0.75;
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.4fr;
+      gap: 24px;
+    }
+
+    .profile-card {
+      padding: 30px;
+      border: 1px solid rgba(127, 127, 127, 0.22);
+      border-radius: 22px;
+      background: rgba(127, 127, 127, 0.06);
+    }
+
+    .identity-card {
+      text-align: center;
+    }
+
+    .profile-avatar {
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(127, 127, 127, 0.14);
+      font-size: 2.3rem;
+    }
+
+    .identity-card h2 {
+      margin: 0 0 8px;
+      font-size: 1.5rem;
+    }
+
+    .identity-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 22px;
+      font-size: 0.88rem;
+      opacity: 0.75;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .pi-signin-button {
+      width: 100%;
+      padding: 13px 18px;
+      border: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 700;
+      background: rgba(127, 127, 127, 0.15);
+      color: inherit;
+    }
+
+    .pi-signin-button:hover {
+      background: rgba(127, 127, 127, 0.22);
+    }
+
+    .profile-card h2 {
+      margin: 0 0 25px;
+      font-size: 1.35rem;
+    }
+
+    .profile-fields {
+      display: grid;
+      gap: 18px;
+    }
+
+    .profile-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .profile-field label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      opacity: 0.65;
+    }
+
+    .profile-field input,
+    .profile-field select {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 13px 14px;
+      border: 1px solid rgba(127, 127, 127, 0.25);
+      border-radius: 11px;
+      background: transparent;
+      color: inherit;
+      font: inherit;
+      outline: none;
+    }
+
+    .profile-field input:focus,
+    .profile-field select:focus {
+      border-color: rgba(127, 127, 127, 0.55);
+    }
+
+    .profile-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .profile-button {
+      padding: 12px 20px;
+      border: 0;
+      border-radius: 11px;
+      cursor: pointer;
+      font-weight: 700;
+      background: rgba(127, 127, 127, 0.15);
+      color: inherit;
+    }
+
+    .profile-button:hover {
+      background: rgba(127, 127, 127, 0.23);
+    }
+
+    .profile-button.secondary {
+      background: transparent;
+      border: 1px solid rgba(127, 127, 127, 0.25);
+    }
+
+    .profile-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 24px;
+    }
+
+    .info-box {
+      padding: 20px;
+      border-radius: 16px;
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      background: rgba(127, 127, 127, 0.04);
+    }
+
+    .info-box strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .info-box span {
+      font-size: 0.88rem;
+      opacity: 0.68;
+    }
+
+    .profile-note {
+      margin-top: 35px;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      background: rgba(127, 127, 127, 0.04);
+    }
+
+    .profile-note strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .profile-note p {
+      margin: 0;
+      line-height: 1.6;
+      opacity: 0.72;
+    }
+
+    @media (max-width: 800px) {
+      .profile-page {
+        padding: 45px 16px 70px;
+      }
+
+      .profile-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .profile-info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style></head><body>  <!-- CORE NAVIGATION -->  <header class="site-header">
+    <nav class="navbar">  <a href="../index.html" class="brand">
+    <img
+      src="../assets/logo.svg"
+      alt="BISOVIA"
+      class="brand-logo"
+    >
+    <span>BISOVIA</span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+  >
+    ☰
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="payments.html">Payments</a>
+    <a href="profile.html" class="active">Profile</a>
+    <a href="trust.html">Trust &amp; Safety</a>
+    <a href="notifications.html">Notifications</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+</nav>
+
+  </header>  <main class="profile-page"><!-- HEADER -->
+<section class="profile-header">
+
+  <span class="profile-eyebrow">
+    USER &amp; PROFILE
+  </span>
+
+  <h1>Your BISOVIA profile.</h1>
+
+  <p>
+    Manage your identity, profile information and preferences from
+    one central place across the BISOVIA platform.
+  </p>
+
+</section>
+
+
+<section class="profile-layout">
+
+  <!-- IDENTITY -->
+  <article class="profile-card identity-card">
+
+    <div class="profile-avatar">
+      👤
+    </div>
+
+    <h2 id="profileName">
+      BISOVIA User
+    </h2>
+
+    <div class="identity-status">
+      <span class="status-dot"></span>
+      <span id="identityStatus">
+        Pi identity not connected
+      </span>
+    </div>
+
+    <button
+      class="pi-signin-button"
+      id="piSignIn"
+      type="button"
+    >
+      Sign in with Pi
+    </button>
+
+  </article>
+
+
+  <!-- PROFILE DETAILS -->
+  <article class="profile-card">
+
+    <h2>Profile information</h2>
+
+    <div class="profile-fields">
+
+      <div class="profile-field">
+        <label for="displayName">
+          Display name
+        </label>
+
+        <input
+          id="displayName"
+          type="text"
+          placeholder="Your display name"
+        >
+      </div>
+
+
+      <div class="profile-field">
+        <label for="role">
+          Account role
+        </label>
+
+        <select id="role">
+          <option value="client">
+            Client
+          </option>
+
+          <option value="provider">
+            Service Provider
+          </option>
+        </select>
+      </div>
+
+
+      <div class="profile-field">
+        <label for="language">
+          Preferred language
+        </label>
+
+        <select id="language">
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          <option value="rn">Kirundi</option>
+          <option value="sw">Kiswahili</option>
+        </select>
+      </div>
+
+    </div>
+
+
+    <div class="profile-actions">
+
+      <button
+        class="profile-button"
+        id="saveProfile"
+        type="button"
+      >
+        Save profile
+      </button>
+
+      <button
+        class="profile-button secondary"
+        id="resetProfile"
+        type="button"
+      >
+        Reset
+      </button>
+
+    </div>
+
+  </article>
+
+</section>
+
+
+<!-- PROFILE CAPABILITIES -->
+<section class="profile-info-grid">
+
+  <div class="info-box">
+    <strong>Pi Identity</strong>
+    <span>
+      Your Pi identity can be connected to your BISOVIA profile.
+    </span>
+  </div>
+
+  <div class="info-box">
+    <strong>Preferences</strong>
+    <span>
+      Language and account preferences are managed here.
+    </span>
+  </div>
+
+  <div class="info-box">
+    <strong>Service participation</strong>
+    <span>
+      Your profile can interact with BISOVIA service modules.
+    </span>
+  </div>
+
+  <div class="info-box">
+    <strong>Trust</strong>
+    <span>
+      Your reputation and service interactions belong to the Core.
+    </span>
+  </div>
+
+</section>
+
+
+<!-- CORE NOTE -->
+<section class="profile-note">
+
+  <strong>
+    Your profile is part of the BISOVIA Core.
+  </strong>
+
+  <p>
+    Service modules use the shared BISOVIA profile instead of creating
+    separate identities for Mobility, Auto &amp; Garages, Hospitality
+    or Community.
+  </p>
+
+</section>
+
+  </main>  <!-- FOOTER -->  <footer class="site-footer"><p>
+  © <span id="currentYear"></span> BISOVIA.
+  Built for practical utility and community interaction.
+</p>
+
+  </footer>  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+
+        const isOpen = navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+      });
+    }
+
+
+    const currentYear = document.getElementById("currentYear");
+
+    if (currentYear) {
+      currentYear.textContent = new Date().getFullYear();
+    }
+
+
+    /*
+      Temporary frontend profile state.
+
+      Real Pi authentication and persistent profile data
+      will be connected through the BISOVIA Core/backend later.
+    */
+
+    const displayName = document.getElementById("displayName");
+    const profileName = document.getElementById("profileName");
+
+    const saveProfile = document.getElementById("saveProfile");
+    const resetProfile = document.getElementById("resetProfile");
+
+    if (saveProfile) {
+      saveProfile.addEventListener("click", () => {
+
+        const name = displayName.value.trim();
+
+        if (name) {
+          profileName.textContent = name;
+        }
+
+        localStorage.setItem(
+          "bisoviaDisplayName",
+          name
+        );
+
+      });
+    }
+
+
+    if (resetProfile) {
+      resetProfile.addEventListener("click", () => {
+
+        displayName.value = "";
+        profileName.textContent = "BISOVIA User";
+
+        localStorage.removeItem(
+          "bisoviaDisplayName"
+        );
+
+      });
+    }
+
+
+    const savedName = localStorage.getItem(
+      "bisoviaDisplayName"
+    );
+
+    if (savedName) {
+      displayName.value = savedName;
+      profileName.textContent = savedName;
+    }
+
+
+    /*
+      Pi Sign-In placeholder.
+
+      We keep this button ready for the existing
+      BISOVIA Pi authentication flow.
+    */
+
+    const piSignIn = document.getElementById("piSignIn");
+
+    if (piSignIn) {
+
+      piSignIn.addEventListener("click", () => {
+
+        const identityStatus =
+          document.getElementById("identityStatus");
+
+        identityStatus.textContent =
+          "Pi Sign-In will connect through BISOVIA Core.";
+
+      });
+
+    }
+  </script></body>
+</html>
