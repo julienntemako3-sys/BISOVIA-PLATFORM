@@ -1,16 +1,17 @@
-"use strict";
-
 /*
  * BISOVIA
- * Frontend foundation
+ * Frontend foundation / Core integration
  *
- * Includes:
- * - Pi SDK initialization
- * - Pi Sign-In
+ * Responsibilities:
+ * - Start BISOVIA Core services
+ * - Pi Sign-In through Core Auth
  * - Dark / Light theme
  * - EN / FR / RN / SW language switching
  * - Mobile navigation
  * - Current year
+ * - Core notification events
+ *
+ * Vertical business logic does NOT belong here.
  */
 
 const BISOVIA = {
@@ -47,34 +48,46 @@ const translations = {
     connected: "Connected with Pi",
 
     coreDirection: "CORE DIRECTION",
-    platformTitle: "A platform built for real utility",
+
+    platformTitle:
+      "A platform built for real utility",
+
     platformDescription:
       "BISOVIA will grow through clearly separated modules, secure Pi integration and a structure that can evolve without rebuilding the entire application.",
 
     utility: "Utility",
+
     utilityText:
       "Practical digital services designed around actual user needs.",
 
     communityTitle: "Community",
+
     communityText:
       "A structured environment where users can interact around useful services and content.",
 
     piNative: "Pi-native",
+
     piNativeText:
       "Authentication and payments will use the official Pi SDK and Platform API.",
 
     expandable: "Expandable",
+
     expandableText:
       "The architecture will remain ready for future infrastructure such as SoloHost.",
 
     platformStatus: "PLATFORM STATUS",
-    buildingTitle: "BISOVIA is being built step by step.",
+
+    buildingTitle:
+      "BISOVIA is being built step by step.",
+
     buildingText:
       "The first priority is a stable frontend foundation. Backend services, database integration and Pi transactions will be connected progressively.",
 
     foundation: "Foundation",
 
-    footerText: "A new Pi-native utility platform.",
+    footerText:
+      "A new Pi-native utility platform.",
+
     aboutLink: "About",
     contactLink: "Contact"
   },
@@ -92,34 +105,46 @@ const translations = {
     connected: "Connecté avec Pi",
 
     coreDirection: "DIRECTION PRINCIPALE",
-    platformTitle: "Une plateforme conçue pour une utilité réelle",
+
+    platformTitle:
+      "Une plateforme conçue pour une utilité réelle",
+
     platformDescription:
       "BISOVIA évoluera grâce à des modules clairement séparés, une intégration sécurisée de Pi et une architecture capable d'évoluer sans reconstruire toute l'application.",
 
     utility: "Utilité",
+
     utilityText:
       "Des services numériques pratiques conçus autour des besoins réels des utilisateurs.",
 
     communityTitle: "Communauté",
+
     communityText:
       "Un environnement structuré où les utilisateurs peuvent interagir autour de services et de contenus utiles.",
 
     piNative: "Pi-native",
+
     piNativeText:
       "L'authentification et les paiements utiliseront le SDK Pi officiel et l'API de la plateforme.",
 
     expandable: "Évolutif",
+
     expandableText:
       "L'architecture restera prête pour de futures infrastructures telles que SoloHost.",
 
     platformStatus: "ÉTAT DE LA PLATEFORME",
-    buildingTitle: "BISOVIA est construit étape par étape.",
+
+    buildingTitle:
+      "BISOVIA est construit étape par étape.",
+
     buildingText:
       "La première priorité est une base frontend stable. Les services backend, la base de données et les transactions Pi seront connectés progressivement.",
 
     foundation: "Fondation",
 
-    footerText: "Une nouvelle plateforme utilitaire Pi-native.",
+    footerText:
+      "Une nouvelle plateforme utilitaire Pi-native.",
+
     aboutLink: "À propos",
     contactLink: "Contact"
   },
@@ -137,34 +162,46 @@ const translations = {
     connected: "Wahujwe na Pi",
 
     coreDirection: "INTUMBERO NYAMUKURU",
-    platformTitle: "Urubuga rwubakiwe akamaro nyako",
+
+    platformTitle:
+      "Urubuga rwubakiwe akamaro nyako",
+
     platformDescription:
       "BISOVIA izotera imbere ikoresheje modules zitandukanye, uguhuza Pi mu buryo butekanye hamwe n'uburyo bwo kwagura application ata gusubira kuyubaka yose.",
 
     utility: "Akamaro",
+
     utilityText:
       "Serivisi za digitale zifasha mu vyo abakoresha bakeneye vy'ukuri.",
 
     communityTitle: "Abanyagihugu",
+
     communityText:
       "Ahantu hatunganijwe aho abakoresha bashobora gukorana biciye kuri serivisi n'ibintu vy'ingirakamaro.",
 
     piNative: "Pi-native",
+
     piNativeText:
       "Kwinjira no kwishura bizokoresha Pi SDK hamwe na Pi Platform API vyemewe.",
 
     expandable: "Yaguka",
+
     expandableText:
       "Uburyo application yubatswemwo buzoguma bwiteguye kwakira ibikorwa vy'inyongera nka SoloHost.",
 
     platformStatus: "UKO URUBUGA RUMEZE",
-    buildingTitle: "BISOVIA iriko yubakwa intambwe ku yindi.",
+
+    buildingTitle:
+      "BISOVIA iriko yubakwa intambwe ku yindi.",
+
     buildingText:
       "Ikintu ca mbere ni ukubaka frontend ikomeye kandi itekanye. Backend, database hamwe n'ama transactions ya Pi bizokwongerwa buhoro buhoro.",
 
     foundation: "Intango",
 
-    footerText: "Urubuga rushasha rw'ingirakamaro rushingiye kuri Pi.",
+    footerText:
+      "Urubuga rushasha rw'ingirakamaro rushingiye kuri Pi.",
+
     aboutLink: "Ivyerekeye",
     contactLink: "Twandikire"
   },
@@ -182,34 +219,46 @@ const translations = {
     connected: "Umeunganishwa na Pi",
 
     coreDirection: "MWELEKEO MKUU",
-    platformTitle: "Jukwaa lililojengwa kwa matumizi halisi",
+
+    platformTitle:
+      "Jukwaa lililojengwa kwa matumizi halisi",
+
     platformDescription:
       "BISOVIA itakua kupitia moduli zilizotenganishwa vizuri, muunganisho salama wa Pi na mfumo unaoweza kupanuka bila kujenga upya programu yote.",
 
     utility: "Huduma",
+
     utilityText:
       "Huduma za kidijitali zinazolenga mahitaji halisi ya watumiaji.",
 
     communityTitle: "Jamii",
+
     communityText:
       "Mazingira yaliyopangwa ambapo watumiaji wanaweza kushirikiana kupitia huduma na maudhui yenye manufaa.",
 
     piNative: "Pi-native",
+
     piNativeText:
       "Uthibitishaji na malipo vitatumia Pi SDK rasmi na Pi Platform API.",
 
     expandable: "Inayopanuka",
+
     expandableText:
       "Muundo wa programu utabaki tayari kwa miundombinu ya baadaye kama SoloHost.",
 
     platformStatus: "HALI YA JUKWAA",
-    buildingTitle: "BISOVIA inajengwa hatua kwa hatua.",
+
+    buildingTitle:
+      "BISOVIA inajengwa hatua kwa hatua.",
+
     buildingText:
       "Kipaumbele cha kwanza ni msingi thabiti wa frontend. Huduma za backend, database na miamala ya Pi vitaunganishwa hatua kwa hatua.",
 
     foundation: "Msingi",
 
-    footerText: "Jukwaa jipya la huduma linalotumia Pi.",
+    footerText:
+      "Jukwaa jipya la huduma linalotumia Pi.",
+
     aboutLink: "Kuhusu",
     contactLink: "Mawasiliano"
   }
@@ -218,22 +267,23 @@ const translations = {
 
 
 /* ---------------------------------
-   TRANSLATION HELPERS
+   TRANSLATION
 --------------------------------- */
 
 function translatePage(language) {
 
-  const dictionary = translations[language];
+  const dictionary =
+    translations[language];
 
   if (!dictionary) {
     return;
   }
 
-  BISOVIA.currentLanguage = language;
+  BISOVIA.currentLanguage =
+    language;
 
-  /*
-   * Navigation
-   */
+
+  /* Navigation */
 
   const pageLinks = {
     home: dictionary.home,
@@ -243,53 +293,57 @@ function translatePage(language) {
     contact: dictionary.contact
   };
 
-  Object.entries(pageLinks).forEach(([page, text]) => {
+  Object.entries(pageLinks).forEach(
+    ([page, text]) => {
 
-    const link = document.querySelector(
-      `[data-page="${page}"]`
-    );
+      const link =
+        document.querySelector(
+          `[data-page="${page}"]`
+        );
 
-    if (link) {
-      link.textContent = text;
+      if (link) {
+        link.textContent = text;
+      }
     }
+  );
 
-  });
 
+  /* Pi button */
 
-  /*
-   * Pi button
-   */
+  const piLogin =
+    getElement("pi-login");
 
-  const piLogin = getElement("pi-login");
-
-  if (piLogin && !piLogin.disabled) {
-    piLogin.textContent = dictionary.signIn;
+  if (
+    piLogin &&
+    !piLogin.disabled
+  ) {
+    piLogin.textContent =
+      dictionary.signIn;
   }
 
 
-  /*
-   * Main headings and content
-   */
+  /* Home content */
 
   const eyebrowElements =
-    document.querySelectorAll(".eyebrow");
+    document.querySelectorAll(
+      ".eyebrow"
+    );
 
-  if (eyebrowElements.length > 0) {
+  if (eyebrowElements[0]) {
+    eyebrowElements[0].textContent =
+      dictionary.coreDirection;
+  }
 
-    if (eyebrowElements[0]) {
-      eyebrowElements[0].textContent =
-        dictionary.coreDirection;
-    }
-
-    if (eyebrowElements[1]) {
-      eyebrowElements[1].textContent =
-        dictionary.platformStatus;
-    }
+  if (eyebrowElements[1]) {
+    eyebrowElements[1].textContent =
+      dictionary.platformStatus;
   }
 
 
   const sectionHeading =
-    document.querySelector(".section-heading h2");
+    document.querySelector(
+      ".section-heading h2"
+    );
 
   if (sectionHeading) {
     sectionHeading.textContent =
@@ -298,7 +352,9 @@ function translatePage(language) {
 
 
   const sectionDescription =
-    document.querySelector(".section-heading p");
+    document.querySelector(
+      ".section-heading p"
+    );
 
   if (sectionDescription) {
     sectionDescription.textContent =
@@ -306,50 +362,67 @@ function translatePage(language) {
   }
 
 
-  /*
-   * Feature cards
-   */
+  /* Feature cards */
 
   const featureCards =
-    document.querySelectorAll(".feature-card");
+    document.querySelectorAll(
+      ".feature-card"
+    );
 
   if (featureCards.length >= 4) {
 
-    featureCards[0].querySelector("h3").textContent =
-      dictionary.utility;
+    const cardData = [
+      {
+        title: dictionary.utility,
+        text: dictionary.utilityText
+      },
+      {
+        title: dictionary.communityTitle,
+        text: dictionary.communityText
+      },
+      {
+        title: dictionary.piNative,
+        text: dictionary.piNativeText
+      },
+      {
+        title: dictionary.expandable,
+        text: dictionary.expandableText
+      }
+    ];
 
-    featureCards[0].querySelector("p").textContent =
-      dictionary.utilityText;
+    featureCards.forEach(
+      (card, index) => {
 
+        if (!cardData[index]) {
+          return;
+        }
 
-    featureCards[1].querySelector("h3").textContent =
-      dictionary.communityTitle;
+        const heading =
+          card.querySelector("h3");
 
-    featureCards[1].querySelector("p").textContent =
-      dictionary.communityText;
+        const paragraph =
+          card.querySelector("p");
 
+        if (heading) {
+          heading.textContent =
+            cardData[index].title;
+        }
 
-    featureCards[2].querySelector("h3").textContent =
-      dictionary.piNative;
-
-    featureCards[2].querySelector("p").textContent =
-      dictionary.piNativeText;
-
-
-    featureCards[3].querySelector("h3").textContent =
-      dictionary.expandable;
-
-    featureCards[3].querySelector("p").textContent =
-      dictionary.expandableText;
+        if (paragraph) {
+          paragraph.textContent =
+            cardData[index].text;
+        }
+      }
+    );
   }
 
 
-  /*
-   * Platform status
-   */
+  /* Platform status */
 
   const statusHeading =
-    document.querySelector(".status-card h2");
+    document.querySelector(
+      ".status-card h2"
+    );
 
   if (statusHeading) {
     statusHeading.textContent =
@@ -358,7 +431,9 @@ function translatePage(language) {
 
 
   const statusText =
-    document.querySelector(".status-card p");
+    document.querySelector(
+      ".status-card p"
+    );
 
   if (statusText) {
     statusText.textContent =
@@ -367,7 +442,9 @@ function translatePage(language) {
 
 
   const statusIndicator =
-    document.querySelector(".status-indicator span:last-child");
+    document.querySelector(
+      ".status-indicator span:last-child"
+    );
 
   if (statusIndicator) {
     statusIndicator.textContent =
@@ -375,20 +452,23 @@ function translatePage(language) {
   }
 
 
-  /*
-   * Footer
-   */
+  /* Footer */
 
   const footerText =
-    document.querySelector(".footer-inner > div p");
+    document.querySelector(
+      ".footer-inner > div p"
+    );
 
   if (footerText) {
     footerText.textContent =
       dictionary.footerText;
   }
 
+
   const footerLinks =
-    document.querySelectorAll(".footer-links a");
+    document.querySelectorAll(
+      ".footer-links a"
+    );
 
   if (footerLinks.length >= 2) {
 
@@ -400,9 +480,7 @@ function translatePage(language) {
   }
 
 
-  /*
-   * Save language
-   */
+  /* Save */
 
   localStorage.setItem(
     "bisovia-language",
@@ -412,53 +490,114 @@ function translatePage(language) {
 
 
 /* ---------------------------------
-   PI SDK
+   CORE INITIALIZATION
 --------------------------------- */
 
-function initializePi() {
+async function initializeCore() {
 
-  const status = getElement("pi-status");
+  /*
+   * Authentication
+   */
 
-  if (!window.Pi) {
+  if (
+    window.BISOVIA_AUTH &&
+    typeof window.BISOVIA_AUTH.initPi === "function"
+  ) {
 
-    if (status) {
-      status.textContent =
-        "Pi SDK is not available. Open BISOVIA inside Pi Browser.";
+    try {
+
+      await window.BISOVIA_AUTH.initPi();
+
+      BISOVIA.piInitialized =
+        window.BISOVIA_AUTH.piInitialized;
+
+    } catch (error) {
+
+      console.error(
+        "BISOVIA Core Auth initialization failed:",
+        error
+      );
     }
-
-    return;
   }
 
-  try {
 
-    window.Pi.init({
-      version: "2.0",
-      sandbox: true
-    });
+  /*
+   * Payments
+   */
 
-    BISOVIA.piInitialized = true;
+  if (
+    window.BISOVIA_PAYMENTS &&
+    typeof window.BISOVIA_PAYMENTS.init === "function"
+  ) {
 
-    if (status) {
-      status.textContent =
-        "Pi SDK initialized. BISOVIA is ready for Pi authentication.";
+    try {
+
+      await window.BISOVIA_PAYMENTS.init();
+
+    } catch (error) {
+
+      console.error(
+        "BISOVIA Core Payments initialization failed:",
+        error
+      );
     }
+  }
+
+
+  /*
+   * Profile
+   */
+
+  if (
+    window.BISOVIA_PROFILE &&
+    typeof window.BISOVIA_PROFILE.getProfile === "function"
+  ) {
+
+    window.BISOVIA_PROFILE.getProfile();
+  }
+
+
+  /*
+   * Trust & Safety
+   */
+
+  if (
+    window.BISOVIA_TRUST &&
+    typeof window.BISOVIA_TRUST.getData === "function"
+  ) {
+
+    window.BISOVIA_TRUST.getData();
+  }
+
+
+  /*
+   * Notifications
+   */
+
+  if (
+    window.BISOVIA_NOTIFICATIONS &&
+    typeof window.BISOVIA_NOTIFICATIONS.init === "function"
+  ) {
+
+    window.BISOVIA_NOTIFICATIONS.init();
+  }
+
+
+  /*
+   * API Gateway
+   */
+
+  if (window.BISOVIA_API) {
 
     console.info(
-      "BISOVIA: Pi SDK initialized."
+      "BISOVIA Core API Gateway available."
     );
-
-  } catch (error) {
-
-    console.error(
-      "BISOVIA: Pi SDK initialization failed:",
-      error
-    );
-
-    if (status) {
-      status.textContent =
-        "Pi SDK could not be initialized.";
-    }
   }
+
+
+  console.info(
+    "BISOVIA Core services initialized."
+  );
 }
 
 
@@ -468,53 +607,103 @@ function initializePi() {
 
 async function handlePiLogin() {
 
-  const button = getElement("pi-login");
-  const status = getElement("pi-status");
+  const button =
+    getElement("pi-login");
 
-  if (!BISOVIA.piInitialized) {
-
-    if (status) {
-      status.textContent =
-        "Pi is not ready. Open this application inside Pi Browser.";
-    }
-
-    return;
-  }
-
-  if (!window.Pi) {
-    return;
-  }
+  const status =
+    getElement("pi-status");
 
   const language =
     BISOVIA.currentLanguage || "en";
 
   const dictionary =
-    translations[language] || translations.en;
+    translations[language] ||
+    translations.en;
 
-  button.disabled = true;
-  button.textContent = dictionary.connecting;
+
+  if (
+    !window.BISOVIA_AUTH
+  ) {
+
+    if (status) {
+      status.textContent =
+        "BISOVIA authentication service is not available.";
+    }
+
+    return;
+  }
+
+
+  if (
+    !BISOVIA.piInitialized
+  ) {
+
+    if (status) {
+      status.textContent =
+        "Pi is not ready. Open BISOVIA inside Pi Browser.";
+    }
+
+    return;
+  }
+
+
+  if (button) {
+    button.disabled = true;
+    button.textContent =
+      dictionary.connecting;
+  }
+
 
   try {
 
-    const authResult =
-      await window.Pi.authenticate(
-        ["username", "payments"],
-        handleIncompletePayment
-      );
+    const user =
+      await window.BISOVIA_AUTH.signIn();
 
-    console.log(
-      "BISOVIA Pi authentication result:",
-      authResult
-    );
+
+    /*
+     * Connect Pi identity to profile.
+     */
+
+    if (
+      window.BISOVIA_PROFILE &&
+      typeof window.BISOVIA_PROFILE.connectPiIdentity === "function"
+    ) {
+
+      window.BISOVIA_PROFILE
+        .connectPiIdentity(user);
+    }
+
 
     if (status) {
 
       status.textContent =
-        `${dictionary.connected}: ${authResult.user.username}`;
+        `${dictionary.connected}: ${user.username || ""}`;
     }
 
-    button.textContent =
-      dictionary.connected;
+
+    if (button) {
+
+      button.textContent =
+        dictionary.connected;
+    }
+
+
+    /*
+     * Core notification.
+     */
+
+    if (
+      window.BISOVIA_NOTIFICATIONS &&
+      typeof window.BISOVIA_NOTIFICATIONS.create === "function"
+    ) {
+
+      window.BISOVIA_NOTIFICATIONS.create({
+        title: "Pi connected",
+        message:
+          "Your Pi identity is now connected to BISOVIA.",
+        type: "system"
+      });
+    }
 
   } catch (error) {
 
@@ -523,35 +712,139 @@ async function handlePiLogin() {
       error
     );
 
+
     if (status) {
+
       status.textContent =
         "Pi authentication was cancelled or failed.";
     }
 
-    button.disabled = false;
 
-    button.textContent =
-      dictionary.signIn;
+    if (button) {
+
+      button.disabled = false;
+
+      button.textContent =
+        dictionary.signIn;
+    }
   }
 }
 
 
 /* ---------------------------------
-   INCOMPLETE PAYMENT
+   AUTH EVENTS
 --------------------------------- */
 
-function handleIncompletePayment(payment) {
+function initializeAuthEvents() {
 
-  console.warn(
-    "BISOVIA: incomplete Pi payment detected:",
-    payment
+  window.addEventListener(
+    "bisovia:auth",
+    (event) => {
+
+      console.info(
+        "BISOVIA Core: authentication event.",
+        event.detail
+      );
+    }
   );
 
-  /*
-   * Payment completion will be handled
-   * by the backend when transaction
-   * infrastructure is ready.
-   */
+
+  window.addEventListener(
+    "bisovia:logout",
+    () => {
+
+      const status =
+        getElement("pi-status");
+
+      const button =
+        getElement("pi-login");
+
+
+      if (status) {
+        status.textContent =
+          "Pi identity disconnected.";
+      }
+
+
+      if (button) {
+
+        button.disabled = false;
+
+        const dictionary =
+          translations[
+            BISOVIA.currentLanguage
+          ] || translations.en;
+
+        button.textContent =
+          dictionary.signIn;
+      }
+    }
+  );
+}
+
+
+/* ---------------------------------
+   NOTIFICATION EVENTS
+--------------------------------- */
+
+function initializeNotificationEvents() {
+
+  const updateNotificationCount =
+    () => {
+
+      if (
+        !window.BISOVIA_NOTIFICATIONS
+      ) {
+        return;
+      }
+
+
+      const count =
+        window.BISOVIA_NOTIFICATIONS
+          .getUnreadCount();
+
+
+      const badges =
+        document.querySelectorAll(
+          "[data-notification-count]"
+        );
+
+
+      badges.forEach(
+        badge => {
+
+          badge.textContent =
+            String(count);
+
+          badge.hidden =
+            count === 0;
+        }
+      );
+    };
+
+
+  const events = [
+    "bisovia:notification-created",
+    "bisovia:notification-read",
+    "bisovia:notification-unread",
+    "bisovia:notification-all-read",
+    "bisovia:notification-removed",
+    "bisovia:notification-cleared"
+  ];
+
+
+  events.forEach(
+    eventName => {
+
+      window.addEventListener(
+        eventName,
+        updateNotificationCount
+      );
+    }
+  );
+
+
+  updateNotificationCount();
 }
 
 
@@ -567,37 +860,50 @@ function initializeMenu() {
   const navigation =
     getElement("main-navigation");
 
+
   if (!toggle || !navigation) {
     return;
   }
 
-  toggle.addEventListener("click", () => {
 
-    const isOpen =
-      navigation.classList.toggle("open");
+  toggle.addEventListener(
+    "click",
+    () => {
 
-    toggle.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
-  });
+      const isOpen =
+        navigation.classList.toggle(
+          "open"
+        );
+
+      toggle.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    }
+  );
 
 
   navigation
     .querySelectorAll("a")
-    .forEach((link) => {
+    .forEach(
+      (link) => {
 
-      link.addEventListener("click", () => {
+        link.addEventListener(
+          "click",
+          () => {
 
-        navigation.classList.remove("open");
+            navigation.classList.remove(
+              "open"
+            );
 
-        toggle.setAttribute(
-          "aria-expanded",
-          "false"
+            toggle.setAttribute(
+              "aria-expanded",
+              "false"
+            );
+          }
         );
-      });
-
-    });
+      }
+    );
 }
 
 
@@ -610,20 +916,76 @@ function initializeTheme() {
   const toggle =
     getElement("theme-toggle");
 
-  if (!toggle) {
-    return;
-  }
 
   const savedTheme =
-    localStorage.getItem("bisovia-theme");
+    localStorage.getItem(
+      "bisovia-theme"
+    );
+
 
   if (savedTheme === "dark") {
 
     document.body.classList.add("dark");
 
-    BISOVIA.currentTheme = "dark";
+    BISOVIA.currentTheme =
+      "dark";
+
+  } else {
+
+    document.body.classList.remove(
+      "dark"
+    );
+
+    BISOVIA.currentTheme =
+      "light";
+  }
+
+
+  if (!toggle) {
+    return;
+  }
+
+
+  updateThemeButton(toggle);
+
+
+  toggle.addEventListener(
+    "click",
+    () => {
+
+      document.body.classList.toggle(
+        "dark"
+      );
+
+
+      BISOVIA.currentTheme =
+        document.body.classList.contains(
+          "dark"
+        )
+          ? "dark"
+          : "light";
+
+
+      localStorage.setItem(
+        "bisovia-theme",
+        BISOVIA.currentTheme
+      );
+
+
+      updateThemeButton(toggle);
+    }
+  );
+}
+
+
+function updateThemeButton(toggle) {
+
+  if (
+    BISOVIA.currentTheme === "dark"
+  ) {
 
     toggle.textContent = "☀️";
+
     toggle.setAttribute(
       "aria-label",
       "Switch to light mode"
@@ -638,43 +1000,6 @@ function initializeTheme() {
       "Switch to dark mode"
     );
   }
-
-
-  toggle.addEventListener("click", () => {
-
-    document.body.classList.toggle("dark");
-
-    BISOVIA.currentTheme =
-      document.body.classList.contains("dark")
-        ? "dark"
-        : "light";
-
-
-    localStorage.setItem(
-      "bisovia-theme",
-      BISOVIA.currentTheme
-    );
-
-
-    if (BISOVIA.currentTheme === "dark") {
-
-      toggle.textContent = "☀️";
-
-      toggle.setAttribute(
-        "aria-label",
-        "Switch to light mode"
-      );
-
-    } else {
-
-      toggle.textContent = "🌙";
-
-      toggle.setAttribute(
-        "aria-label",
-        "Switch to dark mode"
-      );
-    }
-  });
 }
 
 
@@ -687,12 +1012,11 @@ function initializeLanguage() {
   const select =
     getElement("language-select");
 
-  if (!select) {
-    return;
-  }
 
   const savedLanguage =
-    localStorage.getItem("bisovia-language");
+    localStorage.getItem(
+      "bisovia-language"
+    );
 
 
   const language =
@@ -705,25 +1029,34 @@ function initializeLanguage() {
     language;
 
 
-  select.value =
-    language;
+  if (select) {
+
+    select.value =
+      language;
+
+
+    select.addEventListener(
+      "change",
+      () => {
+
+        const selectedLanguage =
+          select.value;
+
+
+        if (
+          translations[selectedLanguage]
+        ) {
+
+          translatePage(
+            selectedLanguage
+          );
+        }
+      }
+    );
+  }
 
 
   translatePage(language);
-
-
-  select.addEventListener("change", () => {
-
-    const selectedLanguage =
-      select.value;
-
-    if (translations[selectedLanguage]) {
-
-      translatePage(
-        selectedLanguage
-      );
-    }
-  });
 }
 
 
@@ -735,6 +1068,7 @@ function initializeYear() {
 
   const year =
     getElement("current-year");
+
 
   if (year) {
 
@@ -748,9 +1082,7 @@ function initializeYear() {
    APPLICATION START
 --------------------------------- */
 
-function startBISOVIA() {
-
-  initializePi();
+async function startBISOVIA() {
 
   initializeMenu();
 
@@ -759,6 +1091,13 @@ function startBISOVIA() {
   initializeLanguage();
 
   initializeYear();
+
+  initializeAuthEvents();
+
+  initializeNotificationEvents();
+
+
+  await initializeCore();
 
 
   const loginButton =
