@@ -1,1 +1,473 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Notifications — BISOVIA</title><meta
+name="description"
+content="BISOVIA notifications — service updates, payment activity and important platform information."
 
+«»
+
+  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">  <style>
+    .notifications-page {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 70px 20px 90px;
+    }
+
+    .notifications-header {
+      max-width: 760px;
+      margin-bottom: 45px;
+    }
+
+    .notifications-eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .notifications-header h1 {
+      margin: 0 0 17px;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      line-height: 1.05;
+    }
+
+    .notifications-header p {
+      margin: 0;
+      max-width: 700px;
+      line-height: 1.7;
+      opacity: 0.75;
+    }
+
+    .notification-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .notification-count {
+      font-size: 0.9rem;
+      opacity: 0.65;
+    }
+
+    .mark-read-button {
+      padding: 10px 16px;
+      border: 1px solid rgba(127, 127, 127, 0.23);
+      border-radius: 10px;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .mark-read-button:hover {
+      background: rgba(127, 127, 127, 0.08);
+    }
+
+    .notifications-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .notification-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 17px;
+      padding: 22px;
+      border: 1px solid rgba(127, 127, 127, 0.2);
+      border-radius: 18px;
+      background: rgba(127, 127, 127, 0.05);
+    }
+
+    .notification-item.unread {
+      border-color: rgba(127, 127, 127, 0.38);
+      background: rgba(127, 127, 127, 0.09);
+    }
+
+    .notification-icon {
+      min-width: 44px;
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: rgba(127, 127, 127, 0.12);
+      font-size: 1.25rem;
+    }
+
+    .notification-content {
+      flex: 1;
+    }
+
+    .notification-content h2 {
+      margin: 0 0 7px;
+      font-size: 1rem;
+    }
+
+    .notification-content p {
+      margin: 0 0 8px;
+      line-height: 1.55;
+      font-size: 0.92rem;
+      opacity: 0.72;
+    }
+
+    .notification-time {
+      font-size: 0.78rem;
+      opacity: 0.5;
+    }
+
+    .notification-dot {
+      width: 8px;
+      height: 8px;
+      margin-top: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 45px 20px;
+      text-align: center;
+      border: 1px dashed rgba(127, 127, 127, 0.3);
+      border-radius: 18px;
+    }
+
+    .empty-state-icon {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .empty-state h2 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .empty-state p {
+      margin: 0;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
+    .notification-note {
+      margin-top: 38px;
+      padding: 23px;
+      border: 1px solid rgba(127, 127, 127, 0.18);
+      border-radius: 18px;
+      background: rgba(127, 127, 127, 0.04);
+    }
+
+    .notification-note strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .notification-note p {
+      margin: 0;
+      line-height: 1.6;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 650px) {
+      .notifications-page {
+        padding: 45px 16px 70px;
+      }
+
+      .notification-item {
+        padding: 18px;
+      }
+
+      .notification-icon {
+        min-width: 40px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style></head><body>  <!-- CORE NAVIGATION -->  <header class="site-header">
+    <nav class="navbar">  <a href="../index.html" class="brand">
+    <img
+      src="../assets/logo.svg"
+      alt="BISOVIA"
+      class="brand-logo"
+    >
+    <span>BISOVIA</span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    id="menuToggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+  >
+    ☰
+  </button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="../index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="payments.html">Payments</a>
+    <a href="profile.html">Profile</a>
+    <a href="trust.html">Trust &amp; Safety</a>
+    <a href="notifications.html" class="active">Notifications</a>
+    <a href="settings.html">Settings</a>
+  </div>
+
+</nav>
+
+  </header>  <main class="notifications-page"><!-- HEADER -->
+<section class="notifications-header">
+
+  <span class="notifications-eyebrow">
+    NOTIFICATION SERVICE
+  </span>
+
+  <h1>
+    Stay up to date.
+  </h1>
+
+  <p>
+    Important platform updates, service activity and account
+    notifications will appear here as BISOVIA grows.
+  </p>
+
+</section>
+
+
+<!-- TOOLBAR -->
+<div class="notification-toolbar">
+
+  <span
+    class="notification-count"
+    id="notificationCount"
+  >
+    3 notifications
+  </span>
+
+  <button
+    class="mark-read-button"
+    id="markAllRead"
+    type="button"
+  >
+    Mark all as read
+  </button>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+<section
+  class="notifications-list"
+  id="notificationsList"
+>
+
+  <article class="notification-item unread">
+
+    <div class="notification-icon">
+      🧩
+    </div>
+
+    <div class="notification-content">
+
+      <h2>
+        BISOVIA is growing
+      </h2>
+
+      <p>
+        New service modules are being prepared as the BISOVIA
+        platform expands.
+      </p>
+
+      <span class="notification-time">
+        Platform update
+      </span>
+
+    </div>
+
+    <span class="notification-dot"></span>
+
+  </article>
+
+
+  <article class="notification-item unread">
+
+    <div class="notification-icon">
+      🛡️
+    </div>
+
+    <div class="notification-content">
+
+      <h2>
+        Trust &amp; Safety
+      </h2>
+
+      <p>
+        Shared trust and safety capabilities are part of the
+        BISOVIA Core.
+      </p>
+
+      <span class="notification-time">
+        Core update
+      </span>
+
+    </div>
+
+    <span class="notification-dot"></span>
+
+  </article>
+
+
+  <article class="notification-item unread">
+
+    <div class="notification-icon">
+      π
+    </div>
+
+    <div class="notification-content">
+
+      <h2>
+        Pi integration
+      </h2>
+
+      <p>
+        BISOVIA is designed to use Pi authentication and
+        Pi-enabled payments through its Core.
+      </p>
+
+      <span class="notification-time">
+        Platform information
+      </span>
+
+    </div>
+
+    <span class="notification-dot"></span>
+
+  </article>
+
+</section>
+
+
+<!-- EMPTY STATE -->
+<section
+  class="empty-state"
+  id="emptyState"
+>
+
+  <div class="empty-state-icon">
+    🔔
+  </div>
+
+  <h2>
+    You're all caught up.
+  </h2>
+
+  <p>
+    New notifications will appear here when there is
+    something important to share.
+  </p>
+
+</section>
+
+
+<!-- CORE NOTE -->
+<section class="notification-note">
+
+  <strong>
+    Notification Service belongs to the BISOVIA Core.
+  </strong>
+
+  <p>
+    Service modules can send relevant events through the shared
+    notification system without creating separate notification
+    systems for each service.
+  </p>
+
+</section>
+
+  </main>  <!-- FOOTER -->  <footer class="site-footer"><p>
+  © <span id="currentYear"></span> BISOVIA.
+  Built for practical utility and community interaction.
+</p>
+
+  </footer>  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+
+      menuToggle.addEventListener("click", () => {
+
+        const isOpen =
+          navLinks.classList.toggle("open");
+
+        menuToggle.setAttribute(
+          "aria-expanded",
+          String(isOpen)
+        );
+
+      });
+
+    }
+
+
+    const currentYear =
+      document.getElementById("currentYear");
+
+    if (currentYear) {
+      currentYear.textContent =
+        new Date().getFullYear();
+    }
+
+
+    const markAllRead =
+      document.getElementById("markAllRead");
+
+    const notificationsList =
+      document.getElementById("notificationsList");
+
+    const emptyState =
+      document.getElementById("emptyState");
+
+    const notificationCount =
+      document.getElementById("notificationCount");
+
+
+    if (markAllRead) {
+
+      markAllRead.addEventListener("click", () => {
+
+        const notifications =
+          document.querySelectorAll(
+            ".notification-item"
+          );
+
+        notifications.forEach(notification => {
+
+          notification.classList.remove("unread");
+
+          const dot =
+            notification.querySelector(
+              ".notification-dot"
+            );
+
+          if (dot) {
+            dot.style.display = "none";
+          }
+
+        });
+
+        notificationCount.textContent =
+          "0 unread notifications";
+
+      });
+
+    }
+  </script></body>
+</html>
