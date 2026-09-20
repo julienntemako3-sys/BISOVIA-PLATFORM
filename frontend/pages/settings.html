@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,58 +11,59 @@
 
   <meta
     name="description"
-    content="BISOVIA Settings — manage language, appearance, notifications and platform preferences."
+    content="BISOVIA settings — manage language, appearance, notifications and account preferences."
   >
 
-  <title>Settings | BISOVIA</title>
+  <title>BISOVIA — Settings</title>
 
-  <link rel="icon" href="../assets/favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
   <link rel="stylesheet" href="../style.css">
 
   <style>
     .settings-page {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 70px 20px;
+      padding: 32px 20px 60px;
     }
 
-    .settings-hero {
-      margin-bottom: 40px;
+    .settings-header {
+      margin-bottom: 30px;
     }
 
-    .settings-hero .eyebrow {
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      font-weight: 700;
-      opacity: 0.7;
-      margin-bottom: 10px;
+    .settings-header h1 {
+      margin-bottom: 8px;
     }
 
-    .settings-hero h1 {
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      margin-bottom: 14px;
-    }
-
-    .settings-hero p {
-      max-width: 700px;
-      line-height: 1.7;
+    .settings-header p {
+      margin: 0;
       opacity: 0.8;
     }
 
     .settings-section {
-      margin-bottom: 30px;
+      margin-bottom: 22px;
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.2)
+      );
+      background: var(
+        --card-bg,
+        rgba(128, 128, 128, 0.06)
+      );
     }
 
     .settings-section h2 {
-      margin-bottom: 15px;
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 1.15rem;
     }
 
-    .settings-card {
-      border: 1px solid rgba(128, 128, 128, 0.25);
-      border-radius: 18px;
-      padding: 22px;
-      margin-bottom: 15px;
-      background: rgba(128, 128, 128, 0.05);
+    .settings-section-description {
+      margin-top: 0;
+      margin-bottom: 20px;
+      opacity: 0.7;
+      font-size: 0.9rem;
     }
 
     .setting-row {
@@ -69,25 +71,37 @@
       justify-content: space-between;
       align-items: center;
       gap: 20px;
-      padding: 8px 0;
+      padding: 16px 0;
+      border-bottom: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.15)
+      );
     }
 
-    .setting-row + .setting-row {
-      margin-top: 20px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(128, 128, 128, 0.2);
+    .setting-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
     }
 
-    .setting-info h3 {
-      margin-bottom: 6px;
-      font-size: 1rem;
+    .setting-row:first-of-type {
+      padding-top: 0;
     }
 
-    .setting-info p {
-      margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      opacity: 0.7;
+    .setting-info {
+      flex: 1;
+    }
+
+    .setting-title {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .setting-description {
+      display: block;
+      font-size: 0.82rem;
+      opacity: 0.68;
+      line-height: 1.45;
     }
 
     .setting-control {
@@ -95,20 +109,28 @@
     }
 
     .setting-control select {
-      min-width: 160px;
+      min-width: 150px;
       padding: 10px 12px;
       border-radius: 10px;
-      border: 1px solid rgba(128, 128, 128, 0.35);
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.25)
+      );
       background: transparent;
       color: inherit;
-      font-size: 0.95rem;
+      font: inherit;
+    }
+
+    .setting-control select option {
+      color: #111;
+      background: #fff;
     }
 
     .toggle {
       position: relative;
       display: inline-block;
       width: 52px;
-      height: 28px;
+      height: 30px;
     }
 
     .toggle input {
@@ -122,8 +144,8 @@
       cursor: pointer;
       inset: 0;
       border-radius: 30px;
-      background: #777;
-      transition: 0.25s;
+      background: #888;
+      transition: 0.2s ease;
     }
 
     .toggle-slider::before {
@@ -131,66 +153,100 @@
       position: absolute;
       width: 22px;
       height: 22px;
-      left: 3px;
-      top: 3px;
+      left: 4px;
+      top: 4px;
       border-radius: 50%;
-      background: white;
-      transition: 0.25s;
+      background: #fff;
+      transition: 0.2s ease;
+    }
+
+    .toggle input:checked + .toggle-slider {
+      background: #6c5ce7;
     }
 
     .toggle input:checked + .toggle-slider::before {
-      transform: translateX(24px);
+      transform: translateX(22px);
+    }
+
+    .theme-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .theme-button {
+      padding: 9px 13px;
+      border-radius: 10px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.25)
+      );
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .theme-button.active {
+      background: #6c5ce7;
+      color: #fff;
+      border-color: #6c5ce7;
     }
 
     .settings-actions {
       display: flex;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
-      margin-top: 25px;
+      margin-top: 24px;
     }
 
-    .settings-button {
-      border: none;
+    .settings-actions button {
+      padding: 11px 17px;
       border-radius: 10px;
-      padding: 11px 18px;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-
-    .settings-button.primary {
-      background: #000;
-      color: #fff;
-    }
-
-    .settings-button.secondary {
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.25)
+      );
       background: transparent;
       color: inherit;
-      border: 1px solid rgba(128, 128, 128, 0.35);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .settings-actions .primary {
+      background: #6c5ce7;
+      color: #fff;
+      border-color: #6c5ce7;
     }
 
     .settings-status {
-      margin-top: 15px;
+      min-height: 24px;
+      margin-top: 14px;
       font-size: 0.9rem;
       opacity: 0.8;
-      min-height: 20px;
     }
 
-    .core-note {
-      border-left: 3px solid currentColor;
-      padding: 15px 18px;
-      margin-top: 35px;
-      opacity: 0.8;
-      line-height: 1.6;
+    .danger-zone {
+      border-color: rgba(220, 60, 60, 0.35);
+    }
+
+    .danger-button {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(220, 60, 60, 0.45);
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
     }
 
     @media (max-width: 700px) {
       .settings-page {
-        padding: 50px 16px;
+        padding: 24px 14px 45px;
       }
 
       .setting-row {
         align-items: flex-start;
         flex-direction: column;
+        gap: 12px;
       }
 
       .setting-control {
@@ -200,43 +256,103 @@
       .setting-control select {
         width: 100%;
       }
+
+      .theme-buttons {
+        width: 100%;
+      }
+
+      .theme-button {
+        flex: 1;
+      }
+
+      .settings-actions button {
+        width: 100%;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header>
+  <!-- NAVIGATION -->
+  <header class="site-header">
     <nav class="navbar">
 
-      <a href="../index.html" class="logo">
+      <a href="../index.html" class="brand">
         <img
           src="../assets/logo.svg"
           alt="BISOVIA"
-          height="36"
+          class="brand-logo"
         >
+        <span>BISOVIA</span>
       </a>
 
       <button
         class="menu-toggle"
-        id="menuToggle"
+        id="menu-toggle"
+        type="button"
         aria-label="Open menu"
       >
         ☰
       </button>
 
-      <div class="nav-links" id="navLinks">
-        <a href="../index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="payments.html">Payments</a>
-        <a href="profile.html">Profile</a>
-        <a href="trust.html">Trust &amp; Safety</a>
-        <a href="notifications.html">Notifications</a>
-        <a href="settings.html" class="active">Settings</a>
-      </div>
+      <div class="nav-menu" id="nav-menu">
 
+        <a href="../index.html">Home</a>
+
+        <a href="./about.html">About</a>
+
+        <a href="./services.html">Services</a>
+
+        <a href="./payments.html">Payment</a>
+
+        <a href="./profile.html">Profile</a>
+
+        <a href="./trust.html">Trust</a>
+
+        <a href="./notifications.html">
+          Notifications
+          <span
+            data-notification-count
+            style="
+              display:none;
+              margin-left:4px;
+              font-size:0.7rem;
+              padding:2px 6px;
+              border-radius:999px;
+              background:#6c5ce7;
+              color:#fff;
+            "
+          >
+            0
+          </span>
+        </a>
+
+        <a
+          href="./settings.html"
+          class="active"
+        >
+          Settings
+        </a>
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          🌙
+        </button>
+
+        <button
+          id="pi-login"
+          class="pi-login"
+          type="button"
+        >
+          Sign in with Pi
+        </button>
+
+      </div>
     </nav>
   </header>
 
@@ -244,55 +360,16 @@
   <!-- MAIN -->
   <main class="settings-page">
 
-    <section class="settings-hero">
+    <section class="settings-header">
 
-      <div class="eyebrow">
-        BISOVIA CORE
-      </div>
+      <p class="eyebrow">BISOVIA CORE</p>
 
       <h1>Settings</h1>
 
       <p>
-        Manage your BISOVIA preferences, language, appearance
-        and notification settings from one place.
+        Manage your BISOVIA preferences, appearance,
+        language and notifications.
       </p>
-
-    </section>
-
-
-    <!-- APPEARANCE -->
-    <section class="settings-section">
-
-      <h2>Appearance</h2>
-
-      <div class="settings-card">
-
-        <div class="setting-row">
-
-          <div class="setting-info">
-            <h3>Dark mode</h3>
-
-            <p>
-              Choose whether BISOVIA uses a dark or light interface.
-            </p>
-          </div>
-
-          <div class="setting-control">
-
-            <label class="toggle">
-              <input
-                type="checkbox"
-                id="darkModeToggle"
-              >
-
-              <span class="toggle-slider"></span>
-            </label>
-
-          </div>
-
-        </div>
-
-      </div>
 
     </section>
 
@@ -302,39 +379,102 @@
 
       <h2>Language</h2>
 
-      <div class="settings-card">
+      <p class="settings-section-description">
+        Choose the language used by BISOVIA.
+      </p>
 
-        <div class="setting-row">
+      <div class="setting-row">
 
-          <div class="setting-info">
-            <h3>Interface language</h3>
+        <div class="setting-info">
+          <span class="setting-title">
+            Interface language
+          </span>
 
-            <p>
-              Select the language you want to use across BISOVIA.
-            </p>
-          </div>
+          <span class="setting-description">
+            English, Français, Kirundi or Kiswahili.
+          </span>
+        </div>
 
-          <div class="setting-control">
+        <div class="setting-control">
 
-            <select id="languageSelect">
+          <select id="language-setting">
 
-              <option value="en">
-                English
-              </option>
+            <option value="en">
+              English
+            </option>
 
-              <option value="fr">
-                Français
-              </option>
+            <option value="fr">
+              Français
+            </option>
 
-              <option value="rn">
-                Kirundi
-              </option>
+            <option value="rn">
+              Kirundi
+            </option>
 
-              <option value="sw">
-                Kiswahili
-              </option>
+            <option value="sw">
+              Kiswahili
+            </option>
 
-            </select>
+          </select>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- APPEARANCE -->
+    <section class="settings-section">
+
+      <h2>Appearance</h2>
+
+      <p class="settings-section-description">
+        Choose how BISOVIA looks on your device.
+      </p>
+
+      <div class="setting-row">
+
+        <div class="setting-info">
+
+          <span class="setting-title">
+            Theme
+          </span>
+
+          <span class="setting-description">
+            Select light mode, dark mode or follow
+            your device preference.
+          </span>
+
+        </div>
+
+        <div class="setting-control">
+
+          <div class="theme-buttons">
+
+            <button
+              class="theme-button"
+              data-theme="light"
+              type="button"
+            >
+              ☀️ Light
+            </button>
+
+            <button
+              class="theme-button"
+              data-theme="dark"
+              type="button"
+            >
+              🌙 Dark
+            </button>
+
+            <button
+              class="theme-button"
+              data-theme="system"
+              type="button"
+            >
+              📱 System
+            </button>
 
           </div>
 
@@ -350,64 +490,70 @@
 
       <h2>Notifications</h2>
 
-      <div class="settings-card">
+      <p class="settings-section-description">
+        Control which BISOVIA notifications you receive.
+      </p>
 
-        <div class="setting-row">
+      <div class="setting-row">
 
-          <div class="setting-info">
-            <h3>Platform notifications</h3>
+        <div class="setting-info">
 
-            <p>
-              Receive updates about services, activity and
-              important BISOVIA information.
-            </p>
-          </div>
+          <span class="setting-title">
+            General notifications
+          </span>
 
-          <div class="setting-control">
-
-            <label class="toggle">
-
-              <input
-                type="checkbox"
-                id="notificationsToggle"
-                checked
-              >
-
-              <span class="toggle-slider"></span>
-
-            </label>
-
-          </div>
+          <span class="setting-description">
+            Receive important BISOVIA system and
+            service notifications.
+          </span>
 
         </div>
 
+        <div class="setting-control">
 
-        <div class="setting-row">
+          <label class="toggle">
 
-          <div class="setting-info">
-            <h3>Payment notifications</h3>
+            <input
+              type="checkbox"
+              id="notifications-setting"
+            >
 
-            <p>
-              Receive notifications related to Pi payments
-              and payment activity.
-            </p>
-          </div>
+            <span class="toggle-slider"></span>
 
-          <div class="setting-control">
+          </label>
 
-            <label class="toggle">
+        </div>
 
-              <input
-                type="checkbox"
-                id="paymentNotificationsToggle"
-                checked
-              >
+      </div>
 
-              <span class="toggle-slider"></span>
 
-            </label>
+      <div class="setting-row">
 
-          </div>
+        <div class="setting-info">
+
+          <span class="setting-title">
+            Payment notifications
+          </span>
+
+          <span class="setting-description">
+            Receive updates about Pi payments and
+            payment activity.
+          </span>
+
+        </div>
+
+        <div class="setting-control">
+
+          <label class="toggle">
+
+            <input
+              type="checkbox"
+              id="payment-notifications-setting"
+            >
+
+            <span class="toggle-slider"></span>
+
+          </label>
 
         </div>
 
@@ -416,39 +562,29 @@
     </section>
 
 
-    <!-- PRIVACY -->
+    <!-- ACCOUNT -->
     <section class="settings-section">
 
-      <h2>Privacy &amp; Account</h2>
+      <h2>Account</h2>
 
-      <div class="settings-card">
+      <p class="settings-section-description">
+        Review your BISOVIA account connection.
+      </p>
 
-        <div class="setting-row">
+      <div class="setting-row">
 
-          <div class="setting-info">
-            <h3>Profile visibility</h3>
+        <div class="setting-info">
 
-            <p>
-              Control whether your basic profile information
-              can be visible to other BISOVIA participants.
-            </p>
-          </div>
+          <span class="setting-title">
+            Pi connection
+          </span>
 
-          <div class="setting-control">
-
-            <select id="profileVisibility">
-
-              <option value="community">
-                Community
-              </option>
-
-              <option value="private">
-                Private
-              </option>
-
-            </select>
-
-          </div>
+          <span
+            id="pi-connection-status"
+            class="setting-description"
+          >
+            Checking Pi connection...
+          </span>
 
         </div>
 
@@ -460,322 +596,587 @@
     <!-- ACTIONS -->
     <section class="settings-section">
 
+      <h2>Save settings</h2>
+
+      <p class="settings-section-description">
+        Save your preferences locally on this device.
+        Backend synchronization will be added later.
+      </p>
+
       <div class="settings-actions">
 
         <button
-          class="settings-button primary"
-          id="saveSettings"
+          id="save-settings"
+          class="primary"
+          type="button"
         >
           Save settings
         </button>
 
         <button
-          class="settings-button secondary"
-          id="resetSettings"
+          id="reset-settings"
+          type="button"
         >
-          Reset
+          Reset preferences
         </button>
 
       </div>
 
       <div
+        id="settings-status"
         class="settings-status"
-        id="settingsStatus"
+        aria-live="polite"
       ></div>
 
     </section>
 
 
-    <!-- CORE NOTE -->
-    <div class="core-note">
+    <!-- DANGER ZONE -->
+    <section class="settings-section danger-zone">
 
-      <strong>BISOVIA Core:</strong>
+      <h2>Local data</h2>
 
-      Settings are part of the shared Core experience.
-      Preferences are designed to be used across BISOVIA
-      services and modules as the platform grows.
+      <p class="settings-section-description">
+        This only affects locally stored BISOVIA
+        profile and preference data on this device.
+      </p>
 
-    </div>
+      <button
+        id="clear-local-data"
+        class="danger-button"
+        type="button"
+      >
+        Clear local BISOVIA preferences
+      </button>
+
+    </section>
 
   </main>
 
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="site-footer">
 
     <p>
-      &copy;
-      <span id="currentYear"></span>
-      BISOVIA. All rights reserved.
+      © <span id="current-year"></span> BISOVIA.
+      All rights reserved.
     </p>
 
   </footer>
 
 
+  <!-- PI SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+
+
+  <!-- BISOVIA CORE -->
+  <script src="../core/api.js"></script>
+  <script src="../core/auth.js"></script>
+  <script src="../core/payments.js"></script>
+  <script src="../core/profile.js"></script>
+  <script src="../core/trust.js"></script>
+  <script src="../core/notifications.js"></script>
+
+
+  <!-- GLOBAL BISOVIA SCRIPT -->
+  <script src="../script.js"></script>
+
+
+  <!-- SETTINGS PAGE LOGIC -->
   <script>
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+    const SETTINGS_STORAGE_KEY =
+      "bisovia_settings";
 
-    const menuToggle =
-      document.getElementById("menuToggle");
 
-    const navLinks =
-      document.getElementById("navLinks");
+    function getSettings() {
 
-    if (menuToggle && navLinks) {
+      const defaults = {
+        language: "en",
+        theme: "system",
+        notifications: true,
+        paymentNotifications: true
+      };
 
-      menuToggle.addEventListener("click", () => {
+      try {
 
-        navLinks.classList.toggle("open");
+        const saved =
+          localStorage.getItem(
+            SETTINGS_STORAGE_KEY
+          );
 
-      });
+        if (!saved) {
+          return defaults;
+        }
+
+        return {
+          ...defaults,
+          ...JSON.parse(saved)
+        };
+
+      } catch (error) {
+
+        console.error(
+          "BISOVIA settings read error:",
+          error
+        );
+
+        return defaults;
+      }
+    }
+
+
+    function saveSettings(settings) {
+
+      localStorage.setItem(
+        SETTINGS_STORAGE_KEY,
+        JSON.stringify(settings)
+      );
+
+      if (window.BISOVIA_PROFILE) {
+
+        BISOVIA_PROFILE.setLanguage(
+          settings.language
+        );
+
+        BISOVIA_PROFILE.updatePreferences({
+          notifications:
+            settings.notifications,
+
+          paymentNotifications:
+            settings.paymentNotifications
+        });
+
+      }
+    }
+
+
+    function loadSettingsIntoUI() {
+
+      const settings =
+        getSettings();
+
+
+      document.getElementById(
+        "language-setting"
+      ).value = settings.language;
+
+
+      document.getElementById(
+        "notifications-setting"
+      ).checked =
+        settings.notifications;
+
+
+      document.getElementById(
+        "payment-notifications-setting"
+      ).checked =
+        settings.paymentNotifications;
+
+
+      updateThemeButtons(
+        settings.theme
+      );
+
+
+      updatePiConnectionStatus();
 
     }
 
 
-    /* =========================
-       ELEMENTS
-    ========================= */
+    function updateThemeButtons(theme) {
 
-    const darkModeToggle =
-      document.getElementById("darkModeToggle");
+      document
+        .querySelectorAll(".theme-button")
+        .forEach(button => {
 
-    const languageSelect =
-      document.getElementById("languageSelect");
+          button.classList.toggle(
+            "active",
+            button.dataset.theme === theme
+          );
 
-    const notificationsToggle =
-      document.getElementById("notificationsToggle");
+        });
 
-    const paymentNotificationsToggle =
-      document.getElementById("paymentNotificationsToggle");
-
-    const profileVisibility =
-      document.getElementById("profileVisibility");
-
-    const saveSettings =
-      document.getElementById("saveSettings");
-
-    const resetSettings =
-      document.getElementById("resetSettings");
-
-    const settingsStatus =
-      document.getElementById("settingsStatus");
+    }
 
 
-    /* =========================
-       LOAD SETTINGS
-    ========================= */
+    function applyTheme(theme) {
 
-    function loadSettings() {
+      const root =
+        document.documentElement;
 
-      const darkMode =
-        localStorage.getItem("bisovia_dark_mode");
 
-      const language =
-        localStorage.getItem("bisovia_language");
+      if (theme === "dark") {
 
-      const notifications =
-        localStorage.getItem("bisovia_notifications");
+        root.classList.add("dark");
 
-      const paymentNotifications =
-        localStorage.getItem(
-          "bisovia_payment_notifications"
+        return;
+      }
+
+
+      if (theme === "light") {
+
+        root.classList.remove("dark");
+
+        return;
+      }
+
+
+      const prefersDark =
+        window.matchMedia &&
+        window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+
+      root.classList.toggle(
+        "dark",
+        prefersDark
+      );
+
+    }
+
+
+    function updatePiConnectionStatus() {
+
+      const status =
+        document.getElementById(
+          "pi-connection-status"
         );
 
-      const visibility =
-        localStorage.getItem(
-          "bisovia_profile_visibility"
-        );
+      if (!status) {
+        return;
+      }
 
 
-      if (darkMode === "true") {
+      if (
+        window.BISOVIA_AUTH &&
+        BISOVIA_AUTH.isAuthenticated()
+      ) {
 
-        darkModeToggle.checked = true;
+        const user =
+          BISOVIA_AUTH.getCurrentUser();
+
+        const username =
+          user && user.username
+            ? user.username
+            : "Pi user";
+
+        status.textContent =
+          "Connected with Pi as @" +
+          username;
 
       } else {
 
-        darkModeToggle.checked = false;
-
-      }
-
-
-      if (language) {
-
-        languageSelect.value = language;
-
-      }
-
-
-      if (notifications !== null) {
-
-        notificationsToggle.checked =
-          notifications === "true";
-
-      }
-
-
-      if (paymentNotifications !== null) {
-
-        paymentNotificationsToggle.checked =
-          paymentNotifications === "true";
-
-      }
-
-
-      if (visibility) {
-
-        profileVisibility.value = visibility;
+        status.textContent =
+          "Not connected with Pi. Use Sign in with Pi above.";
 
       }
 
     }
 
 
-    /* =========================
-       APPLY THEME
-    ========================= */
+    function showSettingsStatus(message) {
 
-    function applyTheme() {
+      const status =
+        document.getElementById(
+          "settings-status"
+        );
 
-      if (darkModeToggle.checked) {
-
-        document.body.classList.add("dark-mode");
-
-      } else {
-
-        document.body.classList.remove("dark-mode");
-
+      if (!status) {
+        return;
       }
+
+      status.textContent =
+        message;
+
+      setTimeout(() => {
+
+        status.textContent = "";
+
+      }, 3000);
 
     }
 
 
-    /* =========================
-       SAVE SETTINGS
-    ========================= */
+    function bindThemeButtons() {
 
-    saveSettings.addEventListener(
-      "click",
+      document
+        .querySelectorAll(".theme-button")
+        .forEach(button => {
+
+          button.addEventListener(
+            "click",
+            () => {
+
+              const theme =
+                button.dataset.theme;
+
+              const settings =
+                getSettings();
+
+              settings.theme =
+                theme;
+
+              saveSettings(settings);
+
+              applyTheme(theme);
+
+              updateThemeButtons(theme);
+
+              showSettingsStatus(
+                "Theme updated."
+              );
+
+            }
+          );
+
+        });
+
+    }
+
+
+    function bindSaveButton() {
+
+      const button =
+        document.getElementById(
+          "save-settings"
+        );
+
+      if (!button) {
+        return;
+      }
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const settings = {
+
+            language:
+              document.getElementById(
+                "language-setting"
+              ).value,
+
+            theme:
+              getSettings().theme,
+
+            notifications:
+              document.getElementById(
+                "notifications-setting"
+              ).checked,
+
+            paymentNotifications:
+              document.getElementById(
+                "payment-notifications-setting"
+              ).checked
+
+          };
+
+
+          saveSettings(settings);
+
+          applyTheme(
+            settings.theme
+          );
+
+
+          /*
+           * Keep the global BISOVIA
+           * language system synchronized.
+           */
+          localStorage.setItem(
+            "bisovia-language",
+            settings.language
+          );
+
+
+          if (
+            typeof window.setLanguage ===
+            "function"
+          ) {
+
+            window.setLanguage(
+              settings.language
+            );
+
+          }
+
+
+          showSettingsStatus(
+            "Settings saved successfully."
+          );
+
+        }
+      );
+
+    }
+
+
+    function bindResetButton() {
+
+      const button =
+        document.getElementById(
+          "reset-settings"
+        );
+
+      if (!button) {
+        return;
+      }
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const confirmed =
+            window.confirm(
+              "Reset BISOVIA settings to default?"
+            );
+
+          if (!confirmed) {
+            return;
+          }
+
+
+          const defaults = {
+
+            language: "en",
+
+            theme: "system",
+
+            notifications: true,
+
+            paymentNotifications: true
+
+          };
+
+
+          saveSettings(defaults);
+
+          localStorage.setItem(
+            "bisovia-language",
+            "en"
+          );
+
+
+          loadSettingsIntoUI();
+
+          applyTheme(
+            defaults.theme
+          );
+
+
+          showSettingsStatus(
+            "Settings restored to default."
+          );
+
+        }
+      );
+
+    }
+
+
+    function bindClearLocalData() {
+
+      const button =
+        document.getElementById(
+          "clear-local-data"
+        );
+
+      if (!button) {
+        return;
+      }
+
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          const confirmed =
+            window.confirm(
+              "Clear local BISOVIA preferences on this device?"
+            );
+
+          if (!confirmed) {
+            return;
+          }
+
+
+          localStorage.removeItem(
+            SETTINGS_STORAGE_KEY
+          );
+
+          localStorage.removeItem(
+            "bisovia-language"
+          );
+
+
+          if (
+            window.BISOVIA_PROFILE &&
+            typeof BISOVIA_PROFILE.resetProfile ===
+              "function"
+          ) {
+
+            BISOVIA_PROFILE.resetProfile();
+
+          }
+
+
+          loadSettingsIntoUI();
+
+          applyTheme("system");
+
+
+          showSettingsStatus(
+            "Local BISOVIA preferences cleared."
+          );
+
+        }
+      );
+
+    }
+
+
+    function bindPiEvents() {
+
+      window.addEventListener(
+        "bisovia:auth",
+        updatePiConnectionStatus
+      );
+
+
+      window.addEventListener(
+        "bisovia:logout",
+        updatePiConnectionStatus
+      );
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
       () => {
 
-        localStorage.setItem(
-          "bisovia_dark_mode",
-          darkModeToggle.checked
+        loadSettingsIntoUI();
+
+        applyTheme(
+          getSettings().theme
         );
 
-        localStorage.setItem(
-          "bisovia_language",
-          languageSelect.value
-        );
+        bindThemeButtons();
 
-        localStorage.setItem(
-          "bisovia_notifications",
-          notificationsToggle.checked
-        );
+        bindSaveButton();
 
-        localStorage.setItem(
-          "bisovia_payment_notifications",
-          paymentNotificationsToggle.checked
-        );
+        bindResetButton();
 
-        localStorage.setItem(
-          "bisovia_profile_visibility",
-          profileVisibility.value
-        );
+        bindClearLocalData();
 
-
-        applyTheme();
-
-
-        settingsStatus.textContent =
-          "Settings saved successfully.";
+        bindPiEvents();
 
       }
     );
-
-
-    /* =========================
-       RESET SETTINGS
-    ========================= */
-
-    resetSettings.addEventListener(
-      "click",
-      () => {
-
-        darkModeToggle.checked = false;
-
-        languageSelect.value = "en";
-
-        notificationsToggle.checked = true;
-
-        paymentNotificationsToggle.checked = true;
-
-        profileVisibility.value = "community";
-
-
-        localStorage.removeItem(
-          "bisovia_dark_mode"
-        );
-
-        localStorage.removeItem(
-          "bisovia_language"
-        );
-
-        localStorage.removeItem(
-          "bisovia_notifications"
-        );
-
-        localStorage.removeItem(
-          "bisovia_payment_notifications"
-        );
-
-        localStorage.removeItem(
-          "bisovia_profile_visibility"
-        );
-
-
-        applyTheme();
-
-
-        settingsStatus.textContent =
-          "Settings have been reset.";
-
-      }
-    );
-
-
-    /* =========================
-       LIVE THEME TOGGLE
-    ========================= */
-
-    darkModeToggle.addEventListener(
-      "change",
-      () => {
-
-        applyTheme();
-
-      }
-    );
-
-
-    /* =========================
-       CURRENT YEAR
-    ========================= */
-
-    document.getElementById(
-      "currentYear"
-    ).textContent = new Date().getFullYear();
-
-
-    /* =========================
-       START
-    ========================= */
-
-    loadSettings();
-
-    applyTheme();
 
   </script>
 
