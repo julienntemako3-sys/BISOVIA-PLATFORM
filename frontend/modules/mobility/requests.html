@@ -1,1 +1,510 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Mobility Requests — BISOVIA</title>
+  <meta
+    name="description"
+    content="Manage mobility service requests on BISOVIA."
+  >
+
+  <link rel="icon" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="mobility.css">
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="mobility-header">
+    <div class="mobility-container header-inner">
+
+      <a href="mobility.html" class="brand">
+        <img src="../../assets/logo.svg" alt="BISOVIA Logo">
+        <span>BISOVIA</span>
+      </a>
+
+      <nav class="mobility-nav">
+        <a href="../../index.html">Home</a>
+        <a href="mobility.html">Mobility</a>
+        <a href="services.html">Services</a>
+        <a href="providers.html">Providers</a>
+        <a href="requests.html" class="active">Requests</a>
+        <a href="booking.html">Booking</a>
+        <a href="../../pages/payments.html">Payments</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ================= MAIN ================= -->
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="mobility-container">
+
+        <span class="eyebrow">MOBILITY REQUESTS</span>
+
+        <h1>Manage your mobility requests</h1>
+
+        <p>
+          Track your mobility requests, check their status,
+          and access the next steps for each service.
+        </p>
+
+        <div class="hero-actions">
+          <a href="booking.html" class="btn btn-primary">
+            Create New Request
+          </a>
+
+          <a href="services.html" class="btn btn-secondary">
+            Browse Services
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- REQUESTS -->
+    <section class="services-section">
+      <div class="mobility-container">
+
+        <div class="section-heading">
+          <span class="eyebrow">YOUR REQUESTS</span>
+
+          <h2>Mobility request history</h2>
+
+          <p>
+            View current and previous mobility service requests.
+          </p>
+        </div>
+
+
+        <!-- FILTER -->
+        <div class="request-filters">
+
+          <label for="requestStatus">
+            Filter by status
+          </label>
+
+          <select id="requestStatus">
+            <option value="all">All Requests</option>
+            <option value="pending">Pending</option>
+            <option value="confirmed">Confirmed</option>
+            <option value="progress">In Progress</option>
+            <option value="completed">Completed</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+
+        </div>
+
+
+        <!-- REQUEST GRID -->
+        <div class="services-grid" id="requestsGrid">
+
+
+          <!-- REQUEST 01 -->
+          <article
+            class="service-card request-card"
+            data-status="confirmed"
+          >
+
+            <div class="service-card-top">
+              <span class="status-badge status-confirmed">
+                Confirmed
+              </span>
+
+              <span class="request-id">
+                #MOB-001
+              </span>
+            </div>
+
+            <h3>Local Ride</h3>
+
+            <p>
+              A mobility request for a local ride between
+              two selected locations.
+            </p>
+
+            <div class="request-details">
+
+              <div>
+                <strong>Provider</strong>
+                <span>Community Mobility</span>
+              </div>
+
+              <div>
+                <strong>Date</strong>
+                <span>Scheduled</span>
+              </div>
+
+              <div>
+                <strong>Payment</strong>
+                <span>Pi Payment Pending</span>
+              </div>
+
+            </div>
+
+            <div class="card-actions">
+              <a
+                href="booking.html?request=MOB-001"
+                class="btn btn-primary"
+              >
+                View Request
+              </a>
+
+              <a
+                href="service.html?service=local-ride"
+                class="btn btn-secondary"
+              >
+                Service
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- REQUEST 02 -->
+          <article
+            class="service-card request-card"
+            data-status="pending"
+          >
+
+            <div class="service-card-top">
+              <span class="status-badge status-pending">
+                Pending
+              </span>
+
+              <span class="request-id">
+                #MOB-002
+              </span>
+            </div>
+
+            <h3>Minibus Transport</h3>
+
+            <p>
+              A request for shared minibus transportation
+              within the local service area.
+            </p>
+
+            <div class="request-details">
+
+              <div>
+                <strong>Provider</strong>
+                <span>Minibus Mobility</span>
+              </div>
+
+              <div>
+                <strong>Date</strong>
+                <span>Awaiting confirmation</span>
+              </div>
+
+              <div>
+                <strong>Payment</strong>
+                <span>Not started</span>
+              </div>
+
+            </div>
+
+            <div class="card-actions">
+              <a
+                href="booking.html?request=MOB-002"
+                class="btn btn-primary"
+              >
+                View Request
+              </a>
+
+              <a
+                href="service.html?service=minibus"
+                class="btn btn-secondary"
+              >
+                Service
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- REQUEST 03 -->
+          <article
+            class="service-card request-card"
+            data-status="progress"
+          >
+
+            <div class="service-card-top">
+              <span class="status-badge status-progress">
+                In Progress
+              </span>
+
+              <span class="request-id">
+                #MOB-003
+              </span>
+            </div>
+
+            <h3>Local Delivery</h3>
+
+            <p>
+              A local delivery request currently being
+              processed by the mobility provider.
+            </p>
+
+            <div class="request-details">
+
+              <div>
+                <strong>Provider</strong>
+                <span>Local Delivery Mobility</span>
+              </div>
+
+              <div>
+                <strong>Date</strong>
+                <span>Processing</span>
+              </div>
+
+              <div>
+                <strong>Payment</strong>
+                <span>Pi Payment Pending</span>
+              </div>
+
+            </div>
+
+            <div class="card-actions">
+              <a
+                href="booking.html?request=MOB-003"
+                class="btn btn-primary"
+              >
+                View Request
+              </a>
+
+              <a
+                href="service.html?service=delivery"
+                class="btn btn-secondary"
+              >
+                Service
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- REQUEST 04 -->
+          <article
+            class="service-card request-card"
+            data-status="completed"
+          >
+
+            <div class="service-card-top">
+              <span class="status-badge status-completed">
+                Completed
+              </span>
+
+              <span class="request-id">
+                #MOB-004
+              </span>
+            </div>
+
+            <h3>Shared Transport</h3>
+
+            <p>
+              A previously completed shared transportation
+              service request.
+            </p>
+
+            <div class="request-details">
+
+              <div>
+                <strong>Provider</strong>
+                <span>Community Transport</span>
+              </div>
+
+              <div>
+                <strong>Date</strong>
+                <span>Completed</span>
+              </div>
+
+              <div>
+                <strong>Payment</strong>
+                <span>Pi Payment Recorded</span>
+              </div>
+
+            </div>
+
+            <div class="card-actions">
+              <a
+                href="booking.html?request=MOB-004"
+                class="btn btn-primary"
+              >
+                View Request
+              </a>
+
+              <a
+                href="service.html?service=shared-transport"
+                class="btn btn-secondary"
+              >
+                Service
+              </a>
+            </div>
+
+          </article>
+
+
+          <!-- REQUEST 05 -->
+          <article
+            class="service-card request-card"
+            data-status="cancelled"
+          >
+
+            <div class="service-card-top">
+              <span class="status-badge status-cancelled">
+                Cancelled
+              </span>
+
+              <span class="request-id">
+                #MOB-005
+              </span>
+            </div>
+
+            <h3>Private Transport</h3>
+
+            <p>
+              A mobility request that was cancelled before
+              service completion.
+            </p>
+
+            <div class="request-details">
+
+              <div>
+                <strong>Provider</strong>
+                <span>Private Mobility</span>
+              </div>
+
+              <div>
+                <strong>Date</strong>
+                <span>Cancelled</span>
+              </div>
+
+              <div>
+                <strong>Payment</strong>
+                <span>No payment completed</span>
+              </div>
+
+            </div>
+
+            <div class="card-actions">
+              <a
+                href="booking.html?request=MOB-005"
+                class="btn btn-primary"
+              >
+                View Request
+              </a>
+
+              <a
+                href="services.html"
+                class="btn btn-secondary"
+              >
+                New Service
+              </a>
+            </div>
+
+          </article>
+
+
+        </div>
+
+
+        <!-- EMPTY STATE -->
+        <div
+          class="empty-state"
+          id="requestsEmpty"
+          hidden
+        >
+          <h3>No requests found</h3>
+
+          <p>
+            There are no mobility requests matching
+            the selected status.
+          </p>
+
+          <a href="booking.html" class="btn btn-primary">
+            Create a Request
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="provider-cta">
+      <div class="mobility-container">
+
+        <div class="cta-content">
+
+          <span class="eyebrow">
+            NEED MOBILITY?
+          </span>
+
+          <h2>Create a new request</h2>
+
+          <p>
+            Choose a mobility service and submit a request
+            through BISOVIA.
+          </p>
+
+          <a href="booking.html" class="btn btn-primary">
+            Start a Request
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="mobility-footer">
+
+    <div class="mobility-container">
+
+      <div class="footer-inner">
+
+        <div>
+          <strong>BISOVIA</strong>
+
+          <p>
+            Pi-native utility platform for practical
+            digital services and community interaction.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <a href="../../index.html">Home</a>
+          <a href="../../pages/about.html">About</a>
+          <a href="../../pages/payments.html">Payments</a>
+          <a href="../../pages/settings.html">Settings</a>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          © <span id="currentYear"></span> BISOVIA. All rights reserved.
+        </p>
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- ================= SCRIPT ================= -->
+  <script src="mobility.js"></script>
+
+</body>
+</html>
