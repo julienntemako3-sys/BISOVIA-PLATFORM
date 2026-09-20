@@ -1,1 +1,557 @@
+/* =========================================================
+   BISOVIA — MOBILITY MODULE
+   Shared stylesheet for all Mobility pages
+   ========================================================= */
 
+
+/* ================= ROOT ================= */
+
+:root {
+  --mobility-bg: #f5f7fa;
+  --mobility-surface: #ffffff;
+  --mobility-surface-soft: #eef2f6;
+  --mobility-text: #17212b;
+  --mobility-text-soft: #64717d;
+  --mobility-border: #dce2e8;
+  --mobility-primary: #5b3df5;
+  --mobility-primary-dark: #4329c7;
+  --mobility-success: #16834b;
+  --mobility-warning: #a56b00;
+  --mobility-danger: #b3261e;
+  --mobility-radius: 16px;
+  --mobility-shadow: 0 10px 30px rgba(20, 30, 40, 0.08);
+  --mobility-max-width: 1180px;
+}
+
+
+/* ================= DARK MODE ================= */
+
+body.dark-mode {
+  --mobility-bg: #0e141b;
+  --mobility-surface: #151d26;
+  --mobility-surface-soft: #1d2732;
+  --mobility-text: #f2f5f7;
+  --mobility-text-soft: #aeb8c2;
+  --mobility-border: #2d3945;
+  --mobility-primary: #8b78ff;
+  --mobility-primary-dark: #a394ff;
+  --mobility-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ================= RESET ================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--mobility-bg);
+  color: var(--mobility-text);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.mobility-container {
+  width: min(
+    calc(100% - 32px),
+    var(--mobility-max-width)
+  );
+  margin: 0 auto;
+}
+
+
+/* ================= HEADER ================= */
+
+.mobility-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--mobility-surface);
+  border-bottom: 1px solid var(--mobility-border);
+}
+
+.header-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+
+/* ================= BRAND ================= */
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.brand img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+
+/* ================= NAVIGATION ================= */
+
+.mobility-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.mobility-nav a {
+  padding: 8px 11px;
+  border-radius: 9px;
+  color: var(--mobility-text-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.mobility-nav a:hover,
+.mobility-nav a.active {
+  color: var(--mobility-primary);
+  background: var(--mobility-surface-soft);
+}
+
+
+/* ================= HERO ================= */
+
+.page-hero {
+  padding: 78px 0 62px;
+  border-bottom: 1px solid var(--mobility-border);
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(91, 61, 245, 0.10),
+      transparent 38%
+    ),
+    var(--mobility-bg);
+}
+
+.page-hero h1 {
+  max-width: 780px;
+  margin: 10px 0 18px;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+.page-hero p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--mobility-text-soft);
+  font-size: 1.08rem;
+}
+
+
+/* ================= EYEBROW ================= */
+
+.eyebrow {
+  display: inline-block;
+  color: var(--mobility-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+
+/* ================= HERO ACTIONS ================= */
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: var(--mobility-primary);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--mobility-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--mobility-surface);
+  color: var(--mobility-text);
+  border-color: var(--mobility-border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--mobility-primary);
+  color: var(--mobility-primary);
+}
+
+
+/* ================= SECTIONS ================= */
+
+.services-section {
+  padding: 72px 0;
+}
+
+.section-heading {
+  margin-bottom: 32px;
+}
+
+.section-heading h2 {
+  margin: 8px 0 10px;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  line-height: 1.2;
+}
+
+.section-heading p {
+  max-width: 680px;
+  margin: 0;
+  color: var(--mobility-text-soft);
+}
+
+
+/* ================= SERVICES GRID ================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+
+/* ================= SERVICE CARD ================= */
+
+.service-card {
+  padding: 24px;
+  background: var(--mobility-surface);
+  border: 1px solid var(--mobility-border);
+  border-radius: var(--mobility-radius);
+  box-shadow: var(--mobility-shadow);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(91, 61, 245, 0.35);
+  box-shadow: 0 16px 36px rgba(20, 30, 40, 0.12);
+}
+
+.service-card h3 {
+  margin: 12px 0 8px;
+  font-size: 1.15rem;
+}
+
+.service-card p {
+  margin: 0;
+  color: var(--mobility-text-soft);
+}
+
+
+/* ================= SERVICE ICON ================= */
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: var(--mobility-surface-soft);
+  color: var(--mobility-primary);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+
+/* ================= CARD TOP ================= */
+
+.service-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.request-id {
+  color: var(--mobility-text-soft);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+
+/* ================= STATUS BADGES ================= */
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.status-confirmed {
+  color: var(--mobility-success);
+  background: rgba(22, 131, 75, 0.10);
+}
+
+.status-pending {
+  color: var(--mobility-warning);
+  background: rgba(165, 107, 0, 0.10);
+}
+
+.status-progress {
+  color: var(--mobility-primary);
+  background: rgba(91, 61, 245, 0.10);
+}
+
+.status-completed {
+  color: var(--mobility-success);
+  background: rgba(22, 131, 75, 0.10);
+}
+
+.status-cancelled {
+  color: var(--mobility-danger);
+  background: rgba(179, 38, 30, 0.10);
+}
+
+
+/* ================= REQUEST DETAILS ================= */
+
+.request-details {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--mobility-border);
+}
+
+.request-details div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.request-details strong {
+  font-size: 0.78rem;
+}
+
+.request-details span {
+  color: var(--mobility-text-soft);
+  font-size: 0.88rem;
+}
+
+
+/* ================= CARD ACTIONS ================= */
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.card-actions .btn {
+  flex: 1 1 auto;
+}
+
+
+/* ================= REQUEST FILTERS ================= */
+
+.request-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 18px;
+  background: var(--mobility-surface);
+  border: 1px solid var(--mobility-border);
+  border-radius: var(--mobility-radius);
+}
+
+.request-filters label {
+  font-weight: 700;
+}
+
+.request-filters select {
+  min-width: 190px;
+  padding: 10px 12px;
+  border: 1px solid var(--mobility-border);
+  border-radius: 9px;
+  background: var(--mobility-surface);
+  color: var(--mobility-text);
+  outline: none;
+}
+
+
+/* ================= BOOKING LAYOUT ================= */
+
+.booking-layout {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.7fr)
+    minmax(280px, 0.9fr);
+  gap: 24px;
+  align-items: start;
+}
+
+
+/* ================= BOOKING FORM ================= */
+
+.booking-form-card,
+.booking-info-card {
+  padding: 28px;
+  background: var(--mobility-surface);
+  border: 1px solid var(--mobility-border);
+  border-radius: var(--mobility-radius);
+  box-shadow: var(--mobility-shadow);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 7px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 13px;
+  border: 1px solid var(--mobility-border);
+  border-radius: 10px;
+  background: var(--mobility-surface);
+  color: var(--mobility-text);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.request-filters select:focus {
+  border-color: var(--mobility-primary);
+  box-shadow: 0 0 0 3px rgba(91, 61, 245, 0.10);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+
+/* ================= PAYMENT INFO ================= */
+
+.payment-info {
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid var(--mobility-border);
+  border-radius: 12px;
+  background: var(--mobility-surface-soft);
+}
+
+.payment-info h3 {
+  margin: 7px 0;
+  font-size: 1rem;
+}
+
+.payment-info p {
+  margin: 0;
+  color: var(--mobility-text-soft);
+  font-size: 0.9rem;
+}
+
+
+/* ================= BOOKING INFO ================= */
+
+.booking-info-card h2 {
+  margin: 8px 0 12px;
+  font-size: 1.5rem;
+}
+
+.booking-info-card > p {
+  color: var(--mobility-text
