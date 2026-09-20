@@ -1,1 +1,598 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA service providers — discover trusted providers offering services through BISOVIA."
+  >
+
+  <title>BISOVIA — Providers</title>
+
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">
+
+  <style>
+    .providers-page {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .providers-header {
+      margin-bottom: 28px;
+    }
+
+    .providers-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .providers-header p {
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .providers-tools {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .providers-tools input,
+    .providers-tools select {
+      flex: 1;
+      min-width: 180px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128,128,128,0.25)
+      );
+      background: transparent;
+      color: inherit;
+      font: inherit;
+    }
+
+    .providers-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .provider-card {
+      padding: 20px;
+      border-radius: 18px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128,128,128,0.2)
+      );
+      background: var(
+        --card-bg,
+        rgba(128,128,128,0.06)
+      );
+    }
+
+    .provider-avatar {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #6c5ce7;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .provider-card h3 {
+      margin: 0 0 6px;
+    }
+
+    .provider-category {
+      display: inline-block;
+      font-size: 0.75rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(108,92,231,0.12);
+      margin-bottom: 12px;
+    }
+
+    .provider-rating {
+      margin-bottom: 10px;
+    }
+
+    .provider-description {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      opacity: 0.78;
+    }
+
+    .provider-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .provider-actions button {
+      flex: 1;
+      min-width: 110px;
+      padding: 9px 12px;
+      border-radius: 10px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128,128,128,0.25)
+      );
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .provider-actions .primary {
+      background: #6c5ce7;
+      color: #fff;
+      border-color: #6c5ce7;
+    }
+
+    .empty-providers {
+      text-align: center;
+      padding: 50px 20px;
+      border: 1px dashed var(
+        --border-color,
+        rgba(128,128,128,0.3)
+      );
+      border-radius: 18px;
+      opacity: 0.75;
+    }
+
+    .providers-status {
+      margin-top: 20px;
+      min-height: 24px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 700px) {
+      .providers-page {
+        padding: 24px 14px 45px;
+      }
+
+      .providers-tools {
+        display: block;
+      }
+
+      .providers-tools input,
+      .providers-tools select {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+
+      <a href="../index.html" class="brand">
+        <img
+          src="../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+        <span>BISOVIA</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+
+        <a href="../index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./services.html">Services</a>
+        <a href="./payments.html">Payment</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./trust.html">Trust</a>
+        <a href="./notifications.html">Notifications</a>
+        <a href="./settings.html">Settings</a>
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+        >
+          🌙
+        </button>
+
+        <button
+          id="pi-login"
+          class="pi-login"
+          type="button"
+        >
+          Sign in with Pi
+        </button>
+
+      </div>
+    </nav>
+  </header>
+
+
+  <main class="providers-page">
+
+    <section class="providers-header">
+
+      <p class="eyebrow">BISOVIA CORE</p>
+
+      <h1>Service Providers</h1>
+
+      <p>
+        Discover providers offering practical services
+        through the BISOVIA platform.
+      </p>
+
+    </section>
+
+
+    <section class="providers-tools">
+
+      <input
+        id="provider-search"
+        type="search"
+        placeholder="Search providers..."
+        aria-label="Search providers"
+      >
+
+      <select
+        id="provider-category"
+        aria-label="Filter providers"
+      >
+        <option value="all">All categories</option>
+        <option value="mobility">Mobility</option>
+        <option value="auto">Auto & Garages</option>
+        <option value="hospitality">Hospitality</option>
+        <option value="community">Community</option>
+      </select>
+
+    </section>
+
+
+    <section
+      id="providers-grid"
+      class="providers-grid"
+    ></section>
+
+
+    <section
+      id="empty-providers"
+      class="empty-providers"
+      style="display:none;"
+    >
+      <h2>No providers found</h2>
+
+      <p>
+        There are currently no providers matching
+        your search.
+      </p>
+    </section>
+
+
+    <div
+      id="providers-status"
+      class="providers-status"
+      aria-live="polite"
+    ></div>
+
+  </main>
+
+
+  <footer class="site-footer">
+
+    <p>
+      © <span id="current-year"></span> BISOVIA.
+      All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+
+  <script src="../core/api.js"></script>
+  <script src="../core/auth.js"></script>
+  <script src="../core/payments.js"></script>
+  <script src="../core/profile.js"></script>
+  <script src="../core/trust.js"></script>
+  <script src="../core/notifications.js"></script>
+
+  <script src="../script.js"></script>
+
+
+  <script>
+    const providers = [
+      {
+        id: "provider-001",
+        name: "BISOVIA Mobility",
+        category: "mobility",
+        rating: 0,
+        description:
+          "Mobility services designed for everyday transportation needs."
+      },
+      {
+        id: "provider-002",
+        name: "BISOVIA Auto Services",
+        category: "auto",
+        rating: 0,
+        description:
+          "Vehicle maintenance and garage services."
+      },
+      {
+        id: "provider-003",
+        name: "BISOVIA Hospitality",
+        category: "hospitality",
+        rating: 0,
+        description:
+          "Hospitality services for accommodation and related needs."
+      },
+      {
+        id: "provider-004",
+        name: "BISOVIA Community",
+        category: "community",
+        rating: 0,
+        description:
+          "Community-oriented services and local interaction."
+      }
+    ];
+
+
+    function categoryLabel(category) {
+
+      const labels = {
+        mobility: "Mobility",
+        auto: "Auto & Garages",
+        hospitality: "Hospitality",
+        community: "Community"
+      };
+
+      return labels[category] || category;
+    }
+
+
+    function getInitials(name) {
+
+      return name
+        .split(" ")
+        .filter(Boolean)
+        .slice(0, 2)
+        .map(word => word.charAt(0))
+        .join("")
+        .toUpperCase();
+    }
+
+
+    function renderProviders() {
+
+      const grid =
+        document.getElementById(
+          "providers-grid"
+        );
+
+      const empty =
+        document.getElementById(
+          "empty-providers"
+        );
+
+      const search =
+        document.getElementById(
+          "provider-search"
+        ).value
+          .trim()
+          .toLowerCase();
+
+      const category =
+        document.getElementById(
+          "provider-category"
+        ).value;
+
+
+      const filtered =
+        providers.filter(provider => {
+
+          const matchesSearch =
+            !search ||
+            provider.name
+              .toLowerCase()
+              .includes(search) ||
+            provider.description
+              .toLowerCase()
+              .includes(search);
+
+          const matchesCategory =
+            category === "all" ||
+            provider.category === category;
+
+          return (
+            matchesSearch &&
+            matchesCategory
+          );
+        });
+
+
+      grid.innerHTML = "";
+
+
+      if (!filtered.length) {
+
+        empty.style.display = "block";
+
+        return;
+      }
+
+
+      empty.style.display = "none";
+
+
+      filtered.forEach(provider => {
+
+        const card =
+          document.createElement("article");
+
+        card.className =
+          "provider-card";
+
+        card.innerHTML = `
+          <div class="provider-avatar">
+            ${getInitials(provider.name)}
+          </div>
+
+          <span class="provider-category">
+            ${categoryLabel(provider.category)}
+          </span>
+
+          <h3>
+            ${provider.name}
+          </h3>
+
+          <div class="provider-rating">
+            ⭐ ${provider.rating.toFixed(1)}
+          </div>
+
+          <p class="provider-description">
+            ${provider.description}
+          </p>
+
+          <div class="provider-actions">
+
+            <button
+              type="button"
+              data-provider="${provider.id}"
+              data-action="view"
+            >
+              View
+            </button>
+
+            <button
+              type="button"
+              class="primary"
+              data-provider="${provider.id}"
+              data-action="request"
+            >
+              Request service
+            </button>
+
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+
+    function bindProviderActions() {
+
+      document
+        .getElementById("providers-grid")
+        .addEventListener(
+          "click",
+          event => {
+
+            const button =
+              event.target.closest("button");
+
+            if (!button) {
+              return;
+            }
+
+            const providerId =
+              button.dataset.provider;
+
+            const action =
+              button.dataset.action;
+
+            const provider =
+              providers.find(
+                item =>
+                  item.id === providerId
+              );
+
+            if (!provider) {
+              return;
+            }
+
+
+            if (action === "view") {
+
+              document.getElementById(
+                "providers-status"
+              ).textContent =
+                `${provider.name} is available through BISOVIA Core.`;
+
+              return;
+            }
+
+
+            if (action === "request") {
+
+              const params =
+                new URLSearchParams({
+                  provider:
+                    provider.id,
+                  category:
+                    provider.category
+                });
+
+              window.location.href =
+                `./requests.html?${params.toString()}`;
+            }
+
+          }
+        );
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        document
+          .getElementById("provider-search")
+          .addEventListener(
+            "input",
+            renderProviders
+          );
+
+        document
+          .getElementById("provider-category")
+          .addEventListener(
+            "change",
+            renderProviders
+          );
+
+        bindProviderActions();
+
+        renderProviders();
+
+      }
+    );
+  </script>
+
+</body>
+</html>
