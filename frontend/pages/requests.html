@@ -1,1 +1,1307 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA service requests — create and manage requests for practical services."
+  >
+
+  <title>BISOVIA — Service Requests</title>
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../assets/favicon.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="../style.css"
+  >
+
+  <style>
+    .requests-page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .requests-header {
+      margin-bottom: 28px;
+    }
+
+    .requests-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .requests-header p {
+      opacity: 0.8;
+      line-height: 1.6;
+    }
+
+    .request-layout {
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(280px, 360px);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .request-card {
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.2)
+      );
+      background: var(
+        --card-bg,
+        rgba(128, 128, 128, 0.06)
+      );
+    }
+
+    .request-card h2 {
+      margin-top: 0;
+      margin-bottom: 6px;
+    }
+
+    .request-card-description {
+      margin-top: 0;
+      margin-bottom: 22px;
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 12px 13px;
+      border-radius: 10px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.25)
+      );
+      background: transparent;
+      color: inherit;
+      font: inherit;
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-help {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.78rem;
+      opacity: 0.6;
+    }
+
+    .request-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .request-actions button {
+      padding: 11px 16px;
+      border-radius: 10px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.25)
+      );
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .request-actions .primary {
+      background: #6c5ce7;
+      color: #fff;
+      border-color: #6c5ce7;
+    }
+
+    .request-summary {
+      position: sticky;
+      top: 20px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.15)
+      );
+    }
+
+    .summary-row:last-child {
+      border-bottom: none;
+    }
+
+    .summary-label {
+      opacity: 0.65;
+      font-size: 0.85rem;
+    }
+
+    .summary-value {
+      text-align: right;
+      font-weight: 600;
+      word-break: break-word;
+    }
+
+    .request-status {
+      margin-top: 18px;
+      min-height: 24px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .requests-list {
+      margin-top: 24px;
+    }
+
+    .request-history-item {
+      padding: 16px;
+      margin-bottom: 10px;
+      border-radius: 14px;
+      border: 1px solid var(
+        --border-color,
+        rgba(128, 128, 128, 0.18)
+      );
+      background: var(
+        --card-bg,
+        rgba(128, 128, 128, 0.05)
+      );
+    }
+
+    .request-history-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .request-status-badge {
+      font-size: 0.72rem;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(108, 92, 231, 0.12);
+      white-space: nowrap;
+    }
+
+    .request-history-meta {
+      font-size: 0.8rem;
+      opacity: 0.65;
+      line-height: 1.5;
+    }
+
+    .empty-history {
+      padding: 25px;
+      text-align: center;
+      border: 1px dashed var(
+        --border-color,
+        rgba(128, 128, 128, 0.3)
+      );
+      border-radius: 14px;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 800px) {
+      .requests-page {
+        padding: 24px 14px 45px;
+      }
+
+      .request-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .request-summary {
+        position: static;
+      }
+
+      .request-actions button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header class="site-header">
+
+    <nav class="navbar">
+
+      <a
+        href="../index.html"
+        class="brand"
+      >
+        <img
+          src="../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+
+        <span>BISOVIA</span>
+      </a>
+
+
+      <button
+        class="menu-toggle"
+        id="menu-toggle"
+        type="button"
+        aria-label="Open menu"
+      >
+        ☰
+      </button>
+
+
+      <div
+        class="nav-menu"
+        id="nav-menu"
+      >
+
+        <a href="../index.html">
+          Home
+        </a>
+
+        <a href="./about.html">
+          About
+        </a>
+
+        <a href="./services.html">
+          Services
+        </a>
+
+        <a href="./providers.html">
+          Providers
+        </a>
+
+        <a
+          href="./requests.html"
+          class="active"
+        >
+          Requests
+        </a>
+
+        <a href="./payments.html">
+          Payment
+        </a>
+
+        <a href="./profile.html">
+          Profile
+        </a>
+
+        <a href="./trust.html">
+          Trust
+        </a>
+
+        <a href="./notifications.html">
+          Notifications
+        </a>
+
+        <a href="./settings.html">
+          Settings
+        </a>
+
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          🌙
+        </button>
+
+
+        <button
+          id="pi-login"
+          class="pi-login"
+          type="button"
+        >
+          Sign in with Pi
+        </button>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+
+  <!-- MAIN -->
+  <main class="requests-page">
+
+    <section class="requests-header">
+
+      <p class="eyebrow">
+        BISOVIA CORE
+      </p>
+
+      <h1>
+        Service Requests
+      </h1>
+
+      <p>
+        Request a practical service from a BISOVIA
+        provider. Your request can later be connected
+        to booking, trust and Pi payment workflows.
+      </p>
+
+    </section>
+
+
+    <div class="request-layout">
+
+
+      <!-- REQUEST FORM -->
+      <section class="request-card">
+
+        <h2>
+          Create a request
+        </h2>
+
+        <p class="request-card-description">
+          Tell the provider what service you need.
+        </p>
+
+
+        <form id="request-form">
+
+
+          <div class="form-group">
+
+            <label for="provider">
+              Provider
+            </label>
+
+            <select
+              id="provider"
+              name="provider"
+              required
+            >
+
+              <option value="">
+                Select a provider
+              </option>
+
+              <option value="provider-001">
+                BISOVIA Mobility
+              </option>
+
+              <option value="provider-002">
+                BISOVIA Auto Services
+              </option>
+
+              <option value="provider-003">
+                BISOVIA Hospitality
+              </option>
+
+              <option value="provider-004">
+                BISOVIA Community
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="category">
+              Service category
+            </label>
+
+            <select
+              id="category"
+              name="category"
+              required
+            >
+
+              <option value="">
+                Select category
+              </option>
+
+              <option value="mobility">
+                Mobility
+              </option>
+
+              <option value="auto">
+                Auto & Garages
+              </option>
+
+              <option value="hospitality">
+                Hospitality
+              </option>
+
+              <option value="community">
+                Community
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="service">
+              Service needed
+            </label>
+
+            <input
+              id="service"
+              name="service"
+              type="text"
+              placeholder="Example: Ride, vehicle repair, accommodation..."
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="description">
+              Request details
+            </label>
+
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Describe what you need..."
+              required
+            ></textarea>
+
+            <span class="form-help">
+              Do not include passwords, private keys
+              or sensitive payment information.
+            </span>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="preferred-date">
+              Preferred date
+            </label>
+
+            <input
+              id="preferred-date"
+              name="preferredDate"
+              type="date"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="preferred-time">
+              Preferred time
+            </label>
+
+            <input
+              id="preferred-time"
+              name="preferredTime"
+              type="time"
+            >
+
+          </div>
+
+
+          <div class="request-actions">
+
+            <button
+              type="submit"
+              class="primary"
+            >
+              Submit request
+            </button>
+
+            <button
+              type="button"
+              id="clear-form"
+            >
+              Clear
+            </button>
+
+          </div>
+
+
+          <div
+            id="request-status"
+            class="request-status"
+            aria-live="polite"
+          ></div>
+
+        </form>
+
+      </section>
+
+
+      <!-- SUMMARY -->
+      <aside
+        class="request-card request-summary"
+      >
+
+        <h2>
+          Request summary
+        </h2>
+
+        <p class="request-card-description">
+          Review your request before submitting.
+        </p>
+
+
+        <div class="summary-row">
+
+          <span class="summary-label">
+            Provider
+          </span>
+
+          <span
+            id="summary-provider"
+            class="summary-value"
+          >
+            —
+          </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span class="summary-label">
+            Category
+          </span>
+
+          <span
+            id="summary-category"
+            class="summary-value"
+          >
+            —
+          </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span class="summary-label">
+            Service
+          </span>
+
+          <span
+            id="summary-service"
+            class="summary-value"
+          >
+            —
+          </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span class="summary-label">
+            Date
+          </span>
+
+          <span
+            id="summary-date"
+            class="summary-value"
+          >
+            —
+          </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+          <span class="summary-label">
+            Time
+          </span>
+
+          <span
+            id="summary-time"
+            class="summary-value"
+          >
+            —
+          </span>
+
+        </div>
+
+      </aside>
+
+    </div>
+
+
+    <!-- REQUEST HISTORY -->
+    <section class="request-card requests-list">
+
+      <h2>
+        My requests
+      </h2>
+
+      <p class="request-card-description">
+        Requests created on this device.
+      </p>
+
+      <div id="requests-history"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <p>
+      ©
+      <span id="current-year"></span>
+      BISOVIA.
+      All rights reserved.
+    </p>
+
+  </footer>
+
+
+  <!-- PI SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+
+
+  <!-- BISOVIA CORE -->
+  <script src="../core/api.js"></script>
+  <script src="../core/auth.js"></script>
+  <script src="../core/payments.js"></script>
+  <script src="../core/profile.js"></script>
+  <script src="../core/trust.js"></script>
+  <script src="../core/notifications.js"></script>
+
+
+  <!-- GLOBAL SCRIPT -->
+  <script src="../script.js"></script>
+
+
+  <!-- REQUEST PAGE LOGIC -->
+  <script>
+
+    const REQUESTS_STORAGE_KEY =
+      "bisovia_service_requests";
+
+
+    const providerNames = {
+
+      "provider-001":
+        "BISOVIA Mobility",
+
+      "provider-002":
+        "BISOVIA Auto Services",
+
+      "provider-003":
+        "BISOVIA Hospitality",
+
+      "provider-004":
+        "BISOVIA Community"
+
+    };
+
+
+    const categoryNames = {
+
+      mobility:
+        "Mobility",
+
+      auto:
+        "Auto & Garages",
+
+      hospitality:
+        "Hospitality",
+
+      community:
+        "Community"
+
+    };
+
+
+    function generateRequestId() {
+
+      return (
+        "REQ-" +
+        Date.now() +
+        "-" +
+        Math.random()
+          .toString(36)
+          .substring(2, 8)
+          .toUpperCase()
+      );
+
+    }
+
+
+    function getRequests() {
+
+      try {
+
+        const saved =
+          localStorage.getItem(
+            REQUESTS_STORAGE_KEY
+          );
+
+        if (!saved) {
+          return [];
+        }
+
+        const data =
+          JSON.parse(saved);
+
+        return Array.isArray(data)
+          ? data
+          : [];
+
+      } catch (error) {
+
+        console.error(
+          "BISOVIA request read error:",
+          error
+        );
+
+        return [];
+      }
+
+    }
+
+
+    function saveRequests(requests) {
+
+      localStorage.setItem(
+        REQUESTS_STORAGE_KEY,
+        JSON.stringify(requests)
+      );
+
+    }
+
+
+    function updateSummary() {
+
+      const provider =
+        document.getElementById(
+          "provider"
+        );
+
+      const category =
+        document.getElementById(
+          "category"
+        );
+
+      const service =
+        document.getElementById(
+          "service"
+        );
+
+      const date =
+        document.getElementById(
+          "preferred-date"
+        );
+
+      const time =
+        document.getElementById(
+          "preferred-time"
+        );
+
+
+      document.getElementById(
+        "summary-provider"
+      ).textContent =
+        providerNames[
+          provider.value
+        ] || "—";
+
+
+      document.getElementById(
+        "summary-category"
+      ).textContent =
+        categoryNames[
+          category.value
+        ] || "—";
+
+
+      document.getElementById(
+        "summary-service"
+      ).textContent =
+        service.value.trim() || "—";
+
+
+      document.getElementById(
+        "summary-date"
+      ).textContent =
+        date.value || "—";
+
+
+      document.getElementById(
+        "summary-time"
+      ).textContent =
+        time.value || "—";
+
+    }
+
+
+    function showStatus(message) {
+
+      const status =
+        document.getElementById(
+          "request-status"
+        );
+
+      status.textContent =
+        message;
+
+      setTimeout(() => {
+
+        status.textContent = "";
+
+      }, 4000);
+
+    }
+
+
+    function renderHistory() {
+
+      const container =
+        document.getElementById(
+          "requests-history"
+        );
+
+      const requests =
+        getRequests();
+
+
+      container.innerHTML = "";
+
+
+      if (!requests.length) {
+
+        container.innerHTML = `
+          <div class="empty-history">
+            <p>
+              No service requests yet.
+            </p>
+
+            <p>
+              Your submitted requests will appear here.
+            </p>
+          </div>
+        `;
+
+        return;
+      }
+
+
+      requests
+        .slice()
+        .reverse()
+        .forEach(request => {
+
+          const item =
+            document.createElement(
+              "article"
+            );
+
+          item.className =
+            "request-history-item";
+
+
+          item.innerHTML = `
+
+            <div class="request-history-header">
+
+              <strong>
+                ${request.service}
+              </strong>
+
+              <span class="request-status-badge">
+                ${request.status}
+              </span>
+
+            </div>
+
+            <div class="request-history-meta">
+
+              Provider:
+              ${request.providerName}
+              <br>
+
+              Category:
+              ${request.categoryName}
+              <br>
+
+              Request ID:
+              ${request.id}
+              <br>
+
+              Created:
+              ${new Date(
+                request.createdAt
+              ).toLocaleString()}
+
+            </div>
+
+          `;
+
+
+          container.appendChild(
+            item
+          );
+
+        });
+
+    }
+
+
+    function clearForm() {
+
+      document
+        .getElementById(
+          "request-form"
+        )
+        .reset();
+
+      updateSummary();
+
+    }
+
+
+    function applyProviderFromUrl() {
+
+      const params =
+        new URLSearchParams(
+          window.location.search
+        );
+
+
+      const provider =
+        params.get("provider");
+
+      const category =
+        params.get("category");
+
+
+      if (provider) {
+
+        const providerSelect =
+          document.getElementById(
+            "provider"
+          );
+
+        providerSelect.value =
+          provider;
+
+      }
+
+
+      if (category) {
+
+        const categorySelect =
+          document.getElementById(
+            "category"
+          );
+
+        categorySelect.value =
+          category;
+
+      }
+
+
+      updateSummary();
+
+    }
+
+
+    function bindForm() {
+
+      const form =
+        document.getElementById(
+          "request-form"
+        );
+
+
+      form.addEventListener(
+        "submit",
+        async event => {
+
+          event.preventDefault();
+
+
+          const provider =
+            document.getElementById(
+              "provider"
+            ).value;
+
+          const category =
+            document.getElementById(
+              "category"
+            ).value;
+
+          const service =
+            document.getElementById(
+              "service"
+            ).value.trim();
+
+          const description =
+            document.getElementById(
+              "description"
+            ).value.trim();
+
+          const preferredDate =
+            document.getElementById(
+              "preferred-date"
+            ).value;
+
+          const preferredTime =
+            document.getElementById(
+              "preferred-time"
+            ).value;
+
+
+          if (
+            !provider ||
+            !category ||
+            !service ||
+            !description
+          ) {
+
+            showStatus(
+              "Please complete all required fields."
+            );
+
+            return;
+          }
+
+
+          const request = {
+
+            id:
+              generateRequestId(),
+
+            providerId:
+              provider,
+
+            providerName:
+              providerNames[
+                provider
+              ],
+
+            category:
+              category,
+
+            categoryName:
+              categoryNames[
+                category
+              ],
+
+            service:
+              service,
+
+            description:
+              description,
+
+            preferredDate:
+              preferredDate || null,
+
+            preferredTime:
+              preferredTime || null,
+
+            status:
+              "pending",
+
+            createdAt:
+              new Date().toISOString()
+
+          };
+
+
+          const requests =
+            getRequests();
+
+
+          requests.push(
+            request
+          );
+
+
+          saveRequests(
+            requests
+          );
+
+
+          /*
+           * Create a notification
+           * through BISOVIA Core.
+           */
+          if (
+            window.BISOVIA_NOTIFICATIONS
+          ) {
+
+            BISOVIA_NOTIFICATIONS.create({
+
+              title:
+                "Service request created",
+
+              message:
+                `Your request for ${service} has been submitted.`,
+
+              type:
+                "service",
+
+              metadata: {
+                requestId:
+                  request.id,
+
+                providerId:
+                  request.providerId,
+
+                category:
+                  request.category
+              }
+
+            });
+
+          }
+
+
+          /*
+           * Backend synchronization will
+           * be activated when the backend
+           * is connected.
+           */
+          if (
+            window.BISOVIA_API
+          ) {
+
+            try {
+
+              await BISOVIA_API.post(
+                "/api/requests",
+                request
+              );
+
+            } catch (error) {
+
+              console.info(
+                "Request stored locally; backend not yet available.",
+                error
+              );
+
+            }
+
+          }
+
+
+          renderHistory();
+
+
+          showStatus(
+            `Request ${request.id} created successfully.`
+          );
+
+
+          clearForm();
+
+        }
+      );
+
+    }
+
+
+    function bindInputs() {
+
+      [
+        "provider",
+        "category",
+        "service",
+        "preferred-date",
+        "preferred-time"
+      ].forEach(id => {
+
+        document
+          .getElementById(id)
+          .addEventListener(
+            "input",
+            updateSummary
+          );
+
+        document
+          .getElementById(id)
+          .addEventListener(
+            "change",
+            updateSummary
+          );
+
+      });
+
+
+      document
+        .getElementById(
+          "clear-form"
+        )
+        .addEventListener(
+          "click",
+          clearForm
+        );
+
+    }
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => {
+
+        bindForm();
+
+        bindInputs();
+
+        applyProviderFromUrl();
+
+        renderHistory();
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
