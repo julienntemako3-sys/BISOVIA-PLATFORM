@@ -1,486 +1,1113 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>Trust &amp; Safety — BISOVIA</title><meta
-name="description"
-content="BISOVIA Trust & Safety — reputation, reviews, reporting and responsible community participation."
 
-«»
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="icon" href="../assets/favicon.svg">
-  <link rel="stylesheet" href="../style.css">  <style>
-    .trust-page {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 70px 20px 90px;
-    }
+  <meta
+    name="description"
+    content="BISOVIA Trust & Safety — reputation, reviews, reports and responsible community interaction."
+  >
 
-    .trust-header {
-      max-width: 800px;
-      margin-bottom: 50px;
-    }
+  <meta
+    name="theme-color"
+    content="#111827"
+  >
 
-    .trust-eyebrow {
-      display: inline-block;
-      margin-bottom: 14px;
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      opacity: 0.7;
-    }
+  <title>BISOVIA — Trust & Safety</title>
 
-    .trust-header h1 {
-      margin: 0 0 18px;
-      font-size: clamp(2.2rem, 6vw, 4.2rem);
-      line-height: 1.05;
-    }
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../assets/favicon.svg"
+  >
 
-    .trust-header p {
-      margin: 0;
-      max-width: 730px;
-      line-height: 1.75;
-      font-size: 1.08rem;
-      opacity: 0.76;
-    }
+  <link
+    rel="apple-touch-icon"
+    href="../assets/favicon.svg"
+  >
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-    }
+  <!-- Pi Network SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
 
-    .trust-card {
-      padding: 30px;
-      border: 1px solid rgba(127, 127, 127, 0.22);
-      border-radius: 22px;
-      background: rgba(127, 127, 127, 0.06);
-    }
+  <link
+    rel="stylesheet"
+    href="../style.css"
+  >
 
-    .trust-icon {
-      width: 54px;
-      height: 54px;
-      display: grid;
-      place-items: center;
-      margin-bottom: 20px;
-      border-radius: 16px;
-      background: rgba(127, 127, 127, 0.12);
-      font-size: 1.6rem;
-    }
+</head>
 
-    .trust-card h2 {
-      margin: 0 0 12px;
-      font-size: 1.4rem;
-    }
 
-    .trust-card p {
-      margin: 0;
-      line-height: 1.7;
-      opacity: 0.74;
-    }
+<body>
 
-    .trust-section {
-      margin-top: 60px;
-    }
 
-    .trust-section h2 {
-      margin: 0 0 16px;
-      font-size: 2rem;
-    }
+<header class="site-header">
 
-    .trust-section > p {
-      max-width: 800px;
-      margin: 0;
-      line-height: 1.7;
-      opacity: 0.75;
-    }
+  <div class="container header-inner">
 
-    .safety-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .safety-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding: 20px;
-      border-radius: 17px;
-      border: 1px solid rgba(127, 127, 127, 0.18);
-      background: rgba(127, 127, 127, 0.04);
-    }
-
-    .safety-number {
-      min-width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: rgba(127, 127, 127, 0.13);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .safety-item strong {
-      display: block;
-      margin-bottom: 5px;
-    }
-
-    .safety-item span {
-      line-height: 1.5;
-      font-size: 0.92rem;
-      opacity: 0.7;
-    }
-
-    .report-box {
-      margin-top: 55px;
-      padding: 30px;
-      border-radius: 21px;
-      border: 1px solid rgba(127, 127, 127, 0.22);
-      background: rgba(127, 127, 127, 0.06);
-    }
-
-    .report-box h2 {
-      margin: 0 0 12px;
-    }
-
-    .report-box p {
-      margin: 0 0 22px;
-      line-height: 1.65;
-      opacity: 0.73;
-    }
-
-    .report-button {
-      padding: 12px 20px;
-      border: 0;
-      border-radius: 11px;
-      cursor: pointer;
-      font-weight: 700;
-      background: rgba(127, 127, 127, 0.15);
-      color: inherit;
-    }
-
-    .report-button:hover {
-      background: rgba(127, 127, 127, 0.23);
-    }
-
-    .trust-note {
-      margin-top: 35px;
-      padding: 22px;
-      border-radius: 18px;
-      border: 1px solid rgba(127, 127, 127, 0.18);
-      background: rgba(127, 127, 127, 0.04);
-    }
-
-    .trust-note strong {
-      display: block;
-      margin-bottom: 7px;
-    }
-
-    .trust-note p {
-      margin: 0;
-      line-height: 1.6;
-      opacity: 0.72;
-    }
-
-    @media (max-width: 750px) {
-      .trust-page {
-        padding: 45px 16px 70px;
-      }
-
-      .trust-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .trust-card,
-      .report-box {
-        padding: 24px;
-      }
-    }
-  </style></head><body>  <!-- CORE NAVIGATION -->  <header class="site-header">
-    <nav class="navbar">  <a href="../index.html" class="brand">
-    <img
-      src="../assets/logo.svg"
-      alt="BISOVIA"
-      class="brand-logo"
+    <a
+      class="brand"
+      href="../index.html"
+      aria-label="BISOVIA home"
     >
-    <span>BISOVIA</span>
-  </a>
 
-  <button
-    class="menu-toggle"
-    id="menuToggle"
-    type="button"
-    aria-label="Open navigation"
-    aria-expanded="false"
-  >
-    ☰
-  </button>
+      <img
+        class="brand-logo"
+        src="../assets/logo.svg"
+        alt="BISOVIA"
+      >
 
-  <div class="nav-links" id="navLinks">
-    <a href="../index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="payments.html">Payments</a>
-    <a href="profile.html">Profile</a>
-    <a href="trust.html" class="active">Trust &amp; Safety</a>
-    <a href="notifications.html">Notifications</a>
-    <a href="settings.html">Settings</a>
-  </div>
+      <span class="brand-name">
+        BISOVIA
+      </span>
 
-</nav>
-
-  </header>  <main class="trust-page"><!-- HEADER -->
-<section class="trust-header">
-
-  <span class="trust-eyebrow">
-    TRUST &amp; SAFETY
-  </span>
-
-  <h1>
-    Trust is part of the Core.
-  </h1>
-
-  <p>
-    BISOVIA is designed with shared trust and safety capabilities
-    so users and service providers can participate with clear
-    community standards and responsible interactions.
-  </p>
-
-</section>
+    </a>
 
 
-<!-- TRUST FEATURES -->
-<section class="trust-grid">
-
-  <article class="trust-card">
-
-    <div class="trust-icon">⭐</div>
-
-    <h2>Reputation</h2>
-
-    <p>
-      Service interactions can contribute to a user's reputation
-      within the BISOVIA ecosystem.
-    </p>
-
-  </article>
+    <button
+      id="menu-toggle"
+      class="icon-button"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
 
 
-  <article class="trust-card">
+    <nav
+      id="main-navigation"
+      class="main-navigation"
+      aria-label="Main navigation"
+    >
 
-    <div class="trust-icon">💬</div>
+      <a href="../index.html">
+        Home
+      </a>
 
-    <h2>Reviews</h2>
+      <a href="./about.html">
+        About
+      </a>
 
-    <p>
-      Users can provide feedback about eligible interactions and
-      services as the platform develops.
-    </p>
+      <a href="./services.html">
+        Services
+      </a>
 
-  </article>
+      <a href="./payments.html">
+        Payment
+      </a>
 
+      <a href="./profile.html">
+        Profile
+      </a>
 
-  <article class="trust-card">
+      <a
+        href="./trust.html"
+        aria-current="page"
+      >
+        Trust
+      </a>
 
-    <div class="trust-icon">🛡️</div>
+      <a href="./notifications.html">
+        Notifications
+      </a>
 
-    <h2>Safety</h2>
-
-    <p>
-      Shared safety mechanisms provide a foundation for responsible
-      participation across BISOVIA service modules.
-    </p>
-
-  </article>
-
-
-  <article class="trust-card">
-
-    <div class="trust-icon">🚩</div>
-
-    <h2>Reports</h2>
-
-    <p>
-      Users will be able to report inappropriate or problematic
-      interactions through the platform's reporting system.
-    </p>
-
-  </article>
-
-</section>
+      <a href="./settings.html">
+        Settings
+      </a>
 
 
-<!-- COMMUNITY PRINCIPLES -->
-<section class="trust-section">
-
-  <h2>Community principles</h2>
-
-  <p>
-    Trust &amp; Safety is designed around practical principles that
-    can be shared across Mobility, Auto &amp; Garages, Hospitality
-    and Community.
-  </p>
-
-
-  <div class="safety-list">
-
-    <div class="safety-item">
-
-      <div class="safety-number">1</div>
-
-      <div>
-        <strong>Respect</strong>
-
-        <span>
-          Interactions should remain respectful and appropriate
-          for the people involved.
-        </span>
-      </div>
-
-    </div>
+      <button
+        id="theme-toggle"
+        class="icon-button"
+        type="button"
+        aria-label="Toggle dark and light mode"
+        title="Toggle theme"
+      >
+        ◐
+      </button>
 
 
-    <div class="safety-item">
+      <button
+        id="pi-login"
+        class="primary-button"
+        type="button"
+      >
+        Sign in with Pi
+      </button>
 
-      <div class="safety-number">2</div>
-
-      <div>
-        <strong>Transparency</strong>
-
-        <span>
-          Service information, interactions and relevant feedback
-          should be presented clearly.
-        </span>
-      </div>
-
-    </div>
-
-
-    <div class="safety-item">
-
-      <div class="safety-number">3</div>
-
-      <div>
-        <strong>Accountability</strong>
-
-        <span>
-          Users and service providers should remain responsible
-          for their participation on the platform.
-        </span>
-      </div>
-
-    </div>
-
-
-    <div class="safety-item">
-
-      <div class="safety-number">4</div>
-
-      <div>
-        <strong>Responsible participation</strong>
-
-        <span>
-          Community interaction should support useful, safe and
-          constructive participation.
-        </span>
-      </div>
-
-    </div>
+    </nav>
 
   </div>
 
-</section>
+</header>
 
 
-<!-- REPORTING -->
-<section class="report-box">
 
-  <h2>Report an issue</h2>
-
-  <p>
-    A reporting workflow will allow users to notify BISOVIA about
-    problematic interactions, service concerns or other issues
-    requiring review.
-  </p>
-
-  <button
-    class="report-button"
-    id="reportButton"
-    type="button"
-  >
-    Report an issue
-  </button>
-
-</section>
+<main>
 
 
-<!-- CORE NOTE -->
-<section class="trust-note">
+  <section class="hero-section">
 
-  <strong>
-    One Trust &amp; Safety foundation.
-  </strong>
+    <div class="container">
 
-  <p>
-    Trust, reputation, reviews, reports and moderation belong to
-    the BISOVIA Core so that service modules can use a consistent
-    trust system instead of creating separate systems.
-  </p>
+      <span class="eyebrow">
+        BISOVIA CORE
+      </span>
 
-</section>
+      <h1>
+        Trust & Safety
+      </h1>
 
-  </main>  <!-- FOOTER -->  <footer class="site-footer"><p>
-  © <span id="currentYear"></span> BISOVIA.
-  Built for practical utility and community interaction.
-</p>
+      <p>
+        Build responsible interactions through reputation,
+        reviews, reporting and safety controls.
+      </p>
 
-  </footer>  <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+    </div>
 
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener("click", () => {
+  </section>
 
-        const isOpen = navLinks.classList.toggle("open");
 
-        menuToggle.setAttribute(
-          "aria-expanded",
-          String(isOpen)
+
+  <section class="features-section">
+
+    <div class="container">
+
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          REPUTATION
+        </span>
+
+        <h2>
+          Trust is part of the Core.
+        </h2>
+
+        <p>
+          BISOVIA provides shared trust and safety
+          capabilities across its service modules.
+        </p>
+
+      </div>
+
+
+
+      <div class="features-grid">
+
+
+        <article class="feature-card">
+
+          <div class="feature-icon">
+            ⭐
+          </div>
+
+          <h3>
+            Reputation
+          </h3>
+
+          <p>
+            Your current BISOVIA reputation information
+            is shown through the Core Trust service.
+          </p>
+
+          <strong id="reputation-score">
+            0
+          </strong>
+
+          <p id="reviews-count">
+            0 reviews
+          </p>
+
+        </article>
+
+
+
+        <article class="feature-card">
+
+          <div class="feature-icon">
+            🛡️
+          </div>
+
+          <h3>
+            Safety status
+          </h3>
+
+          <p id="safety-status">
+            Normal
+          </p>
+
+          <p>
+            BISOVIA Trust & Safety monitors reports and
+            moderation states through the Core.
+          </p>
+
+        </article>
+
+
+
+        <article class="feature-card">
+
+          <div class="feature-icon">
+            💬
+          </div>
+
+          <h3>
+            Reviews
+          </h3>
+
+          <p>
+            Submit service feedback and help strengthen
+            responsible interactions.
+          </p>
+
+          <button
+            id="show-review-form"
+            class="secondary-button"
+            type="button"
+          >
+            Write a Review
+          </button>
+
+        </article>
+
+
+
+        <article class="feature-card">
+
+          <div class="feature-icon">
+            🚩
+          </div>
+
+          <h3>
+            Reports
+          </h3>
+
+          <p>
+            Report a service, user, payment or safety
+            concern for review.
+          </p>
+
+          <button
+            id="show-report-form"
+            class="secondary-button"
+            type="button"
+          >
+            Submit a Report
+          </button>
+
+        </article>
+
+
+      </div>
+
+
+
+      <div
+        id="review-form"
+        class="status-card"
+        hidden
+      >
+
+        <div>
+
+          <span class="eyebrow">
+            SUBMIT REVIEW
+          </span>
+
+          <h3>
+            Share your experience
+          </h3>
+
+          <div class="form-container">
+
+            <div class="form-group">
+
+              <label for="review-target">
+                Service or provider ID
+              </label>
+
+              <input
+                id="review-target"
+                type="text"
+                placeholder="Enter target ID"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="review-type">
+                Review type
+              </label>
+
+              <select id="review-type">
+
+                <option value="service">
+                  Service
+                </option>
+
+                <option value="provider">
+                  Provider
+                </option>
+
+                <option value="general">
+                  General
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="review-rating">
+                Rating
+              </label>
+
+              <select id="review-rating">
+
+                <option value="5">
+                  5 — Excellent
+                </option>
+
+                <option value="4">
+                  4 — Good
+                </option>
+
+                <option value="3">
+                  3 — Average
+                </option>
+
+                <option value="2">
+                  2 — Poor
+                </option>
+
+                <option value="1">
+                  1 — Very poor
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="review-comment">
+                Comment
+              </label>
+
+              <textarea
+                id="review-comment"
+                rows="4"
+                placeholder="Describe your experience"
+              ></textarea>
+
+            </div>
+
+
+            <button
+              id="submit-review"
+              class="primary-button"
+              type="button"
+            >
+              Submit Review
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div
+        id="report-form"
+        class="status-card"
+        hidden
+      >
+
+        <div>
+
+          <span class="eyebrow">
+            SAFETY REPORT
+          </span>
+
+          <h3>
+            Report a concern
+          </h3>
+
+          <div class="form-container">
+
+
+            <div class="form-group">
+
+              <label for="report-target">
+                Target ID
+              </label>
+
+              <input
+                id="report-target"
+                type="text"
+                placeholder="Enter user, service or payment ID"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="report-type">
+                Report type
+              </label>
+
+              <select id="report-type">
+
+                <option value="service">
+                  Service
+                </option>
+
+                <option value="user">
+                  User
+                </option>
+
+                <option value="payment">
+                  Payment
+                </option>
+
+                <option value="safety">
+                  Safety
+                </option>
+
+                <option value="other">
+                  Other
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="report-reason">
+                Reason
+              </label>
+
+              <input
+                id="report-reason"
+                type="text"
+                placeholder="Enter the reason"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="report-description">
+                Description
+              </label>
+
+              <textarea
+                id="report-description"
+                rows="4"
+                placeholder="Explain the concern"
+              ></textarea>
+
+            </div>
+
+
+            <button
+              id="submit-report"
+              class="primary-button"
+              type="button"
+            >
+              Submit Report
+            </button>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <p
+        id="trust-message"
+        class="status-message"
+        aria-live="polite"
+      ></p>
+
+
+    </div>
+
+  </section>
+
+
+
+  <section class="status-section">
+
+    <div class="container">
+
+      <div class="status-card">
+
+        <div>
+
+          <span class="eyebrow">
+            RESPONSIBLE PARTICIPATION
+          </span>
+
+          <h2>
+            Trust grows through responsible interaction.
+          </h2>
+
+          <p>
+            Reviews and reports submitted through this
+            interface are recorded by the BISOVIA Trust
+            Core. Final moderation and authoritative
+            decisions will be handled by the BISOVIA
+            backend when it is connected.
+          </p>
+
+        </div>
+
+
+        <div class="status-indicator">
+
+          <span class="status-dot"></span>
+
+          <span>
+            Trust Core Ready
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<footer class="site-footer">
+
+  <div class="container footer-inner">
+
+    <div>
+
+      <strong>
+        BISOVIA
+      </strong>
+
+      <p>
+        A Pi-native utility platform designed to connect
+        practical services with responsible Pi technology.
+      </p>
+
+    </div>
+
+
+    <div>
+
+      <p>
+        © <span id="current-year"></span>
+        BISOVIA
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- BISOVIA Core -->
+
+<script src="../core/api.js"></script>
+<script src="../core/auth.js"></script>
+<script src="../core/payments.js"></script>
+<script src="../core/profile.js"></script>
+<script src="../core/trust.js"></script>
+<script src="../core/notifications.js"></script>
+
+<!-- Main BISOVIA JavaScript -->
+<script src="../script.js"></script>
+
+
+
+<!-- Trust page logic -->
+
+<script>
+
+document.addEventListener(
+  "DOMContentLoaded",
+  function () {
+
+
+    const reputationScore =
+      document.getElementById(
+        "reputation-score"
+      );
+
+
+    const reviewsCount =
+      document.getElementById(
+        "reviews-count"
+      );
+
+
+    const safetyStatus =
+      document.getElementById(
+        "safety-status"
+      );
+
+
+    const trustMessage =
+      document.getElementById(
+        "trust-message"
+      );
+
+
+    const reviewForm =
+      document.getElementById(
+        "review-form"
+      );
+
+
+    const reportForm =
+      document.getElementById(
+        "report-form"
+      );
+
+
+    const showReviewForm =
+      document.getElementById(
+        "show-review-form"
+      );
+
+
+    const showReportForm =
+      document.getElementById(
+        "show-report-form"
+      );
+
+
+    const submitReview =
+      document.getElementById(
+        "submit-review"
+      );
+
+
+    const submitReport =
+      document.getElementById(
+        "submit-report"
+      );
+
+
+    function setMessage(message) {
+
+      trustMessage.textContent =
+        message;
+
+    }
+
+
+    function renderTrust() {
+
+      if (
+        !window.BISOVIA_TRUST
+      ) {
+
+        setMessage(
+          "BISOVIA Trust Core is not available."
         );
 
-      });
+        return;
+
+      }
+
+
+      const reputation =
+        window.BISOVIA_TRUST.getReputation();
+
+
+      reputationScore.textContent =
+        Number(
+          reputation.score || 0
+        ).toFixed(1);
+
+
+      reviewsCount.textContent =
+        (
+          reputation.reviewsCount || 0
+        ) +
+        (
+          reputation.reviewsCount === 1
+            ? " review"
+            : " reviews"
+        );
+
+
+      const status =
+        window.BISOVIA_TRUST.getSafetyStatus();
+
+
+      safetyStatus.textContent =
+        status || "normal";
+
     }
 
 
-    const currentYear = document.getElementById("currentYear");
+    showReviewForm.addEventListener(
+      "click",
+      function () {
+
+        reviewForm.hidden =
+          !reviewForm.hidden;
+
+        reportForm.hidden =
+          true;
+
+      }
+    );
+
+
+    showReportForm.addEventListener(
+      "click",
+      function () {
+
+        reportForm.hidden =
+          !reportForm.hidden;
+
+        reviewForm.hidden =
+          true;
+
+      }
+    );
+
+
+    submitReview.addEventListener(
+      "click",
+      function () {
+
+        if (
+          !window.BISOVIA_TRUST
+        ) {
+
+          setMessage(
+            "BISOVIA Trust Core is not available."
+          );
+
+          return;
+
+        }
+
+
+        const targetId =
+          document
+            .getElementById(
+              "review-target"
+            )
+            .value
+            .trim();
+
+
+        const targetType =
+          document
+            .getElementById(
+              "review-type"
+            )
+            .value;
+
+
+        const rating =
+          Number(
+            document
+              .getElementById(
+                "review-rating"
+              )
+              .value
+          );
+
+
+        const comment =
+          document
+            .getElementById(
+              "review-comment"
+            )
+            .value
+            .trim();
+
+
+        if (!targetId) {
+
+          setMessage(
+            "Please enter a service or provider ID."
+          );
+
+          return;
+
+        }
+
+
+        if (!comment) {
+
+          setMessage(
+            "Please describe your experience."
+          );
+
+          return;
+
+        }
+
+
+        try {
+
+          window.BISOVIA_TRUST.addReview({
+
+            targetId:
+              targetId,
+
+            targetType:
+              targetType,
+
+            rating:
+              rating,
+
+            comment:
+              comment
+
+          });
+
+
+          setMessage(
+            "Your review has been submitted for review."
+          );
+
+
+          document
+            .getElementById(
+              "review-target"
+            )
+            .value = "";
+
+
+          document
+            .getElementById(
+              "review-comment"
+            )
+            .value = "";
+
+
+          renderTrust();
+
+        } catch (error) {
+
+          console.error(
+            "Review submission error:",
+            error
+          );
+
+
+          setMessage(
+            error.message ||
+            "Unable to submit the review."
+          );
+
+        }
+
+      }
+    );
+
+
+    submitReport.addEventListener(
+      "click",
+      function () {
+
+        if (
+          !window.BISOVIA_TRUST
+        ) {
+
+          setMessage(
+            "BISOVIA Trust Core is not available."
+          );
+
+          return;
+
+        }
+
+
+        const targetId =
+          document
+            .getElementById(
+              "report-target"
+            )
+            .value
+            .trim();
+
+
+        const targetType =
+          document
+            .getElementById(
+              "report-type"
+            )
+            .value;
+
+
+        const reason =
+          document
+            .getElementById(
+              "report-reason"
+            )
+            .value
+            .trim();
+
+
+        const description =
+          document
+            .getElementById(
+              "report-description"
+            )
+            .value
+            .trim();
+
+
+        if (!reason) {
+
+          setMessage(
+            "Please enter a reason for the report."
+          );
+
+          return;
+
+        }
+
+
+        try {
+
+          window.BISOVIA_TRUST.submitReport({
+
+            targetId:
+              targetId,
+
+            targetType:
+              targetType,
+
+            reason:
+              reason,
+
+            description:
+              description
+
+          });
+
+
+          setMessage(
+            "Your report has been submitted for review."
+          );
+
+
+          document
+            .getElementById(
+              "report-target"
+            )
+            .value = "";
+
+
+          document
+            .getElementById(
+              "report-reason"
+            )
+            .value = "";
+
+
+          document
+            .getElementById(
+              "report-description"
+            )
+            .value = "";
+
+
+        } catch (error) {
+
+          console.error(
+            "Report submission error:",
+            error
+          );
+
+
+          setMessage(
+            error.message ||
+            "Unable to submit the report."
+          );
+
+        }
+
+      }
+    );
+
+
+    window.addEventListener(
+      "bisovia:trust-review-submitted",
+      function () {
+
+        renderTrust();
+
+      }
+    );
+
+
+    window.addEventListener(
+      "bisovia:trust-report-submitted",
+      function () {
+
+        setMessage(
+          "BISOVIA received your safety report."
+        );
+
+      }
+    );
+
+
+    renderTrust();
+
+
+    const currentYear =
+      document.getElementById(
+        "current-year"
+      );
+
 
     if (currentYear) {
-      currentYear.textContent = new Date().getFullYear();
-    }
 
-
-    /*
-      Reporting workflow placeholder.
-
-      The real reporting and moderation system will be
-      connected to the BISOVIA Core/backend later.
-    */
-
-    const reportButton =
-      document.getElementById("reportButton");
-
-    if (reportButton) {
-
-      reportButton.addEventListener("click", () => {
-
-        alert(
-          "The BISOVIA reporting system will be connected to Trust & Safety Core."
-        );
-
-      });
+      currentYear.textContent =
+        new Date().getFullYear();
 
     }
-  </script></body>
+
+  }
+);
+
+</script>
+
+
+</body>
 </html>
