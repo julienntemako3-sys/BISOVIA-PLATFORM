@@ -1,1 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>BISOVIA | Hospitality Requests</title>
+
+  <meta
+    name="description"
+    content="BISOVIA Hospitality Requests — request accommodation, meals, events and other hospitality services."
+  >
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="hospitality.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="../../index.html" class="brand">
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+
+        <a href="../../index.html" data-i18n="nav.home">
+          Home
+        </a>
+
+        <a href="../mobility/mobility.html" data-i18n="nav.mobility">
+          Mobility
+        </a>
+
+        <a href="../auto/auto.html" data-i18n="nav.auto">
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          class="active"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a href="../community/community.html" data-i18n="nav.community">
+          Community
+        </a>
+
+        <a href="../../pages/payments.html" data-i18n="nav.payments">
+          Payments
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <select
+          id="languageSelector"
+          class="language-selector"
+          aria-label="Language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          ◐
+        </button>
+
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="module-hero hospitality-hero">
+
+      <div class="container">
+
+        <p
+          class="section-eyebrow"
+          data-i18n="requests.eyebrow"
+        >
+          HOSPITALITY REQUESTS
+        </p>
+
+        <h1 data-i18n="requests.title">
+          Request a hospitality service.
+        </h1>
+
+        <p data-i18n="requests.description">
+          Send a request for accommodation, meals, events or other
+          hospitality services available through BISOVIA.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="providers.html"
+            class="btn btn-primary"
+            data-i18n="requests.browseProviders"
+          >
+            Browse Providers
+          </a>
+
+          <a
+            href="booking.html"
+            class="btn btn-secondary"
+            data-i18n="requests.viewBookings"
+          >
+            View Booking Flow
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- REQUEST TYPES -->
+    <section class="services-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p
+            class="section-eyebrow"
+            data-i18n="requests.typesEyebrow"
+          >
+            REQUEST TYPES
+          </p>
+
+          <h2 data-i18n="requests.typesTitle">
+            Choose what you need.
+          </h2>
+
+          <p data-i18n="requests.typesDescription">
+            Start with the hospitality service that matches your need.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- ACCOMMODATION -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              🏨
+            </div>
+
+            <h3 data-i18n="requests.accommodationTitle">
+              Accommodation
+            </h3>
+
+            <p data-i18n="requests.accommodationText">
+              Request a hotel, guest house, apartment or another place
+              to stay.
+            </p>
+
+            <a
+              href="requests.html?category=accommodation"
+              class="service-link"
+              data-i18n="requests.startRequest"
+            >
+              Start Request →
+            </a>
+
+          </article>
+
+
+          <!-- MEALS -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              🍽️
+            </div>
+
+            <h3 data-i18n="requests.mealsTitle">
+              Meals & Food
+            </h3>
+
+            <p data-i18n="requests.mealsText">
+              Request meals, catering, takeaway or other food services.
+            </p>
+
+            <a
+              href="requests.html?category=meals"
+              class="service-link"
+              data-i18n="requests.startRequest"
+            >
+              Start Request →
+            </a>
+
+          </article>
+
+
+          <!-- EVENTS -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              🎪
+            </div>
+
+            <h3 data-i18n="requests.eventsTitle">
+              Events & Spaces
+            </h3>
+
+            <p data-i18n="requests.eventsText">
+              Request meeting spaces, community gatherings,
+              celebrations or workshops.
+            </p>
+
+            <a
+              href="requests.html?category=events"
+              class="service-link"
+              data-i18n="requests.startRequest"
+            >
+              Start Request →
+            </a>
+
+          </article>
+
+
+          <!-- OTHER -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              ✨
+            </div>
+
+            <h3 data-i18n="requests.otherTitle">
+              Other Services
+            </h3>
+
+            <p data-i18n="requests.otherText">
+              Request another practical hospitality service offered
+              through the BISOVIA network.
+            </p>
+
+            <a
+              href="requests.html?category=other"
+              class="service-link"
+              data-i18n="requests.startRequest"
+            >
+              Start Request →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- REQUEST PROCESS -->
+    <section class="how-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p
+            class="section-eyebrow"
+            data-i18n="requests.processEyebrow"
+          >
+            REQUEST PROCESS
+          </p>
+
+          <h2 data-i18n="requests.processTitle">
+            Simple from request to service.
+          </h2>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+
+            <div class="step-number">
+              01
+            </div>
+
+            <h3 data-i18n="requests.step1Title">
+              Choose
+            </h3>
+
+            <p data-i18n="requests.step1Text">
+              Select the hospitality service you need.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <div class="step-number">
+              02
+            </div>
+
+            <h3 data-i18n="requests.step2Title">
+              Send Request
+            </h3>
+
+            <p data-i18n="requests.step2Text">
+              Submit your request to a participating provider.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <div class="step-number">
+              03
+            </div>
+
+            <h3 data-i18n="requests.step3Title">
+              Confirm
+            </h3>
+
+            <p data-i18n="requests.step3Text">
+              Review the service details and confirm the request.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <div class="step-number">
+              04
+            </div>
+
+            <h3 data-i18n="requests.step4Title">
+              Pay with Pi
+            </h3>
+
+            <p data-i18n="requests.step4Text">
+              Complete the payment through the BISOVIA Pi payment flow.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- REQUEST FORM PREVIEW -->
+    <section class="provider-section">
+
+      <div class="container">
+
+        <div class="provider-panel">
+
+          <div>
+
+            <p
+              class="section-eyebrow"
+              data-i18n="requests.panelEyebrow"
+            >
+              REQUEST CENTER
+            </p>
+
+            <h2 data-i18n="requests.panelTitle">
+              Your hospitality request starts here.
+            </h2>
+
+            <p data-i18n="requests.panelText">
+              BISOVIA will connect your request with the appropriate
+              hospitality service and provider. Detailed booking,
+              availability and payment actions will be connected to
+              the backend as the platform develops.
+            </p>
+
+          </div>
+
+          <div class="hero-actions">
+
+            <a
+              href="providers.html"
+              class="btn btn-primary"
+              data-i18n="requests.findProvider"
+            >
+              Find a Provider
+            </a>
+
+            <a
+              href="booking.html"
+              class="btn btn-secondary"
+              data-i18n="requests.bookingFlow"
+            >
+              Booking Flow
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PI SECTION -->
+    <section class="pi-section">
+
+      <div class="container">
+
+        <div class="pi-card">
+
+          <div class="pi-icon">
+            π
+          </div>
+
+          <div>
+
+            <p
+              class="section-eyebrow"
+              data-i18n="requests.piEyebrow"
+            >
+              PI-NATIVE SERVICE
+            </p>
+
+            <h2 data-i18n="requests.piTitle">
+              Requests connect to the BISOVIA Core.
+            </h2>
+
+            <p data-i18n="requests.piText">
+              Hospitality requests are designed to connect with
+              BISOVIA identity, trust, notifications and Pi payment
+              infrastructure without putting hospitality business
+              logic inside the Core.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="footer-logo"
+        >
+
+        <p data-i18n="footer.description">
+          A Pi-native utility platform for practical digital services
+          and community interaction.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="../../index.html" data-i18n="nav.home">
+          Home
+        </a>
+
+        <a href="../mobility/mobility.html" data-i18n="nav.mobility">
+          Mobility
+        </a>
+
+        <a href="../auto/auto.html" data-i18n="nav.auto">
+          Auto
+        </a>
+
+        <a href="hospitality.html" data-i18n="nav.hospitality">
+          Hospitality
+        </a>
+
+        <a href="../community/community.html" data-i18n="nav.community">
+          Community
+        </a>
+
+        <a href="../../pages/payments.html" data-i18n="nav.payments">
+          Payments
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="footer.rights">
+          All rights reserved.
+        </span>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- SCRIPTS -->
+  <script src="../../script.js"></script>
+  <script src="hospitality.js"></script>
+
+</body>
+</html>
