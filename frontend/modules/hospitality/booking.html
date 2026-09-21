@@ -1,1 +1,340 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BISOVIA | Hospitality Booking</title>
+
+  <meta
+    name="description"
+    content="BISOVIA Hospitality Booking — manage accommodation, meals, events and other hospitality bookings."
+  >
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="hospitality.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="../../index.html" class="brand">
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+
+        <a href="../../index.html" data-i18n="nav.home">
+          Home
+        </a>
+
+        <a href="../mobility/mobility.html" data-i18n="nav.mobility">
+          Mobility
+        </a>
+
+        <a href="../auto/auto.html" data-i18n="nav.auto">
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          class="active"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a href="../community/community.html" data-i18n="nav.community">
+          Community
+        </a>
+
+        <a href="../../pages/payments.html" data-i18n="nav.payments">
+          Payments
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <select
+          id="languageSelector"
+          class="language-selector"
+          aria-label="Language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          ◐
+        </button>
+
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- HERO -->
+    <section class="module-hero hospitality-hero">
+
+      <div class="container">
+
+        <p
+          class="section-eyebrow"
+          data-i18n="booking.eyebrow"
+        >
+          HOSPITALITY BOOKING
+        </p>
+
+        <h1 data-i18n="booking.title">
+          Book a hospitality service.
+        </h1>
+
+        <p data-i18n="booking.description">
+          Move from a service request to a confirmed hospitality
+          booking through a simple and transparent flow.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="providers.html"
+            class="btn btn-primary"
+            data-i18n="booking.findProvider"
+          >
+            Find a Provider
+          </a>
+
+          <a
+            href="requests.html"
+            class="btn btn-secondary"
+            data-i18n="booking.newRequest"
+          >
+            New Request
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOOKING FLOW -->
+    <section class="how-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p
+            class="section-eyebrow"
+            data-i18n="booking.flowEyebrow"
+          >
+            BOOKING FLOW
+          </p>
+
+          <h2 data-i18n="booking.flowTitle">
+            From request to confirmed service.
+          </h2>
+
+          <p data-i18n="booking.flowDescription">
+            The booking flow is designed to keep the user,
+            provider and payment process connected.
+          </p>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+          <!-- STEP 1 -->
+          <article class="step-card">
+
+            <div class="step-number">
+              01
+            </div>
+
+            <h3 data-i18n="booking.step1Title">
+              Select
+            </h3>
+
+            <p data-i18n="booking.step1Text">
+              Choose the hospitality service and provider that
+              matches your needs.
+            </p>
+
+          </article>
+
+
+          <!-- STEP 2 -->
+          <article class="step-card">
+
+            <div class="step-number">
+              02
+            </div>
+
+            <h3 data-i18n="booking.step2Title">
+              Request
+            </h3>
+
+            <p data-i18n="booking.step2Text">
+              Send the service details, preferred date and other
+              relevant information.
+            </p>
+
+          </article>
+
+
+          <!-- STEP 3 -->
+          <article class="step-card">
+
+            <div class="step-number">
+              03
+            </div>
+
+            <h3 data-i18n="booking.step3Title">
+              Confirm
+            </h3>
+
+            <p data-i18n="booking.step3Text">
+              Review availability, service details and the
+              proposed booking before confirmation.
+            </p>
+
+          </article>
+
+
+          <!-- STEP 4 -->
+          <article class="step-card">
+
+            <div class="step-number">
+              04
+            </div>
+
+            <h3 data-i18n="booking.step4Title">
+              Pay with Pi
+            </h3>
+
+            <p data-i18n="booking.step4Text">
+              Complete the payment through the BISOVIA Pi payment
+              infrastructure.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BOOKING TYPES -->
+    <section class="services-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p
+            class="section-eyebrow"
+            data-i18n="booking.typesEyebrow"
+          >
+            BOOKING TYPES
+          </p>
+
+          <h2 data-i18n="booking.typesTitle">
+            What would you like to book?
+          </h2>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- ACCOMMODATION -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              🏨
+            </div>
+
+            <h3 data-i18n="booking.accommodationTitle">
+              Accommodation
+            </h3>
+
+            <p data-i18n="booking.accommodationText">
+              Book a hotel, guest house, apartment or another
+              available place to stay.
+            </p>
+
+            <a
+              href="booking.html?category=accommodation"
+              class="service-link"
+              data-i18n="booking.bookNow"
+            >
+              Start Booking →
+            </a>
+
+          </article>
+
+
+          <!-- MEALS -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              🍽️
+            </div>
+
+            <h3 data-i18n="booking.mealsTitle">
+              Meals & Food
+            </h3>
+
+            <p data-i18n="booking.mealsText">
+              Book meals, catering, takeaway or another food service.
+            </p>
+
+            <a
+              href="booking.html?category=meals"
+              class="service-link"
+              data-i18n="booking.bookNow"
+            >
+              Start Booking →
+            </a>
+
+          </article>
+
+
+          <!-- EVENTS
