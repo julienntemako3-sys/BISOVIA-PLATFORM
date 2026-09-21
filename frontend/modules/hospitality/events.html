@@ -1,1 +1,635 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA Events and Spaces — discover hospitality spaces and services for meetings, gatherings and community activities."
+  >
+
+  <title>BISOVIA | Events & Spaces</title>
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="hospitality.css">
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../../assets/favicon.svg"
+  >
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="../../index.html"
+        class="brand"
+        aria-label="BISOVIA Home"
+      >
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <nav
+        class="main-nav"
+        aria-label="Main navigation"
+      >
+
+        <a
+          href="../../index.html"
+          data-i18n="nav.home"
+        >
+          Home
+        </a>
+
+        <a
+          href="../mobility/mobility.html"
+          data-i18n="nav.mobility"
+        >
+          Mobility
+        </a>
+
+        <a
+          href="../auto/auto.html"
+          data-i18n="nav.auto"
+        >
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          class="active"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a
+          href="../community/community.html"
+          data-i18n="nav.community"
+        >
+          Community
+        </a>
+
+        <a
+          href="../../pages/payments.html"
+          data-i18n="nav.payments"
+        >
+          Payments
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <select
+          id="languageSelector"
+          class="language-selector"
+          aria-label="Select language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          🌙
+        </button>
+
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- HERO -->
+    <section class="module-hero hospitality-hero">
+
+      <div class="container">
+
+        <span
+          class="section-eyebrow"
+          data-i18n="events.eyebrow"
+        >
+          EVENTS & SPACES
+        </span>
+
+        <h1 data-i18n="events.title">
+          Find spaces and hospitality services for your events.
+        </h1>
+
+        <p data-i18n="events.description">
+          Discover practical spaces and hospitality services
+          for meetings, gatherings, celebrations and community
+          activities through BISOVIA.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="providers.html?category=events"
+            class="btn btn-primary"
+            data-i18n="events.find"
+          >
+            Find event services
+          </a>
+
+          <a
+            href="requests.html?category=events"
+            class="btn btn-secondary"
+            data-i18n="events.request"
+          >
+            Make an event request
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EVENT SERVICES
+    ========================== -->
+    <section class="services-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span
+            class="section-eyebrow"
+            data-i18n="events.categoriesEyebrow"
+          >
+            EVENT SERVICES
+          </span>
+
+          <h2 data-i18n="events.categoriesTitle">
+            Spaces for different activities
+          </h2>
+
+          <p data-i18n="events.categoriesDescription">
+            Explore spaces and hospitality services according
+            to the type of activity you are planning.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- Meeting -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🏢
+            </div>
+
+            <h3 data-i18n="events.meetingTitle">
+              Meeting Spaces
+            </h3>
+
+            <p data-i18n="events.meetingText">
+              Find suitable spaces for meetings, discussions,
+              workshops and professional activities.
+            </p>
+
+            <a
+              href="providers.html?category=meeting"
+              class="service-link"
+              data-i18n="events.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+
+          <!-- Community -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🤝
+            </div>
+
+            <h3 data-i18n="events.communityTitle">
+              Community Gatherings
+            </h3>
+
+            <p data-i18n="events.communityText">
+              Discover spaces suitable for community meetings,
+              activities and local gatherings.
+            </p>
+
+            <a
+              href="providers.html?category=community-events"
+              class="service-link"
+              data-i18n="events.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+
+          <!-- Celebrations -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🎉
+            </div>
+
+            <h3 data-i18n="events.celebrationTitle">
+              Celebrations
+            </h3>
+
+            <p data-i18n="events.celebrationText">
+              Find hospitality spaces and services for
+              celebrations and special gatherings.
+            </p>
+
+            <a
+              href="providers.html?category=celebration"
+              class="service-link"
+              data-i18n="events.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+
+          <!-- Workshops -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              📚
+            </div>
+
+            <h3 data-i18n="events.workshopTitle">
+              Workshops & Activities
+            </h3>
+
+            <p data-i18n="events.workshopText">
+              Explore spaces for training, workshops,
+              presentations and practical activities.
+            </p>
+
+            <a
+              href="providers.html?category=workshop"
+              class="service-link"
+              data-i18n="events.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROCESS
+    ========================== -->
+    <section class="how-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span
+            class="section-eyebrow"
+            data-i18n="events.processEyebrow"
+          >
+            SIMPLE PROCESS
+          </span>
+
+          <h2 data-i18n="events.processTitle">
+            Plan your activity with BISOVIA
+          </h2>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+
+            <span class="step-number">
+              01
+            </span>
+
+            <h3 data-i18n="events.step1Title">
+              Choose a service
+            </h3>
+
+            <p data-i18n="events.step1Text">
+              Explore spaces and hospitality services that
+              match your activity.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              02
+            </span>
+
+            <h3 data-i18n="events.step2Title">
+              Send your request
+            </h3>
+
+            <p data-i18n="events.step2Text">
+              Provide the date, number of participants and
+              other relevant event details.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <h3 data-i18n="events.step3Title">
+              Confirm
+            </h3>
+
+            <p data-i18n="events.step3Text">
+              Review the provider response and confirm the
+              requested service when available.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              04
+            </span>
+
+            <h3 data-i18n="events.step4Title">
+              Pay with Pi
+            </h3>
+
+            <p data-i18n="events.step4Text">
+              When payment is required, complete the
+              transaction through the BISOVIA Pi-native flow.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REQUEST CTA
+    ========================== -->
+    <section class="provider-section">
+
+      <div class="container">
+
+        <div class="provider-panel">
+
+          <div>
+
+            <span
+              class="section-eyebrow"
+              data-i18n="events.ctaEyebrow"
+            >
+              PLAN YOUR ACTIVITY
+            </span>
+
+            <h2 data-i18n="events.ctaTitle">
+              Looking for a space or event service?
+            </h2>
+
+            <p data-i18n="events.ctaText">
+              Explore participating providers or send a
+              request based on your activity needs.
+            </p>
+
+          </div>
+
+          <a
+            href="requests.html?category=events"
+            class="btn btn-primary"
+            data-i18n="events.ctaButton"
+          >
+            Make a request
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PI SECTION
+    ========================== -->
+    <section class="pi-section">
+
+      <div class="container">
+
+        <div class="pi-card">
+
+          <div
+            class="pi-icon"
+            aria-hidden="true"
+          >
+            π
+          </div>
+
+          <div>
+
+            <span
+              class="section-eyebrow"
+              data-i18n="events.piEyebrow"
+            >
+              PI-NATIVE HOSPITALITY
+            </span>
+
+            <h2 data-i18n="events.piTitle">
+              Event services connected to BISOVIA Core.
+            </h2>
+
+            <p data-i18n="events.piText">
+              Event requests can connect with BISOVIA
+              identity, trust, notifications and Pi payment
+              services.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="footer-logo"
+        >
+
+        <p data-i18n="footer.description">
+          A Pi-native utility platform built for practical
+          digital services and community interaction.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a
+          href="../../index.html"
+          data-i18n="nav.home"
+        >
+          Home
+        </a>
+
+        <a
+          href="../mobility/mobility.html"
+          data-i18n="nav.mobility"
+        >
+          Mobility
+        </a>
+
+        <a
+          href="../auto/auto.html"
+          data-i18n="nav.auto"
+        >
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a
+          href="../community/community.html"
+          data-i18n="nav.community"
+        >
+          Community
+        </a>
+
+        <a
+          href="../../pages/payments.html"
+          data-i18n="nav.payments"
+        >
+          Payments
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="footer.rights">
+          All rights reserved.
+        </span>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+  <script src="../../script.js"></script>
+  <script src="hospitality.js"></script>
+
+</body>
+
+</html>
