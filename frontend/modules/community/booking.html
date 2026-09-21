@@ -1,1 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>BISOVIA — Community Booking</title>
+
+  <meta
+    name="description"
+    content="Book a community service or event through BISOVIA."
+  />
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg" />
+
+  <!-- Core stylesheet -->
+  <link rel="stylesheet" href="../../style.css" />
+
+  <!-- Community module stylesheet -->
+  <link rel="stylesheet" href="community.css" />
+
+  <!-- Pi SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="header-inner">
+
+      <a href="../../index.html" class="brand">
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        />
+        <span class="brand-name">BISOVIA</span>
+      </a>
+
+      <button
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+
+        <a href="../../index.html">Home</a>
+        <a href="../../about.html">About</a>
+
+        <a href="../mobility/index.html">Mobility</a>
+        <a href="../auto/index.html">Auto</a>
+        <a href="../hospitality/index.html">Hospitality</a>
+
+        <a
+          href="index.html"
+          class="active"
+          aria-current="page"
+        >
+          Community
+        </a>
+
+        <a href="../../pages/payments.html">Payments</a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <!-- Language -->
+        <label class="sr-only" for="languageSelect">
+          Language
+        </label>
+
+        <select id="languageSelect" aria-label="Select language">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <!-- Theme -->
+        <button
+          id="themeToggle"
+          class="icon-button"
+          type="button"
+          aria-label="Toggle dark and light mode"
+          title="Toggle theme"
+        >
+          ◐
+        </button>
+
+        <!-- Pi Sign In -->
+        <button
+          id="piSignIn"
+          class="btn btn-primary"
+          type="button"
+        >
+          Sign in with Pi
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- Hero -->
+    <section class="community-hero">
+
+      <div class="community-container">
+
+        <div class="community-hero-content">
+
+          <span class="eyebrow">
+            COMMUNITY BOOKING
+          </span>
+
+          <h1>
+            Book a community service or event
+          </h1>
+
+          <p>
+            Choose a service or event, select the provider,
+            and submit your booking request through BISOVIA.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Booking Area -->
+    <section class="community-section">
+
+      <div class="community-container">
+
+        <div class="community-booking-layout">
+
+          <!-- =========================
+               BOOKING FORM
+          ========================== -->
+          <div class="community-card booking-form-card">
+
+            <div class="card-header">
+
+              <span class="card-icon">📅</span>
+
+              <div>
+                <h2>
+                  Create a booking
+                </h2>
+
+                <p>
+                  Provide the details for your community booking.
+                </p>
+              </div>
+
+            </div>
+
+
+            <form id="communityBookingForm">
+
+              <!-- Booking type -->
+              <div class="form-group">
+
+                <label for="bookingType">
+                  Booking type
+                </label>
+
+                <select
+                  id="bookingType"
+                  name="bookingType"
+                  required
+                >
+                  <option value="">
+                    Select booking type
+                  </option>
+
+                  <option value="service">
+                    Community service
+                  </option>
+
+                  <option value="event">
+                    Community event
+                  </option>
+                </select>
+
+              </div>
+
+
+              <!-- Service / Event -->
+              <div class="form-group">
+
+                <label for="bookingService">
+                  Service or event
+                </label>
+
+                <select
+                  id="bookingService"
+                  name="bookingService"
+                  required
+                >
+                  <option value="">
+                    Select a service or event
+                  </option>
+
+                  <option value="community-learning">
+                    Community Learning Session
+                  </option>
+
+                  <option value="digital-support">
+                    Digital Support
+                  </option>
+
+                  <option value="community-help">
+                    Community Assistance
+                  </option>
+
+                  <option value="local-activity">
+                    Local Community Activity
+                  </option>
+
+                  <option value="community-meetup">
+                    Community Meetup
+                  </option>
+
+                  <option value="skills-workshop">
+                    Skills Workshop
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- Provider -->
+              <div class="form-group">
+
+                <label for="bookingProvider">
+                  Provider / organizer
+                </label>
+
+                <select
+                  id="bookingProvider"
+                  name="bookingProvider"
+                  required
+                >
+                  <option value="">
+                    Select a provider
+                  </option>
+
+                  <option value="community-center">
+                    Community Center
+                  </option>
+
+                  <option value="digital-support-provider">
+                    Digital Support Provider
+                  </option>
+
+                  <option value="local-community-group">
+                    Local Community Group
+                  </option>
+
+                  <option value="skills-community">
+                    Skills Community
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- Date -->
+              <div class="form-row">
+
+                <div class="form-group">
+
+                  <label for="bookingDate">
+                    Date
+                  </label>
+
+                  <input
+                    type="date"
+                    id="bookingDate"
+                    name="bookingDate"
+                    required
+                  />
+
+                </div>
+
+
+                <!-- Time -->
+                <div class="form-group">
+
+                  <label for="bookingTime">
+                    Time
+                  </label>
+
+                  <input
+                    type="time"
+                    id="bookingTime"
+                    name="bookingTime"
+                    required
+                  />
+
+                </div>
+
+              </div>
+
+
+              <!-- Participants -->
+              <div class="form-group">
+
+                <label for="bookingParticipants">
+                  Number of participants
+                </label>
+
+                <input
+                  type="number"
+                  id="bookingParticipants"
+                  name="bookingParticipants"
+                  min="1"
+                  max="100"
+                  value="1"
+                  required
+                />
+
+              </div>
+
+
+              <!-- Location -->
+              <div class="form-group">
+
+                <label for="bookingLocation">
+                  Location
+                </label>
+
+                <input
+                  type="text"
+                  id="bookingLocation"
+                  name="bookingLocation"
+                  placeholder="Enter the meeting or service location"
+                  required
+                />
+
+              </div>
+
+
+              <!-- Notes -->
+              <div class="form-group">
+
+                <label for="bookingNotes">
+                  Additional notes
+                </label>
+
+                <textarea
+                  id="bookingNotes"
+                  name="bookingNotes"
+                  rows="5"
+                  placeholder="Add any useful information for the provider or organizer..."
+                ></textarea>
+
+              </div>
+
+
+              <!-- Payment -->
+              <div class="form-group">
+
+                <label for="bookingPayment">
+                  Payment method
+                </label>
+
+                <select
+                  id="bookingPayment"
+                  name="bookingPayment"
+                >
+                  <option value="pi">
+                    Pi
+                  </option>
+
+                  <option value="none">
+                    No payment required
+                  </option>
+
+                </select>
+
+                <small class="form-help">
+                  Pi payment will be connected to the BISOVIA
+                  payment flow when the backend is ready.
+                </small>
+
+              </div>
+
+
+              <!-- Actions -->
+              <div class="form-actions">
+
+                <button
+                  type="submit"
+                  class="btn btn-primary"
+                >
+                  Submit booking
+                </button>
+
+                <button
+                  type="reset"
+                  class="btn btn-secondary"
+                >
+                  Reset
+                </button>
+
+              </div>
+
+
+              <!-- Form message -->
+              <div
+                id="bookingFormMessage"
+                class="form-message"
+                role="status"
+                aria-live="polite"
+              ></div>
+
+            </form>
+
+          </div>
+
+
+          <!-- =========================
+               BOOKING SUMMARY
+          ========================== -->
+          <aside class="community-card booking-summary-card">
+
+            <div class="card-header">
+
+              <span class="card-icon">🧾</span>
+
+              <div>
+                <h2>
+                  Booking summary
+                </h2>
+
+                <p>
+                  Review your request before submission.
+                </p>
+              </div>
+
+            </div>
+
+
+            <div
+              id="bookingSummary"
+              class="booking-summary"
+            >
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Type
+                </span>
+
+                <strong
+                  id="summaryType"
+                  class="summary-value"
+                >
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Service / Event
+                </span>
+
+                <strong
+                  id="summaryService"
+                  class="summary-value"
+                >
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Provider
+                </span>
+
+                <strong
+                  id="summaryProvider"
+                  class="summary-value"
+                >
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Date
+                </span>
+
+                <strong
+                  id="summaryDate"
+                  class="summary-value"
+                >
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Time
+                </span>
+
+                <strong
+                  id="summaryTime"
+                  class="summary-value"
+                >
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Participants
+                </span>
+
+                <strong
+                  id="summaryParticipants"
+                  class="summary-value"
+                >
+                  1
+                </strong>
+
+              </div>
+
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Location
+                </span>
+
+                <strong
+                  id="summaryLocation"
+                  class="summary-value"
+                >
+                  —
+                </strong>
+
+              </div>
+
+
+              <div class="summary-item">
+
+                <span class="summary-label">
+                  Payment
+                </span>
+
+                <strong
+                  id="summaryPayment"
+                  class="summary-value"
+                >
+                  Pi
+                </strong>
+
+              </div>
+
+            </div>
+
+
+            <div class="booking-info-note">
+
+              <strong>
+                Important
+              </strong>
+
+              <p>
+                Submitting this form creates a booking request.
+                Final confirmation, provider approval and Pi
+                payment processing will be handled through the
+                BISOVIA Core and backend services later.
+              </p>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         COMMUNITY NAVIGATION
+    ========================== -->
+    <section class="community-section community-section-alt">
+
+      <div class="community-container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            EXPLORE COMMUNITY
+          </span>
+
+          <h2>
+            Find another community activity
+          </h2>
+
+          <p>
+            Browse services, events, providers and community
+            requests before creating a booking.
+          </p>
+
+        </div>
+
+
+        <div class="community-grid">
+
+          <article class="community-card">
+
+            <div class="card-icon">
+              🛠️
+            </div>
+
+            <h3>
+              Community Services
+            </h3>
+
+            <p>
+              Discover practical services offered by community
+              providers.
+            </p>
+
+            <a
+              href="services.html"
+              class="btn btn-secondary"
+            >
+              Browse services
+            </a>
+
+          </article>
+
+
+          <article class="community-card">
+
+            <div class="card-icon">
+              🎫
+            </div>
+
+            <h3>
+              Community Events
+            </h3>
+
+            <p>
+              Explore events and activities where people can
+              connect and participate.
+            </p>
+
+            <a
+              href="events.html"
+              class="btn btn-secondary"
+            >
+              Browse events
+            </a>
+
+          </article>
+
+
+          <article class="community-card">
+
+            <div class="card-icon">
+              🤝
+            </div>
+
+            <h3>
+              Providers
+            </h3>
+
+            <p>
+              Connect with providers and organizers offering
+              community services.
+            </p>
+
+            <a
+              href="providers.html"
+              class="btn btn-secondary"
+            >
+              View providers
+            </a>
+
+          </article>
+
+
+          <article class="community-card">
+
+            <div class="card-icon">
+              📢
+            </div>
+
+            <h3>
+              Community Requests
+            </h3>
+
+            <p>
+              View existing requests or create a new community
+              request.
+            </p>
+
+            <a
+              href="requests.html"
+              class="btn btn-secondary"
+            >
+              View requests
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRUST & SAFETY
+    ========================== -->
+    <section class="community-section">
+
+      <div class="community-container">
+
+        <div class="community-trust-note">
+
+          <div class="trust-icon">
+            🛡️
+          </div>
+
+          <div>
+
+            <h2>
+              Community participation with trust
+            </h2>
+
+            <p>
+              BISOVIA is designed to support responsible
+              participation. Provider information, booking
+              status, reviews, reports and moderation will be
+              connected to the Core Trust & Safety services.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+    <section class="community-section community-cta">
+
+      <div class="community-container">
+
+        <div class="cta-content">
+
+          <span class="eyebrow">
+            COMMUNITY
+          </span>
+
+          <h2>
+            Participate with purpose
+          </h2>
+
+          <p>
+            BISOVIA connects people with practical services,
+            providers and community activities.
+          </p>
+
+          <a
+            href="index.html"
+            class="btn btn-primary"
+          >
+            Back to Community
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+
+        <a href="../../index.html" class="brand">
+
+          <img
+            src="../../assets/logo.svg"
+            alt="BISOVIA"
+            class="brand-logo"
+          />
+
+          <span class="brand-name">
+            BISOVIA
+          </span>
+
+        </a>
+
+        <p>
+          A Pi-native utility platform built for practical
+          digital services and community interaction.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <div>
+
+          <h3>
+            Community
+          </h3>
+
+          <a href="index.html">
+            Home
+          </a>
+
+          <a href="services.html">
+            Services
+          </a>
+
+          <a href="events.html">
+            Events
+          </a>
+
+          <a href="providers.html">
+            Providers
+          </a>
+
+          <a href="requests.html">
+            Requests
+          </a>
+
+          <a href="booking.html">
+            Booking
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Platform
+          </h3>
+
+          <a href="../../index.html">
+            Home
+          </a>
+
+          <a href="../../about.html">
+            About
+          </a>
+
+          <a href="../../pages/payments.html">
+            Payments
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Community JavaScript -->
+  <script src="community.js"></script>
+
+</body>
+</html>
