@@ -1,1 +1,1031 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA Utilities Providers — discover trusted utility service providers."
+  >
+
+  <title>BISOVIA — Utility Providers</title>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../../assets/favicon.svg"
+  >
+
+  <!-- Core stylesheet -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Utilities stylesheet -->
+  <link rel="stylesheet" href="utility.css">
+
+  <!-- Pi SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="header-container">
+
+      <!-- Logo -->
+      <a
+        href="../../index.html"
+        class="brand"
+        aria-label="BISOVIA Home"
+      >
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <!-- Mobile menu -->
+      <button
+        id="mobileMenuToggle"
+        class="mobile-menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <!-- Navigation -->
+      <nav
+        id="mainNavigation"
+        class="main-navigation"
+        aria-label="Main navigation"
+      >
+
+        <a href="../../index.html">
+          Home
+        </a>
+
+        <a href="../../about.html">
+          About
+        </a>
+
+        <a href="../mobility/index.html">
+          Mobility
+        </a>
+
+        <a href="../auto/index.html">
+          Auto
+        </a>
+
+        <a href="../hospitality/index.html">
+          Hospitality
+        </a>
+
+        <a href="../community/index.html">
+          Community
+        </a>
+
+        <a
+          href="index.html"
+          class="active"
+        >
+          Utilities
+        </a>
+
+        <a href="../../pages/payments.html">
+          Payments
+        </a>
+
+      </nav>
+
+      <!-- Header controls -->
+      <div class="header-controls">
+
+        <label
+          for="languageSelect"
+          class="sr-only"
+        >
+          Language
+        </label>
+
+        <select
+          id="languageSelect"
+          class="language-select"
+          aria-label="Select language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
+
+        <button
+          id="piSignIn"
+          class="pi-signin-btn"
+          type="button"
+        >
+          Sign in with Pi
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="module-hero utilities-hero">
+
+      <div class="container">
+
+        <span class="eyebrow">
+          UTILITY PROVIDERS
+        </span>
+
+        <h1>
+          Find utility service providers
+        </h1>
+
+        <p>
+          Discover providers offering practical digital,
+          community and everyday utility services through
+          BISOVIA.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="services.html"
+            class="btn btn-primary"
+          >
+            Explore Services
+          </a>
+
+          <a
+            href="requests.html"
+            class="btn btn-secondary"
+          >
+            View Requests
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SEARCH & FILTER
+    ========================== -->
+    <section class="section providers-search-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            DISCOVER PROVIDERS
+          </span>
+
+          <h2>
+            Search for a provider
+          </h2>
+
+          <p>
+            Find providers according to their service category
+            and availability.
+          </p>
+
+        </div>
+
+
+        <div class="search-filter-panel">
+
+          <!-- Search -->
+          <div class="form-group">
+
+            <label for="providerSearch">
+              Search
+            </label>
+
+            <input
+              type="search"
+              id="providerSearch"
+              placeholder="Search provider or service..."
+              autocomplete="off"
+            >
+
+          </div>
+
+
+          <!-- Category -->
+          <div class="form-group">
+
+            <label for="providerCategory">
+              Category
+            </label>
+
+            <select id="providerCategory">
+
+              <option value="all">
+                All categories
+              </option>
+
+              <option value="digital">
+                Digital Services
+              </option>
+
+              <option value="business">
+                Business Support
+              </option>
+
+              <option value="education">
+                Education
+              </option>
+
+              <option value="communication">
+                Communication
+              </option>
+
+              <option value="community">
+                Community Services
+              </option>
+
+              <option value="information">
+                Information
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <!-- Availability -->
+          <div class="form-group">
+
+            <label for="providerAvailability">
+              Availability
+            </label>
+
+            <select id="providerAvailability">
+
+              <option value="all">
+                All
+              </option>
+
+              <option value="online">
+                Online
+              </option>
+
+              <option value="offline">
+                In person
+              </option>
+
+              <option value="available">
+                Available
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROVIDERS
+    ========================== -->
+    <section class="section providers-list-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            PROVIDERS
+          </span>
+
+          <h2>
+            Utility service providers
+          </h2>
+
+        </div>
+
+
+        <div
+          id="providersGrid"
+          class="cards-grid providers-grid"
+        >
+
+          <!-- Provider 1 -->
+          <article
+            class="utility-card provider-card"
+            data-search="digital hub digital assistance technology online support"
+            data-category="digital"
+            data-availability="online"
+          >
+
+            <div class="card-icon">
+              💻
+            </div>
+
+            <span class="service-badge">
+              Digital Services
+            </span>
+
+            <h3>
+              Digital Support Provider
+            </h3>
+
+            <p>
+              Provides practical digital assistance and support
+              for everyday online activities.
+            </p>
+
+            <div class="service-meta">
+
+              <span>
+                🌐 Online
+              </span>
+
+              <span>
+                Available
+              </span>
+
+            </div>
+
+            <div class="provider-trust">
+
+              <strong>
+                Trust profile
+              </strong>
+
+              <span>
+                Reviews available
+              </span>
+
+            </div>
+
+            <div class="card-actions">
+
+              <a
+                href="service.html?provider=digital-support"
+                class="btn btn-secondary"
+              >
+                View Profile
+              </a>
+
+              <a
+                href="booking.html?provider=digital-support"
+                class="btn btn-primary"
+              >
+                Book Service
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Provider 2 -->
+          <article
+            class="utility-card provider-card"
+            data-search="business consultant business support entrepreneur"
+            data-category="business"
+            data-availability="online"
+          >
+
+            <div class="card-icon">
+              📊
+            </div>
+
+            <span class="service-badge">
+              Business
+            </span>
+
+            <h3>
+              Business Support Provider
+            </h3>
+
+            <p>
+              Offers practical support for entrepreneurs and
+              small businesses.
+            </p>
+
+            <div class="service-meta">
+
+              <span>
+                🌐 Online
+              </span>
+
+              <span>
+                Provider based
+              </span>
+
+            </div>
+
+            <div class="provider-trust">
+
+              <strong>
+                Trust profile
+              </strong>
+
+              <span>
+                Reviews available
+              </span>
+
+            </div>
+
+            <div class="card-actions">
+
+              <a
+                href="service.html?provider=business-support"
+                class="btn btn-secondary"
+              >
+                View Profile
+              </a>
+
+              <a
+                href="booking.html?provider=business-support"
+                class="btn btn-primary"
+              >
+                Book Service
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Provider 3 -->
+          <article
+            class="utility-card provider-card"
+            data-search="education tutor learning teacher training"
+            data-category="education"
+            data-availability="online"
+          >
+
+            <div class="card-icon">
+              📚
+            </div>
+
+            <span class="service-badge">
+              Education
+            </span>
+
+            <h3>
+              Learning Support Provider
+            </h3>
+
+            <p>
+              Provides educational and learning support through
+              digital or scheduled sessions.
+            </p>
+
+            <div class="service-meta">
+
+              <span>
+                🌐 Online
+              </span>
+
+              <span>
+                By appointment
+              </span>
+
+            </div>
+
+            <div class="provider-trust">
+
+              <strong>
+                Trust profile
+              </strong>
+
+              <span>
+                Reviews available
+              </span>
+
+            </div>
+
+            <div class="card-actions">
+
+              <a
+                href="service.html?provider=learning-support"
+                class="btn btn-secondary"
+              >
+                View Profile
+              </a>
+
+              <a
+                href="booking.html?provider=learning-support"
+                class="btn btn-primary"
+              >
+                Book Service
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Provider 4 -->
+          <article
+            class="utility-card provider-card"
+            data-search="communication translator communication support messaging"
+            data-category="communication"
+            data-availability="online"
+          >
+
+            <div class="card-icon">
+              💬
+            </div>
+
+            <span class="service-badge">
+              Communication
+            </span>
+
+            <h3>
+              Communication Provider
+            </h3>
+
+            <p>
+              Offers communication-related assistance and
+              practical digital interaction services.
+            </p>
+
+            <div class="service-meta">
+
+              <span>
+                🌐 Online
+              </span>
+
+              <span>
+                Request based
+              </span>
+
+            </div>
+
+            <div class="provider-trust">
+
+              <strong>
+                Trust profile
+              </strong>
+
+              <span>
+                Reviews available
+              </span>
+
+            </div>
+
+            <div class="card-actions">
+
+              <a
+                href="service.html?provider=communication"
+                class="btn btn-secondary"
+              >
+                View Profile
+              </a>
+
+              <a
+                href="booking.html?provider=communication"
+                class="btn btn-primary"
+              >
+                Request Service
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Provider 5 -->
+          <article
+            class="utility-card provider-card"
+            data-search="community local community support utility service"
+            data-category="community"
+            data-availability="offline"
+          >
+
+            <div class="card-icon">
+              🤝
+            </div>
+
+            <span class="service-badge">
+              Community
+            </span>
+
+            <h3>
+              Community Utility Provider
+            </h3>
+
+            <p>
+              Provides practical community-oriented utility
+              services and local support.
+            </p>
+
+            <div class="service-meta">
+
+              <span>
+                📍 In person
+              </span>
+
+              <span>
+                Local provider
+              </span>
+
+            </div>
+
+            <div class="provider-trust">
+
+              <strong>
+                Trust profile
+              </strong>
+
+              <span>
+                Reviews available
+              </span>
+
+            </div>
+
+            <div class="card-actions">
+
+              <a
+                href="service.html?provider=community-provider"
+                class="btn btn-secondary"
+              >
+                View Profile
+              </a>
+
+              <a
+                href="booking.html?provider=community-provider"
+                class="btn btn-primary"
+              >
+                Book Service
+              </a>
+
+            </div>
+
+          </article>
+
+
+          <!-- Provider 6 -->
+          <article
+            class="utility-card provider-card"
+            data-search="information research information assistance online"
+            data-category="information"
+            data-availability="online"
+          >
+
+            <div class="card-icon">
+              ℹ️
+            </div>
+
+            <span class="service-badge">
+              Information
+            </span>
+
+            <h3>
+              Information Service Provider
+            </h3>
+
+            <p>
+              Provides practical information and assistance for
+              everyday digital needs.
+            </p>
+
+            <div class="service-meta">
+
+              <span>
+                🌐 Online
+              </span>
+
+              <span>
+                Request based
+              </span>
+
+            </div>
+
+            <div class="provider-trust">
+
+              <strong>
+                Trust profile
+              </strong>
+
+              <span>
+                Reviews available
+              </span>
+
+            </div>
+
+            <div class="card-actions">
+
+              <a
+                href="service.html?provider=information-provider"
+                class="btn btn-secondary"
+              >
+                View Profile
+              </a>
+
+              <a
+                href="booking.html?provider=information-provider"
+                class="btn btn-primary"
+              >
+                Request Service
+              </a>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <!-- No results -->
+        <div
+          id="noProvidersMessage"
+          class="empty-state"
+          hidden
+        >
+
+          <div class="empty-icon">
+            🔎
+          </div>
+
+          <h3>
+            No providers found
+          </h3>
+
+          <p>
+            Try another search or change your filters.
+          </p>
+
+          <button
+            id="clearProviderFilters"
+            class="btn btn-secondary"
+            type="button"
+          >
+            Clear Filters
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BECOME PROVIDER
+    ========================== -->
+    <section class="section provider-join-section">
+
+      <div class="container">
+
+        <div class="cta-card">
+
+          <span class="eyebrow">
+            SERVICE PROVIDERS
+          </span>
+
+          <h2>
+            Offer a useful service through BISOVIA
+          </h2>
+
+          <p>
+            Providers can eventually present their services,
+            receive requests and interact with customers through
+            standard BISOVIA module contracts.
+          </p>
+
+          <a
+            href="requests.html"
+            class="btn btn-primary"
+          >
+            Explore Requests
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRUST
+    ========================== -->
+    <section class="section trust-section">
+
+      <div class="container">
+
+        <div class="trust-content">
+
+          <div>
+
+            <span class="eyebrow">
+              TRUST & SAFETY
+            </span>
+
+            <h2>
+              Provider information matters
+            </h2>
+
+            <p>
+              BISOVIA is designed to support profiles, service
+              information, reviews, reputation and responsible
+              reporting as the platform develops.
+            </p>
+
+          </div>
+
+          <div class="trust-actions">
+
+            <a
+              href="../../trust.html"
+              class="btn btn-secondary"
+            >
+              Trust & Safety
+            </a>
+
+            <a
+              href="../../profile.html"
+              class="btn btn-secondary"
+            >
+              My Profile
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <img
+            src="../../assets/logo.svg"
+            alt="BISOVIA"
+            class="footer-logo"
+          >
+
+          <p>
+            A Pi-native utility platform built for practical
+            digital services and community interaction.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Platform
+          </h3>
+
+          <a href="../../index.html">
+            Home
+          </a>
+
+          <a href="../../about.html">
+            About
+          </a>
+
+          <a href="../../profile.html">
+            Profile
+          </a>
+
+          <a href="../../trust.html">
+            Trust & Safety
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Modules
+          </h3>
+
+          <a href="../mobility/index.html">
+            Mobility
+          </a>
+
+          <a href="../auto/index.html">
+            Auto
+          </a>
+
+          <a href="../hospitality/index.html">
+            Hospitality
+          </a>
+
+          <a href="../community/index.html">
+            Community
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Utilities
+          </h3>
+
+          <a href="index.html">
+            Utilities Home
+          </a>
+
+          <a href="services.html">
+            Services
+          </a>
+
+          <a href="tools.html">
+            Tools
+          </a>
+
+          <a href="requests.html">
+            Requests
+          </a>
+
+          <a href="booking.html">
+            Booking
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          ©
+          <span id="currentYear"></span>
+          BISOVIA. All rights reserved.
+        </p>
+
+        <p>
+          Pi-native utility platform
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Utilities JavaScript -->
+  <script src="utility.js"></script>
+
+</body>
+</html>
