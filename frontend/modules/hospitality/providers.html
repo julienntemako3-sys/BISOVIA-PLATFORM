@@ -1,1 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA Hospitality Providers — discover accommodation, meals, events and other hospitality service providers."
+  >
+
+  <title>BISOVIA | Hospitality Providers</title>
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="hospitality.css">
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../../assets/favicon.svg"
+  >
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="../../index.html"
+        class="brand"
+        aria-label="BISOVIA Home"
+      >
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <nav
+        class="main-nav"
+        aria-label="Main navigation"
+      >
+
+        <a
+          href="../../index.html"
+          data-i18n="nav.home"
+        >
+          Home
+        </a>
+
+        <a
+          href="../mobility/mobility.html"
+          data-i18n="nav.mobility"
+        >
+          Mobility
+        </a>
+
+        <a
+          href="../auto/auto.html"
+          data-i18n="nav.auto"
+        >
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          class="active"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a
+          href="../community/community.html"
+          data-i18n="nav.community"
+        >
+          Community
+        </a>
+
+        <a
+          href="../../pages/payments.html"
+          data-i18n="nav.payments"
+        >
+          Payments
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <select
+          id="languageSelector"
+          class="language-selector"
+          aria-label="Select language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          🌙
+        </button>
+
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- HERO -->
+    <section class="module-hero hospitality-hero">
+
+      <div class="container">
+
+        <span
+          class="section-eyebrow"
+          data-i18n="providers.eyebrow"
+        >
+          HOSPITALITY PROVIDERS
+        </span>
+
+        <h1 data-i18n="providers.title">
+          Discover hospitality providers.
+        </h1>
+
+        <p data-i18n="providers.description">
+          Explore participating providers offering accommodation,
+          meals, event spaces and other practical hospitality
+          services through BISOVIA.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FILTERS
+    ========================== -->
+    <section class="services-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span
+            class="section-eyebrow"
+            data-i18n="providers.filterEyebrow"
+          >
+            FIND A PROVIDER
+          </span>
+
+          <h2 data-i18n="providers.filterTitle">
+            Explore available services
+          </h2>
+
+          <p data-i18n="providers.filterDescription">
+            Select a hospitality category to explore providers.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- Accommodation -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🏨
+            </div>
+
+            <h3 data-i18n="providers.accommodationTitle">
+              Accommodation
+            </h3>
+
+            <p data-i18n="providers.accommodationText">
+              Hotels, guest houses, apartments and other places
+              to stay.
+            </p>
+
+            <a
+              href="providers.html?category=accommodation"
+              class="service-link"
+              data-i18n="providers.viewProviders"
+            >
+              View providers
+            </a>
+
+          </article>
+
+
+          <!-- Meals -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🍽️
+            </div>
+
+            <h3 data-i18n="providers.mealsTitle">
+              Meals & Food
+            </h3>
+
+            <p data-i18n="providers.mealsText">
+              Restaurants, catering, takeaway and other food
+              services.
+            </p>
+
+            <a
+              href="providers.html?category=meals"
+              class="service-link"
+              data-i18n="providers.viewProviders"
+            >
+              View providers
+            </a>
+
+          </article>
+
+
+          <!-- Events -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🎉
+            </div>
+
+            <h3 data-i18n="providers.eventsTitle">
+              Events & Spaces
+            </h3>
+
+            <p data-i18n="providers.eventsText">
+              Meeting spaces, community venues, celebration
+              spaces and workshops.
+            </p>
+
+            <a
+              href="providers.html?category=events"
+              class="service-link"
+              data-i18n="providers.viewProviders"
+            >
+              View providers
+            </a>
+
+          </article>
+
+
+          <!-- Other -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              ✨
+            </div>
+
+            <h3 data-i18n="providers.otherTitle">
+              Other Services
+            </h3>
+
+            <p data-i18n="providers.otherText">
+              Explore additional hospitality services as the
+              BISOVIA network grows.
+            </p>
+
+            <a
+              href="providers.html?category=other"
+              class="service-link"
+              data-i18n="providers.viewProviders"
+            >
+              View providers
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROVIDER LIST
+    ========================== -->
+    <section class="how-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span
+            class="section-eyebrow"
+            data-i18n="providers.listEyebrow"
+          >
+            PROVIDER NETWORK
+          </span>
+
+          <h2 data-i18n="providers.listTitle">
+            Hospitality providers
+          </h2>
+
+          <p data-i18n="providers.listDescription">
+            Provider listings will appear here as the BISOVIA
+            hospitality network grows.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- Provider 1 -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🏨
+            </div>
+
+            <h3 data-i18n="providers.providerOne">
+              Accommodation Provider
+            </h3>
+
+            <p data-i18n="providers.providerOneText">
+              Hospitality accommodation provider.
+            </p>
+
+            <span
+              class="service-link"
+              data-i18n="providers.status"
+            >
+              Available through the provider network
+            </span>
+
+          </article>
+
+
+          <!-- Provider 2 -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🍽️
+            </div>
+
+            <h3 data-i18n="providers.providerTwo">
+              Food Service Provider
+            </h3>
+
+            <p data-i18n="providers.providerTwoText">
+              Restaurant and meal service provider.
+            </p>
+
+            <span
+              class="service-link"
+              data-i18n="providers.status"
+            >
+              Available through the provider network
+            </span>
+
+          </article>
+
+
+          <!-- Provider 3 -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🏢
+            </div>
+
+            <h3 data-i18n="providers.providerThree">
+              Events & Spaces Provider
+            </h3>
+
+            <p data-i18n="providers.providerThreeText">
+              Event space and hospitality service provider.
+            </p>
+
+            <span
+              class="service-link"
+              data-i18n="providers.status"
+            >
+              Available through the provider network
+            </span>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROVIDER CTA
+    ========================== -->
+    <section class="provider-section">
+
+      <div class="container">
+
+        <div class="provider-panel">
+
+          <div>
+
+            <span
+              class="section-eyebrow"
+              data-i18n="providers.ctaEyebrow"
+            >
+              FOR SERVICE PROVIDERS
+            </span>
+
+            <h2 data-i18n="providers.ctaTitle">
+              Offer your hospitality service through BISOVIA.
+            </h2>
+
+            <p data-i18n="providers.ctaText">
+              Providers can participate in the BISOVIA ecosystem
+              and make practical services available to users.
+            </p>
+
+          </div>
+
+          <a
+            href="requests.html?type=provider"
+            class="btn btn-primary"
+            data-i18n="providers.ctaButton"
+          >
+            Become a provider
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PI SECTION
+    ========================== -->
+    <section class="pi-section">
+
+      <div class="container">
+
+        <div class="pi-card">
+
+          <div
+            class="pi-icon"
+            aria-hidden="true"
+          >
+            π
+          </div>
+
+          <div>
+
+            <span
+              class="section-eyebrow"
+              data-i18n="providers.piEyebrow"
+            >
+              PI-NATIVE HOSPITALITY
+            </span>
+
+            <h2 data-i18n="providers.piTitle">
+              Providers connected to the BISOVIA Core.
+            </h2>
+
+            <p data-i18n="providers.piText">
+              Hospitality providers can connect with BISOVIA
+              identity, trust, notifications and Pi payment
+              infrastructure.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="footer-logo"
+        >
+
+        <p data-i18n="footer.description">
+          A Pi-native utility platform built for practical
+          digital services and community interaction.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a
+          href="../../index.html"
+          data-i18n="nav.home"
+        >
+          Home
+        </a>
+
+        <a
+          href="../mobility/mobility.html"
+          data-i18n="nav.mobility"
+        >
+          Mobility
+        </a>
+
+        <a
+          href="../auto/auto.html"
+          data-i18n="nav.auto"
+        >
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a
+          href="../community/community.html"
+          data-i18n="nav.community"
+        >
+          Community
+        </a>
+
+        <a
+          href="../../pages/payments.html"
+          data-i18n="nav.payments"
+        >
+          Payments
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="footer.rights">
+          All rights reserved.
+        </span>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+  <script src="../../script.js"></script>
+  <script src="hospitality.js"></script>
+
+</body>
+
+</html>
