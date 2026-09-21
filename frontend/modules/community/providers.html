@@ -1,1 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>BISOVIA | Hospitality Service</title>
+
+  <meta
+    name="description"
+    content="BISOVIA Hospitality Service — view service details, request availability and connect with a hospitality provider."
+  >
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="hospitality.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="../../index.html" class="brand">
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+
+        <a href="../../index.html" data-i18n="nav.home">
+          Home
+        </a>
+
+        <a href="../mobility/mobility.html" data-i18n="nav.mobility">
+          Mobility
+        </a>
+
+        <a href="../auto/auto.html" data-i18n="nav.auto">
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          class="active"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a href="../community/community.html" data-i18n="nav.community">
+          Community
+        </a>
+
+        <a href="../../pages/payments.html" data-i18n="nav.payments">
+          Payments
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <select
+          id="languageSelector"
+          class="language-selector"
+          aria-label="Language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          ◐
+        </button>
+
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- SERVICE HERO -->
+    <section class="module-hero hospitality-hero">
+
+      <div class="container">
+
+        <p
+          class="section-eyebrow"
+          data-i18n="service.eyebrow"
+        >
+          HOSPITALITY SERVICE
+        </p>
+
+        <h1 data-i18n="service.title">
+          Explore a hospitality service.
+        </h1>
+
+        <p data-i18n="service.description">
+          View service information, connect with a provider and
+          start a request or booking through BISOVIA.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="requests.html"
+            class="btn btn-primary"
+            data-i18n="service.requestService"
+          >
+            Request Service
+          </a>
+
+          <a
+            href="booking.html"
+            class="btn btn-secondary"
+            data-i18n="service.bookService"
+          >
+            Book Service
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICE DETAILS -->
+    <section class="services-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p
+            class="section-eyebrow"
+            data-i18n="service.detailsEyebrow"
+          >
+            SERVICE DETAILS
+          </p>
+
+          <h2 data-i18n="service.detailsTitle">
+            Practical information before you request.
+          </h2>
+
+          <p data-i18n="service.detailsDescription">
+            Each hospitality service can provide clear information
+            about the provider, availability, location and conditions.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- SERVICE CATEGORY -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              🏷️
+            </div>
+
+            <h3 data-i18n="service.categoryTitle">
+              Service Category
+            </h3>
+
+            <p data-i18n="service.categoryText">
+              Accommodation, meals, events or another hospitality
+              service category.
+            </p>
+
+          </article>
+
+
+          <!-- PROVIDER -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              🤝
+            </div>
+
+            <h3 data-i18n="service.providerTitle">
+              Provider
+            </h3>
+
+            <p data-i18n="service.providerText">
+              See the participating provider responsible for the
+              selected hospitality service.
+            </p>
+
+            <a
+              href="providers.html"
+              class="service-link"
+              data-i18n="service.viewProviders"
+            >
+              View Providers →
+            </a>
+
+          </article>
+
+
+          <!-- AVAILABILITY -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              📅
+            </div>
+
+            <h3 data-i18n="service.availabilityTitle">
+              Availability
+            </h3>
+
+            <p data-i18n="service.availabilityText">
+              Availability and scheduling will be confirmed through
+              the provider and booking flow.
+            </p>
+
+          </article>
+
+
+          <!-- PAYMENT -->
+          <article class="service-card">
+
+            <div class="service-icon">
+              π
+            </div>
+
+            <h3 data-i18n="service.paymentTitle">
+              Pi Payment
+            </h3>
+
+            <p data-i18n="service.paymentText">
+              Eligible services can connect to the BISOVIA Pi payment
+              infrastructure after confirmation.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICE FLOW -->
+    <section class="how-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <p
+            class="section-eyebrow"
+            data-i18n="service.flowEyebrow"
+          >
+            SERVICE FLOW
+          </p>
+
+          <h2 data-i18n="service.flowTitle">
+            How a service becomes a confirmed booking.
+          </h2>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+
+            <div class="step-number">
+              01
+            </div>
+
+            <h3 data-i18n="service.step1Title">
+              Discover
+            </h3>
+
+            <p data-i18n="service.step1Text">
+              Explore the service and provider information.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <div class="step-number">
+              02
+            </div>
+
+            <h3 data-i18n="service.step2Title">
+              Request
+            </h3>
+
+            <p data-i18n="service.step2Text">
+              Send your preferred date, requirements and other
+              relevant details.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <div class="step-number">
+              03
+            </div>
+
+            <h3 data-i18n="service.step3Title">
+              Confirm
+            </h3>
+
+            <p data-i18n="service.step3Text">
+              Review the provider response and confirm the service.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <div class="step-number">
+              04
+            </div>
+
+            <h3 data-i18n="service.step4Title">
+              Pay with Pi
+            </h3>
+
+            <p data-i18n="service.step4Text">
+              Complete the supported Pi payment after confirmation.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROVIDER CONNECTION -->
+    <section class="provider-section">
+
+      <div class="container">
+
+        <div class="provider-panel">
+
+          <div>
+
+            <p
+              class="section-eyebrow"
+              data-i18n="service.providerEyebrow"
+            >
+              PROVIDER CONNECTION
+            </p>
+
+            <h2 data-i18n="service.providerHeading">
+              Connect with a participating provider.
+            </h2>
+
+            <p data-i18n="service.providerDescription">
+              BISOVIA is designed to connect users with hospitality
+              providers while keeping provider-specific business
+              logic inside the Hospitality module.
+            </p>
+
+          </div>
+
+          <div class="hero-actions">
+
+            <a
+              href="providers.html"
+              class="btn btn-primary"
+              data-i18n="service.exploreProviders"
+            >
+              Explore Providers
+            </a>
+
+            <a
+              href="requests.html"
+              class="btn btn-secondary"
+              data-i18n="service.sendRequest"
+            >
+              Send Request
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PI / CORE -->
+    <section class="pi-section">
+
+      <div class="container">
+
+        <div class="pi-card">
+
+          <div class="pi-icon">
+            π
+          </div>
+
+          <div>
+
+            <p
+              class="section-eyebrow"
+              data-i18n="service.piEyebrow"
+            >
+              BISOVIA CORE
+            </p>
+
+            <h2 data-i18n="service.piTitle">
+              The service connects to the BISOVIA Core.
+            </h2>
+
+            <p data-i18n="service.piText">
+              Identity, trust, notifications and Pi payment
+              infrastructure are provided through the Core,
+              while hospitality-specific service logic remains
+              inside the Hospitality module.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="footer-logo"
+        >
+
+        <p data-i18n="footer.description">
+          A Pi-native utility platform for practical digital services
+          and community interaction.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a href="../../index.html" data-i18n="nav.home">
+          Home
+        </a>
+
+        <a href="../mobility/mobility.html" data-i18n="nav.mobility">
+          Mobility
+        </a>
+
+        <a href="../auto/auto.html" data-i18n="nav.auto">
+          Auto
+        </a>
+
+        <a href="hospitality.html" data-i18n="nav.hospitality">
+          Hospitality
+        </a>
+
+        <a href="../community/community.html" data-i18n="nav.community">
+          Community
+        </a>
+
+        <a href="../../pages/payments.html" data-i18n="nav.payments">
+          Payments
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="footer.rights">
+          All rights reserved.
+        </span>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- SCRIPTS -->
+  <script src="../../script.js"></script>
+  <script src="hospitality.js"></script>
+
+</body>
+</html>
