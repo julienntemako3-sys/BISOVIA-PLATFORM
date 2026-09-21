@@ -1,1 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>BISOVIA — Community Requests</title>
+
+  <meta
+    name="description"
+    content="Discover and create community service requests on BISOVIA."
+  />
+
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Core BISOVIA styles -->
+  <link rel="stylesheet" href="../../style.css" />
+
+  <!-- Community module styles -->
+  <link rel="stylesheet" href="community.css" />
+
+  <!-- Pi SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="header-container">
+
+      <a href="../../index.html" class="brand">
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        />
+        <span class="brand-name">BISOVIA</span>
+      </a>
+
+      <button
+        class="mobile-menu-toggle"
+        id="mobileMenuToggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+
+        <a href="../../index.html">Home</a>
+        <a href="../../about.html">About</a>
+
+        <a href="../mobility/index.html">Mobility</a>
+        <a href="../auto/index.html">Auto</a>
+        <a href="../hospitality/index.html">Hospitality</a>
+
+        <a href="index.html" class="active">Community</a>
+
+        <a href="../../pages/payments.html">Payments</a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <select
+          id="languageSelect"
+          class="language-select"
+          aria-label="Language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          ◐
+        </button>
+
+        <button
+          id="piSignIn"
+          class="pi-signin-button"
+          type="button"
+        >
+          Sign in with Pi
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="community-hero community-page-hero">
+
+      <div class="community-hero-content">
+
+        <span class="eyebrow">
+          COMMUNITY REQUESTS
+        </span>
+
+        <h1>
+          Find or create a community request
+        </h1>
+
+        <p>
+          Ask for a useful service, discover existing requests
+          and connect community needs with available providers.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CREATE REQUEST
+    ========================== -->
+    <section class="community-section">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          REQUEST A SERVICE
+        </span>
+
+        <h2>
+          Need help from the community?
+        </h2>
+
+        <p>
+          Describe what you need and allow participating
+          providers to respond.
+        </p>
+
+      </div>
+
+
+      <div class="request-form-card">
+
+        <form id="communityRequestForm">
+
+          <div class="form-group">
+
+            <label for="requestTitle">
+              Request title
+            </label>
+
+            <input
+              type="text"
+              id="requestTitle"
+              name="requestTitle"
+              placeholder="What do you need?"
+              maxlength="100"
+              required
+            />
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="requestCategory">
+              Category
+            </label>
+
+            <select
+              id="requestCategory"
+              name="requestCategory"
+              required
+            >
+
+              <option value="">
+                Select a category
+              </option>
+
+              <option value="education">
+                Education & Skills
+              </option>
+
+              <option value="support">
+                Community Support
+              </option>
+
+              <option value="digital">
+                Digital Services
+              </option>
+
+              <option value="local">
+                Local Services
+              </option>
+
+              <option value="activities">
+                Community Activities
+              </option>
+
+              <option value="other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="requestDescription">
+              Description
+            </label>
+
+            <textarea
+              id="requestDescription"
+              name="requestDescription"
+              rows="5"
+              maxlength="1000"
+              placeholder="Describe the service or support you need..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="requestLocation">
+                Location
+              </label>
+
+              <input
+                type="text"
+                id="requestLocation"
+                name="requestLocation"
+                placeholder="City or area"
+              />
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="requestDate">
+                Preferred date
+              </label>
+
+              <input
+                type="date"
+                id="requestDate"
+                name="requestDate"
+              />
+
+            </div>
+
+          </div>
+
+
+          <div class="form-actions">
+
+            <button
+              type="submit"
+              class="primary-button"
+            >
+              Create request
+            </button>
+
+            <button
+              type="reset"
+              class="secondary-button"
+            >
+              Clear
+            </button>
+
+          </div>
+
+          <p
+            id="requestFormMessage"
+            class="form-message"
+            hidden
+          ></p>
+
+        </form>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         SEARCH
+    ========================== -->
+    <section class="community-section">
+
+      <div class="section-heading">
+
+        <span class="eyebrow">
+          DISCOVER REQUESTS
+        </span>
+
+        <h2>
+          Community needs
+        </h2>
+
+        <p>
+          Explore requests from people looking for useful
+          services or support.
+        </p>
+
+      </div>
+
+
+      <div class="community-search">
+
+        <label for="requestSearch">
+          Search requests
+        </label>
+
+        <input
+          type="search"
+          id="requestSearch"
+          placeholder="Search by request or keyword..."
+          autocomplete="off"
+        />
+
+      </div>
+
+
+      <div class="community-filters">
+
+        <label for="requestFilterCategory">
+          Category
+        </label>
+
+        <select id="requestFilterCategory">
+
+          <option value="all">
+            All categories
+          </option>
+
+          <option value="education">
+            Education & Skills
+          </option>
+
+          <option value="support">
+            Community Support
+          </option>
+
+          <option value="digital">
+            Digital Services
+          </option>
+
+          <option value="local">
+            Local Services
+          </option>
+
+          <option value="activities">
+            Community Activities
+          </option>
+
+          <option value="other">
+            Other
+          </option>
+
+        </select>
+
+
+        <label for="requestStatus">
+          Status
+        </label>
+
+        <select id="requestStatus">
+
+          <option value="all">
+            All requests
+          </option>
+
+          <option value="open">
+            Open
+          </option>
+
+          <option value="pending">
+            Pending
+          </option>
+
+          <option value="matched">
+            Provider matched
+          </option>
+
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         REQUESTS GRID
+    ========================== -->
+    <section class="community-section">
+
+      <div
+        class="community-grid requests-grid"
+        id="requestsGrid"
+      >
+
+        <!-- Request 1 -->
+        <article
+          class="community-card request-card"
+          data-category="education"
+          data-status="open"
+        >
+
+          <span class="request-status status-open">
+            Open
+          </span>
+
+          <div class="community-icon">
+            📚
+          </div>
+
+          <span class="service-category">
+            Education & Skills
+          </span>
+
+          <h3>
+            Looking for a skills mentor
+          </h3>
+
+          <p>
+            Looking for someone who can help with practical
+            digital and professional skills.
+          </p>
+
+          <div class="request-meta">
+
+            <span>
+              📍 Local
+            </span>
+
+            <span>
+              🗓 Flexible
+            </span>
+
+          </div>
+
+          <div class="card-actions">
+
+            <a
+              href="service.html"
+              class="primary-button"
+            >
+              View request
+            </a>
+
+            <a
+              href="booking.html"
+              class="secondary-button"
+            >
+              Respond
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Request 2 -->
+        <article
+          class="community-card request-card"
+          data-category="support"
+          data-status="open"
+        >
+
+          <span class="request-status status-open">
+            Open
+          </span>
+
+          <div class="community-icon">
+            🤝
+          </div>
+
+          <span class="service-category">
+            Community Support
+          </span>
+
+          <h3>
+            Community assistance needed
+          </h3>
+
+          <p>
+            Request for practical assistance from a nearby
+            community member or provider.
+          </p>
+
+          <div class="request-meta">
+
+            <span>
+              📍 Local area
+            </span>
+
+            <span>
+              🗓 This week
+            </span>
+
+          </div>
+
+          <div class="card-actions">
+
+            <a
+              href="service.html"
+              class="primary-button"
+            >
+              View request
+            </a>
+
+            <a
+              href="booking.html"
+              class="secondary-button"
+            >
+              Respond
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Request 3 -->
+        <article
+          class="community-card request-card"
+          data-category="digital"
+          data-status="pending"
+        >
+
+          <span class="request-status status-pending">
+            Pending
+          </span>
+
+          <div class="community-icon">
+            💻
+          </div>
+
+          <span class="service-category">
+            Digital Services
+          </span>
+
+          <h3>
+            Help with a digital service
+          </h3>
+
+          <p>
+            Looking for assistance with a digital tool or
+            everyday technology.
+          </p>
+
+          <div class="request-meta">
+
+            <span>
+              🌐 Digital
+            </span>
+
+            <span>
+              🗓 Scheduled
+            </span>
+
+          </div>
+
+          <div class="card-actions">
+
+            <a
+              href="service.html"
+              class="primary-button"
+            >
+              View request
+            </a>
+
+            <a
+              href="booking.html"
+              class="secondary-button"
+            >
+              Respond
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Request 4 -->
+        <article
+          class="community-card request-card"
+          data-category="local"
+          data-status="open"
+        >
+
+          <span class="request-status status-open">
+            Open
+          </span>
+
+          <div class="community-icon">
+            🏘️
+          </div>
+
+          <span class="service-category">
+            Local Services
+          </span>
+
+          <h3>
+            Looking for a local service
+          </h3>
+
+          <p>
+            Need help finding a practical local service
+            available in the community.
+          </p>
+
+          <div class="request-meta">
+
+            <span>
+              📍 Local
+            </span>
+
+            <span>
+              🗓 Flexible
+            </span>
+
+          </div>
+
+          <div class="card-actions">
+
+            <a
+              href="service.html"
+              class="primary-button"
+            >
+              View request
+            </a>
+
+            <a
+              href="booking.html"
+              class="secondary-button"
+            >
+              Respond
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Request 5 -->
+        <article
+          class="community-card request-card"
+          data-category="activities"
+          data-status="matched"
+        >
+
+          <span class="request-status status-matched">
+            Provider matched
+          </span>
+
+          <div class="community-icon">
+            🎯
+          </div>
+
+          <span class="service-category">
+            Community Activities
+          </span>
+
+          <h3>
+            Looking for an activity facilitator
+          </h3>
+
+          <p>
+            Request for someone to help organize a practical
+            community activity.
+          </p>
+
+          <div class="request-meta">
+
+            <span>
+              📍 Community
+            </span>
+
+            <span>
+              ✓ Matched
+            </span>
+
+          </div>
+
+          <div class="card-actions">
+
+            <a
+              href="service.html"
+              class="primary-button"
+            >
+              View request
+            </a>
+
+            <a
+              href="booking.html"
+              class="secondary-button"
+            >
+              View booking
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Request 6 -->
+        <article
+          class="community-card request-card"
+          data-category="other"
+          data-status="open"
+        >
+
+          <span class="request-status status-open">
+            Open
+          </span>
+
+          <div class="community-icon">
+            🌍
+          </div>
+
+          <span class="service-category">
+            Other
+          </span>
+
+          <h3>
+            Community service request
+          </h3>
+
+          <p>
+            A general request for practical assistance from
+            the BISOVIA community.
+          </p>
+
+          <div class="request-meta">
+
+            <span>
+              🌍 Community
+            </span>
+
+            <span>
+              🗓 Flexible
+            </span>
+
+          </div>
+
+          <div class="card-actions">
+
+            <a
+              href="service.html"
+              class="primary-button"
+            >
+              View request
+            </a>
+
+            <a
+              href="booking.html"
+              class="secondary-button"
+            >
+              Respond
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+
+      <!-- No results -->
+      <div
+        id="noRequestsMessage"
+        class="empty-state"
+        hidden
+      >
+
+        <h3>
+          No requests found
+        </h3>
+
+        <p>
+          Try another keyword or category.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROVIDER CTA
+    ========================== -->
+    <section class="community-cta">
+
+      <div>
+
+        <span class="eyebrow">
+          PROVIDERS
+        </span>
+
+        <h2>
+          Can you help with a request?
+        </h2>
+
+        <p>
+          Community providers can respond to requests and
+          offer practical services when the platform is
+          connected to the backend.
+        </p>
+
+      </div>
+
+      <div class="cta-actions">
+
+        <a
+          href="providers.html"
+          class="primary-button"
+        >
+          Find providers
+        </a>
+
+        <a
+          href="services.html"
+          class="secondary-button"
+        >
+          Explore services
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRUST NOTE
+    ========================== -->
+    <section class="community-section">
+
+      <div class="trust-note">
+
+        <span class="trust-note-icon">
+          🛡
+        </span>
+
+        <div>
+
+          <h3>
+            Responsible requests
+          </h3>
+
+          <p>
+            Requests and provider responses will be connected
+            to BISOVIA profiles, notifications and Trust &
+            Safety systems as the platform develops.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="footer-container">
+
+      <div class="footer-brand">
+
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="footer-logo"
+        />
+
+        <p>
+          BISOVIA — a Pi-native utility platform built for
+          practical digital services and community interaction.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <div>
+
+          <h3>Community</h3>
+
+          <a href="index.html">Community Home</a>
+          <a href="services.html">Services</a>
+          <a href="events.html">Events</a>
+          <a href="providers.html">Providers</a>
+          <a href="requests.html">Requests</a>
+
+        </div>
+
+
+        <div>
+
+          <h3>Platform</h3>
+
+          <a href="../../index.html">Home</a>
+          <a href="../../about.html">About</a>
+          <a href="../../pages/payments.html">Payments</a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        All rights reserved.
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Community JavaScript -->
+  <script src="community.js"></script>
+
+</body>
+</html>
