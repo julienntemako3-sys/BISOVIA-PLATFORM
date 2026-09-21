@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA Utilities — practical digital tools and utility services for everyday needs."
+  >
+
+  <title>BISOVIA — Utilities</title>
+
+  <!-- Favicon -->
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../../assets/favicon.svg"
+  >
+
+  <!-- Core stylesheet -->
+  <link rel="stylesheet" href="../../style.css">
+
+  <!-- Utilities module stylesheet -->
+  <link rel="stylesheet" href="utility.css">
+
+  <!-- Pi SDK -->
+  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="header-container">
+
+      <!-- Logo -->
+      <a
+        href="../../index.html"
+        class="brand"
+        aria-label="BISOVIA Home"
+      >
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobileMenuToggle"
+        class="mobile-menu-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+      <!-- Navigation -->
+      <nav
+        id="mainNavigation"
+        class="main-navigation"
+        aria-label="Main navigation"
+      >
+
+        <a href="../../index.html">Home</a>
+
+        <a href="../../about.html">About</a>
+
+        <a href="../mobility/index.html">Mobility</a>
+
+        <a href="../auto/index.html">Auto</a>
+
+        <a href="../hospitality/index.html">Hospitality</a>
+
+        <a href="../community/index.html">Community</a>
+
+        <a
+          href="index.html"
+          class="active"
+          aria-current="page"
+        >
+          Utilities
+        </a>
+
+        <a href="../../pages/payments.html">Payments</a>
+
+      </nav>
+
+      <!-- Header controls -->
+      <div class="header-controls">
+
+        <!-- Language -->
+        <label
+          for="languageSelect"
+          class="sr-only"
+        >
+          Language
+        </label>
+
+        <select
+          id="languageSelect"
+          class="language-select"
+          aria-label="Select language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <!-- Theme -->
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+          title="Toggle theme"
+        >
+          🌙
+        </button>
+
+        <!-- Pi Sign In -->
+        <button
+          id="piSignIn"
+          class="pi-signin-btn"
+          type="button"
+        >
+          Sign in with Pi
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <section class="module-hero utilities-hero">
+
+      <div class="container">
+
+        <span class="eyebrow">
+          BISOVIA UTILITIES
+        </span>
+
+        <h1>
+          Practical digital utility starts here
+        </h1>
+
+        <p>
+          Access practical services, digital tools and everyday
+          utility solutions through one Pi-native platform.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="services.html"
+            class="btn btn-primary"
+          >
+            Explore Services
+          </a>
+
+          <a
+            href="tools.html"
+            class="btn btn-secondary"
+          >
+            Explore Tools
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         INTRODUCTION
+    ========================== -->
+    <section class="section utilities-intro">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            EVERYDAY UTILITY
+          </span>
+
+          <h2>
+            Useful digital services for real needs
+          </h2>
+
+          <p>
+            BISOVIA Utilities brings together practical digital
+            services and tools that can help people solve everyday
+            tasks, access providers and interact with useful
+            community resources.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         MAIN CATEGORIES
+    ========================== -->
+    <section class="section utilities-categories">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            EXPLORE
+          </span>
+
+          <h2>
+            Utilities at a glance
+          </h2>
+
+          <p>
+            Choose the type of utility you need.
+          </p>
+
+        </div>
+
+
+        <div class="cards-grid">
+
+          <!-- Services -->
+          <article class="utility-card">
+
+            <div class="card-icon">
+              🧰
+            </div>
+
+            <h3>
+              Utility Services
+            </h3>
+
+            <p>
+              Discover practical digital and everyday services
+              offered by providers through BISOVIA.
+            </p>
+
+            <a
+              href="services.html"
+              class="card-link"
+            >
+              View Services →
+            </a>
+
+          </article>
+
+
+          <!-- Tools -->
+          <article class="utility-card">
+
+            <div class="card-icon">
+              🛠️
+            </div>
+
+            <h3>
+              Digital Tools
+            </h3>
+
+            <p>
+              Use practical tools for calculations, conversions,
+              information and other everyday digital needs.
+            </p>
+
+            <a
+              href="tools.html"
+              class="card-link"
+            >
+              View Tools →
+            </a>
+
+          </article>
+
+
+          <!-- Providers -->
+          <article class="utility-card">
+
+            <div class="card-icon">
+              👤
+            </div>
+
+            <h3>
+              Providers
+            </h3>
+
+            <p>
+              Find utility providers, review their services and
+              explore available support.
+            </p>
+
+            <a
+              href="providers.html"
+              class="card-link"
+            >
+              Find Providers →
+            </a>
+
+          </article>
+
+
+          <!-- Requests -->
+          <article class="utility-card">
+
+            <div class="card-icon">
+              📋
+            </div>
+
+            <h3>
+              Requests
+            </h3>
+
+            <p>
+              Discover existing requests or create a request for
+              a practical utility service.
+            </p>
+
+            <a
+              href="requests.html"
+              class="card-link"
+            >
+              View Requests →
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         QUICK ACCESS
+    ========================== -->
+    <section class="section quick-access">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            QUICK ACCESS
+          </span>
+
+          <h2>
+            Get things done
+          </h2>
+
+          <p>
+            Move directly to the utility action you need.
+          </p>
+
+        </div>
+
+
+        <div class="quick-access-grid">
+
+          <a
+            href="services.html"
+            class="quick-card"
+          >
+            <span class="quick-icon">🔎</span>
+
+            <span>
+              <strong>Find a Service</strong>
+              <small>
+                Browse available utility services.
+              </small>
+            </span>
+          </a>
+
+
+          <a
+            href="tools.html"
+            class="quick-card"
+          >
+            <span class="quick-icon">⚙️</span>
+
+            <span>
+              <strong>Use a Tool</strong>
+              <small>
+                Access practical digital tools.
+              </small>
+            </span>
+          </a>
+
+
+          <a
+            href="providers.html"
+            class="quick-card"
+          >
+            <span class="quick-icon">🤝</span>
+
+            <span>
+              <strong>Find a Provider</strong>
+              <small>
+                Connect with a utility provider.
+              </small>
+            </span>
+          </a>
+
+
+          <a
+            href="requests.html"
+            class="quick-card"
+          >
+            <span class="quick-icon">📝</span>
+
+            <span>
+              <strong>Create a Request</strong>
+              <small>
+                Request a utility service.
+              </small>
+            </span>
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
+    <section class="section how-it-works">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span class="eyebrow">
+            HOW IT WORKS
+          </span>
+
+          <h2>
+            Simple access to practical utility
+          </h2>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+
+            <span class="step-number">
+              01
+            </span>
+
+            <h3>
+              Discover
+            </h3>
+
+            <p>
+              Find a service, tool, provider or request that
+              matches your need.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              02
+            </span>
+
+            <h3>
+              Choose
+            </h3>
+
+            <p>
+              Review the available information and select the
+              option that fits your situation.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <h3>
+              Connect
+            </h3>
+
+            <p>
+              Request, book or interact with the selected
+              utility service.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              04
+            </span>
+
+            <h3>
+              Pay with Pi
+            </h3>
+
+            <p>
+              Where supported, BISOVIA can use Pi-native
+              payment flows for services.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         TRUST & SAFETY
+    ========================== -->
+    <section class="section trust-section">
+
+      <div class="container">
+
+        <div class="trust-content">
+
+          <div>
+
+            <span class="eyebrow">
+              TRUST & SAFETY
+            </span>
+
+            <h2>
+              Utility with responsible interaction
+            </h2>
+
+            <p>
+              BISOVIA is designed around trusted profiles,
+              provider information, reviews, reporting and
+              responsible community interaction.
+            </p>
+
+          </div>
+
+          <div class="trust-actions">
+
+            <a
+              href="../../trust.html"
+              class="btn btn-secondary"
+            >
+              Trust & Safety
+            </a>
+
+            <a
+              href="../../profile.html"
+              class="btn btn-secondary"
+            >
+              My Profile
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+    <section class="section module-cta">
+
+      <div class="container">
+
+        <div class="cta-card">
+
+          <span class="eyebrow">
+            BISOVIA
+          </span>
+
+          <h2>
+            Find practical utility for everyday life
+          </h2>
+
+          <p>
+            Explore services, tools and providers designed
+            to make useful digital interaction easier.
+          </p>
+
+          <div class="cta-actions">
+
+            <a
+              href="services.html"
+              class="btn btn-primary"
+            >
+              Explore Utilities
+            </a>
+
+            <a
+              href="booking.html"
+              class="btn btn-secondary"
+            >
+              Make a Booking
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+
+          <img
+            src="../../assets/logo.svg"
+            alt="BISOVIA"
+            class="footer-logo"
+          >
+
+          <p>
+            A Pi-native utility platform built for practical
+            digital services and community interaction.
+          </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Platform
+          </h3>
+
+          <a href="../../index.html">
+            Home
+          </a>
+
+          <a href="../../about.html">
+            About
+          </a>
+
+          <a href="../../profile.html">
+            Profile
+          </a>
+
+          <a href="../../trust.html">
+            Trust & Safety
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Modules
+          </h3>
+
+          <a href="../mobility/index.html">
+            Mobility
+          </a>
+
+          <a href="../auto/index.html">
+            Auto
+          </a>
+
+          <a href="../hospitality/index.html">
+            Hospitality
+          </a>
+
+          <a href="../community/index.html">
+            Community
+          </a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+          <h3>
+            Utilities
+          </h3>
+
+          <a href="services.html">
+            Services
+          </a>
+
+          <a href="tools.html">
+            Tools
+          </a>
+
+          <a href="providers.html">
+            Providers
+          </a>
+
+          <a href="requests.html">
+            Requests
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          ©
+          <span id="currentYear"></span>
+          BISOVIA. All rights reserved.
+        </p>
+
+        <p>
+          Pi-native utility platform
+        </p>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       MODULE JAVASCRIPT
+  ========================== -->
+  <script src="utility.js"></script>
+
+</body>
+</html>
