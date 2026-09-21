@@ -1,1 +1,636 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA Accommodations — discover practical places to stay through the BISOVIA hospitality ecosystem."
+  >
+
+  <title>BISOVIA | Accommodations</title>
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="hospitality.css">
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="../../assets/favicon.svg"
+  >
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a
+        href="../../index.html"
+        class="brand"
+        aria-label="BISOVIA Home"
+      >
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="brand-logo"
+        >
+      </a>
+
+      <nav
+        class="main-nav"
+        aria-label="Main navigation"
+      >
+
+        <a
+          href="../../index.html"
+          data-i18n="nav.home"
+        >
+          Home
+        </a>
+
+        <a
+          href="../mobility/mobility.html"
+          data-i18n="nav.mobility"
+        >
+          Mobility
+        </a>
+
+        <a
+          href="../auto/auto.html"
+          data-i18n="nav.auto"
+        >
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          class="active"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a
+          href="../community/community.html"
+          data-i18n="nav.community"
+        >
+          Community
+        </a>
+
+        <a
+          href="../../pages/payments.html"
+          data-i18n="nav.payments"
+        >
+          Payments
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <select
+          id="languageSelector"
+          class="language-selector"
+          aria-label="Select language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+        <button
+          id="themeToggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          🌙
+        </button>
+
+        <button
+          id="menuToggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- HERO -->
+    <section class="module-hero hospitality-hero">
+
+      <div class="container">
+
+        <span
+          class="section-eyebrow"
+          data-i18n="accommodations.eyebrow"
+        >
+          ACCOMMODATION
+        </span>
+
+        <h1 data-i18n="accommodations.title">
+          Find a place to stay.
+        </h1>
+
+        <p data-i18n="accommodations.description">
+          Discover hotels, guest houses and other accommodation
+          options available through the BISOVIA hospitality
+          ecosystem.
+        </p>
+
+        <div class="hero-actions">
+
+          <a
+            href="providers.html?category=accommodation"
+            class="btn btn-primary"
+            data-i18n="accommodations.find"
+          >
+            Find accommodation
+          </a>
+
+          <a
+            href="requests.html?category=accommodation"
+            class="btn btn-secondary"
+            data-i18n="accommodations.request"
+          >
+            Make a request
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACCOMMODATION TYPES
+    ========================== -->
+    <section class="services-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span
+            class="section-eyebrow"
+            data-i18n="accommodations.typesEyebrow"
+          >
+            ACCOMMODATION TYPES
+          </span>
+
+          <h2 data-i18n="accommodations.typesTitle">
+            Options for different needs
+          </h2>
+
+          <p data-i18n="accommodations.typesDescription">
+            Explore different accommodation categories and
+            choose the option that fits your stay.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <!-- Hotel -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🏨
+            </div>
+
+            <h3 data-i18n="accommodations.hotelTitle">
+              Hotels
+            </h3>
+
+            <p data-i18n="accommodations.hotelText">
+              Discover hotel accommodation offered by
+              participating providers.
+            </p>
+
+            <a
+              href="providers.html?category=hotel"
+              class="service-link"
+              data-i18n="accommodations.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+
+          <!-- Guest House -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🏠
+            </div>
+
+            <h3 data-i18n="accommodations.guestHouseTitle">
+              Guest Houses
+            </h3>
+
+            <p data-i18n="accommodations.guestHouseText">
+              Find guest houses and practical places to stay
+              for short or longer visits.
+            </p>
+
+            <a
+              href="providers.html?category=guest-house"
+              class="service-link"
+              data-i18n="accommodations.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+
+          <!-- Apartments -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🏢
+            </div>
+
+            <h3 data-i18n="accommodations.apartmentTitle">
+              Apartments
+            </h3>
+
+            <p data-i18n="accommodations.apartmentText">
+              Discover apartment-style accommodation for
+              flexible stays and different group sizes.
+            </p>
+
+            <a
+              href="providers.html?category=apartment"
+              class="service-link"
+              data-i18n="accommodations.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+
+          <!-- Other -->
+          <article class="service-card">
+
+            <div
+              class="service-icon"
+              aria-hidden="true"
+            >
+              🛏️
+            </div>
+
+            <h3 data-i18n="accommodations.otherTitle">
+              Other Stays
+            </h3>
+
+            <p data-i18n="accommodations.otherText">
+              Explore other accommodation options as the
+              BISOVIA network grows.
+            </p>
+
+            <a
+              href="providers.html?category=other-accommodation"
+              class="service-link"
+              data-i18n="accommodations.explore"
+            >
+              Explore
+            </a>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOOKING PROCESS
+    ========================== -->
+    <section class="how-section">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span
+            class="section-eyebrow"
+            data-i18n="accommodations.processEyebrow"
+          >
+            BOOKING PROCESS
+          </span>
+
+          <h2 data-i18n="accommodations.processTitle">
+            A simple way to request accommodation
+          </h2>
+
+        </div>
+
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+
+            <span class="step-number">
+              01
+            </span>
+
+            <h3 data-i18n="accommodations.step1Title">
+              Choose
+            </h3>
+
+            <p data-i18n="accommodations.step1Text">
+              Browse available accommodation providers and
+              identify the option you need.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              02
+            </span>
+
+            <h3 data-i18n="accommodations.step2Title">
+              Request
+            </h3>
+
+            <p data-i18n="accommodations.step2Text">
+              Send your stay details and submit an accommodation
+              request.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <h3 data-i18n="accommodations.step3Title">
+              Confirm
+            </h3>
+
+            <p data-i18n="accommodations.step3Text">
+              Review the provider response and confirm the
+              booking when the service is available.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              04
+            </span>
+
+            <h3 data-i18n="accommodations.step4Title">
+              Pay with Pi
+            </h3>
+
+            <p data-i18n="accommodations.step4Text">
+              When payment is required, complete the payment
+              through the BISOVIA Pi-native flow.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         BOOKING CTA
+    ========================== -->
+    <section class="provider-section">
+
+      <div class="container">
+
+        <div class="provider-panel">
+
+          <div>
+
+            <span
+              class="section-eyebrow"
+              data-i18n="accommodations.ctaEyebrow"
+            >
+              READY TO STAY?
+            </span>
+
+            <h2 data-i18n="accommodations.ctaTitle">
+              Find accommodation through BISOVIA.
+            </h2>
+
+            <p data-i18n="accommodations.ctaText">
+              Start by exploring participating accommodation
+              providers and submit your request.
+            </p>
+
+          </div>
+
+          <a
+            href="providers.html?category=accommodation"
+            class="btn btn-primary"
+            data-i18n="accommodations.ctaButton"
+          >
+            Find accommodation
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROVIDER CTA
+    ========================== -->
+    <section class="pi-section">
+
+      <div class="container">
+
+        <div class="pi-card">
+
+          <div
+            class="pi-icon"
+            aria-hidden="true"
+          >
+            π
+          </div>
+
+          <div>
+
+            <span
+              class="section-eyebrow"
+              data-i18n="accommodations.piEyebrow"
+            >
+              PI-NATIVE HOSPITALITY
+            </span>
+
+            <h2 data-i18n="accommodations.piTitle">
+              Accommodation connected to BISOVIA Core.
+            </h2>
+
+            <p data-i18n="accommodations.piText">
+              Accommodation requests can connect with BISOVIA
+              identity, trust, notifications and Pi payment
+              services.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+
+        <img
+          src="../../assets/logo.svg"
+          alt="BISOVIA"
+          class="footer-logo"
+        >
+
+        <p data-i18n="footer.description">
+          A Pi-native utility platform built for practical
+          digital services and community interaction.
+        </p>
+
+      </div>
+
+
+      <div class="footer-links">
+
+        <a
+          href="../../index.html"
+          data-i18n="nav.home"
+        >
+          Home
+        </a>
+
+        <a
+          href="../mobility/mobility.html"
+          data-i18n="nav.mobility"
+        >
+          Mobility
+        </a>
+
+        <a
+          href="../auto/auto.html"
+          data-i18n="nav.auto"
+        >
+          Auto
+        </a>
+
+        <a
+          href="hospitality.html"
+          data-i18n="nav.hospitality"
+        >
+          Hospitality
+        </a>
+
+        <a
+          href="../community/community.html"
+          data-i18n="nav.community"
+        >
+          Community
+        </a>
+
+        <a
+          href="../../pages/payments.html"
+          data-i18n="nav.payments"
+        >
+          Payments
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="container footer-bottom">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="footer.rights">
+          All rights reserved.
+        </span>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <script src="../../script.js"></script>
+  <script src="hospitality.js"></script>
+
+</body>
+
+</html>
