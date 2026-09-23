@@ -1,206 +1,110 @@
-
 /* =========================================================
-   BISOVIA — GLOBAL THEME SYSTEM
-   File: frontend/core/theme.js
+   BISOVIA — THEME CORE
+   Dark / Light mode
    ========================================================= */
 
 (function () {
   "use strict";
 
-  const BISOVIA_THEME_KEY = "bisovia_theme";
-
-  const SUPPORTED_THEMES = ["light", "dark", "system"];
-  const DEFAULT_THEME = "system";
+  const STORAGE_KEY = "bisoviaTheme";
 
   function getSavedTheme() {
-    const savedTheme =
-      localStorage.getItem(BISOVIA_THEME_KEY);
-
-    if (SUPPORTED_THEMES.includes(savedTheme)) {
-      return savedTheme;
+    try {
+      return localStorage.getItem(STORAGE_KEY);
+    } catch (error) {
+      return null;
     }
-
-    return DEFAULT_THEME;
   }
 
-  function getSystemTheme() {
-    const mediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-
-    return mediaQuery.matches ? "dark" : "light";
-  }
-
-  function getEffectiveTheme(theme) {
-    if (theme === "system") {
-      return getSystemTheme();
+  function saveTheme(theme) {
+    try {
+      localStorage.setItem(STORAGE_KEY, theme);
+    } catch (error) {
+      // Ignore storage errors.
     }
-
-    return theme;
-  }
-
-  function updateThemeSelectors(theme) {
-    document
-      .querySelectorAll(
-        "[data-theme-selector], #themeSelector, #theme-select"
-      )
-      .forEach(function (selector) {
-        selector.value = theme;
-      });
-  }
-
-  function updateThemeToggle(theme) {
-    const effectiveTheme =
-      getEffectiveTheme(theme);
-
-    document
-      .querySelectorAll(
-        "[data-theme-toggle], #themeToggle"
-      )
-      .forEach(function (button) {
-        button.setAttribute(
-          "aria-pressed",
-          effectiveTheme === "dark"
-            ? "true"
-            : "false"
-        );
-
-        button.setAttribute(
-          "aria-label",
-          effectiveTheme === "dark"
-            ? "Switch to light mode"
-            : "Switch to dark mode"
-        );
-
-        const icon =
-          button.querySelector(
-            "[data-theme-icon]"
-          );
-
-        if (icon) {
-          icon.textContent =
-            effectiveTheme === "dark"
-              ? "☀️"
-              : "🌙";
-        }
-      });
   }
 
   function applyTheme(theme) {
-    if (!SUPPORTED_THEMES.includes(theme)) {
-      theme = DEFAULT_THEME;
-    }
+    const normalizedTheme =
+      theme === "dark" ? "dark" : "light";
 
-    const effectiveTheme =
-      getEffectiveTheme(theme);
+    document.body.classList.toggle(
+      "dark-mode",
+      normalizedTheme === "dark"
+    );
 
     document.documentElement.setAttribute(
       "data-theme",
-      effectiveTheme
+      normalizedTheme
     );
 
-    document.documentElement.classList.remove(
-      "light",
-      "dark"
+    document.documentElement.classList.toggle(
+      "dark",
+      normalizedTheme === "dark"
     );
 
-    document.documentElement.classList.add(
-      effectiveTheme
-    );
+    document.querySelectorAll("[data-theme-icon]").forEach((icon) => {
+      icon.textContent =
+        normalizedTheme === "dark" ? "☀️" : "🌙";
+    });
 
-    document.documentElement.setAttribute(
-      "data-theme-preference",
-      theme
-    );
-
-    localStorage.setItem(
-      BISOVIA_THEME_KEY,
-      theme
-    );
-
-    updateThemeSelectors(theme);
-    updateThemeToggle(theme);
-
-    document.dispatchEvent(
-      new CustomEvent(
-        "bisovia:themeChanged",
-        {
-          detail: {
-            theme: theme,
-            effectiveTheme: effectiveTheme
-          }
-        }
-      )
-    );
-
-    return effectiveTheme;
-  }
-
-  function setTheme(theme) {
-    return applyTheme(theme);
+    document.querySelectorAll("[data-theme-label]").forEach((label) => {
+      label.textContent =
+        normalizedTheme === "dark"
+          ? "Light mode"
+          : "Dark mode";
+    });
   }
 
   function toggleTheme() {
-    const currentTheme =
-      document.documentElement.getAttribute(
-        "data-theme"
-      ) || getEffectiveTheme(getSavedTheme());
+    const isDark =
+      document.body.classList.contains("dark-mode");
 
-    const newTheme =
-      currentTheme === "dark"
-        ? "light"
-        : "dark";
+    const newTheme = isDark ? "light" : "dark";
 
     applyTheme(newTheme);
-
-    return newTheme;
+    saveTheme(newTheme);
   }
 
-  function initializeThemeSelectors() {
-    document
-      .querySelectorAll(
-        "[data-theme-selector], #themeSelector, #theme-select"
-      )
-      .forEach(function (selector) {
-        selector.addEventListener(
-          "change",
-          function () {
-            setTheme(selector.value);
-          }
-        );
-      });
-  }
+  function initTheme() {
+    const savedTheme = getSavedTheme();
 
-  function initializeThemeToggles() {
-    document
-      .querySelectorAll(
-        "[data-theme-toggle], #themeToggle"
-      )
-      .forEach(function (button) {
-        button.addEventListener(
-          "click",
-          function () {
-            toggleTheme();
-          }
-        );
-      });
-  }
-
-  function initializeSystemThemeListener() {
-    const mediaQuery = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    );
-
-    function handleSystemThemeChange() {
-      const savedTheme =
-        getSavedTheme();
-
-      if (savedTheme !== "system") {
-        return;
-      }
-
-      applyTheme("system");
+    if (savedTheme) {
+      applyTheme(savedTheme);
+      return;
     }
 
-    if (
-      typeof mediaQuery.addEventListener ===
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    applyTheme(prefersDark ? "dark" : "light");
+  }
+
+  function initThemeControls() {
+    const controls = document.querySelectorAll(
+      "#themeToggle, .theme-toggle, [data-theme-toggle]"
+    );
+
+    controls.forEach((control) => {
+      control.addEventListener("click", function (event) {
+        event.preventDefault();
+        toggleTheme();
+      });
+    });
+  }
+
+  window.BISOVIA = window.BISOVIA || {};
+
+  window.BISOVIA.theme = {
+    init: initTheme,
+    toggle: toggleTheme,
+    apply: applyTheme
+  };
+
+  document.addEventListener("DOMContentLoaded", function () {
+    initTheme();
+    initThemeControls();
+  });
+
+})();
