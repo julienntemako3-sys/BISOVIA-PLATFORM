@@ -1,1 +1,464 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA transaction and activity history."
+  >
+
+  <title>BISOVIA — History</title>
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Core / Global -->
+  <link rel="stylesheet" href="../core/core.css">
+
+  <!-- History page -->
+  <style>
+    .history-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .history-header {
+      margin-bottom: 28px;
+    }
+
+    .history-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .history-header p {
+      opacity: 0.75;
+      margin: 0;
+    }
+
+    .history-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .history-actions button,
+    .history-actions select {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(128, 128, 128, 0.35);
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .history-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .summary-card {
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid rgba(128, 128, 128, 0.25);
+      background: rgba(128, 128, 128, 0.06);
+    }
+
+    .summary-card span {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .summary-card strong {
+      font-size: 1.35rem;
+    }
+
+    .history-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .history-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(128, 128, 128, 0.25);
+      background: rgba(128, 128, 128, 0.04);
+    }
+
+    .history-info {
+      flex: 1;
+    }
+
+    .history-info h3 {
+      margin: 0 0 5px;
+      font-size: 1rem;
+    }
+
+    .history-info p {
+      margin: 3px 0;
+      font-size: 0.88rem;
+      opacity: 0.7;
+    }
+
+    .history-amount {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .history-amount strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      background: rgba(128, 128, 128, 0.15);
+    }
+
+    .history-empty {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      border: 1px dashed rgba(128, 128, 128, 0.35);
+      border-radius: 12px;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 700px) {
+      .history-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .history-item {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .history-amount {
+        text-align: left;
+      }
+
+      .history-actions {
+        flex-direction: column;
+      }
+
+      .history-actions button,
+      .history-actions select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Global navigation -->
+  <header>
+    <nav class="navbar">
+      <a href="../index.html" class="logo">
+        BISOVIA
+      </a>
+
+      <div class="nav-links">
+        <a href="../index.html" data-i18n="nav.home">Home</a>
+        <a href="services.html" data-i18n="nav.services">Services</a>
+        <a href="payments.html" data-i18n="nav.payments">Payments</a>
+        <a href="history.html" data-i18n="nav.history">History</a>
+        <a href="profile.html" data-i18n="nav.profile">Profile</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="history-page">
+
+    <section class="history-header">
+      <h1 data-i18n="history.title">
+        Transaction History
+      </h1>
+
+      <p data-i18n="history.subtitle">
+        View your BISOVIA payments and service activity.
+      </p>
+    </section>
+
+    <!-- Filters -->
+    <section class="history-actions">
+
+      <select id="historyFilter">
+        <option value="all" data-i18n="history.filter.all">
+          All
+        </option>
+
+        <option value="completed" data-i18n="history.filter.completed">
+          Completed
+        </option>
+
+        <option value="pending" data-i18n="history.filter.pending">
+          Pending
+        </option>
+
+        <option value="cancelled" data-i18n="history.filter.cancelled">
+          Cancelled
+        </option>
+      </select>
+
+      <button
+        type="button"
+        id="refreshHistory"
+        data-i18n="history.refresh"
+      >
+        Refresh
+      </button>
+
+    </section>
+
+    <!-- Summary -->
+    <section class="history-summary">
+
+      <div class="summary-card">
+        <span data-i18n="history.total">
+          Total Transactions
+        </span>
+
+        <strong id="totalTransactions">
+          0
+        </strong>
+      </div>
+
+      <div class="summary-card">
+        <span data-i18n="history.completed">
+          Completed
+        </span>
+
+        <strong id="completedTransactions">
+          0
+        </strong>
+      </div>
+
+      <div class="summary-card">
+        <span data-i18n="history.totalSpent">
+          Total Pi
+        </span>
+
+        <strong id="totalPi">
+          0 Pi
+        </strong>
+      </div>
+
+    </section>
+
+    <!-- History -->
+    <section>
+
+      <div id="historyList" class="history-list">
+
+        <!-- Transactions are loaded dynamically -->
+
+      </div>
+
+      <div id="historyEmpty" class="history-empty">
+
+        <h3 data-i18n="history.empty.title">
+          No transactions yet
+        </h3>
+
+        <p data-i18n="history.empty.text">
+          Your BISOVIA payment history will appear here.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>
+      © <span id="currentYear"></span> BISOVIA.
+      <span data-i18n="footer.rights">
+        All rights reserved.
+      </span>
+    </p>
+  </footer>
+
+  <!-- Core -->
+  <script src="../core/core.js"></script>
+  <script src="../core/translation.js"></script>
+
+  <!-- History logic -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const historyList =
+        document.getElementById("historyList");
+
+      const historyEmpty =
+        document.getElementById("historyEmpty");
+
+      const filter =
+        document.getElementById("historyFilter");
+
+      const refresh =
+        document.getElementById("refreshHistory");
+
+      const totalTransactions =
+        document.getElementById("totalTransactions");
+
+      const completedTransactions =
+        document.getElementById("completedTransactions");
+
+      const totalPi =
+        document.getElementById("totalPi");
+
+      const year =
+        document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      /*
+       * Temporary frontend data.
+       *
+       * Real transactions should later come
+       * from the BISOVIA backend/payment journal.
+       *
+       * Pi SDK must NOT access the database directly.
+       */
+      let transactions = [];
+
+      function renderHistory() {
+
+        historyList.innerHTML = "";
+
+        const selectedFilter = filter.value;
+
+        const filtered =
+          selectedFilter === "all"
+            ? transactions
+            : transactions.filter(
+                item => item.status === selectedFilter
+              );
+
+        totalTransactions.textContent =
+          transactions.length;
+
+        completedTransactions.textContent =
+          transactions.filter(
+            item => item.status === "completed"
+          ).length;
+
+        const total =
+          transactions
+            .filter(
+              item => item.status === "completed"
+            )
+            .reduce(
+              (sum, item) =>
+                sum + Number(item.amount || 0),
+              0
+            );
+
+        totalPi.textContent =
+          `${total.toFixed(2)} Pi`;
+
+        if (filtered.length === 0) {
+          historyEmpty.style.display = "block";
+          return;
+        }
+
+        historyEmpty.style.display = "none";
+
+        filtered.forEach(transaction => {
+
+          const item =
+            document.createElement("article");
+
+          item.className = "history-item";
+
+          item.innerHTML = `
+            <div class="history-info">
+              <h3>
+                ${escapeHTML(
+                  transaction.service || "BISOVIA Service"
+                )}
+              </h3>
+
+              <p>
+                ${escapeHTML(
+                  transaction.type || "Payment"
+                )}
+              </p>
+
+              <p>
+                ${escapeHTML(
+                  transaction.date || ""
+                )}
+              </p>
+            </div>
+
+            <div class="history-amount">
+
+              <strong>
+                ${Number(transaction.amount || 0).toFixed(2)} Pi
+              </strong>
+
+              <span class="status">
+                ${escapeHTML(
+                  transaction.status || "pending"
+                )}
+              </span>
+
+            </div>
+          `;
+
+          historyList.appendChild(item);
+        });
+      }
+
+      function escapeHTML(value) {
+
+        return String(value)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+      }
+
+      filter.addEventListener(
+        "change",
+        renderHistory
+      );
+
+      refresh.addEventListener(
+        "click",
+        renderHistory
+      );
+
+      renderHistory();
+    });
+  </script>
+
+</body>
+</html>
