@@ -1,1 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>BISOVIA — Garage</title>
+  <meta
+    name="description"
+    content="BISOVIA garage services — find vehicle repair, maintenance and automotive service providers."
+  >
+
+  <!-- Core styles -->
+  <link rel="stylesheet" href="../core/core.css">
+  <link rel="stylesheet" href="../core/global.css">
+
+  <!-- Auto module -->
+  <link rel="stylesheet" href="../modules/auto/auto.css">
+
+  <!-- Page styles -->
+  <style>
+    .garage-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 60px;
+    }
+
+    .garage-hero {
+      padding: 28px 20px;
+      border-radius: 18px;
+      margin-bottom: 24px;
+      background: var(--card-bg, #ffffff);
+      border: 1px solid var(--border-color, #e5e7eb);
+    }
+
+    .garage-hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+    }
+
+    .garage-hero p {
+      margin: 0;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+
+    .garage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .garage-card {
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--card-bg, #ffffff);
+      border: 1px solid var(--border-color, #e5e7eb);
+    }
+
+    .garage-card h2 {
+      margin-top: 0;
+      font-size: 1.15rem;
+    }
+
+    .garage-card p {
+      line-height: 1.5;
+      opacity: 0.8;
+    }
+
+    .garage-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .garage-btn {
+      display: inline-block;
+      padding: 10px 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid var(--border-color, #d1d5db);
+      color: inherit;
+    }
+
+    .garage-btn.primary {
+      background: var(--primary-color, #111827);
+      color: #ffffff;
+      border-color: var(--primary-color, #111827);
+    }
+
+    .garage-info {
+      margin-top: 28px;
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--card-bg, #ffffff);
+      border: 1px solid var(--border-color, #e5e7eb);
+    }
+
+    @media (max-width: 600px) {
+      .garage-page {
+        padding: 18px 12px 40px;
+      }
+
+      .garage-hero h1 {
+        font-size: 1.6rem;
+      }
+
+      .garage-actions {
+        flex-direction: column;
+      }
+
+      .garage-btn {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Global header -->
+  <header id="global-header">
+    <nav>
+      <a href="../index.html">BISOVIA</a>
+      <a href="../services.html">Services</a>
+      <a href="auto.html">Auto</a>
+      <a href="garages.html">Garages</a>
+      <a href="auto-services.html">Auto Services</a>
+    </nav>
+  </header>
+
+  <main class="garage-page">
+
+    <section class="garage-hero">
+      <h1 data-i18n="auto.garage.title">Garage</h1>
+
+      <p data-i18n="auto.garage.description">
+        Find vehicle repair, maintenance and automotive service providers
+        through BISOVIA.
+      </p>
+
+      <div class="garage-actions">
+        <a
+          class="garage-btn primary"
+          href="garages.html"
+          data-i18n="auto.garage.find"
+        >
+          Find a Garage
+        </a>
+
+        <a
+          class="garage-btn"
+          href="auto-services.html"
+          data-i18n="auto.garage.services"
+        >
+          View Auto Services
+        </a>
+      </div>
+    </section>
+
+
+    <section class="garage-grid">
+
+      <article class="garage-card">
+        <h2 data-i18n="auto.garage.repair.title">
+          Vehicle Repair
+        </h2>
+
+        <p data-i18n="auto.garage.repair.description">
+          Access repair services for common vehicle problems and mechanical
+          issues.
+        </p>
+
+        <div class="garage-actions">
+          <a
+            class="garage-btn"
+            href="service.html?type=repair"
+            data-i18n="common.view"
+          >
+            View
+          </a>
+        </div>
+      </article>
+
+
+      <article class="garage-card">
+        <h2 data-i18n="auto.garage.maintenance.title">
+          Maintenance
+        </h2>
+
+        <p data-i18n="auto.garage.maintenance.description">
+          Find providers for regular vehicle maintenance and inspections.
+        </p>
+
+        <div class="garage-actions">
+          <a
+            class="garage-btn"
+            href="service.html?type=maintenance"
+            data-i18n="common.view"
+          >
+            View
+          </a>
+        </div>
+      </article>
+
+
+      <article class="garage-card">
+        <h2 data-i18n="auto.garage.diagnostics.title">
+          Diagnostics
+        </h2>
+
+        <p data-i18n="auto.garage.diagnostics.description">
+          Find diagnostic services to identify vehicle problems.
+        </p>
+
+        <div class="garage-actions">
+          <a
+            class="garage-btn"
+            href="service.html?type=diagnostics"
+            data-i18n="common.view"
+          >
+            View
+          </a>
+        </div>
+      </article>
+
+
+      <article class="garage-card">
+        <h2 data-i18n="auto.garage.parts.title">
+          Parts & Accessories
+        </h2>
+
+        <p data-i18n="auto.garage.parts.description">
+          Explore automotive parts and accessories offered by service
+          providers.
+        </p>
+
+        <div class="garage-actions">
+          <a
+            class="garage-btn"
+            href="service.html?type=parts"
+            data-i18n="common.view"
+          >
+            View
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+
+    <section class="garage-info">
+
+      <h2 data-i18n="auto.garage.provider.title">
+        Are you a Garage Provider?
+      </h2>
+
+      <p data-i18n="auto.garage.provider.description">
+        Register your automotive services on BISOVIA and connect with users
+        looking for reliable vehicle services.
+      </p>
+
+      <div class="garage-actions">
+
+        <a
+          class="garage-btn primary"
+          href="provider.html"
+          data-i18n="auto.garage.provider.profile"
+        >
+          Provider Profile
+        </a>
+
+        <a
+          class="garage-btn"
+          href="auto-requests.html"
+          data-i18n="auto.garage.provider.requests"
+        >
+          Service Requests
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Global footer -->
+  <footer id="global-footer">
+    <p>
+      © <span id="current-year"></span> BISOVIA.
+      <span data-i18n="footer.utility">
+        Utility starts here.
+      </span>
+    </p>
+  </footer>
+
+
+  <!-- Core -->
+  <script src="../core/core.js"></script>
+  <script src="../core/translation.js"></script>
+
+  <!-- Language files -->
+  <script src="../core/languages/en.js"></script>
+  <script src="../core/languages/fr.js"></script>
+  <script src="../core/languages/rn.js"></script>
+  <script src="../core/languages/sw.js"></script>
+
+  <!-- Auto module -->
+  <script src="../modules/auto/auto.js"></script>
+
+  <!-- Page script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const year = document.getElementById("current-year");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+
+</body>
+</html>
