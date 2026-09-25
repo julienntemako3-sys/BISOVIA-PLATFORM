@@ -1,1 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Questions | BISOVIA Learning</title>
+  <meta
+    name="description"
+    content="Ask and explore learning questions on BISOVIA."
+  >
+
+  <link rel="stylesheet" href="learning.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="learning-header">
+    <div class="container">
+      <a href="index.html" class="learning-logo">
+        BISOVIA Learning
+      </a>
+
+      <nav class="learning-nav" aria-label="Learning navigation">
+        <a href="index.html">Home</a>
+        <a href="courses.html">Courses</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="categories.html">Categories</a>
+        <a href="questions.html" class="active">Questions</a>
+        <a href="progress.html">Progress</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="learning-main">
+
+    <!-- Page Intro -->
+    <section class="learning-hero">
+      <div class="container">
+        <span class="section-label">Learning Community</span>
+
+        <h1>Questions</h1>
+
+        <p>
+          Ask questions, explore answers, and learn together
+          through the BISOVIA community.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ask Question -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="learning-card">
+
+          <div class="card-header">
+            <h2>Ask a Question</h2>
+            <p>
+              Share something you want to understand or discuss.
+            </p>
+          </div>
+
+          <form id="questionForm">
+
+            <div class="form-group">
+              <label for="questionTitle">
+                Question title
+              </label>
+
+              <input
+                type="text"
+                id="questionTitle"
+                name="questionTitle"
+                placeholder="What would you like to learn?"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="questionCategory">
+                Category
+              </label>
+
+              <select
+                id="questionCategory"
+                name="questionCategory"
+                required
+              >
+                <option value="">Select a category</option>
+                <option value="technology">Technology</option>
+                <option value="business">Business</option>
+                <option value="digital-skills">Digital Skills</option>
+                <option value="languages">Languages</option>
+                <option value="community">Community</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="questionContent">
+                Your question
+              </label>
+
+              <textarea
+                id="questionContent"
+                name="questionContent"
+                rows="6"
+                placeholder="Explain your question..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="primary-button">
+              Submit Question
+            </button>
+
+          </form>
+
+          <div
+            id="questionMessage"
+            class="form-message"
+            aria-live="polite"
+          ></div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Questions List -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <div>
+            <span class="section-label">Community</span>
+            <h2>Recent Questions</h2>
+          </div>
+
+          <button
+            type="button"
+            id="refreshQuestions"
+            class="secondary-button"
+          >
+            Refresh
+          </button>
+        </div>
+
+        <div id="questionsList" class="questions-list">
+
+          <!-- Question 1 -->
+          <article class="question-card">
+
+            <div class="question-content">
+
+              <span class="question-category">
+                Technology
+              </span>
+
+              <h3>
+                How can I improve my digital skills?
+              </h3>
+
+              <p>
+                I would like to know which learning resources
+                can help me develop practical digital skills.
+              </p>
+
+              <div class="question-meta">
+                <span>By BISOVIA Learner</span>
+                <span>•</span>
+                <span>0 answers</span>
+              </div>
+
+            </div>
+
+            <a
+              href="#"
+              class="question-action"
+              data-question-id="1"
+            >
+              View Question
+            </a>
+
+          </article>
+
+          <!-- Question 2 -->
+          <article class="question-card">
+
+            <div class="question-content">
+
+              <span class="question-category">
+                Business
+              </span>
+
+              <h3>
+                What are the basics of starting a digital service?
+              </h3>
+
+              <p>
+                I want to understand the main steps required
+                to create and manage a practical digital service.
+              </p>
+
+              <div class="question-meta">
+                <span>By BISOVIA Learner</span>
+                <span>•</span>
+                <span>0 answers</span>
+              </div>
+
+            </div>
+
+            <a
+              href="#"
+              class="question-action"
+              data-question-id="2"
+            >
+              View Question
+            </a>
+
+          </article>
+
+          <!-- Empty state -->
+          <div
+            id="emptyQuestions"
+            class="empty-state"
+            hidden
+          >
+            <h3>No questions yet</h3>
+            <p>
+              Be the first learner to ask a question.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="learning-footer">
+    <div class="container">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        Learning for practical utility and community growth.
+      </p>
+
+      <div class="footer-links">
+        <a href="resources.html">Resources</a>
+        <a href="certificates.html">Certificates</a>
+        <a href="index.html">Learning Home</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Learning JavaScript -->
+  <script src="learning.js"></script>
+
+  <!-- Questions JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const form = document.getElementById("questionForm");
+      const message = document.getElementById("questionMessage");
+      const refreshButton =
+        document.getElementById("refreshQuestions");
+
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      /*
+       * Question submission
+       * Backend integration can be connected later.
+       */
+      if (form) {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          const title =
+            document.getElementById("questionTitle").value.trim();
+
+          const category =
+            document.getElementById("questionCategory").value;
+
+          const content =
+            document.getElementById("questionContent").value.trim();
+
+          if (!title || !category || !content) {
+            message.textContent =
+              "Please complete all required fields.";
+
+            message.className =
+              "form-message error";
+
+            return;
+          }
+
+          message.textContent =
+            "Your question has been prepared successfully.";
+
+          message.className =
+            "form-message success";
+
+          /*
+           * Future API:
+           *
+           * POST /api/learning/questions
+           *
+           * {
+           *   title,
+           *   category,
+           *   content
+           * }
+           */
+
+          form.reset();
+        });
+      }
+
+      /*
+       * Refresh questions
+       * Ready for future backend/API integration.
+       */
+      if (refreshButton) {
+        refreshButton.addEventListener("click", () => {
+
+          refreshButton.disabled = true;
+          refreshButton.textContent = "Refreshing...";
+
+          setTimeout(() => {
+            refreshButton.disabled = false;
+            refreshButton.textContent = "Refresh";
+          }, 500);
+        });
+      }
+
+      /*
+       * Question links
+       */
+      document
+        .querySelectorAll(".question-action")
+        .forEach((link) => {
+
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            const questionId =
+              link.dataset.questionId;
+
+            /*
+             * Future route:
+             * question.html?id=QUESTION_ID
+             */
+
+            console.log(
+              "Selected question:",
+              questionId
+            );
+          });
+
+        });
+
+    });
+  </script>
+
+</body>
+</html>
+
+Iyi "questions.html" irahuye na structure twari turiko turakora muri "frontend/modules/learning/", kandi ntirashiramwo backend kuko tuzoyihuza nyuma na API/Core.
