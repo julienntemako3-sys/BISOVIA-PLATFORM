@@ -1,1 +1,552 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BISOVIA — Providers</title>
+  <meta
+    name="description"
+    content="Discover trusted service providers on BISOVIA."
+  >
+
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Global/Core styles -->
+  <link rel="stylesheet" href="../../core/core.css">
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    .providers-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .providers-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .providers-header h1 {
+      margin-bottom: 10px;
+    }
+
+    .providers-header p {
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.8;
+    }
+
+    .provider-tools {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+
+    .provider-tools input,
+    .provider-tools select {
+      flex: 1;
+      min-width: 180px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      background: inherit;
+      color: inherit;
+    }
+
+    .providers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .provider-card {
+      padding: 22px;
+      border: 1px solid rgba(128, 128, 128, 0.25);
+      border-radius: 16px;
+      background: rgba(128, 128, 128, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .provider-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    .provider-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      font-size: 24px;
+      font-weight: 700;
+      background: rgba(128, 128, 128, 0.15);
+    }
+
+    .provider-card h2 {
+      font-size: 20px;
+      margin: 0 0 6px;
+    }
+
+    .provider-type {
+      font-size: 14px;
+      opacity: 0.7;
+      margin-bottom: 10px;
+    }
+
+    .provider-rating {
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .provider-services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 14px 0;
+    }
+
+    .service-tag {
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 12px;
+      background: rgba(128, 128, 128, 0.15);
+    }
+
+    .provider-location {
+      font-size: 14px;
+      opacity: 0.75;
+      margin-bottom: 16px;
+    }
+
+    .provider-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .provider-actions a,
+    .provider-actions button {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 9px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid rgba(128, 128, 128, 0.3);
+      background: transparent;
+      color: inherit;
+    }
+
+    .provider-actions .primary {
+      background: #000;
+      color: #fff;
+      border-color: #000;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 50px 20px;
+      opacity: 0.7;
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .providers-page {
+        padding: 24px 15px 45px;
+      }
+
+      .provider-tools {
+        flex-direction: column;
+      }
+
+      .provider-tools input,
+      .provider-tools select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <a href="../../index.html" class="logo">
+        <img src="../../assets/logo.svg" alt="BISOVIA" height="38">
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../../index.html" data-i18n="nav.home">Home</a>
+        <a href="../services/index.html" data-i18n="nav.services">Services</a>
+        <a href="index.html" class="active" data-i18n="nav.providers">
+          Providers
+        </a>
+        <a href="../requests/index.html" data-i18n="nav.requests">
+          Requests
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          id="themeToggle"
+          type="button"
+          aria-label="Toggle theme"
+        >
+          🌙
+        </button>
+
+        <select id="languageSelect" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main class="providers-page">
+
+    <section class="providers-header">
+      <h1 data-i18n="providers.title">
+        Service Providers
+      </h1>
+
+      <p data-i18n="providers.subtitle">
+        Discover providers offering practical services through BISOVIA.
+      </p>
+    </section>
+
+
+    <!-- Search / Filter -->
+    <section class="provider-tools">
+
+      <input
+        type="search"
+        id="providerSearch"
+        placeholder="Search providers..."
+        data-i18n-placeholder="providers.search"
+        autocomplete="off"
+      >
+
+      <select id="categoryFilter">
+        <option value="all" data-i18n="providers.allCategories">
+          All categories
+        </option>
+
+        <option value="mobility" data-i18n="categories.mobility">
+          Mobility
+        </option>
+
+        <option value="auto" data-i18n="categories.auto">
+          Auto
+        </option>
+
+        <option value="hospitality" data-i18n="categories.hospitality">
+          Hospitality
+        </option>
+
+        <option value="utilities" data-i18n="categories.utilities">
+          Utilities
+        </option>
+
+        <option value="community" data-i18n="categories.community">
+          Community
+        </option>
+
+        <option value="learning" data-i18n="categories.learning">
+          Learning
+        </option>
+
+        <option value="ai" data-i18n="categories.ai">
+          AI
+        </option>
+      </select>
+
+    </section>
+
+
+    <!-- Providers -->
+    <section
+      id="providersGrid"
+      class="providers-grid"
+      aria-live="polite"
+    >
+
+      <article
+        class="provider-card"
+        data-category="mobility"
+        data-name="BISOVIA Mobility"
+      >
+        <div class="provider-avatar">BM</div>
+
+        <h2>BISOVIA Mobility</h2>
+
+        <div class="provider-type">
+          Mobility Provider
+        </div>
+
+        <div class="provider-rating">
+          ⭐ 4.8 · Trusted provider
+        </div>
+
+        <div class="provider-services">
+          <span class="service-tag">Rides</span>
+          <span class="service-tag">Transport</span>
+        </div>
+
+        <div class="provider-location">
+          📍 Burundi
+        </div>
+
+        <div class="provider-actions">
+          <a
+            href="provider.html?id=bisovia-mobility"
+            class="primary"
+          >
+            View
+          </a>
+
+          <a
+            href="booking.html?provider=bisovia-mobility"
+          >
+            Book
+          </a>
+        </div>
+      </article>
+
+
+      <article
+        class="provider-card"
+        data-category="auto"
+        data-name="BISOVIA Auto Services"
+      >
+        <div class="provider-avatar">BA</div>
+
+        <h2>BISOVIA Auto Services</h2>
+
+        <div class="provider-type">
+          Auto & Garage Provider
+        </div>
+
+        <div class="provider-rating">
+          ⭐ 4.7 · Trusted provider
+        </div>
+
+        <div class="provider-services">
+          <span class="service-tag">Repair</span>
+          <span class="service-tag">Maintenance</span>
+        </div>
+
+        <div class="provider-location">
+          📍 Burundi
+        </div>
+
+        <div class="provider-actions">
+          <a
+            href="provider.html?id=bisovia-auto"
+            class="primary"
+          >
+            View
+          </a>
+
+          <a
+            href="booking.html?provider=bisovia-auto"
+          >
+            Book
+          </a>
+        </div>
+      </article>
+
+
+      <article
+        class="provider-card"
+        data-category="hospitality"
+        data-name="BISOVIA Hospitality"
+      >
+        <div class="provider-avatar">BH</div>
+
+        <h2>BISOVIA Hospitality</h2>
+
+        <div class="provider-type">
+          Hospitality Provider
+        </div>
+
+        <div class="provider-rating">
+          ⭐ 4.9 · Trusted provider
+        </div>
+
+        <div class="provider-services">
+          <span class="service-tag">Accommodation</span>
+          <span class="service-tag">Meals</span>
+          <span class="service-tag">Events</span>
+        </div>
+
+        <div class="provider-location">
+          📍 Burundi
+        </div>
+
+        <div class="provider-actions">
+          <a
+            href="provider.html?id=bisovia-hospitality"
+            class="primary"
+          >
+            View
+          </a>
+
+          <a
+            href="booking.html?provider=bisovia-hospitality"
+          >
+            Book
+          </a>
+        </div>
+      </article>
+
+
+      <article
+        class="provider-card"
+        data-category="utilities"
+        data-name="BISOVIA Utilities"
+      >
+        <div class="provider-avatar">BU</div>
+
+        <h2>BISOVIA Utilities</h2>
+
+        <div class="provider-type">
+          Digital Utility Provider
+        </div>
+
+        <div class="provider-rating">
+          ⭐ 4.8 · Trusted provider
+        </div>
+
+        <div class="provider-services">
+          <span class="service-tag">Digital Services</span>
+          <span class="service-tag">Tools</span>
+        </div>
+
+        <div class="provider-location">
+          📍 Online
+        </div>
+
+        <div class="provider-actions">
+          <a
+            href="provider.html?id=bisovia-utilities"
+            class="primary"
+          >
+            View
+          </a>
+
+          <a
+            href="booking.html?provider=bisovia-utilities"
+          >
+            Book
+          </a>
+        </div>
+      </article>
+
+    </section>
+
+
+    <div id="emptyState" class="empty-state">
+      <h2 data-i18n="providers.noResults">
+        No providers found.
+      </h2>
+
+      <p data-i18n="providers.tryAgain">
+        Try another search or category.
+      </p>
+    </div>
+
+  </main>
+
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <p>
+      © <span id="currentYear"></span> BISOVIA.
+      <span data-i18n="footer.rights">
+        All rights reserved.
+      </span>
+    </p>
+  </footer>
+
+
+  <!-- Core -->
+  <script src="../../core/core.js"></script>
+  <script src="../../core/translation.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const searchInput = document.getElementById("providerSearch");
+      const categoryFilter = document.getElementById("categoryFilter");
+      const cards = document.querySelectorAll(".provider-card");
+      const emptyState = document.getElementById("emptyState");
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      function filterProviders() {
+        const search =
+          searchInput.value.toLowerCase().trim();
+
+        const category =
+          categoryFilter.value;
+
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+
+          const name =
+            card.dataset.name.toLowerCase();
+
+          const cardCategory =
+            card.dataset.category;
+
+          const matchesSearch =
+            name.includes(search);
+
+          const matchesCategory =
+            category === "all" ||
+            cardCategory === category;
+
+          if (matchesSearch && matchesCategory) {
+            card.style.display = "";
+            visibleCount++;
+          } else {
+            card.style.display = "none";
+          }
+        });
+
+        emptyState.style.display =
+          visibleCount === 0 ? "block" : "none";
+      }
+
+      searchInput.addEventListener(
+        "input",
+        filterProviders
+      );
+
+      categoryFilter.addEventListener(
+        "change",
+        filterProviders
+      );
+
+    });
+  </script>
+
+</body>
+</html>
