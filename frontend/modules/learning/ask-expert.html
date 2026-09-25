@@ -1,1 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Ask an Expert | BISOVIA Learning</title>
+  <meta
+    name="description"
+    content="Ask an expert for guidance, explanations and practical learning support on BISOVIA."
+  >
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="learning.css">
+</head>
+
+<body>
+
+  <!-- Global Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="logo">
+        BISOVIA
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../../index.html">Home</a>
+        <a href="index.html">Learning</a>
+        <a href="courses.html">Courses</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="progress.html">Progress</a>
+      </nav>
+
+      <button
+        type="button"
+        id="theme-toggle"
+        aria-label="Toggle dark mode"
+      >
+        ◐
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="learning-page">
+
+    <section class="learning-hero">
+      <div class="container">
+        <span class="eyebrow">Learning Support</span>
+
+        <h1>Ask an Expert</h1>
+
+        <p>
+          Get practical guidance from an expert when you need help
+          understanding a topic, lesson or learning challenge.
+        </p>
+      </div>
+    </section>
+
+    <!-- Ask Form -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="learning-card">
+
+          <div class="card-header">
+            <h2>Submit your question</h2>
+            <p>
+              Describe what you need help with as clearly as possible.
+            </p>
+          </div>
+
+          <form id="expert-question-form">
+
+            <div class="form-group">
+              <label for="subject">
+                Subject
+              </label>
+
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                placeholder="Example: Mathematics"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="topic">
+                Topic
+              </label>
+
+              <input
+                type="text"
+                id="topic"
+                name="topic"
+                placeholder="Example: Algebra"
+                required
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="question">
+                Your question
+              </label>
+
+              <textarea
+                id="question"
+                name="question"
+                rows="7"
+                placeholder="Write your question here..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="urgency">
+                Priority
+              </label>
+
+              <select id="urgency" name="urgency">
+                <option value="normal">Normal</option>
+                <option value="important">Important</option>
+                <option value="urgent">Urgent</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="attachment">
+                Attachment
+              </label>
+
+              <input
+                type="file"
+                id="attachment"
+                name="attachment"
+                accept=".jpg,.jpeg,.png,.pdf,.doc,.docx"
+              >
+
+              <small>
+                Optional. You can attach a document or image related to
+                your question.
+              </small>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+            >
+              Send Question
+            </button>
+
+          </form>
+
+          <div
+            id="expert-question-status"
+            class="form-status"
+            aria-live="polite"
+          ></div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">How it works</span>
+          <h2>Get help step by step</h2>
+        </div>
+
+        <div class="learning-grid">
+
+          <article class="learning-card">
+            <div class="card-icon">01</div>
+            <h3>Ask</h3>
+            <p>
+              Send a clear question about a subject, course or lesson.
+            </p>
+          </article>
+
+          <article class="learning-card">
+            <div class="card-icon">02</div>
+            <h3>Review</h3>
+            <p>
+              An expert can review your question and prepare guidance.
+            </p>
+          </article>
+
+          <article class="learning-card">
+            <div class="card-icon">03</div>
+            <h3>Learn</h3>
+            <p>
+              Use the explanation and recommendations to improve your
+              understanding.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Expert Categories -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Expertise</span>
+          <h2>What can you ask about?</h2>
+        </div>
+
+        <div class="learning-grid">
+
+          <article class="learning-card">
+            <h3>Academic Subjects</h3>
+            <p>
+              Mathematics, science, languages, technology and other
+              learning subjects.
+            </p>
+          </article>
+
+          <article class="learning-card">
+            <h3>Course Guidance</h3>
+            <p>
+              Questions about courses, lessons, resources and learning
+              paths.
+            </p>
+          </article>
+
+          <article class="learning-card">
+            <h3>Practical Skills</h3>
+            <p>
+              Get guidance for practical skills and real-world learning
+              activities.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Navigation -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="learning-actions">
+          <a href="index.html" class="btn btn-secondary">
+            Back to Learning
+          </a>
+
+          <a href="questions.html" class="btn btn-secondary">
+            My Questions
+          </a>
+
+          <a href="teachers.html" class="btn btn-secondary">
+            Find Teachers
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <p>
+        © <span id="current-year"></span> BISOVIA.
+        Learning with practical utility.
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- Core -->
+  <script src="../../script.js"></script>
+
+  <!-- Learning Module -->
+  <script src="learning.js"></script>
+
+</body>
+</html>
