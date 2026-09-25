@@ -1,1 +1,589 @@
 
+/* =========================================================
+   BISOVIA — LEARNING MODULE
+   File: frontend/modules/learning/learning.css
+   ========================================================= */
+
+/* =========================
+   ROOT VARIABLES
+========================= */
+
+:root {
+    --learning-primary: #4f46e5;
+    --learning-primary-dark: #3730a3;
+    --learning-secondary: #0f172a;
+
+    --learning-bg: #f8fafc;
+    --learning-surface: #ffffff;
+    --learning-surface-soft: #f1f5f9;
+
+    --learning-text: #0f172a;
+    --learning-text-soft: #64748b;
+    --learning-border: #e2e8f0;
+
+    --learning-radius: 16px;
+    --learning-radius-small: 10px;
+
+    --learning-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.08);
+
+    --learning-transition: 0.25s ease;
+}
+
+
+/* =========================
+   DARK MODE
+========================= */
+
+body.dark,
+html.dark {
+    --learning-bg: #020617;
+    --learning-surface: #0f172a;
+    --learning-surface-soft: #1e293b;
+
+    --learning-text: #f8fafc;
+    --learning-text-soft: #94a3b8;
+    --learning-border: #334155;
+
+    --learning-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   GLOBAL LEARNING AREA
+========================= */
+
+.learning-main {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--learning-bg);
+    color: var(--learning-text);
+}
+
+.learning-main a {
+    text-decoration: none;
+}
+
+.learning-main img {
+    max-width: 100%;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.learning-header {
+    width: 100%;
+    background: var(--learning-surface);
+    border-bottom: 1px solid var(--learning-border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.learning-header-inner {
+    width: min(1200px, 92%);
+    min-height: 72px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+.learning-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--learning-text);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.learning-logo img {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+}
+
+.learning-nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.learning-nav a {
+    color: var(--learning-text-soft);
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: color var(--learning-transition);
+}
+
+.learning-nav a:hover,
+.learning-nav a:focus {
+    color: var(--learning-primary);
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.learning-hero {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+
+    min-height: 480px;
+    padding: 80px 0;
+
+    display: flex;
+    align-items: center;
+}
+
+.learning-hero-content {
+    width: min(760px, 100%);
+}
+
+.learning-label,
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 14px;
+
+    color: var(--learning-primary);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.learning-hero h1 {
+    margin: 0 0 20px;
+
+    color: var(--learning-text);
+    font-size: clamp(2.3rem, 6vw, 4.5rem);
+    line-height: 1.05;
+    font-weight: 800;
+}
+
+.learning-hero p {
+    max-width: 680px;
+    margin: 0;
+
+    color: var(--learning-text-soft);
+    font-size: 1.08rem;
+    line-height: 1.75;
+}
+
+
+/* =========================
+   HERO ACTIONS
+========================= */
+
+.learning-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    margin-top: 32px;
+}
+
+.learning-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+    padding: 0 22px;
+
+    border-radius: var(--learning-radius-small);
+
+    font-weight: 700;
+    transition:
+        transform var(--learning-transition),
+        background var(--learning-transition),
+        color var(--learning-transition),
+        border-color var(--learning-transition);
+}
+
+.learning-actions .btn:hover {
+    transform: translateY(-2px);
+}
+
+.learning-actions .btn-primary {
+    background: var(--learning-primary);
+    color: #ffffff;
+}
+
+.learning-actions .btn-primary:hover {
+    background: var(--learning-primary-dark);
+}
+
+.learning-actions .btn-secondary {
+    background: transparent;
+    color: var(--learning-text);
+    border: 1px solid var(--learning-border);
+}
+
+.learning-actions .btn-secondary:hover {
+    border-color: var(--learning-primary);
+    color: var(--learning-primary);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.learning-section {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    padding: 70px 0;
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 36px;
+}
+
+.section-heading h2 {
+    margin: 0 0 14px;
+
+    color: var(--learning-text);
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    line-height: 1.2;
+}
+
+.section-heading p {
+    margin: 0;
+
+    color: var(--learning-text-soft);
+    line-height: 1.7;
+}
+
+
+/* =========================
+   LEARNING GRID
+========================= */
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* =========================
+   LEARNING CARD
+========================= */
+
+.learning-card {
+    padding: 28px;
+
+    background: var(--learning-surface);
+    border: 1px solid var(--learning-border);
+    border-radius: var(--learning-radius);
+
+    box-shadow: var(--learning-shadow);
+
+    transition:
+        transform var(--learning-transition),
+        border-color var(--learning-transition),
+        box-shadow var(--learning-transition);
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--learning-primary);
+}
+
+.learning-card-icon {
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    border-radius: 14px;
+    background: var(--learning-surface-soft);
+
+    font-size: 1.5rem;
+}
+
+.learning-card h3 {
+    margin: 0 0 12px;
+
+    color: var(--learning-text);
+    font-size: 1.15rem;
+    line-height: 1.35;
+}
+
+.learning-card p {
+    margin: 0 0 20px;
+
+    color: var(--learning-text-soft);
+    font-size: 0.95rem;
+    line-height: 1.65;
+}
+
+.learning-card a {
+    color: var(--learning-primary);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.learning-card a:hover {
+    color: var(--learning-primary-dark);
+}
+
+
+/* =========================
+   FEATURED SECTION
+========================= */
+
+.learning-featured {
+    margin-top: 20px;
+    margin-bottom: 70px;
+
+    padding: 50px;
+
+    background: var(--learning-surface);
+    border: 1px solid var(--learning-border);
+    border-radius: var(--learning-radius);
+
+    box-shadow: var(--learning-shadow);
+}
+
+.learning-featured .section-heading {
+    margin-bottom: 24px;
+}
+
+.learning-featured-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.learning-featured-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 44px;
+    padding: 0 20px;
+
+    border: 1px solid var(--learning-border);
+    border-radius: var(--learning-radius-small);
+
+    color: var(--learning-text);
+    font-weight: 700;
+
+    transition:
+        color var(--learning-transition),
+        border-color var(--learning-transition),
+        transform var(--learning-transition);
+}
+
+.learning-featured-link:hover {
+    color: var(--learning-primary);
+    border-color: var(--learning-primary);
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.learning-footer {
+    width: 100%;
+
+    padding: 28px 20px;
+
+    background: var(--learning-surface);
+    border-top: 1px solid var(--learning-border);
+
+    text-align: center;
+}
+
+.learning-footer p {
+    margin: 0;
+
+    color: var(--learning-text-soft);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   FOCUS ACCESSIBILITY
+========================= */
+
+.learning-main a:focus-visible,
+.learning-actions .btn:focus-visible {
+    outline: 3px solid rgba(79, 70, 229, 0.3);
+    outline-offset: 3px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 1000px) {
+
+    .learning-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .learning-hero {
+        min-height: 420px;
+        padding: 65px 0;
+    }
+
+    .learning-section {
+        padding: 60px 0;
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .learning-header-inner {
+        min-height: auto;
+        padding: 14px 0;
+
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .learning-nav {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 12px 18px;
+    }
+
+    .learning-nav a {
+        font-size: 0.88rem;
+    }
+
+    .learning-hero {
+        min-height: auto;
+        padding: 55px 0;
+    }
+
+    .learning-hero h1 {
+        font-size: clamp(2.1rem, 12vw, 3.2rem);
+    }
+
+    .learning-hero p {
+        font-size: 1rem;
+    }
+
+    .learning-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .learning-actions .btn {
+        width: 100%;
+    }
+
+    .learning-section {
+        padding: 50px 0;
+    }
+
+    .learning-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .learning-card {
+        padding: 24px;
+    }
+
+    .learning-featured {
+        margin-bottom: 40px;
+        padding: 28px 22px;
+    }
+
+    .learning-featured-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .learning-featured-link {
+        width: 100%;
+    }
+}
+
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+
+    .learning-header-inner,
+    .learning-hero,
+    .learning-section {
+        width: 94%;
+    }
+
+    .learning-logo {
+        font-size: 0.98rem;
+    }
+
+    .learning-logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .learning-nav {
+        gap: 10px 14px;
+    }
+
+    .learning-nav a {
+        font-size: 0.82rem;
+    }
+
+    .learning-card {
+        padding: 20px;
+    }
+}
+
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .learning-card,
+    .learning-actions .btn,
+    .learning-featured-link {
+        transition: none;
+    }
+
+    .learning-card:hover,
+    .learning-actions .btn:hover,
+    .learning-featured-link:hover {
+        transform: none;
+    }
+}
