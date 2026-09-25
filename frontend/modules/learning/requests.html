@@ -1,1 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Learning Requests — BISOVIA</title>
+  <meta
+    name="description"
+    content="Manage learning requests, tutoring requests and educational service requests on BISOVIA."
+  >
+
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="learning.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-container">
+
+      <a href="../../index.html" class="logo" aria-label="BISOVIA Home">
+        BISOVIA
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../../index.html">Home</a>
+        <a href="index.html">Learning</a>
+        <a href="courses.html">Courses</a>
+        <a href="teachers.html">Teachers</a>
+        <a href="resources.html">Resources</a>
+        <a href="requests.html" class="active">Requests</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="../../pages/profile.html" class="nav-button">
+          Profile
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+
+    <!-- Hero -->
+    <section class="page-hero">
+      <div class="container">
+
+        <span class="section-label">Learning</span>
+
+        <h1>Learning Requests</h1>
+
+        <p>
+          Find educational help, request a teacher, ask for a course,
+          or create a learning service request.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- Request Actions -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>What do you need?</h2>
+          <p>
+            Create a request and connect with teachers, experts and
+            learning service providers.
+          </p>
+        </div>
+
+        <div class="learning-grid">
+
+          <article class="learning-card">
+            <div class="card-icon">👨‍🏫</div>
+
+            <h3>Find a Teacher</h3>
+
+            <p>
+              Request a teacher for a specific subject, level or learning goal.
+            </p>
+
+            <a href="teacher.html" class="primary-button">
+              Request Teacher
+            </a>
+          </article>
+
+          <article class="learning-card">
+            <div class="card-icon">📚</div>
+
+            <h3>Request a Course</h3>
+
+            <p>
+              Tell us what course or training you are looking for.
+            </p>
+
+            <a href="course.html" class="primary-button">
+              Request Course
+            </a>
+          </article>
+
+          <article class="learning-card">
+            <div class="card-icon">💡</div>
+
+            <h3>Ask an Expert</h3>
+
+            <p>
+              Submit a question and connect with someone who can help.
+            </p>
+
+            <a href="ask-expert.html" class="primary-button">
+              Ask an Expert
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Request Form -->
+    <section class="learning-section request-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Create a Learning Request</h2>
+          <p>
+            Describe what you need and submit your request.
+          </p>
+        </div>
+
+        <form id="learningRequestForm" class="learning-form">
+
+          <div class="form-group">
+            <label for="requestType">Request Type</label>
+
+            <select id="requestType" name="requestType" required>
+              <option value="">Select request type</option>
+              <option value="teacher">Teacher</option>
+              <option value="course">Course</option>
+              <option value="expert">Expert help</option>
+              <option value="study-group">Study group</option>
+              <option value="resource">Learning resource</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject</label>
+
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder="e.g. Mathematics, English, Programming"
+              required
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="level">Learning Level</label>
+
+            <select id="level" name="level" required>
+              <option value="">Select level</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="school">School</option>
+              <option value="university">University</option>
+              <option value="professional">Professional</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description">Describe Your Request</label>
+
+            <textarea
+              id="description"
+              name="description"
+              rows="6"
+              placeholder="Explain what you need, your objective and any important details..."
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="preferredLanguage">
+              Preferred Language
+            </label>
+
+            <select
+              id="preferredLanguage"
+              name="preferredLanguage"
+            >
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="rn">Kirundi</option>
+              <option value="sw">Kiswahili</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget (Pi)</label>
+
+            <input
+              type="number"
+              id="budget"
+              name="budget"
+              min="0"
+              step="0.01"
+              placeholder="Optional"
+            >
+
+            <small>
+              Leave empty if you do not want to specify a budget.
+            </small>
+          </div>
+
+          <button
+            type="submit"
+            class="primary-button"
+          >
+            Submit Request
+          </button>
+
+          <p
+            id="requestStatus"
+            class="form-status"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+      </div>
+    </section>
+
+    <!-- Existing Requests -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>My Requests</h2>
+          <p>
+            Track the learning requests you have submitted.
+          </p>
+        </div>
+
+        <div id="requestsList" class="requests-list">
+
+          <article class="request-card">
+            <div class="request-card-header">
+              <span class="request-status pending">
+                Pending
+              </span>
+
+              <span class="request-type">
+                Learning Request
+              </span>
+            </div>
+
+            <h3>No requests yet</h3>
+
+            <p>
+              Your submitted learning requests will appear here.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Providers -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Looking for a Provider?</h2>
+
+          <p>
+            Browse teachers and educational service providers
+            available on BISOVIA.
+          </p>
+
+          <a href="providers.html" class="secondary-button">
+            Browse Providers
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <p>
+        &copy; <span id="currentYear"></span> BISOVIA.
+        Utility starts here.
+      </p>
+
+      <div class="footer-links">
+        <a href="../../pages/about.html">About</a>
+        <a href="../../pages/trust.html">Trust & Safety</a>
+        <a href="../../pages/settings.html">Settings</a>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../script.js"></script>
+  <script src="learning.js"></script>
+
+  <script>
+    const yearElement = document.getElementById("currentYear");
+
+    if (yearElement) {
+      yearElement.textContent = new Date().getFullYear();
+    }
+
+    const requestForm =
+      document.getElementById("learningRequestForm");
+
+    const requestStatus =
+      document.getElementById("requestStatus");
+
+    if (requestForm) {
+      requestForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        requestStatus.textContent =
+          "Your learning request has been prepared. Backend connection will be enabled later.";
+
+        requestStatus.classList.add("success");
+
+        requestForm.reset();
+      });
+    }
+  </script>
+
+</body>
+</html>
