@@ -1,1 +1,331 @@
 
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>BISOVIA — Learning Service</title>
+  <meta
+    name="description"
+    content="BISOVIA Learning Service — discover and access practical learning services."
+  >  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="learning.css">
+</head><body>  <!-- HEADER -->  <header class="site-header">
+    <div class="container header-content">  <a href="../../index.html" class="brand">
+    <img src="../../assets/logo.svg" alt="BISOVIA" class="brand-logo">
+    <span>BISOVIA</span>
+  </a>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="../../index.html">Home</a>
+    <a href="index.html">Learning</a>
+    <a href="courses.html">Courses</a>
+    <a href="teachers.html">Teachers</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+
+  <div class="header-actions">
+    <button id="themeToggle" type="button" aria-label="Toggle theme">
+      🌙
+    </button>
+
+    <button id="menuToggle" type="button" aria-label="Open menu">
+      ☰
+    </button>
+  </div>
+
+</div>
+
+  </header>  <!-- MAIN -->  <main><!-- HERO -->
+<section class="page-hero">
+  <div class="container">
+
+    <a href="services.html" class="back-link">
+      ← Back to Learning Services
+    </a>
+
+    <span class="section-label">Learning Service</span>
+
+    <h1 id="serviceTitle">
+      Practical Learning Support
+    </h1>
+
+    <p id="serviceDescription">
+      Access a learning service, connect with a teacher or specialist,
+      and build useful skills through BISOVIA.
+    </p>
+
+  </div>
+</section>
+
+
+<!-- SERVICE DETAILS -->
+<section class="section">
+  <div class="container">
+
+    <div class="service-layout">
+
+      <!-- SERVICE INFORMATION -->
+      <article class="service-card">
+
+        <div class="service-icon" aria-hidden="true">
+          🎓
+        </div>
+
+        <h2>Learning Service</h2>
+
+        <p>
+          BISOVIA Learning helps users find practical educational
+          services, teachers, courses, questions, and learning resources.
+        </p>
+
+        <div class="service-info">
+
+          <div class="info-item">
+            <span class="info-label">Category</span>
+            <strong>Education & Learning</strong>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">Format</span>
+            <strong>Online / In-person</strong>
+          </div>
+
+          <div class="info-item">
+            <span class="info-label">Payment</span>
+            <strong>Pi</strong>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- BOOKING / REQUEST -->
+      <aside class="booking-card">
+
+        <h2>Request this service</h2>
+
+        <p>
+          Choose how you want to access this learning service.
+        </p>
+
+        <form id="serviceRequestForm">
+
+          <div class="form-group">
+            <label for="serviceName">Service</label>
+
+            <select id="serviceName" name="service" required>
+              <option value="">Select a service</option>
+              <option value="private-lesson">
+                Private Lesson
+              </option>
+              <option value="academic-support">
+                Academic Support
+              </option>
+              <option value="language-learning">
+                Language Learning
+              </option>
+              <option value="skills-training">
+                Skills Training
+              </option>
+              <option value="exam-preparation">
+                Exam Preparation
+              </option>
+              <option value="career-guidance">
+                Career Guidance
+              </option>
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label for="learningMode">Learning mode</label>
+
+            <select id="learningMode" name="mode" required>
+              <option value="">Select mode</option>
+              <option value="online">Online</option>
+              <option value="in-person">In-person</option>
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label for="preferredDate">Preferred date</label>
+
+            <input
+              type="date"
+              id="preferredDate"
+              name="date"
+              required
+            >
+          </div>
+
+
+          <div class="form-group">
+            <label for="message">Additional information</label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="Describe what you need..."
+            ></textarea>
+          </div>
+
+
+          <button type="submit" class="primary-btn">
+            Request Service
+          </button>
+
+        </form>
+
+        <div
+          id="serviceMessage"
+          class="form-message"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+      </aside>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- RELATED LEARNING -->
+<section class="section section-alt">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="section-label">Explore</span>
+      <h2>More Learning Options</h2>
+      <p>
+        Explore other learning services available on BISOVIA.
+      </p>
+    </div>
+
+
+    <div class="feature-grid">
+
+      <a href="courses.html" class="feature-card">
+        <span class="feature-icon">📚</span>
+        <h3>Courses</h3>
+        <p>
+          Discover structured courses and learning programs.
+        </p>
+      </a>
+
+
+      <a href="teachers.html" class="feature-card">
+        <span class="feature-icon">👨‍🏫</span>
+        <h3>Teachers</h3>
+        <p>
+          Find teachers and learning professionals.
+        </p>
+      </a>
+
+
+      <a href="questions.html" class="feature-card">
+        <span class="feature-icon">❓</span>
+        <h3>Questions</h3>
+        <p>
+          Ask questions and get educational support.
+        </p>
+      </a>
+
+
+      <a href="resources.html" class="feature-card">
+        <span class="feature-icon">📖</span>
+        <h3>Resources</h3>
+        <p>
+          Access useful educational resources.
+        </p>
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="section">
+  <div class="container">
+
+    <div class="cta-card">
+
+      <div>
+        <span class="section-label">Need help?</span>
+
+        <h2>Find the right learning service</h2>
+
+        <p>
+          Browse available services or connect with a teacher
+          who matches your learning needs.
+        </p>
+      </div>
+
+      <div class="cta-actions">
+        <a href="services.html" class="primary-btn">
+          Browse Services
+        </a>
+
+        <a href="teachers.html" class="secondary-btn">
+          Find a Teacher
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+  </main>  <!-- FOOTER -->  <footer class="site-footer">
+    <div class="container footer-content">  <div>
+    <strong>BISOVIA</strong>
+    <p>
+      Utility starts here.
+    </p>
+  </div>
+
+  <nav aria-label="Footer navigation">
+    <a href="../../index.html">Home</a>
+    <a href="../../pages/about.html">About</a>
+    <a href="../../pages/payments.html">Payments</a>
+    <a href="../../pages/settings.html">Settings</a>
+  </nav>
+
+  <p>
+    © <span id="currentYear"></span> BISOVIA
+  </p>
+
+</div>
+
+  </footer>  <!-- SCRIPTS -->  <script src="../../script.js"></script>  <script src="learning.js"></script>  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      const form = document.getElementById("serviceRequestForm");
+      const message = document.getElementById("serviceMessage");
+
+      if (form) {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          if (message) {
+            message.textContent =
+              "Your learning service request is ready. Pi payment and backend processing will be connected later.";
+            message.classList.add("success");
+          }
+        });
+      }
+
+    });
+  </script></body>
+</html>
