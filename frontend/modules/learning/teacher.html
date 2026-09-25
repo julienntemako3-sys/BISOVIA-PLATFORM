@@ -1,1 +1,333 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Teacher | BISOVIA Learning</title>
+  <meta
+    name="description"
+    content="BISOVIA Learning teacher workspace for courses, lessons, students and educational resources."
+  >
+
+  <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="learning.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="../../index.html" class="logo" aria-label="BISOVIA Home">
+        <img src="../../assets/logo.svg" alt="BISOVIA">
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../../index.html">Home</a>
+        <a href="index.html">Learning</a>
+        <a href="courses.html">Courses</a>
+        <a href="lessons.html">Lessons</a>
+        <a href="resources.html">Resources</a>
+        <a href="progress.html">Progress</a>
+        <a href="certificates.html">Certificates</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          id="themeToggle"
+          type="button"
+          aria-label="Toggle dark and light mode"
+        >
+          🌙
+        </button>
+
+        <button
+          id="menuToggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- PAGE -->
+  <main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container">
+
+        <a href="index.html" class="back-link">
+          ← Back to Learning
+        </a>
+
+        <h1>Teacher Workspace</h1>
+
+        <p>
+          Create courses, manage lessons, support learners and share
+          useful educational knowledge through BISOVIA.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- TEACHER PROFILE -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="teacher-profile">
+
+          <div class="teacher-avatar" aria-hidden="true">
+            👨‍🏫
+          </div>
+
+          <div class="teacher-info">
+            <span class="section-label">Teacher</span>
+            <h2 id="teacherName">My Teaching Space</h2>
+
+            <p id="teacherDescription">
+              Manage your educational activities and connect with learners.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- DASHBOARD -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Dashboard</span>
+          <h2>Teaching Overview</h2>
+          <p>
+            Keep track of your courses, lessons and learners.
+          </p>
+        </div>
+
+
+        <div class="learning-grid">
+
+          <article class="learning-card">
+            <div class="card-icon">📚</div>
+
+            <h3>My Courses</h3>
+
+            <p>
+              Create and manage the courses you teach.
+            </p>
+
+            <a href="courses.html" class="card-link">
+              Manage Courses →
+            </a>
+          </article>
+
+
+          <article class="learning-card">
+            <div class="card-icon">📝</div>
+
+            <h3>My Lessons</h3>
+
+            <p>
+              Prepare lessons and educational learning content.
+            </p>
+
+            <a href="lessons.html" class="card-link">
+              Manage Lessons →
+            </a>
+          </article>
+
+
+          <article class="learning-card">
+            <div class="card-icon">👥</div>
+
+            <h3>Learners</h3>
+
+            <p>
+              Follow learner participation and educational progress.
+            </p>
+
+            <a href="progress.html" class="card-link">
+              View Progress →
+            </a>
+          </article>
+
+
+          <article class="learning-card">
+            <div class="card-icon">📖</div>
+
+            <h3>Resources</h3>
+
+            <p>
+              Share useful educational resources with learners.
+            </p>
+
+            <a href="resources.html" class="card-link">
+              Manage Resources →
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CREATE CONTENT -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Create</span>
+          <h2>Educational Content</h2>
+          <p>
+            Build practical learning experiences for the BISOVIA community.
+          </p>
+        </div>
+
+
+        <div class="learning-grid">
+
+          <article class="learning-card">
+
+            <div class="card-icon">➕</div>
+
+            <h3>Create a Course</h3>
+
+            <p>
+              Start a new course and organize its educational structure.
+            </p>
+
+            <button
+              type="button"
+              class="primary-button"
+              id="createCourseBtn"
+            >
+              Create Course
+            </button>
+
+          </article>
+
+
+          <article class="learning-card">
+
+            <div class="card-icon">✏️</div>
+
+            <h3>Create a Lesson</h3>
+
+            <p>
+              Add a new lesson to help learners develop useful skills.
+            </p>
+
+            <button
+              type="button"
+              class="secondary-button"
+              id="createLessonBtn"
+            >
+              Create Lesson
+            </button>
+
+          </article>
+
+
+          <article class="learning-card">
+
+            <div class="card-icon">📂</div>
+
+            <h3>Add Resource</h3>
+
+            <p>
+              Add educational material that learners can use.
+            </p>
+
+            <button
+              type="button"
+              class="secondary-button"
+              id="addResourceBtn"
+            >
+              Add Resource
+            </button>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TEACHER RULES -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div class="learning-panel">
+
+          <span class="section-label">Teacher Principles</span>
+
+          <h2>Teach for Real Utility</h2>
+
+          <ul class="learning-list">
+            <li>Provide accurate and useful educational content.</li>
+            <li>Keep lessons clear and accessible.</li>
+            <li>Respect learners and encourage participation.</li>
+            <li>Use practical examples whenever possible.</li>
+            <li>Protect learner privacy and personal information.</li>
+          </ul>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- STATUS -->
+    <section class="learning-section">
+      <div class="container">
+
+        <div
+          id="teacherStatus"
+          class="status-message"
+          role="status"
+          aria-live="polite"
+        >
+          Teacher workspace is ready.
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        Learning with real utility.
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- SCRIPTS -->
+  <script src="../../script.js"></script>
+  <script src="learning.js"></script>
+
+</body>
+</html>
