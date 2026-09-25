@@ -1,1 +1,373 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BISOVIA Learning — Progress</title>
+
+    <meta
+        name="description"
+        content="Track your BISOVIA Learning progress, completed lessons, active courses, and learning journey."
+    >
+
+    <!-- BISOVIA Core -->
+    <link
+        rel="stylesheet"
+        href="../../core/core.css"
+    >
+
+    <!-- Learning Module -->
+    <link
+        rel="stylesheet"
+        href="learning.css"
+    >
+
+    <!-- Favicon -->
+    <link
+        rel="icon"
+        href="../../assets/favicon.svg"
+        type="image/svg+xml"
+    >
+</head>
+
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="learning-header">
+
+        <div class="learning-header-inner">
+
+            <a
+                href="index.html"
+                class="learning-logo"
+            >
+
+                <img
+                    src="../../assets/logo.svg"
+                    alt="BISOVIA"
+                >
+
+                <span data-i18n="learning.progress">
+                    Progress
+                </span>
+
+            </a>
+
+
+            <nav
+                class="learning-nav"
+                aria-label="Learning navigation"
+            >
+
+                <a
+                    href="index.html"
+                    data-i18n="learning.home"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="courses.html"
+                    data-i18n="learning.courses"
+                >
+                    Courses
+                </a>
+
+                <a
+                    href="lessons.html"
+                    data-i18n="learning.lessons"
+                >
+                    Lessons
+                </a>
+
+                <a
+                    href="resources.html"
+                    data-i18n="learning.resources"
+                >
+                    Resources
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="learning-main">
+
+
+        <!-- =========================
+             PAGE INTRO
+        ========================== -->
+
+        <section class="learning-section">
+
+            <div class="section-heading">
+
+                <span
+                    class="section-label"
+                    data-i18n="learning.progressLabel"
+                >
+                    Learning Progress
+                </span>
+
+                <h1 data-i18n="learning.progressTitle">
+                    Track your learning journey
+                </h1>
+
+                <p
+                    data-i18n="learning.progressDescription"
+                >
+                    Follow your completed lessons, active courses,
+                    and learning activities in one place.
+                </p>
+
+            </div>
+
+
+            <!-- =========================
+                 PROGRESS SUMMARY
+            ========================== -->
+
+            <div class="learning-grid">
+
+
+                <!-- Active Courses -->
+
+                <article class="learning-card">
+
+                    <div class="learning-card-icon">
+                        📚
+                    </div>
+
+                    <h2
+                        data-i18n="learning.activeCourses"
+                    >
+                        Active Courses
+                    </h2>
+
+                    <p
+                        data-i18n="learning.activeCoursesDescription"
+                    >
+                        Courses you have started and can continue.
+                    </p>
+
+                    <a
+                        href="courses.html"
+                        data-i18n="learning.continueLearning"
+                    >
+                        Continue Learning →
+                    </a>
+
+                </article>
+
+
+                <!-- Completed Lessons -->
+
+                <article class="learning-card">
+
+                    <div class="learning-card-icon">
+                        ✅
+                    </div>
+
+                    <h2
+                        data-i18n="learning.completedLessons"
+                    >
+                        Completed Lessons
+                    </h2>
+
+                    <p
+                        data-i18n="learning.completedLessonsDescription"
+                    >
+                        Review lessons you have already completed.
+                    </p>
+
+                    <a
+                        href="lessons.html?status=completed"
+                        data-i18n="learning.viewCompleted"
+                    >
+                        View Completed →
+                    </a>
+
+                </article>
+
+
+                <!-- Current Learning -->
+
+                <article class="learning-card">
+
+                    <div class="learning-card-icon">
+                        🎯
+                    </div>
+
+                    <h2
+                        data-i18n="learning.currentLearning"
+                    >
+                        Current Learning
+                    </h2>
+
+                    <p
+                        data-i18n="learning.currentLearningDescription"
+                    >
+                        Continue from where you stopped in your
+                        current learning activity.
+                    </p>
+
+                    <a
+                        href="lessons.html?status=current"
+                        data-i18n="learning.continueLesson"
+                    >
+                        Continue Lesson →
+                    </a>
+
+                </article>
+
+
+                <!-- Certificates -->
+
+                <article class="learning-card">
+
+                    <div class="learning-card-icon">
+                        🏆
+                    </div>
+
+                    <h2
+                        data-i18n="learning.certificates"
+                    >
+                        Certificates
+                    </h2>
+
+                    <p
+                        data-i18n="learning.certificatesDescription"
+                    >
+                        View certificates earned after completing
+                        eligible learning activities.
+                    </p>
+
+                    <a
+                        href="certificates.html"
+                        data-i18n="learning.viewCertificates"
+                    >
+                        View Certificates →
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LEARNING STATUS
+        ========================== -->
+
+        <section class="learning-section learning-featured">
+
+            <div class="section-heading">
+
+                <span
+                    class="section-label"
+                    data-i18n="learning.progressStatusLabel"
+                >
+                    Learning Status
+                </span>
+
+                <h2
+                    data-i18n="learning.progressStatusTitle"
+                >
+                    Your learning path
+                </h2>
+
+                <p
+                    data-i18n="learning.progressStatusDescription"
+                >
+                    Progress information can be connected to your
+                    BISOVIA profile when the learning backend is active.
+                </p>
+
+            </div>
+
+
+            <div class="learning-featured-actions">
+
+                <a
+                    href="courses.html"
+                    class="learning-featured-link"
+                    data-i18n="learning.exploreCourses"
+                >
+                    Explore Courses
+                </a>
+
+                <a
+                    href="categories.html"
+                    class="learning-featured-link"
+                    data-i18n="learning.exploreCategories"
+                >
+                    Explore Categories
+                </a>
+
+                <a
+                    href="certificates.html"
+                    class="learning-featured-link"
+                    data-i18n="learning.viewCertificates"
+                >
+                    View Certificates
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="learning-footer">
+
+        <p>
+
+            © <span id="currentYear"></span> BISOVIA.
+
+            <span data-i18n="learning.footer">
+                Learning for practical utility and community growth.
+            </span>
+
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         BISOVIA CORE
+    ========================== -->
+
+    <script src="../../core/core.js"></script>
+
+    <script src="../../core/translation.js"></script>
+
+    <!-- Learning Module -->
+    <script src="learning.js"></script>
+
+</body>
+
+</html>
