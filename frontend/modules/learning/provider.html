@@ -1,1 +1,395 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BISOVIA — Learning Provider</title>
+  <meta
+    name="description"
+    content="BISOVIA Learning provider profile and educational services."
+  >
+
+  <link rel="stylesheet" href="../../core/global.css">
+  <link rel="stylesheet" href="learning.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+
+      <a href="index.html" class="brand">
+        BISOVIA
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" data-i18n="nav.learning">Learning</a>
+        <a href="courses.html" data-i18n="nav.courses">Courses</a>
+        <a href="teachers.html" data-i18n="nav.teachers">Teachers</a>
+        <a href="resources.html" data-i18n="nav.resources">Resources</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          id="themeToggle"
+          aria-label="Toggle theme"
+          data-i18n="actions.theme"
+        >
+          Theme
+        </button>
+
+        <select id="languageSelect" aria-label="Select language">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+
+  <!-- Main -->
+  <main class="page-container">
+
+    <!-- Page title -->
+    <section class="page-hero">
+      <span class="section-label" data-i18n="learning.providerLabel">
+        Learning Provider
+      </span>
+
+      <h1 data-i18n="learning.providerTitle">
+        Become a Learning Provider
+      </h1>
+
+      <p data-i18n="learning.providerDescription">
+        Share your knowledge, create educational services, and connect
+        with learners through BISOVIA.
+      </p>
+    </section>
+
+
+    <!-- Provider Profile -->
+    <section class="content-section">
+
+      <div class="section-heading">
+        <h2 data-i18n="provider.profileTitle">
+          Provider Profile
+        </h2>
+
+        <p data-i18n="provider.profileDescription">
+          Create a clear profile so learners can understand your
+          expertise and educational services.
+        </p>
+      </div>
+
+      <form id="providerForm" class="form-card">
+
+        <div class="form-group">
+          <label for="providerName" data-i18n="provider.name">
+            Provider Name
+          </label>
+
+          <input
+            type="text"
+            id="providerName"
+            name="providerName"
+            placeholder="Enter provider or organization name"
+            data-i18n-placeholder="provider.namePlaceholder"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label for="providerType" data-i18n="provider.type">
+            Provider Type
+          </label>
+
+          <select id="providerType" name="providerType" required>
+            <option value="" data-i18n="provider.selectType">
+              Select type
+            </option>
+            <option value="teacher" data-i18n="provider.teacher">
+              Teacher
+            </option>
+            <option value="trainer" data-i18n="provider.trainer">
+              Trainer
+            </option>
+            <option value="school" data-i18n="provider.school">
+              School
+            </option>
+            <option value="organization" data-i18n="provider.organization">
+              Organization
+            </option>
+            <option value="expert" data-i18n="provider.expert">
+              Subject Expert
+            </option>
+          </select>
+        </div>
+
+
+        <div class="form-group">
+          <label for="subjects" data-i18n="provider.subjects">
+            Subjects / Expertise
+          </label>
+
+          <input
+            type="text"
+            id="subjects"
+            name="subjects"
+            placeholder="e.g. Mathematics, Languages, Technology"
+            data-i18n-placeholder="provider.subjectsPlaceholder"
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label for="experience" data-i18n="provider.experience">
+            Experience
+          </label>
+
+          <input
+            type="number"
+            id="experience"
+            name="experience"
+            min="0"
+            max="100"
+            placeholder="Years of experience"
+            data-i18n-placeholder="provider.experiencePlaceholder"
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label for="bio" data-i18n="provider.bio">
+            About You
+          </label>
+
+          <textarea
+            id="bio"
+            name="bio"
+            rows="5"
+            placeholder="Describe your experience and what you teach."
+            data-i18n-placeholder="provider.bioPlaceholder"
+          ></textarea>
+        </div>
+
+
+        <div class="form-group">
+          <label for="availability" data-i18n="provider.availability">
+            Availability
+          </label>
+
+          <select id="availability" name="availability">
+            <option value="online" data-i18n="provider.online">
+              Online
+            </option>
+
+            <option value="in-person" data-i18n="provider.inPerson">
+              In Person
+            </option>
+
+            <option value="both" data-i18n="provider.both">
+              Online & In Person
+            </option>
+          </select>
+        </div>
+
+
+        <div class="form-actions">
+          <button
+            type="submit"
+            class="primary-button"
+            data-i18n="provider.createProfile"
+          >
+            Create Provider Profile
+          </button>
+        </div>
+
+        <p
+          id="providerMessage"
+          class="form-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+    </section>
+
+
+    <!-- Provider Services -->
+    <section class="content-section">
+
+      <div class="section-heading">
+        <h2 data-i18n="provider.servicesTitle">
+          Educational Services
+        </h2>
+
+        <p data-i18n="provider.servicesDescription">
+          Providers can offer courses, lessons, tutoring, expert
+          support, and other learning services.
+        </p>
+      </div>
+
+      <div class="card-grid">
+
+        <article class="info-card">
+          <h3 data-i18n="provider.courseTitle">
+            Courses
+          </h3>
+
+          <p data-i18n="provider.courseDescription">
+            Create structured courses for learners.
+          </p>
+
+          <a href="courses.html" data-i18n="actions.viewCourses">
+            View Courses
+          </a>
+        </article>
+
+
+        <article class="info-card">
+          <h3 data-i18n="provider.lessonTitle">
+            Lessons
+          </h3>
+
+          <p data-i18n="provider.lessonDescription">
+            Provide individual or group lessons.
+          </p>
+
+          <a href="lessons.html" data-i18n="actions.viewLessons">
+            View Lessons
+          </a>
+        </article>
+
+
+        <article class="info-card">
+          <h3 data-i18n="provider.expertTitle">
+            Ask an Expert
+          </h3>
+
+          <p data-i18n="provider.expertDescription">
+            Help learners with specialized questions.
+          </p>
+
+          <a href="ask-expert.html" data-i18n="actions.askExpert">
+            Ask an Expert
+          </a>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- Provider Navigation -->
+    <section class="content-section">
+
+      <div class="section-heading">
+        <h2 data-i18n="provider.manageTitle">
+          Manage Learning Services
+        </h2>
+      </div>
+
+      <div class="action-grid">
+
+        <a href="services.html" class="action-card">
+          <strong data-i18n="actions.services">
+            Services
+          </strong>
+          <span data-i18n="provider.manageServices">
+            Manage educational services
+          </span>
+        </a>
+
+        <a href="questions.html" class="action-card">
+          <strong data-i18n="actions.questions">
+            Questions
+          </strong>
+          <span data-i18n="provider.manageQuestions">
+            View learner questions
+          </span>
+        </a>
+
+        <a href="requests.html" class="action-card">
+          <strong data-i18n="actions.requests">
+            Requests
+          </strong>
+          <span data-i18n="provider.manageRequests">
+            Manage learner requests
+          </span>
+        </a>
+
+        <a href="booking.html" class="action-card">
+          <strong data-i18n="actions.booking">
+            Booking
+          </strong>
+          <span data-i18n="provider.manageBookings">
+            Manage learning bookings
+          </span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="footer.text">
+          Utility starts here.
+        </span>
+      </p>
+
+    </div>
+  </footer>
+
+
+  <!-- Core -->
+  <script src="../../core/global.js"></script>
+  <script src="../../core/translation.js"></script>
+
+  <!-- Learning -->
+  <script src="learning.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      const form = document.getElementById("providerForm");
+      const message = document.getElementById("providerMessage");
+
+      if (form) {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          if (message) {
+            message.textContent =
+              "Provider profile is ready to be connected to the BISOVIA backend.";
+          }
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>
