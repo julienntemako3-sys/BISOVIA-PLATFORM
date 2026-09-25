@@ -1,1 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>BISOVIA — Transactions</title>
+  <meta
+    name="description"
+    content="View and manage your BISOVIA Pi-native transactions."
+  />
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+    .transactions-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    .page-header {
+      margin-bottom: 28px;
+    }
+
+    .page-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .page-header p {
+      opacity: 0.75;
+      margin: 0;
+    }
+
+    .transaction-summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .summary-card {
+      padding: 20px;
+      border-radius: 16px;
+      background: var(--card-bg, rgba(128, 128, 128, 0.1));
+      border: 1px solid var(--border-color, rgba(128, 128, 128, 0.2));
+    }
+
+    .summary-card span {
+      display: block;
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+
+    .summary-card strong {
+      font-size: 1.4rem;
+    }
+
+    .transactions-panel {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border-color, rgba(128, 128, 128, 0.2));
+      background: var(--card-bg, rgba(128, 128, 128, 0.06));
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      padding: 20px;
+      border-bottom: 1px solid var(--border-color, rgba(128, 128, 128, 0.2));
+    }
+
+    .panel-header h2 {
+      margin: 0;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .filters select,
+    .filters input {
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+      background: transparent;
+      color: inherit;
+    }
+
+    .transaction-list {
+      width: 100%;
+    }
+
+    .transaction-row {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 15px;
+      align-items: center;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-color, rgba(128, 128, 128, 0.15));
+    }
+
+    .transaction-row:last-child {
+      border-bottom: none;
+    }
+
+    .transaction-info strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .transaction-info small,
+    .transaction-date small {
+      opacity: 0.65;
+    }
+
+    .transaction-amount {
+      font-weight: 700;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .status.completed {
+      background: rgba(46, 204, 113, 0.15);
+    }
+
+    .status.pending {
+      background: rgba(241, 196, 15, 0.15);
+    }
+
+    .status.cancelled {
+      background: rgba(231, 76, 60, 0.15);
+    }
+
+    .status.failed {
+      background: rgba(231, 76, 60, 0.15);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 55px 20px;
+    }
+
+    .empty-state h3 {
+      margin-bottom: 8px;
+    }
+
+    .empty-state p {
+      opacity: 0.7;
+      margin-bottom: 20px;
+    }
+
+    .action-btn {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid currentColor;
+    }
+
+    .transaction-actions {
+      display: flex;
+      justify-content: flex-end;
+      padding: 16px 20px;
+      border-top: 1px solid var(--border-color, rgba(128, 128, 128, 0.15));
+    }
+
+    .refresh-btn {
+      cursor: pointer;
+      padding: 9px 14px;
+      border-radius: 9px;
+      border: 1px solid var(--border-color, rgba(128, 128, 128, 0.25));
+      background: transparent;
+      color: inherit;
+    }
+
+    @media (max-width: 800px) {
+      .transaction-summary {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .transaction-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .transaction-status {
+        text-align: right;
+      }
+
+      .transaction-date {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .transactions-page {
+        padding: 24px 14px 45px;
+      }
+
+      .filters {
+        width: 100%;
+      }
+
+      .filters select,
+      .filters input {
+        width: 100%;
+      }
+
+      .transaction-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .transaction-status {
+        text-align: left;
+      }
+
+      .transaction-date {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="../index.html" class="logo">BISOVIA</a>
+
+      <div class="nav-links">
+        <a href="../index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="payments.html">Payments</a>
+        <a href="transactions.html" aria-current="page">Transactions</a>
+        <a href="profile.html">Profile</a>
+      </div>
+
+      <button id="themeToggle" type="button" aria-label="Toggle dark and light mode">
+        🌙
+      </button>
+    </nav>
+  </header>
+
+  <main class="transactions-page">
+
+    <section class="page-header">
+      <h1>Transactions</h1>
+      <p>View your BISOVIA Pi payment activity and transaction status.</p>
+    </section>
+
+    <section class="transaction-summary" aria-label="Transaction summary">
+
+      <div class="summary-card">
+        <span>Total transactions</span>
+        <strong id="totalTransactions">0</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Completed</span>
+        <strong id="completedTransactions">0</strong>
+      </div>
+
+      <div class="summary-card">
+        <span>Total Pi spent</span>
+        <strong id="totalSpent">0 Pi</strong>
+      </div>
+
+    </section>
+
+    <section class="transactions-panel">
+
+      <div class="panel-header">
+        <h2>Transaction history</h2>
+
+        <div class="filters">
+          <select id="statusFilter" aria-label="Filter transactions by status">
+            <option value="all">All statuses</option>
+            <option value="completed">Completed</option>
+            <option value="pending">Pending</option>
+            <option value="cancelled">Cancelled</option>
+            <option value="failed">Failed</option>
+          </select>
+
+          <input
+            id="transactionSearch"
+            type="search"
+            placeholder="Search transactions..."
+            aria-label="Search transactions"
+          />
+        </div>
+      </div>
+
+      <div id="transactionList" class="transaction-list">
+
+        <div class="empty-state" id="emptyState">
+          <h3>No transactions yet</h3>
+          <p>Your completed and pending Pi transactions will appear here.</p>
+          <a class="action-btn" href="payments.html">Make a Pi payment</a>
+        </div>
+
+      </div>
+
+      <div class="transaction-actions">
+        <button id="refreshTransactions" class="refresh-btn" type="button">
+          Refresh
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      &copy; <span id="currentYear"></span> BISOVIA.
+      Pi-native utility for practical digital services and community interaction.
+    </p>
+  </footer>
+
+  <script src="../script.js"></script>
+
+  <script>
+    /*
+     * BISOVIA Transactions
+     *
+     * Frontend only:
+     * - Does not access the database directly.
+     * - Backend/Core will later provide the real transaction journal.
+     * - Pi payment records should be verified by the BISOVIA backend.
+     */
+
+    const transactionList = document.getElementById("transactionList");
+    const emptyState = document.getElementById("emptyState");
+    const statusFilter = document.getElementById("statusFilter");
+    const transactionSearch = document.getElementById("transactionSearch");
+    const refreshButton = document.getElementById("refreshTransactions");
+
+    const totalTransactions = document.getElementById("totalTransactions");
+    const completedTransactions = document.getElementById("completedTransactions");
+    const totalSpent = document.getElementById("totalSpent");
+
+    let transactions = [];
+
+    function formatDate(dateValue) {
+      if (!dateValue) return "Date unavailable";
+
+      const date = new Date(dateValue);
+
+      if (Number.isNaN(date.getTime())) {
+        return "Date unavailable";
+      }
+
+      return date.toLocaleString();
+    }
+
+    function renderTransactions() {
+      const filter = statusFilter.value;
+      const search = transactionSearch.value.toLowerCase().trim();
+
+      const filtered = transactions.filter(transaction => {
+        const matchesStatus =
+          filter === "all" || transaction.status === filter;
+
+        const text = [
+          transaction.service,
+          transaction.type,
+          transaction.memo,
+          transaction.identifier
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+        const matchesSearch = !search || text.includes(search);
+
+        return matchesStatus && matchesSearch;
+      });
+
+      transactionList.innerHTML = "";
+
+      if (filtered.length === 0) {
+        transactionList.innerHTML = `
+          <div class="empty-state">
+            <h3>No transactions found</h3>
+            <p>There are no transactions matching your current filters.</p>
+            <a class="action-btn" href="payments.html">
+              Make a Pi payment
+            </a>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(transaction => {
+        const row = document.createElement("div");
+        row.className = "transaction-row";
+
+        row.innerHTML = `
+          <div class="transaction-info">
+            <strong>${escapeHTML(transaction.service || "BISOVIA Service")}</strong>
+            <small>${escapeHTML(transaction.type || "Pi Payment")}</small>
+          </div>
+
+          <div class="transaction-amount">
+            ${escapeHTML(String(transaction.amount || 0))} Pi
+          </div>
+
+          <div class="transaction-status">
+            <span class="status ${escapeHTML(transaction.status || "pending")}">
+              ${escapeHTML(transaction.status || "pending")}
+            </span>
+          </div>
+
+          <div class="transaction-date">
+            <small>${escapeHTML(formatDate(transaction.createdAt))}</small>
+          </div>
+        `;
+
+        transactionList.appendChild(row);
+      });
+    }
+
+    function updateSummary() {
+      totalTransactions.textContent = transactions.length;
+
+      const completed = transactions.filter(
+        transaction => transaction.status === "completed"
+      );
+
+      completedTransactions.textContent = completed.length;
+
+      const spent = completed.reduce((sum, transaction) => {
+        const amount = Number(transaction.amount);
+
+        return sum + (Number.isFinite(amount) ? amount : 0);
+      }, 0);
+
+      totalSpent.textContent = `${spent.toFixed(2)} Pi`;
+    }
+
+    function escapeHTML(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    async function loadTransactions() {
+      /*
+       * Future BISOVIA Core endpoint:
+       *
+       * GET /api/payments/transactions
+       *
+       * The backend will authenticate the Pi user and return
+       * only the transactions belonging to that user.
+       */
+
+      try {
+        const response = await fetch("/api/payments/transactions");
+
+        if (!response.ok) {
+          throw new Error("Transaction API unavailable");
+        }
+
+        const data = await response.json();
+
+        transactions = Array.isArray(data)
+          ? data
+          : Array.isArray(data.transactions)
+            ? data.transactions
+            : [];
+
+      } catch (error) {
+        /*
+         * Backend is not connected yet.
+         * Keep the page functional without inventing transaction data.
+         */
+        transactions = [];
+      }
+
+      updateSummary();
+      renderTransactions();
+    }
+
+    statusFilter.addEventListener("change", renderTransactions);
+    transactionSearch.addEventListener("input", renderTransactions);
+
+    refreshButton.addEventListener("click", loadTransactions);
+
+    document.getElementById("currentYear").textContent =
+      new Date().getFullYear();
+
+    loadTransactions();
+  </script>
+
+</body>
+</html>
