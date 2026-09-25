@@ -1,1 +1,424 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BISOVIA — Payment Receipt</title>
+  <meta
+    name="description"
+    content="BISOVIA payment receipt and transaction details."
+  >
+
+  <link rel="icon" href="../../assets/favicon.svg">
+  <link rel="stylesheet" href="../../style.css">
+
+  <style>
+    .receipt-page {
+      max-width: 760px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .receipt-card {
+      background: var(--card-bg, #ffffff);
+      border: 1px solid var(--border-color, #ddd);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .receipt-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .receipt-header h1 {
+      margin-bottom: 8px;
+    }
+
+    .receipt-status {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      background: #e8f7ee;
+      color: #18733b;
+    }
+
+    .receipt-section {
+      margin-top: 24px;
+    }
+
+    .receipt-section h2 {
+      font-size: 18px;
+      margin-bottom: 14px;
+    }
+
+    .receipt-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color, #e5e5e5);
+    }
+
+    .receipt-row:last-child {
+      border-bottom: none;
+    }
+
+    .receipt-label {
+      opacity: 0.7;
+    }
+
+    .receipt-value {
+      font-weight: 600;
+      text-align: right;
+      word-break: break-word;
+    }
+
+    .receipt-total {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 14px;
+      background: var(--surface-bg, #f5f5f5);
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .receipt-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .receipt-actions button,
+    .receipt-actions a {
+      flex: 1;
+      min-width: 160px;
+      padding: 13px 18px;
+      border-radius: 10px;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: #000;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: var(--surface-bg, #eee);
+      color: inherit;
+    }
+
+    .receipt-note {
+      margin-top: 24px;
+      text-align: center;
+      font-size: 13px;
+      opacity: 0.7;
+    }
+
+    .error-message {
+      text-align: center;
+      padding: 30px 10px;
+    }
+
+    @media (max-width: 600px) {
+      .receipt-page {
+        margin: 20px auto;
+        padding: 12px;
+      }
+
+      .receipt-card {
+        padding: 20px;
+      }
+
+      .receipt-row {
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .receipt-value {
+        text-align: left;
+      }
+
+      .receipt-total {
+        font-size: 17px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff !important;
+      }
+
+      .receipt-actions,
+      nav,
+      footer {
+        display: none !important;
+      }
+
+      .receipt-card {
+        box-shadow: none;
+        border: 1px solid #ccc;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <a href="../../index.html">BISOVIA</a>
+      <a href="index.html">Payments</a>
+      <a href="checkout.html">Checkout</a>
+      <a href="history.html">History</a>
+    </nav>
+  </header>
+
+  <main class="receipt-page">
+
+    <section class="receipt-card" id="receiptCard">
+
+      <div class="receipt-header">
+        <h1>Payment Receipt</h1>
+        <p>Thank you for using BISOVIA.</p>
+        <span class="receipt-status" id="receiptStatus">
+          Completed
+        </span>
+      </div>
+
+      <div class="receipt-section">
+        <h2>Transaction Details</h2>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Receipt ID</span>
+          <span class="receipt-value" id="receiptId">—</span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Transaction ID</span>
+          <span class="receipt-value" id="transactionId">—</span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Payment Status</span>
+          <span class="receipt-value" id="paymentStatus">Completed</span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Date</span>
+          <span class="receipt-value" id="paymentDate">—</span>
+        </div>
+      </div>
+
+      <div class="receipt-section">
+        <h2>Service</h2>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Service</span>
+          <span class="receipt-value" id="serviceName">—</span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Type</span>
+          <span class="receipt-value" id="serviceType">—</span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Provider</span>
+          <span class="receipt-value" id="providerName">—</span>
+        </div>
+
+        <div class="receipt-row">
+          <span class="receipt-label">Reference</span>
+          <span class="receipt-value" id="bookingId">—</span>
+        </div>
+      </div>
+
+      <div class="receipt-total">
+        <span>Total Paid</span>
+        <span id="paymentAmount">0 Pi</span>
+      </div>
+
+      <div class="receipt-actions">
+        <button
+          type="button"
+          class="btn-primary"
+          onclick="window.print()"
+        >
+          Print Receipt
+        </button>
+
+        <a
+          href="history.html"
+          class="btn-secondary"
+        >
+          Payment History
+        </a>
+
+        <a
+          href="index.html"
+          class="btn-secondary"
+        >
+          Back to Payments
+        </a>
+      </div>
+
+      <p class="receipt-note">
+        BISOVIA — Pi-native utility platform.
+        Keep this receipt for your transaction reference.
+      </p>
+
+    </section>
+
+    <section
+      class="error-message"
+      id="errorMessage"
+      hidden
+    >
+      <h2>Receipt Not Found</h2>
+      <p>
+        No payment information was found for this receipt.
+      </p>
+      <a href="history.html">Go to Payment History</a>
+    </section>
+
+  </main>
+
+  <script>
+    /*
+     * BISOVIA Payment Receipt
+     *
+     * The receipt can receive transaction data through:
+     *
+     * 1. URL parameters:
+     *    receipt.html?transactionId=123&amount=0.2&service=Mobility
+     *
+     * 2. sessionStorage:
+     *    bisovia_last_payment
+     *
+     * Backend integration can later replace this
+     * temporary frontend data source.
+     */
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const params = new URLSearchParams(window.location.search);
+
+      let payment = null;
+
+      const storedPayment =
+        sessionStorage.getItem("bisovia_last_payment");
+
+      if (storedPayment) {
+        try {
+          payment = JSON.parse(storedPayment);
+        } catch (error) {
+          console.warn("Invalid stored payment data.");
+        }
+      }
+
+      payment = {
+        ...(payment || {}),
+        receiptId:
+          params.get("receiptId") ||
+          payment?.receiptId,
+
+        transactionId:
+          params.get("transactionId") ||
+          payment?.transactionId,
+
+        amount:
+          params.get("amount") ||
+          payment?.amount,
+
+        service:
+          params.get("service") ||
+          payment?.service,
+
+        type:
+          params.get("type") ||
+          payment?.type,
+
+        provider:
+          params.get("provider") ||
+          payment?.provider,
+
+        bookingId:
+          params.get("bookingId") ||
+          payment?.bookingId,
+
+        status:
+          params.get("status") ||
+          payment?.status,
+
+        date:
+          params.get("date") ||
+          payment?.date
+      };
+
+      const hasData =
+        payment.receiptId ||
+        payment.transactionId ||
+        payment.amount ||
+        payment.service;
+
+      if (!hasData) {
+        document.getElementById("receiptCard").hidden = true;
+        document.getElementById("errorMessage").hidden = false;
+        return;
+      }
+
+      document.getElementById("receiptId").textContent =
+        payment.receiptId || generateReceiptId();
+
+      document.getElementById("transactionId").textContent =
+        payment.transactionId || "Pending";
+
+      document.getElementById("serviceName").textContent =
+        payment.service || "BISOVIA Service";
+
+      document.getElementById("serviceType").textContent =
+        payment.type || "Utility";
+
+      document.getElementById("providerName").textContent =
+        payment.provider || "—";
+
+      document.getElementById("bookingId").textContent =
+        payment.bookingId || "—";
+
+      document.getElementById("paymentAmount").textContent =
+        payment.amount
+          ? `${payment.amount} Pi`
+          : "0 Pi";
+
+      document.getElementById("paymentStatus").textContent =
+        payment.status || "Completed";
+
+      document.getElementById("receiptStatus").textContent =
+        payment.status || "Completed";
+
+      document.getElementById("paymentDate").textContent =
+        payment.date ||
+        new Date().toLocaleString();
+    });
+
+    function generateReceiptId() {
+      return "BIS-" +
+        Date.now().toString(36).toUpperCase();
+    }
+  </script>
+
+</body>
+</html>
