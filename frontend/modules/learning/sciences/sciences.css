@@ -1,1 +1,1317 @@
+/* =========================================================
+   BISOVIA LEARNING — SCIENCES
+   File:
+   frontend/modules/learning/categories/sciences/sciences.css
+   ========================================================= */
 
+
+/* =========================================================
+   ROOT / RESET
+   ========================================================= */
+
+:root {
+  --bg: #f7f9fc;
+  --surface: #ffffff;
+  --surface-soft: #f0f4f8;
+  --text: #172033;
+  --text-soft: #5d6878;
+  --border: #dfe5ec;
+
+  --primary: #5b3df5;
+  --primary-dark: #4428c7;
+  --primary-soft: #ece9ff;
+
+  --success: #168a5b;
+  --warning: #b7791f;
+
+  --shadow-sm: 0 4px 14px rgba(20, 30, 50, 0.06);
+  --shadow-md: 0 10px 28px rgba(20, 30, 50, 0.10);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  --container: 1180px;
+
+  --transition: 0.25s ease;
+}
+
+[data-theme="dark"] {
+  --bg: #0d1118;
+  --surface: #151b25;
+  --surface-soft: #1c2430;
+  --text: #f1f4f8;
+  --text-soft: #aab4c2;
+  --border: #2b3543;
+
+  --primary: #8873ff;
+  --primary-dark: #a293ff;
+  --primary-soft: #292348;
+
+  --success: #35b77f;
+  --warning: #d69e2e;
+
+  --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.28);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  line-height: 1.6;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+button,
+input {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+.container {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+
+.section {
+  padding: 80px 0;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: color-mix(
+    in srgb,
+    var(--surface) 94%,
+    transparent
+  );
+
+  border-bottom: 1px solid var(--border);
+
+  backdrop-filter: blur(14px);
+}
+
+
+.header-inner {
+  min-height: 74px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 24px;
+}
+
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: var(--primary);
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1.1;
+}
+
+
+.brand-text strong {
+  font-size: 17px;
+  letter-spacing: 0.02em;
+}
+
+
+.brand-text small {
+  margin-top: 3px;
+
+  color: var(--text-soft);
+
+  font-size: 11px;
+}
+
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 22px;
+
+  flex: 1;
+}
+
+
+.main-nav a {
+  position: relative;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+  font-weight: 600;
+
+  padding: 27px 0;
+
+  transition:
+    color var(--transition);
+}
+
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: var(--primary);
+}
+
+
+.main-nav a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 3px;
+
+  background: var(--primary);
+
+  border-radius: 3px 3px 0 0;
+}
+
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.header-btn,
+.menu-toggle {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: var(--surface);
+  color: var(--text);
+
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    color var(--transition);
+}
+
+
+.header-btn:hover,
+.menu-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+
+.menu-toggle {
+  display: none;
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.breadcrumb-section {
+  border-bottom: 1px solid var(--border);
+
+  background: var(--surface);
+}
+
+
+.breadcrumb {
+  min-height: 48px;
+
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  color: var(--text-soft);
+
+  font-size: 13px;
+}
+
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
+
+
+.breadcrumb span:last-child {
+  color: var(--text);
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.science-hero {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 100px 0;
+
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      var(--primary-soft),
+      transparent 32%
+    ),
+    var(--surface);
+}
+
+
+.science-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: -90px;
+  bottom: -110px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 50%;
+
+  opacity: 0.7;
+}
+
+
+.hero-content {
+  position: relative;
+
+  max-width: 760px;
+}
+
+
+.eyebrow,
+.section-label {
+  display: inline-block;
+
+  margin-bottom: 12px;
+
+  color: var(--primary);
+
+  font-size: 12px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+
+.hero-content h1 {
+  margin-bottom: 20px;
+
+  font-size: clamp(42px, 7vw, 72px);
+
+  line-height: 1.02;
+
+  letter-spacing: -0.04em;
+}
+
+
+.hero-content p {
+  max-width: 700px;
+
+  color: var(--text-soft);
+
+  font-size: 18px;
+}
+
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+  min-height: 46px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+
+  border-radius: 10px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  transition:
+    transform var(--transition),
+    background var(--transition),
+    border-color var(--transition);
+}
+
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+
+.btn-primary {
+  border: 1px solid var(--primary);
+
+  background: var(--primary);
+  color: #ffffff;
+}
+
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+
+.btn-secondary {
+  border: 1px solid var(--border);
+
+  background: var(--surface);
+  color: var(--text);
+}
+
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   SECTION HEADINGS
+   ========================================================= */
+
+.section-heading {
+  max-width: 700px;
+
+  margin-bottom: 38px;
+}
+
+
+.section-heading h2,
+.section-heading-row h2 {
+  margin-bottom: 10px;
+
+  font-size: clamp(28px, 4vw, 40px);
+
+  line-height: 1.15;
+
+  letter-spacing: -0.025em;
+}
+
+
+.section-heading p {
+  color: var(--text-soft);
+}
+
+
+.section-heading-row {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  gap: 24px;
+
+  margin-bottom: 38px;
+}
+
+
+.view-all {
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   SCIENCE AREAS
+   ========================================================= */
+
+.science-areas {
+  background: var(--bg);
+}
+
+
+.science-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+
+.science-card {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 18px;
+
+  min-height: 190px;
+
+  padding: 24px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+
+.science-card:hover {
+  transform: translateY(-5px);
+
+  border-color: var(--primary);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.science-icon {
+  width: 54px;
+  height: 54px;
+
+  flex: 0 0 54px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 15px;
+
+  background: var(--primary-soft);
+  color: var(--primary);
+
+  font-size: 25px;
+  font-weight: 800;
+}
+
+
+.science-card-content {
+  min-width: 0;
+}
+
+
+.science-card h3 {
+  margin-bottom: 8px;
+
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+
+.science-card p {
+  color: var(--text-soft);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   LEARNING FORMATS
+   ========================================================= */
+
+.learning-formats {
+  background: var(--surface);
+}
+
+
+.format-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 18px;
+}
+
+
+.format-card {
+  padding: 26px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    background var(--transition);
+}
+
+
+.format-card:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--primary);
+
+  background: var(--primary-soft);
+}
+
+
+.format-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 13px;
+
+  background: var(--surface-soft);
+
+  color: var(--primary);
+
+  font-size: 21px;
+  font-weight: 800;
+}
+
+
+.format-card h3 {
+  margin-bottom: 7px;
+
+  font-size: 18px;
+}
+
+
+.format-card p {
+  color: var(--text-soft);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   FEATURED COURSES
+   ========================================================= */
+
+.featured-science {
+  background: var(--bg);
+}
+
+
+.featured-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+
+.course-card {
+  overflow: hidden;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+
+  box-shadow: var(--shadow-sm);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+
+.course-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.course-media {
+  min-height: 150px;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary-soft),
+      var(--surface-soft)
+    );
+
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+
+.course-body {
+  padding: 23px;
+}
+
+
+.course-level {
+  display: inline-block;
+
+  margin-bottom: 10px;
+
+  padding: 4px 9px;
+
+  border-radius: 20px;
+
+  background: var(--primary-soft);
+
+  color: var(--primary);
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+
+.course-body h3 {
+  margin-bottom: 8px;
+
+  font-size: 20px;
+}
+
+
+.course-body p {
+  margin-bottom: 17px;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+}
+
+
+.course-body a {
+  color: var(--primary);
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+.course-body a:hover {
+  text-decoration: underline;
+}
+
+
+/* =========================================================
+   EXPERTS
+   ========================================================= */
+
+.experts-section {
+  background: var(--surface);
+}
+
+
+.expert-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  padding: 42px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary-soft),
+      var(--surface)
+    );
+}
+
+
+.expert-content {
+  max-width: 680px;
+}
+
+
+.expert-content h2 {
+  margin-bottom: 12px;
+
+  font-size: clamp(28px, 4vw, 40px);
+
+  line-height: 1.15;
+}
+
+
+.expert-content p {
+  color: var(--text-soft);
+}
+
+
+.expert-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SCIENCE PATH
+   ========================================================= */
+
+.science-path {
+  background: var(--bg);
+}
+
+
+.path-grid {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 18px;
+}
+
+
+.path-step {
+  position: relative;
+
+  padding: 27px;
+
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+
+  background: var(--surface);
+}
+
+
+.path-step > span {
+  display: block;
+
+  margin-bottom: 18px;
+
+  color: var(--primary);
+
+  font-size: 13px;
+  font-weight: 900;
+
+  letter-spacing: 0.08em;
+}
+
+
+.path-step h3 {
+  margin-bottom: 8px;
+
+  font-size: 18px;
+}
+
+
+.path-step p {
+  color: var(--text-soft);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+
+  background: var(--surface);
+
+  padding: 55px 0 25px;
+}
+
+
+.footer-grid {
+  display: grid;
+
+  grid-template-columns: 1.5fr repeat(3, 1fr);
+
+  gap: 35px;
+
+  padding-bottom: 40px;
+}
+
+
+.footer-brand strong {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 20px;
+}
+
+
+.footer-brand p {
+  max-width: 320px;
+
+  color: var(--text-soft);
+
+  font-size: 14px;
+}
+
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  gap: 9px;
+}
+
+
+.footer-links h3 {
+  margin-bottom: 7px;
+
+  font-size: 14px;
+}
+
+
+.footer-links a {
+  color: var(--text-soft);
+
+  font-size: 13px;
+}
+
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding-top: 22px;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+}
+
+
+.footer-bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 18px;
+}
+
+
+.footer-bottom-links a:hover {
+  color: var(--primary);
+}
+
+
+/* =========================================================
+   FOCUS / ACCESSIBILITY
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .main-nav {
+    gap: 14px;
+  }
+
+  .main-nav a {
+    font-size: 13px;
+  }
+
+  .science-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .format-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .path-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 760px) {
+
+  .container {
+    width: min(100% - 28px, var(--container));
+  }
+
+
+  .section {
+    padding: 58px 0;
+  }
+
+
+  .header-inner {
+    min-height: 66px;
+  }
+
+
+  .main-nav {
+    position: absolute;
+
+    top: 66px;
+    left: 14px;
+    right: 14px;
+
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 0;
+
+    padding: 10px;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow-md);
+  }
+
+
+  .main-nav.open {
+    display: flex;
+  }
+
+
+  .main-nav a {
+    padding: 13px 12px;
+
+    border-radius: 8px;
+  }
+
+
+  .main-nav a.active::after {
+    display: none;
+  }
+
+
+  .main-nav a:hover,
+  .main-nav a.active {
+    background: var(--primary-soft);
+  }
+
+
+  .menu-toggle {
+    display: grid;
+  }
+
+
+  .science-hero {
+    padding: 70px 0;
+  }
+
+
+  .hero-content h1 {
+    font-size: 46px;
+  }
+
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+
+  .btn {
+    width: 100%;
+  }
+
+
+  .science-grid,
+  .format-grid,
+  .featured-grid,
+  .path-grid {
+    grid-template-columns: 1fr;
+  }
+
+
+  .science-card {
+    min-height: auto;
+
+    padding: 20px;
+  }
+
+
+  .section-heading-row {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    margin-bottom: 28px;
+  }
+
+
+  .expert-box {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 28px;
+  }
+
+
+  .expert-actions {
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+  }
+
+
+  .footer-bottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .container {
+    width: min(100% - 22px, var(--container));
+  }
+
+
+  .brand-text {
+    display: none;
+  }
+
+
+  .header-actions {
+    margin-left: auto;
+  }
+
+
+  .science-hero {
+    padding: 58px 0;
+  }
+
+
+  .hero-content h1 {
+    font-size: 40px;
+  }
+
+
+  .science-card {
+    gap: 13px;
+  }
+
+
+  .science-icon {
+    width: 46px;
+    height: 46px;
+
+    flex-basis: 46px;
+
+    font-size: 21px;
+  }
+
+
+  .science-card h3 {
+    font-size: 17px;
+  }
+
+
+  .expert-box {
+    padding: 22px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+}
