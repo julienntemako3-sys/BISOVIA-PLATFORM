@@ -1,1 +1,319 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Expert | BISOVIA</title>
+  <meta
+    name="description"
+    content="Connect with experts through BISOVIA Learning."
+  >
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../core/core.css">
+  <link rel="stylesheet" href="../learning/learning.css">
+</head>
+
+<body>
+
+  <!-- GLOBAL HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a href="../index.html" class="brand">
+        <img src="../assets/logo.svg" alt="BISOVIA">
+        <span>BISOVIA</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="../index.html" data-i18n="nav.home">Home</a>
+        <a href="../services.html" data-i18n="nav.services">Services</a>
+        <a href="../payments.html" data-i18n="nav.payments">Payments</a>
+        <a href="../profile.html" data-i18n="nav.profile">Profile</a>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          id="themeToggle"
+          class="icon-button"
+          aria-label="Toggle theme"
+        >
+          ◐
+        </button>
+
+        <select id="languageSelect" aria-label="Language">
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="learning-page">
+
+    <!-- HERO -->
+    <section class="page-hero">
+      <div class="container">
+
+        <a href="../learning/index.html" class="back-link">
+          ← <span data-i18n="learning.back">Back to Learning</span>
+        </a>
+
+        <span class="section-label">Learning</span>
+
+        <h1 data-i18n="learning.expert.title">
+          Expert
+        </h1>
+
+        <p data-i18n="learning.expert.description">
+          Connect with a qualified expert and get practical guidance for your learning journey.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- EXPERT CONTENT -->
+    <section class="content-section">
+      <div class="container">
+
+        <div class="content-grid">
+
+          <!-- EXPERT PROFILE -->
+          <article class="content-card expert-profile">
+
+            <div class="expert-avatar" aria-hidden="true">
+              👨‍🏫
+            </div>
+
+            <div class="expert-info">
+              <span class="status-badge">
+                ● Available
+              </span>
+
+              <h2 data-i18n="learning.expert.name">
+                Learning Expert
+              </h2>
+
+              <p class="expert-role" data-i18n="learning.expert.role">
+                Education & Learning Specialist
+              </p>
+
+              <p data-i18n="learning.expert.bio">
+                Get help understanding subjects, choosing learning resources,
+                planning your studies, and developing practical skills.
+              </p>
+
+              <div class="expert-meta">
+                <span>🎓 Education</span>
+                <span>📚 Learning</span>
+                <span>💬 Consultation</span>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- ASK EXPERT -->
+          <article class="content-card">
+
+            <div class="card-header">
+              <h2 data-i18n="learning.expert.askTitle">
+                Ask the Expert
+              </h2>
+
+              <p data-i18n="learning.expert.askDescription">
+                Describe what you need help with.
+              </p>
+            </div>
+
+            <form id="expertForm">
+
+              <div class="form-group">
+                <label for="subject" data-i18n="learning.expert.subject">
+                  Subject
+                </label>
+
+                <select id="subject" name="subject" required>
+                  <option value="">Select a subject</option>
+                  <option value="sciences">Sciences</option>
+                  <option value="mathematics">Mathematics</option>
+                  <option value="languages">Languages</option>
+                  <option value="technology">Technology</option>
+                  <option value="arts">Arts</option>
+                  <option value="business">Business</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="question" data-i18n="learning.expert.question">
+                  Your question
+                </label>
+
+                <textarea
+                  id="question"
+                  name="question"
+                  rows="6"
+                  maxlength="2000"
+                  placeholder="Write your question here..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="level" data-i18n="learning.expert.level">
+                  Learning level
+                </label>
+
+                <select id="level" name="level">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </div>
+
+              <button type="submit" class="primary-button">
+                <span data-i18n="learning.expert.send">
+                  Send Question
+                </span>
+              </button>
+
+            </form>
+
+            <div
+              id="expertMessage"
+              class="form-message"
+              role="status"
+              aria-live="polite"
+            ></div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RELATED LEARNING -->
+    <section class="content-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="section-label">Learning</span>
+
+          <h2 data-i18n="learning.expert.relatedTitle">
+            Continue Learning
+          </h2>
+
+          <p data-i18n="learning.expert.relatedDescription">
+            Explore courses, subjects and learning resources.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <a href="courses.html" class="content-card">
+            <span class="card-icon">🎓</span>
+            <h3 data-i18n="learning.courses">
+              Courses
+            </h3>
+            <p>
+              Explore available learning courses.
+            </p>
+          </a>
+
+          <a href="subjects.html" class="content-card">
+            <span class="card-icon">📚</span>
+            <h3 data-i18n="learning.subjects">
+              Subjects
+            </h3>
+            <p>
+              Discover subjects and areas of study.
+            </p>
+          </a>
+
+          <a href="resources.html" class="content-card">
+            <span class="card-icon">📖</span>
+            <h3 data-i18n="learning.resources">
+              Resources
+            </h3>
+            <p>
+              Find useful educational resources.
+            </p>
+          </a>
+
+          <a href="teachers.html" class="content-card">
+            <span class="card-icon">👨‍🏫</span>
+            <h3 data-i18n="learning.teachers">
+              Teachers
+            </h3>
+            <p>
+              Discover teachers and learning providers.
+            </p>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <p>
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="footer.rights">
+          All rights reserved.
+        </span>
+      </p>
+
+    </div>
+  </footer>
+
+  <!-- CORE -->
+  <script src="../core/core.js"></script>
+
+  <!-- LEARNING -->
+  <script src="../learning/learning.js"></script>
+
+  <!-- PAGE -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      const form = document.getElementById("expertForm");
+      const message = document.getElementById("expertMessage");
+
+      if (form) {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          if (message) {
+            message.textContent =
+              "Your question is ready to be connected with an expert.";
+            message.className = "form-message success";
+          }
+        });
+      }
+
+    });
+  </script>
+
+</body>
+</html>
