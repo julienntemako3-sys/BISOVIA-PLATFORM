@@ -1,274 +1,366 @@
-
 /* =========================================================
-   BISOVIA — GLOBAL TRANSLATION SYSTEM
-   File: frontend/core/translation.js
+   BISOVIA TRANSLATION SYSTEM
+   EN / FR / RN / SW
    ========================================================= */
 
 (function () {
   "use strict";
 
-  const BISOVIA_LANGUAGE_KEY = "bisovia_language";
-
-  const SUPPORTED_LANGUAGES = ["en", "fr", "rn", "sw"];
-
+  const LANGUAGES = ["en", "fr", "rn", "sw"];
+  const STORAGE_KEY = "bisovia-language";
   const DEFAULT_LANGUAGE = "en";
 
-  /*
-   * Get the language saved by the user.
-   * If nothing is saved, use English.
-   */
-  function getSavedLanguage() {
-    const savedLanguage = localStorage.getItem(BISOVIA_LANGUAGE_KEY);
+  let currentLanguage =
+    localStorage.getItem(STORAGE_KEY) || DEFAULT_LANGUAGE;
 
-    if (SUPPORTED_LANGUAGES.includes(savedLanguage)) {
-      return savedLanguage;
-    }
-
-    return DEFAULT_LANGUAGE;
+  if (!LANGUAGES.includes(currentLanguage)) {
+    currentLanguage = DEFAULT_LANGUAGE;
   }
 
-  /*
-   * Save the selected language.
-   */
-  function saveLanguage(language) {
-    if (!SUPPORTED_LANGUAGES.includes(language)) {
-      language = DEFAULT_LANGUAGE;
-    }
+  let dictionaries = {};
 
-    localStorage.setItem(BISOVIA_LANGUAGE_KEY, language);
-  }
+  /* =======================================================
+     DICTIONARIES
+     ======================================================= */
 
-  /*
-   * Get the translation dictionary currently loaded.
-   */
-  function getDictionary(language) {
+  dictionaries.en = {
+    "nav.home": "Home",
+    "nav.services": "Services",
+    "nav.providers": "Providers",
+    "nav.requests": "Requests",
+    "nav.booking": "Booking",
+    "nav.payments": "Payments",
+    "nav.profile": "Profile",
+    "nav.settings": "Settings",
+    "nav.about": "About",
+
+    "common.loading": "Loading...",
+    "common.search": "Search",
+    "common.submit": "Submit",
+    "common.cancel": "Cancel",
+    "common.save": "Save",
+    "common.close": "Close",
+    "common.back": "Back",
+    "common.next": "Next",
+
+    "theme.light": "Light",
+    "theme.dark": "Dark",
+
+    "language.select": "Language",
+
+    "pi.ready": "Pi connection is ready",
+    "pi.unavailable": "Pi connection is unavailable",
+
+    "footer.rights": "All rights reserved.",
+
+    "home.title": "Utility starts here",
+    "home.subtitle":
+      "A Pi-native utility platform built for practical digital services and community interaction.",
+
+    "services.title": "Services",
+    "providers.title": "Service Providers",
+    "requests.title": "Requests",
+    "booking.title": "Booking",
+    "payments.title": "Payments"
+  };
+
+  dictionaries.fr = {
+    "nav.home": "Accueil",
+    "nav.services": "Services",
+    "nav.providers": "Prestataires",
+    "nav.requests": "Demandes",
+    "nav.booking": "Réservation",
+    "nav.payments": "Paiements",
+    "nav.profile": "Profil",
+    "nav.settings": "Paramètres",
+    "nav.about": "À propos",
+
+    "common.loading": "Chargement...",
+    "common.search": "Rechercher",
+    "common.submit": "Envoyer",
+    "common.cancel": "Annuler",
+    "common.save": "Enregistrer",
+    "common.close": "Fermer",
+    "common.back": "Retour",
+    "common.next": "Suivant",
+
+    "theme.light": "Clair",
+    "theme.dark": "Sombre",
+
+    "language.select": "Langue",
+
+    "pi.ready": "La connexion Pi est prête",
+    "pi.unavailable": "La connexion Pi n'est pas disponible",
+
+    "footer.rights": "Tous droits réservés.",
+
+    "home.title": "L'utilité commence ici",
+    "home.subtitle":
+      "Une plateforme utilitaire native de Pi pour les services numériques pratiques et l'interaction communautaire.",
+
+    "services.title": "Services",
+    "providers.title": "Prestataires de services",
+    "requests.title": "Demandes",
+    "booking.title": "Réservation",
+    "payments.title": "Paiements"
+  };
+
+  dictionaries.rn = {
+    "nav.home": "Ahabanza",
+    "nav.services": "Serivisi",
+    "nav.providers": "Abatanga serivisi",
+    "nav.requests": "Amasaba",
+    "nav.booking": "Kwiyandikisha",
+    "nav.payments": "Kwishura",
+    "nav.profile": "Umwirondoro",
+    "nav.settings": "Amagenamiterere",
+    "nav.about": "Ibitwerekeye",
+
+    "common.loading": "Biriko birategurwa...",
+    "common.search": "Rondera",
+    "common.submit": "Rungika",
+    "common.cancel": "Hagarika",
+    "common.save": "Bika",
+    "common.close": "Funga",
+    "common.back": "Subira inyuma",
+    "common.next": "Kurikira",
+
+    "theme.light": "Umuco",
+    "theme.dark": "Umwijima",
+
+    "language.select": "Ururimi",
+
+    "pi.ready": "Ukwiyunga na Pi kwiteguye",
+    "pi.unavailable": "Ukwiyunga na Pi ntikuboneka",
+
+    "footer.rights": "Uburenganzira bwose burakingiwe.",
+
+    "home.title": "Akamaro gatangurira hano",
+    "home.subtitle":
+      "Urubuga rwa Pi rwubakiye kuri serivisi ngirakamaro za digitale n'ugukorana kw'abanyagihugu.",
+
+    "services.title": "Serivisi",
+    "providers.title": "Abatanga serivisi",
+    "requests.title": "Amasaba",
+    "booking.title": "Kwiyandikisha",
+    "payments.title": "Kwishura"
+  };
+
+  dictionaries.sw = {
+    "nav.home": "Mwanzo",
+    "nav.services": "Huduma",
+    "nav.providers": "Watoa huduma",
+    "nav.requests": "Maombi",
+    "nav.booking": "Uhifadhi",
+    "nav.payments": "Malipo",
+    "nav.profile": "Wasifu",
+    "nav.settings": "Mipangilio",
+    "nav.about": "Kuhusu",
+
+    "common.loading": "Inapakia...",
+    "common.search": "Tafuta",
+    "common.submit": "Tuma",
+    "common.cancel": "Ghairi",
+    "common.save": "Hifadhi",
+    "common.close": "Funga",
+    "common.back": "Rudi",
+    "common.next": "Ifuatayo",
+
+    "theme.light": "Mwanga",
+    "theme.dark": "Giza",
+
+    "language.select": "Lugha",
+
+    "pi.ready": "Muunganisho wa Pi uko tayari",
+    "pi.unavailable": "Muunganisho wa Pi haupatikani",
+
+    "footer.rights": "Haki zote zimehifadhiwa.",
+
+    "home.title": "Huduma huanzia hapa",
+    "home.subtitle":
+      "Jukwaa la huduma za kidijitali la Pi lililojengwa kwa huduma za vitendo na mwingiliano wa jamii.",
+
+    "services.title": "Huduma",
+    "providers.title": "Watoa huduma",
+    "requests.title": "Maombi",
+    "booking.title": "Uhifadhi",
+    "payments.title": "Malipo"
+  };
+
+  /* =======================================================
+     TRANSLATION
+     ======================================================= */
+
+  function translate(key) {
+    const dictionary = dictionaries[currentLanguage];
+
     if (
-      window.BISOVIA_TRANSLATIONS &&
-      window.BISOVIA_TRANSLATIONS[language]
+      dictionary &&
+      Object.prototype.hasOwnProperty.call(dictionary, key)
     ) {
-      return window.BISOVIA_TRANSLATIONS[language];
+      return dictionary[key];
     }
 
-    return {};
+    if (
+      dictionaries[DEFAULT_LANGUAGE] &&
+      dictionaries[DEFAULT_LANGUAGE][key]
+    ) {
+      return dictionaries[DEFAULT_LANGUAGE][key];
+    }
+
+    return key;
   }
 
-  /*
-   * Read a nested translation key.
-   *
-   * Example:
-   * t("nav.home")
-   * t("hero.title")
-   */
-  function getTranslation(key, language) {
-    const dictionary = getDictionary(language);
+  /* =======================================================
+     APPLY TRANSLATION
+     ======================================================= */
 
-    if (!key) {
-      return "";
-    }
+  function applyTranslations() {
+    document.documentElement.lang = currentLanguage;
 
-    const parts = key.split(".");
-    let value = dictionary;
-
-    for (const part of parts) {
-      if (
-        value &&
-        Object.prototype.hasOwnProperty.call(value, part)
-      ) {
-        value = value[part];
-      } else {
-        return key;
-      }
-    }
-
-    return typeof value === "string" ? value : key;
-  }
-
-  /*
-   * Translate every element containing:
-   *
-   * data-i18n="nav.home"
-   */
-  function translatePage(language) {
-    const elements = document.querySelectorAll("[data-i18n]");
-
-    elements.forEach((element) => {
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
       const key = element.getAttribute("data-i18n");
-      const translatedText = getTranslation(key, language);
 
-      element.textContent = translatedText;
+      if (!key) return;
+
+      element.textContent = translate(key);
     });
 
-    /*
-     * Translate placeholders:
-     *
-     * data-i18n-placeholder="search.placeholder"
-     */
-    const placeholderElements =
-      document.querySelectorAll("[data-i18n-placeholder]");
+    document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-html");
 
-    placeholderElements.forEach((element) => {
+      if (!key) return;
+
+      element.innerHTML = translate(key);
+    });
+
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
       const key = element.getAttribute("data-i18n-placeholder");
-      const translatedText = getTranslation(key, language);
 
-      element.setAttribute("placeholder", translatedText);
-    });
+      if (!key) return;
 
-    /*
-     * Translate titles:
-     *
-     * data-i18n-title="buttons.submit"
-     */
-    const titleElements =
-      document.querySelectorAll("[data-i18n-title]");
-
-    titleElements.forEach((element) => {
-      const key = element.getAttribute("data-i18n-title");
-      const translatedText = getTranslation(key, language);
-
-      element.setAttribute("title", translatedText);
-    });
-
-    /*
-     * Translate aria-labels:
-     *
-     * data-i18n-aria-label="nav.menu"
-     */
-    const ariaElements =
-      document.querySelectorAll("[data-i18n-aria-label]");
-
-    ariaElements.forEach((element) => {
-      const key = element.getAttribute("data-i18n-aria-label");
-      const translatedText = getTranslation(key, language);
-
-      element.setAttribute("aria-label", translatedText);
-    });
-
-    /*
-     * Update the HTML language attribute.
-     */
-    document.documentElement.setAttribute("lang", language);
-
-    /*
-     * Update every language selector on the page.
-     */
-    const languageSelectors =
-      document.querySelectorAll(
-        "[data-language-selector], #languageSelector, #language-select"
+      element.setAttribute(
+        "placeholder",
+        translate(key)
       );
-
-    languageSelectors.forEach((selector) => {
-      selector.value = language;
     });
 
-    /*
-     * Optional page event.
-     */
+    document.querySelectorAll("[data-i18n-title]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-title");
+
+      if (!key) return;
+
+      element.setAttribute(
+        "title",
+        translate(key)
+      );
+    });
+
+    updateLanguageButtons();
+
     document.dispatchEvent(
-      new CustomEvent("bisovia:languageChanged", {
+      new CustomEvent("bisovia:translationsApplied", {
         detail: {
-          language: language
+          language: currentLanguage
         }
       })
     );
   }
 
-  /*
-   * Change the global BISOVIA language.
-   */
+  /* =======================================================
+     LANGUAGE
+     ======================================================= */
+
   function setLanguage(language) {
-    if (!SUPPORTED_LANGUAGES.includes(language)) {
+    if (!LANGUAGES.includes(language)) {
       console.warn(
-        "BISOVIA: Unsupported language:",
+        "BISOVIA: unsupported language:",
         language
       );
-
-      language = DEFAULT_LANGUAGE;
+      return;
     }
 
-    saveLanguage(language);
+    currentLanguage = language;
 
-    /*
-     * If translations are already available,
-     * translate immediately.
-     */
-    translatePage(language);
+    localStorage.setItem(
+      STORAGE_KEY,
+      currentLanguage
+    );
 
-    /*
-     * Keep the language available globally.
-     */
-    window.BISOVIA_CURRENT_LANGUAGE = language;
-
-    return language;
+    applyTranslations();
   }
 
-  /*
-   * Get the current BISOVIA language.
-   */
   function getLanguage() {
-    return (
-      window.BISOVIA_CURRENT_LANGUAGE ||
-      getSavedLanguage()
+    return currentLanguage;
+  }
+
+  function updateLanguageButtons() {
+    document
+      .querySelectorAll("[data-language]")
+      .forEach((button) => {
+        const language =
+          button.getAttribute("data-language");
+
+        button.classList.toggle(
+          "active",
+          language === currentLanguage
+        );
+
+        button.setAttribute(
+          "aria-current",
+          language === currentLanguage
+            ? "true"
+            : "false"
+        );
+      });
+  }
+
+  /* =======================================================
+     OBSERVER
+     ======================================================= */
+
+  const observer = new MutationObserver(() => {
+    applyTranslations();
+  });
+
+  function init() {
+    applyTranslations();
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
+    console.info(
+      "BISOVIA Translation initialized:",
+      currentLanguage
     );
   }
 
-  /*
-   * Initialize translation system.
-   */
-  function initializeTranslation() {
-    const language = getSavedLanguage();
+  /* =======================================================
+     PUBLIC API
+     ======================================================= */
 
-    window.BISOVIA_CURRENT_LANGUAGE = language;
-
-    /*
-     * Wait until the DOM is ready.
-     */
-    if (document.readyState === "loading") {
-      document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-          translatePage(language);
-        },
-        { once: true }
-      );
-    } else {
-      translatePage(language);
-    }
-
-    /*
-     * Connect every language selector.
-     */
-    document.addEventListener(
-      "change",
-      function (event) {
-        const target = event.target;
-
-        if (
-          target.matches(
-            "[data-language-selector], #languageSelector, #language-select"
-          )
-        ) {
-          setLanguage(target.value);
-        }
-      }
-    );
-  }
-
-  /*
-   * Public BISOVIA translation API.
-   */
-  window.BISOVIA_TRANSLATION = {
-    setLanguage: setLanguage,
-    getLanguage: getLanguage,
-    getTranslation: getTranslation,
-    translatePage: translatePage,
-    saveLanguage: saveLanguage,
-    getSavedLanguage: getSavedLanguage,
-    supportedLanguages: SUPPORTED_LANGUAGES
+  window.BISOVIA_TRANSLATE = function (language) {
+    setLanguage(language);
   };
 
-  /*
-   * Start the system.
-   */
-  initializeTranslation();
+  window.BISOVIA_TRANSLATION = {
+    setLanguage,
+    getLanguage,
+    translate,
+    applyTranslations,
+    languages: LANGUAGES
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      init,
+      { once: true }
+    );
+  } else {
+    init();
+  }
 
 })();
