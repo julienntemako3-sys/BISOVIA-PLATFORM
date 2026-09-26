@@ -1,1 +1,701 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>BISOVIA Learning Content</title>
+
+  <meta
+    name="description"
+    content="BISOVIA Learning Content — videos, audio, images, documents, interactive lessons, exercises and learning resources."
+  >
+
+  <link rel="stylesheet" href="content.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="learning-header">
+
+    <div class="header-inner">
+
+      <a href="../index.html" class="brand" aria-label="BISOVIA Learning">
+        <span class="brand-name">BISOVIA</span>
+        <span class="brand-section">Learning</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Learning navigation">
+
+        <a href="../index.html" data-i18n="learning">Learning</a>
+
+        <a href="../categories.html" data-i18n="categories">
+          Categories
+        </a>
+
+        <a href="../subjects.html" data-i18n="subjects">
+          Subjects
+        </a>
+
+        <a href="../courses.html" data-i18n="courses">
+          Courses
+        </a>
+
+        <a href="../resources.html" data-i18n="resources">
+          Resources
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          type="button"
+          id="languageToggle"
+          class="header-button"
+          aria-label="Change language"
+        >
+          EN
+        </button>
+
+        <button
+          type="button"
+          id="themeToggle"
+          class="header-button"
+          aria-label="Toggle dark and light mode"
+        >
+          ◐
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN CONTENT
+  ========================== -->
+  <main class="content-page">
+
+    <!-- Page introduction -->
+    <section class="content-hero">
+
+      <div class="hero-content">
+
+        <span class="eyebrow" data-i18n="learningContent">
+          Learning Content
+        </span>
+
+        <h1 data-i18n="contentTitle">
+          Learn through every type of content
+        </h1>
+
+        <p data-i18n="contentDescription">
+          Discover lessons, videos, audio, images, documents,
+          interactive activities, demonstrations, exercises and quizzes
+          in one learning environment.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTENT SEARCH
+    ========================== -->
+    <section class="content-search-section">
+
+      <form id="contentSearchForm" class="content-search">
+
+        <label for="contentSearch" class="sr-only">
+          Search learning content
+        </label>
+
+        <input
+          type="search"
+          id="contentSearch"
+          name="contentSearch"
+          placeholder="Search learning content..."
+          data-i18n-placeholder="searchContent"
+          autocomplete="off"
+        >
+
+        <button type="submit" id="searchButton">
+          Search
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- =========================
+         CONTENT FILTERS
+    ========================== -->
+    <section class="content-filters-section">
+
+      <div class="section-heading">
+
+        <span class="eyebrow" data-i18n="explore">
+          Explore
+        </span>
+
+        <h2 data-i18n="contentTypes">
+          Content types
+        </h2>
+
+      </div>
+
+      <div class="content-filters" id="contentFilters">
+
+        <button
+          type="button"
+          class="filter-button active"
+          data-content-type="all"
+          data-i18n="all"
+        >
+          All
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="video"
+          data-i18n="video"
+        >
+          Video
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="audio"
+          data-i18n="audio"
+        >
+          Audio
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="image"
+          data-i18n="images"
+        >
+          Images
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="document"
+          data-i18n="documents"
+        >
+          Documents
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="presentation"
+          data-i18n="presentations"
+        >
+          Presentations
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="interactive"
+          data-i18n="interactive"
+        >
+          Interactive
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="demonstration"
+          data-i18n="demonstrations"
+        >
+          Demonstrations
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="exercise"
+          data-i18n="exercises"
+        >
+          Exercises
+        </button>
+
+        <button
+          type="button"
+          class="filter-button"
+          data-content-type="quiz"
+          data-i18n="quizzes"
+        >
+          Quizzes
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FEATURED CONTENT
+    ========================== -->
+    <section class="featured-content-section">
+
+      <div class="section-heading">
+
+        <span class="eyebrow" data-i18n="featured">
+          Featured
+        </span>
+
+        <h2 data-i18n="featuredContent">
+          Featured learning content
+        </h2>
+
+      </div>
+
+      <div
+        class="content-grid"
+        id="featuredContentGrid"
+      >
+
+        <!-- Video -->
+        <article
+          class="content-card"
+          data-content-type="video"
+          data-category="science"
+        >
+
+          <div class="content-card-media video-media">
+            <span class="media-icon">▶</span>
+            <span class="media-label" data-i18n="video">
+              Video
+            </span>
+          </div>
+
+          <div class="content-card-body">
+
+            <span class="content-category">
+              Science
+            </span>
+
+            <h3>
+              Science Demonstration
+            </h3>
+
+            <p>
+              Visual explanation and practical demonstration
+              of a scientific concept.
+            </p>
+
+            <a href="media/media.html?type=video" class="content-link">
+              View content
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Audio -->
+        <article
+          class="content-card"
+          data-content-type="audio"
+          data-category="music"
+        >
+
+          <div class="content-card-media audio-media">
+            <span class="media-icon">♫</span>
+            <span class="media-label" data-i18n="audio">
+              Audio
+            </span>
+          </div>
+
+          <div class="content-card-body">
+
+            <span class="content-category">
+              Music & Audio
+            </span>
+
+            <h3>
+              Music Learning Session
+            </h3>
+
+            <p>
+              Listen to lessons, songs, explanations and
+              audio learning materials.
+            </p>
+
+            <a href="media/media.html?type=audio" class="content-link">
+              Listen
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Image -->
+        <article
+          class="content-card"
+          data-content-type="image"
+          data-category="arts"
+        >
+
+          <div class="content-card-media image-media">
+            <span class="media-icon">▧</span>
+            <span class="media-label" data-i18n="images">
+              Images
+            </span>
+          </div>
+
+          <div class="content-card-body">
+
+            <span class="content-category">
+              Arts & Design
+            </span>
+
+            <h3>
+              Visual Learning Gallery
+            </h3>
+
+            <p>
+              Explore educational images, artwork,
+              diagrams and visual references.
+            </p>
+
+            <a href="media/media.html?type=image" class="content-link">
+              Explore
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Document -->
+        <article
+          class="content-card"
+          data-content-type="document"
+          data-category="literature"
+        >
+
+          <div class="content-card-media document-media">
+            <span class="media-icon">▤</span>
+            <span class="media-label" data-i18n="documents">
+              Documents
+            </span>
+          </div>
+
+          <div class="content-card-body">
+
+            <span class="content-category">
+              Literature
+            </span>
+
+            <h3>
+              Reading Materials
+            </h3>
+
+            <p>
+              Books, PDF resources, articles, notes and
+              other educational documents.
+            </p>
+
+            <a href="media/media.html?type=document" class="content-link">
+              Open resources
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Interactive -->
+        <article
+          class="content-card"
+          data-content-type="interactive"
+          data-category="technology"
+        >
+
+          <div class="content-card-media interactive-media">
+            <span class="media-icon">◇</span>
+            <span class="media-label" data-i18n="interactive">
+              Interactive
+            </span>
+          </div>
+
+          <div class="content-card-body">
+
+            <span class="content-category">
+              Technology
+            </span>
+
+            <h3>
+              Interactive Learning
+            </h3>
+
+            <p>
+              Learn through interactive activities,
+              simulations and digital experiences.
+            </p>
+
+            <a href="media/media.html?type=interactive" class="content-link">
+              Start
+            </a>
+
+          </div>
+
+        </article>
+
+
+        <!-- Demonstration -->
+        <article
+          class="content-card"
+          data-content-type="demonstration"
+          data-category="martial-arts"
+        >
+
+          <div class="content-card-media demonstration-media">
+            <span class="media-icon">◉</span>
+            <span class="media-label" data-i18n="demonstrations">
+              Demonstration
+            </span>
+          </div>
+
+          <div class="content-card-body">
+
+            <span class="content-category">
+              Martial Arts
+            </span>
+
+            <h3>
+              Martial Arts Demonstration
+            </h3>
+
+            <p>
+              Step-by-step visual demonstrations for
+              practical skills and techniques.
+            </p>
+
+            <a
+              href="media/media.html?type=demonstration"
+              class="content-link"
+            >
+              Watch
+            </a>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         LEARNING CONTENT AREAS
+    ========================== -->
+    <section class="content-areas-section">
+
+      <div class="section-heading">
+
+        <span class="eyebrow" data-i18n="learningAreas">
+          Learning areas
+        </span>
+
+        <h2 data-i18n="contentForEverySubject">
+          Content for every subject
+        </h2>
+
+        <p>
+          BISOVIA Learning content can support different
+          subjects, disciplines and practical skills.
+        </p>
+
+      </div>
+
+
+      <div class="areas-grid">
+
+        <a href="../categories.html?category=sciences" class="area-card">
+          <span class="area-icon">∑</span>
+          <span>Sciences</span>
+        </a>
+
+        <a href="../categories.html?category=literature" class="area-card">
+          <span class="area-icon">Aa</span>
+          <span>Literature & Modern Letters</span>
+        </a>
+
+        <a href="../categories.html?category=philosophy" class="area-card">
+          <span class="area-icon">Φ</span>
+          <span>Philosophy</span>
+        </a>
+
+        <a href="../categories.html?category=theology" class="area-card">
+          <span class="area-icon">✦</span>
+          <span>Theology & Religious Studies</span>
+        </a>
+
+        <a href="../categories.html?category=arts" class="area-card">
+          <span class="area-icon">◇</span>
+          <span>Arts & Design</span>
+        </a>
+
+        <a href="../categories.html?category=music" class="area-card">
+          <span class="area-icon">♫</span>
+          <span>Music & Audio</span>
+        </a>
+
+        <a href="../categories.html?category=theatre" class="area-card">
+          <span class="area-icon">◈</span>
+          <span>Theatre & Performance</span>
+        </a>
+
+        <a href="../categories.html?category=martial-arts" class="area-card">
+          <span class="area-icon">◉</span>
+          <span>Martial Arts</span>
+        </a>
+
+        <a href="../categories.html?category=tourism" class="area-card">
+          <span class="area-icon">◎</span>
+          <span>Tourism & Travel</span>
+        </a>
+
+        <a href="../categories.html?category=culture" class="area-card">
+          <span class="area-icon">◌</span>
+          <span>Culture & Traditions</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTENT CREATION
+    ========================== -->
+    <section class="content-contribution-section">
+
+      <div class="contribution-card">
+
+        <div>
+
+          <span class="eyebrow" data-i18n="shareKnowledge">
+            Share knowledge
+          </span>
+
+          <h2 data-i18n="createLearningContent">
+            Create and share learning content
+          </h2>
+
+          <p>
+            Teachers, experts and approved contributors can
+            provide educational videos, audio, documents,
+            demonstrations and other learning materials.
+          </p>
+
+        </div>
+
+        <div class="contribution-actions">
+
+          <a href="../teacher.html" class="primary-button">
+            Become a teacher
+          </a>
+
+          <a href="../ask-expert.html" class="secondary-button">
+            Ask an expert
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         EMPTY STATE
+    ========================== -->
+    <section
+      id="contentEmptyState"
+      class="empty-state"
+      hidden
+    >
+
+      <div class="empty-icon">⌕</div>
+
+      <h2 data-i18n="noContentFound">
+        No content found
+      </h2>
+
+      <p data-i18n="tryAnotherSearch">
+        Try another search or choose a different content type.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="learning-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-brand">
+        <strong>BISOVIA</strong>
+        <span>Learning</span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Learning footer navigation">
+
+        <a href="../index.html">Learning</a>
+        <a href="../categories.html">Categories</a>
+        <a href="../courses.html">Courses</a>
+        <a href="../resources.html">Resources</a>
+        <a href="../teachers.html">Teachers</a>
+
+      </nav>
+
+      <p class="copyright">
+        © <span id="currentYear"></span> BISOVIA.
+        <span data-i18n="allRightsReserved">
+          All rights reserved.
+        </span>
+      </p>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <!-- BISOVIA Core -->
+  <script src="../../../core/core.js"></script>
+
+  <!-- Learning Content -->
+  <script src="content.js"></script>
+
+</body>
+</html>
