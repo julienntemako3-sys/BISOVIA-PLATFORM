@@ -1,164 +1,212 @@
 /* =========================================================
-   BISOVIA — GLOBAL CORE
-   Global UI behavior for all BISOVIA pages
+   BISOVIA GLOBAL FRONTEND INTEGRATION
    ========================================================= */
 
 (function () {
   "use strict";
 
-  /* ---------------------------------------------------------
-     CURRENT YEAR
-     --------------------------------------------------------- */
-  function setCurrentYear() {
-    const year = new Date().getFullYear();
+  const GLOBAL = {
+    initialized: false,
 
-    document.querySelectorAll("[data-current-year]").forEach((element) => {
-      element.textContent = year;
-    });
+    init() {
+      if (this.initialized) return;
 
-    const footerYear = document.getElementById("currentYear");
+      this.markActiveNavigation();
+      this.setupMobileNavigation();
+      this.setupGlobalLinks();
+      this.updateCurrentYear();
+      this.updatePiStatus();
 
-    if (footerYear) {
-      footerYear.textContent = year;
-    }
-  }
-
-  /* ---------------------------------------------------------
-     MOBILE NAVIGATION
-     --------------------------------------------------------- */
-  function initMobileNavigation() {
-    const menuToggle =
-      document.getElementById("menuToggle") ||
-      document.querySelector(".menu-toggle");
-
-    const mobileNav =
-      document.getElementById("mobileNav") ||
-      document.querySelector(".mobile-nav");
-
-    if (!menuToggle || !mobileNav) {
-      return;
-    }
-
-    menuToggle.addEventListener("click", function () {
-      const isOpen = mobileNav.classList.toggle("open");
-
-      menuToggle.classList.toggle("active", isOpen);
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-    });
-
-    mobileNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", function () {
-        mobileNav.classList.remove("open");
-        menuToggle.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-
-    document.addEventListener("click", function (event) {
-      if (
-        mobileNav.classList.contains("open") &&
-        !mobileNav.contains(event.target) &&
-        !menuToggle.contains(event.target)
-      ) {
-        mobileNav.classList.remove("open");
-        menuToggle.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-
-  /* ---------------------------------------------------------
-     ACTIVE NAVIGATION LINK
-     --------------------------------------------------------- */
-  function initActiveNavigation() {
-    const currentPath = window.location.pathname;
-
-    document.querySelectorAll("nav a").forEach((link) => {
-      const href = link.getAttribute("href");
-
-      if (!href || href === "#" || href.startsWith("javascript:")) {
-        return;
-      }
-
-      try {
-        const linkUrl = new URL(href, window.location.href);
-
-        if (
-          linkUrl.pathname === currentPath ||
-          (
-            linkUrl.pathname !== "/" &&
-            currentPath.startsWith(linkUrl.pathname)
-          )
-        ) {
-          link.classList.add("active");
+      document.addEventListener(
+        "bisovia:coreReady",
+        () => {
+          this.markActiveNavigation();
+          this.updatePiStatus();
         }
-      } catch (error) {
-        // Ignore invalid navigation URLs.
-      }
-    });
-  }
+      );
 
-  /* ---------------------------------------------------------
-     BACK BUTTON
-     --------------------------------------------------------- */
-  function initBackButtons() {
-    document.querySelectorAll("[data-back]").forEach((button) => {
-      button.addEventListener("click", function () {
-        if (window.history.length > 1) {
-          window.history.back();
-        } else {
-          window.location.href = "../index.html";
+      document.addEventListener(
+        "bisovia:piReady",
+        () => {
+          this.updatePiStatus();
         }
-      });
-    });
-  }
+      );
 
-  /* ---------------------------------------------------------
-     SAFE LOCAL STORAGE
-     --------------------------------------------------------- */
-  function storageGet(key, fallback = null) {
-    try {
-      const value = localStorage.getItem(key);
-      return value === null ? fallback : value;
-    } catch (error) {
-      return fallback;
+      document.addEventListener(
+        "bisovia:translationsApplied",
+        () => {
+          this.markActiveNavigation();
+          this.updateCurrentYear();
+        }
+      );
+
+      this.initialized = true;
+
+      console.info(
+        "BISOVIA Global Frontend initialized."
+      );
+    },
+
+    /* =======================================================
+       ACTIVE NAVIGATION
+       ======================================================= */
+
+    markActiveNavigation() {
+      const currentPath =
+        window.location.pathname
+          .split("/")
+          .pop() || "index.html";
+
+      document
+        .querySelectorAll(
+          "[data-global-nav], .bisovia-nav-links a"
+        )
+        .forEach((link) => {
+          const href =
+            link.getAttribute("href");
+
+          if (!href) return;
+
+          const linkPath =
+            href.split("?")[0]
+              .split("#")[0]
+              .split("/")
+              .pop();
+
+          link.classList.toggle(
+            "active",
+            linkPath === currentPath
+          );
+        });
+    },
+
+    /* =======================================================
+       MOBILE NAVIGATION
+       ======================================================= */
+
+    setupMobileNavigation() {
+      const toggle =
+        document.querySelector(
+          "[data-mobile-menu]"
+        );
+
+      const nav =
+        document.querySelector(
+          "[data-mobile-nav]"
+        );
+
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener(
+        "click",
+        () => {
+          const open =
+            nav.classList.toggle("open");
+
+          toggle.setAttribute(
+            "aria-expanded",
+            open ? "true" : "false"
+          );
+        }
+      );
+
+      nav.querySelectorAll("a").forEach(
+        (link) => {
+          link.addEventListener(
+            "click",
+            () => {
+              nav.classList.remove("open");
+
+              toggle.setAttribute(
+                "aria-expanded",
+                "false"
+              );
+            }
+          );
+        }
+      );
+    },
+
+    /* =======================================================
+       GLOBAL LINKS
+       ======================================================= */
+
+    setupGlobalLinks() {
+      document
+        .querySelectorAll("[data-global-link]")
+        .forEach((element) => {
+          element.addEventListener(
+            "click",
+            (event) => {
+              const target =
+                element.getAttribute(
+                  "data-global-link"
+                );
+
+              if (!target) return;
+
+              event.preventDefault();
+              window.location.href = target;
+            }
+          );
+        });
+    },
+
+    /* =======================================================
+       CURRENT YEAR
+       ======================================================= */
+
+    updateCurrentYear() {
+      document
+        .querySelectorAll(
+          "[data-current-year]"
+        )
+        .forEach((element) => {
+          element.textContent =
+            new Date().getFullYear();
+        });
+    },
+
+    /* =======================================================
+       PI STATUS
+       ======================================================= */
+
+    updatePiStatus() {
+      const ready =
+        window.BISOVIA &&
+        window.BISOVIA.state &&
+        window.BISOVIA.state.piReady;
+
+      document
+        .querySelectorAll(
+          "[data-pi-status]"
+        )
+        .forEach((element) => {
+          element.textContent = ready
+            ? "Pi connection is ready"
+            : "Pi connection is unavailable";
+
+          element.classList.toggle(
+            "connected",
+            Boolean(ready)
+          );
+        });
     }
-  }
-
-  function storageSet(key, value) {
-    try {
-      localStorage.setItem(key, value);
-      return true;
-    } catch (error) {
-      return false;
-    }
-  }
-
-  /* ---------------------------------------------------------
-     BISOVIA GLOBAL API
-     --------------------------------------------------------- */
-  window.BISOVIA = window.BISOVIA || {};
-
-  window.BISOVIA.storage = {
-    get: storageGet,
-    set: storageSet
   };
 
-  window.BISOVIA.global = {
-    setCurrentYear,
-    initMobileNavigation,
-    initActiveNavigation,
-    initBackButtons
-  };
+  window.BISOVIA_GLOBAL = GLOBAL;
 
-  /* ---------------------------------------------------------
-     INITIALIZE
-     --------------------------------------------------------- */
-  document.addEventListener("DOMContentLoaded", function () {
-    setCurrentYear();
-    initMobileNavigation();
-    initActiveNavigation();
-    initBackButtons();
-  });
+  if (
+    document.readyState ===
+    "loading"
+  ) {
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => GLOBAL.init(),
+      { once: true }
+    );
+  } else {
+    GLOBAL.init();
+  }
 
 })();
