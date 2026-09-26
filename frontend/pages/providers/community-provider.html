@@ -1,1 +1,431 @@
 
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta
+name="description"
+content="BISOVIA Community Provider — discover and connect with trusted community service providers."
+
+«»
+
+  <title>Community Provider | BISOVIA</title>  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../modules/community/community.css">
+</head><body data-module="community" data-page="provider">  <!-- HEADER -->  <header class="site-header">
+    <div class="container">  <div class="brand">
+    <a href="../index.html" aria-label="BISOVIA Home">
+      <img
+        src="../assets/logo.svg"
+        alt="BISOVIA"
+        class="brand-logo"
+      >
+    </a>
+  </div>
+
+  <nav class="main-nav" aria-label="Main navigation">
+    <a href="../index.html">Home</a>
+    <a href="community.html">Community</a>
+    <a href="providers.html">Providers</a>
+    <a href="requests.html">Requests</a>
+    <a href="booking.html">Bookings</a>
+  </nav>
+
+  <div class="header-actions">
+    <button
+      type="button"
+      id="themeToggle"
+      aria-label="Toggle dark and light mode"
+    >
+      ◐
+    </button>
+
+    <a href="profile.html" class="profile-link">
+      Profile
+    </a>
+  </div>
+
+</div>
+
+  </header>  <!-- MAIN -->  <main><!-- PROVIDER HERO -->
+<section class="page-hero">
+  <div class="container">
+
+    <span class="eyebrow">Community Provider</span>
+
+    <h1 id="providerName">
+      Community Service Provider
+    </h1>
+
+    <p id="providerIntro">
+      Connect with a community provider and discover useful local
+      services, activities and opportunities.
+    </p>
+
+    <div class="provider-status" aria-label="Provider status">
+      <span class="status-dot" aria-hidden="true"></span>
+      <span id="providerStatus">Available</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROVIDER PROFILE -->
+<section class="provider-profile">
+  <div class="container">
+
+    <article class="provider-card">
+
+      <div class="provider-avatar-wrapper">
+        <div
+          class="provider-avatar"
+          id="providerAvatar"
+          aria-label="Provider avatar"
+        >
+          CP
+        </div>
+      </div>
+
+      <div class="provider-main-info">
+
+        <div class="provider-heading">
+          <div>
+            <h2 id="providerFullName">
+              Community Provider
+            </h2>
+
+            <p id="providerCategory">
+              Community Services
+            </p>
+          </div>
+
+          <span
+            class="verified-badge"
+            id="verifiedBadge"
+            hidden
+          >
+            ✓ Verified
+          </span>
+        </div>
+
+        <p id="providerDescription">
+          This provider offers community-focused services through
+          the BISOVIA platform.
+        </p>
+
+        <div class="provider-meta">
+
+          <span>
+            <strong>Location:</strong>
+            <span id="providerLocation">
+              Not specified
+            </span>
+          </span>
+
+          <span>
+            <strong>Experience:</strong>
+            <span id="providerExperience">
+              Not specified
+            </span>
+          </span>
+
+          <span>
+            <strong>Languages:</strong>
+            <span id="providerLanguages">
+              English, Français, Kirundi
+            </span>
+          </span>
+
+        </div>
+
+      </div>
+
+    </article>
+
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="provider-trust">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">Trust & Reputation</span>
+      <h2>Provider reputation</h2>
+      <p>
+        Community feedback helps users understand a provider's
+        service history.
+      </p>
+    </div>
+
+    <div class="trust-grid">
+
+      <article class="trust-card">
+        <strong id="providerRating">—</strong>
+        <span>Rating</span>
+      </article>
+
+      <article class="trust-card">
+        <strong id="providerReviews">0</strong>
+        <span>Reviews</span>
+      </article>
+
+      <article class="trust-card">
+        <strong id="providerCompleted">0</strong>
+        <span>Completed services</span>
+      </article>
+
+      <article class="trust-card">
+        <strong id="providerResponse">—</strong>
+        <span>Response rate</span>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="provider-services">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">Services</span>
+      <h2>Services offered</h2>
+      <p>
+        Explore the community services offered by this provider.
+      </p>
+    </div>
+
+    <div
+      class="services-grid"
+      id="providerServices"
+    >
+
+      <article class="service-card">
+        <h3>Community Service</h3>
+        <p>
+          Useful services for individuals and local communities.
+        </p>
+
+        <a href="service.html" class="service-link">
+          View service
+        </a>
+      </article>
+
+    </div>
+
+    <div class="section-actions">
+      <a href="services.html" class="btn btn-secondary">
+        View all community services
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- AVAILABILITY -->
+<section class="provider-availability">
+  <div class="container">
+
+    <div class="section-heading">
+      <span class="eyebrow">Availability</span>
+      <h2>Provider availability</h2>
+    </div>
+
+    <div class="availability-card">
+
+      <div class="availability-row">
+        <span>Monday</span>
+        <strong id="mondayAvailability">
+          Available
+        </strong>
+      </div>
+
+      <div class="availability-row">
+        <span>Tuesday</span>
+        <strong id="tuesdayAvailability">
+          Available
+        </strong>
+      </div>
+
+      <div class="availability-row">
+        <span>Wednesday</span>
+        <strong id="wednesdayAvailability">
+          Available
+        </strong>
+      </div>
+
+      <div class="availability-row">
+        <span>Thursday</span>
+        <strong id="thursdayAvailability">
+          Available
+        </strong>
+      </div>
+
+      <div class="availability-row">
+        <span>Friday</span>
+        <strong id="fridayAvailability">
+          Available
+        </strong>
+      </div>
+
+      <div class="availability-row">
+        <span>Saturday</span>
+        <strong id="saturdayAvailability">
+          Available
+        </strong>
+      </div>
+
+      <div class="availability-row">
+        <span>Sunday</span>
+        <strong id="sundayAvailability">
+          By request
+        </strong>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ACTIONS -->
+<section class="provider-actions">
+  <div class="container">
+
+    <div class="action-card">
+
+      <div>
+        <span class="eyebrow">Connect</span>
+
+        <h2>Work with this provider</h2>
+
+        <p>
+          Send a request, ask for more information, or create a
+          community booking.
+        </p>
+      </div>
+
+      <div class="action-buttons">
+
+        <a
+          href="requests.html"
+          class="btn btn-primary"
+          id="requestServiceBtn"
+        >
+          Request service
+        </a>
+
+        <a
+          href="booking.html"
+          class="btn btn-secondary"
+          id="bookingBtn"
+        >
+          Create booking
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- REPORT -->
+<section class="provider-safety">
+  <div class="container">
+
+    <details class="safety-details">
+
+      <summary>
+        Trust & Safety
+      </summary>
+
+      <div class="safety-content">
+
+        <p>
+          If you notice inaccurate information, suspicious
+          activity, or a problem with this provider, you can
+          report it to BISOVIA.
+        </p>
+
+        <button
+          type="button"
+          class="btn btn-danger"
+          id="reportProviderBtn"
+        >
+          Report provider
+        </button>
+
+      </div>
+
+    </details>
+
+  </div>
+</section>
+
+  </main>  <!-- FOOTER -->  <footer class="site-footer">
+    <div class="container">  <div class="footer-content">
+
+    <div>
+      <strong>BISOVIA</strong>
+      <p>
+        Practical digital services and community interaction.
+      </p>
+    </div>
+
+    <nav aria-label="Footer navigation">
+      <a href="../index.html">Home</a>
+      <a href="community.html">Community</a>
+      <a href="providers.html">Providers</a>
+      <a href="requests.html">Requests</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>
+      © <span id="currentYear"></span> BISOVIA
+    </span>
+
+    <span>
+      Community · Trust · Utility
+    </span>
+  </div>
+
+</div>
+
+  </footer>  <!-- CORE -->  <script src="../script.js"></script>  <!-- COMMUNITY MODULE -->  <script src="../modules/community/community.js"></script>  <script>
+    /*
+     * Provider page bootstrap.
+     * Dynamic provider data can later come from the BISOVIA API.
+     */
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      const params = new URLSearchParams(window.location.search);
+      const providerId = params.get("id");
+
+      /*
+       * Keep providerId available for the Community module/API.
+       */
+      document.body.dataset.providerId = providerId || "";
+
+      /*
+       * Future integration:
+       *
+       * GET /api/community/providers/:providerId
+       *
+       * The frontend should not directly access a database.
+       * Provider data will come through the BISOVIA backend API.
+       */
+
+    });
+  </script></body>
+</html>
