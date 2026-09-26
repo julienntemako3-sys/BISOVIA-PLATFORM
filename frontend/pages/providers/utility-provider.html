@@ -1,1 +1,614 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BISOVIA Utility Provider — manage utility services, requests, customers and payments."
+  >
+
+  <title>Utility Provider | BISOVIA</title>
+
+  <!-- Core Styles -->
+  <link rel="stylesheet" href="../../core/core.css">
+
+  <!-- Utility Module Styles -->
+  <link rel="stylesheet" href="utility.css">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="../../style.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+
+    <div class="container header-inner">
+
+      <a href="../../index.html" class="logo">
+        BISOVIA
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+
+        <a href="../../index.html">Home</a>
+
+        <a href="index.html">Utilities</a>
+
+        <a href="services.html">Services</a>
+
+        <a href="providers.html" class="active">
+          Providers
+        </a>
+
+        <a href="requests.html">
+          Requests
+        </a>
+
+        <a href="../../pages/payments.html">
+          Payments
+        </a>
+
+      </nav>
+
+      <div class="header-actions">
+
+        <button
+          type="button"
+          id="themeToggle"
+          aria-label="Toggle theme"
+        >
+          ◐
+        </button>
+
+        <select
+          id="languageSelector"
+          aria-label="Select language"
+        >
+          <option value="en">EN</option>
+          <option value="fr">FR</option>
+          <option value="rn">RN</option>
+          <option value="sw">SW</option>
+        </select>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================
+       MAIN
+  ========================== -->
+  <main>
+
+    <!-- Provider Hero -->
+    <section class="provider-hero">
+
+      <div class="container">
+
+        <div class="provider-breadcrumb">
+          <a href="index.html">Utilities</a>
+          <span>›</span>
+          <a href="providers.html">Providers</a>
+          <span>›</span>
+          <span>Provider</span>
+        </div>
+
+        <div class="provider-hero-content">
+
+          <div class="provider-icon">
+            ⚡
+          </div>
+
+          <div>
+
+            <span class="provider-badge">
+              Utility Provider
+            </span>
+
+            <h1 id="providerName">
+              Utility Service Provider
+            </h1>
+
+            <p id="providerDescription">
+              Reliable digital access to essential utility services
+              through BISOVIA.
+            </p>
+
+            <div class="provider-status">
+
+              <span class="status-dot"></span>
+
+              <span>
+                Available
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROVIDER INFORMATION
+    ========================== -->
+    <section class="provider-section">
+
+      <div class="container">
+
+        <div class="provider-grid">
+
+          <!-- Main information -->
+          <article class="provider-main">
+
+            <div class="section-card">
+
+              <h2>About this provider</h2>
+
+              <p>
+                This provider offers utility-related services through
+                the BISOVIA platform. Customers can discover services,
+                submit requests, communicate with providers and manage
+                eligible payments using Pi.
+              </p>
+
+              <p>
+                Available services may include electricity, water,
+                internet, energy solutions, waste services and other
+                practical utility services.
+              </p>
+
+            </div>
+
+
+            <!-- Services -->
+            <div class="section-card">
+
+              <div class="section-heading">
+
+                <div>
+                  <span class="section-label">
+                    Provider services
+                  </span>
+
+                  <h2>Available Services</h2>
+                </div>
+
+                <a
+                  href="services.html"
+                  class="text-link"
+                >
+                  View all
+                </a>
+
+              </div>
+
+              <div class="service-list">
+
+                <a href="service.html" class="service-item">
+
+                  <div class="service-icon">
+                    ⚡
+                  </div>
+
+                  <div class="service-content">
+
+                    <h3>Electricity Services</h3>
+
+                    <p>
+                      Connections, maintenance and electricity-related
+                      requests.
+                    </p>
+
+                  </div>
+
+                  <span class="service-arrow">
+                    →
+                  </span>
+
+                </a>
+
+
+                <a href="service.html" class="service-item">
+
+                  <div class="service-icon">
+                    💧
+                  </div>
+
+                  <div class="service-content">
+
+                    <h3>Water Services</h3>
+
+                    <p>
+                      Water connection, maintenance and service support.
+                    </p>
+
+                  </div>
+
+                  <span class="service-arrow">
+                    →
+                  </span>
+
+                </a>
+
+
+                <a href="service.html" class="service-item">
+
+                  <div class="service-icon">
+                    🌐
+                  </div>
+
+                  <div class="service-content">
+
+                    <h3>Internet Services</h3>
+
+                    <p>
+                      Connectivity and digital communication services.
+                    </p>
+
+                  </div>
+
+                  <span class="service-arrow">
+                    →
+                  </span>
+
+                </a>
+
+
+                <a href="service.html" class="service-item">
+
+                  <div class="service-icon">
+                    ♻️
+                  </div>
+
+                  <div class="service-content">
+
+                    <h3>Waste Services</h3>
+
+                    <p>
+                      Waste collection, recycling and environmental
+                      services.
+                    </p>
+
+                  </div>
+
+                  <span class="service-arrow">
+                    →
+                  </span>
+
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <!-- Provider information -->
+            <div class="section-card">
+
+              <h2>Provider Information</h2>
+
+              <div class="info-list">
+
+                <div class="info-row">
+
+                  <span class="info-label">
+                    Category
+                  </span>
+
+                  <span class="info-value">
+                    Utilities
+                  </span>
+
+                </div>
+
+                <div class="info-row">
+
+                  <span class="info-label">
+                    Service area
+                  </span>
+
+                  <span class="info-value">
+                    Available area
+                  </span>
+
+                </div>
+
+                <div class="info-row">
+
+                  <span class="info-label">
+                    Provider type
+                  </span>
+
+                  <span class="info-value">
+                    Utility Service Provider
+                  </span>
+
+                </div>
+
+                <div class="info-row">
+
+                  <span class="info-label">
+                    BISOVIA status
+                  </span>
+
+                  <span class="info-value">
+                    Verified provider
+                  </span>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- Sidebar -->
+          <aside class="provider-sidebar">
+
+            <!-- Contact -->
+            <div class="section-card provider-contact">
+
+              <h2>Contact Provider</h2>
+
+              <p>
+                Contact this provider about a utility service or
+                existing request.
+              </p>
+
+              <button
+                type="button"
+                class="primary-button"
+                id="contactProviderBtn"
+              >
+                Contact Provider
+              </button>
+
+              <a
+                href="booking.html"
+                class="secondary-button"
+              >
+                Request a Service
+              </a>
+
+            </div>
+
+
+            <!-- Request -->
+            <div class="section-card">
+
+              <h2>Need a service?</h2>
+
+              <p>
+                Submit a request and follow its progress from your
+                BISOVIA account.
+              </p>
+
+              <a
+                href="requests.html"
+                class="primary-button"
+              >
+                My Requests
+              </a>
+
+            </div>
+
+
+            <!-- Payment -->
+            <div class="section-card">
+
+              <h2>Pi Payments</h2>
+
+              <p>
+                Eligible services can use BISOVIA's Pi payment flow.
+              </p>
+
+              <a
+                href="../../pages/payments.html"
+                class="secondary-button"
+              >
+                View Payments
+              </a>
+
+            </div>
+
+
+            <!-- Trust -->
+            <div class="section-card provider-trust">
+
+              <h2>Trust & Safety</h2>
+
+              <div class="trust-item">
+                <span>✓</span>
+                <span>Provider profile</span>
+              </div>
+
+              <div class="trust-item">
+                <span>✓</span>
+                <span>Service information</span>
+              </div>
+
+              <div class="trust-item">
+                <span>✓</span>
+                <span>Request tracking</span>
+              </div>
+
+              <a
+                href="../../pages/trust.html"
+                class="text-link"
+              >
+                Learn about Trust & Safety
+              </a>
+
+            </div>
+
+          </aside>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+    <section class="provider-cta">
+
+      <div class="container">
+
+        <div class="cta-card">
+
+          <div>
+
+            <span class="section-label">
+              BISOVIA Utilities
+            </span>
+
+            <h2>
+              Find the utility service you need.
+            </h2>
+
+            <p>
+              Discover providers, request services and manage your
+              utility activities from one practical platform.
+            </p>
+
+          </div>
+
+          <div class="cta-actions">
+
+            <a
+              href="services.html"
+              class="primary-button"
+            >
+              Explore Services
+            </a>
+
+            <a
+              href="providers.html"
+              class="secondary-button"
+            >
+              Find Providers
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <div>
+          <strong>BISOVIA</strong>
+
+          <p>
+            Practical digital services and community interaction.
+          </p>
+        </div>
+
+        <div class="footer-links">
+
+          <a href="../../pages/about.html">
+            About
+          </a>
+
+          <a href="../../pages/trust.html">
+            Trust & Safety
+          </a>
+
+          <a href="../../pages/settings.html">
+            Settings
+          </a>
+
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+
+        <span>
+          © <span id="currentYear"></span> BISOVIA
+        </span>
+
+        <span>
+          Pi-Native Utility Platform
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       SCRIPTS
+  ========================== -->
+
+  <script src="../../core/core.js"></script>
+
+  <script src="utility.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const year = document.getElementById("currentYear");
+
+      if (year) {
+        year.textContent = new Date().getFullYear();
+      }
+
+      const contactButton =
+        document.getElementById("contactProviderBtn");
+
+      if (contactButton) {
+
+        contactButton.addEventListener("click", function () {
+
+          window.location.href = "service.html";
+
+        });
+
+      }
+
+    });
+  </script>
+
+</body>
+</html>
+
+Iyi page tuyisize nka provider detail page, ntabwo ari dashboard ya provider. Izahuza na "providers.html", "services.html", "requests.html", "booking.html", "service.html", "utility.js" na Core ya BISOVIA.
