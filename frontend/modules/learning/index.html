@@ -1,297 +1,379 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
 
-    <title>BISOVIA Learning</title>
-    <meta
-        name="description"
-        content="BISOVIA Learning — learn practical skills, access useful knowledge, and grow through community learning."
-    >
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-    <!-- BISOVIA Core -->
-    <link rel="stylesheet" href="../../core/core.css">
+  <title>BISOVIA Learning</title>
 
-    <!-- Learning Module -->
-    <link rel="stylesheet" href="learning.css">
+  <meta
+    name="description"
+    content="BISOVIA Learning — courses, lessons, subjects, videos, audio, resources and knowledge."
+  >
 
-    <link rel="icon" href="../../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="learning.css">
 </head>
 
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-    <header class="learning-header">
-        <div class="learning-header-inner">
+  <!-- HEADER -->
+  <header class="learning-header">
 
-            <a href="../../index.html" class="learning-logo">
-                <img
-                    src="../../assets/logo.svg"
-                    alt="BISOVIA"
-                >
-                <span>Learning</span>
-            </a>
+    <div class="learning-brand">
+      <a href="../index.html" class="brand-link">
+        <strong>BISOVIA</strong>
+      </a>
 
-            <nav class="learning-nav" aria-label="Learning navigation">
-                <a href="index.html" data-i18n="learning.home">Home</a>
-                <a href="courses.html" data-i18n="learning.courses">Courses</a>
-                <a href="lessons.html" data-i18n="learning.lessons">Lessons</a>
-                <a href="resources.html" data-i18n="learning.resources">Resources</a>
-            </nav>
+      <span class="brand-section">Learning</span>
+    </div>
 
-        </div>
-    </header>
+    <nav class="learning-nav" aria-label="Learning navigation">
+      <a href="../index.html">Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="lessons.html">Lessons</a>
+      <a href="categories.html">Categories</a>
+      <a href="resources.html">Resources</a>
+    </nav>
 
+  </header>
 
-    <!-- =========================
-         MAIN
-    ========================== -->
-    <main class="learning-main">
 
-        <!-- Hero -->
-        <section class="learning-hero">
+  <!-- HERO -->
+  <main>
 
-            <div class="learning-hero-content">
+    <section class="learning-hero">
 
-                <span class="learning-label" data-i18n="learning.label">
-                    BISOVIA Learning
-                </span>
+      <div class="hero-content">
 
-                <h1 data-i18n="learning.title">
-                    Learn. Practice. Grow.
-                </h1>
+        <span class="hero-label">BISOVIA Learning</span>
 
-                <p data-i18n="learning.description">
-                    Access practical learning resources, useful lessons,
-                    and knowledge designed to support real-life digital
-                    and community needs.
-                </p>
-
-                <div class="learning-actions">
-
-                    <a
-                        href="courses.html"
-                        class="btn btn-primary"
-                        data-i18n="learning.exploreCourses"
-                    >
-                        Explore Courses
-                    </a>
-
-                    <a
-                        href="lessons.html"
-                        class="btn btn-secondary"
-                        data-i18n="learning.startLearning"
-                    >
-                        Start Learning
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- Learning Areas -->
-        <section class="learning-section">
-
-            <div class="section-heading">
-                <span class="section-label" data-i18n="learning.areasLabel">
-                    Learning Areas
-                </span>
-
-                <h2 data-i18n="learning.areasTitle">
-                    Practical knowledge for real utility
-                </h2>
-
-                <p data-i18n="learning.areasDescription">
-                    Discover learning content connected to digital
-                    services, community participation, entrepreneurship,
-                    and everyday skills.
-                </p>
-            </div>
-
-
-            <div class="learning-grid">
-
-                <!-- Digital Skills -->
-                <article class="learning-card">
-
-                    <div class="learning-card-icon">
-                        💻
-                    </div>
-
-                    <h3 data-i18n="learning.digitalSkills">
-                        Digital Skills
-                    </h3>
-
-                    <p data-i18n="learning.digitalSkillsDescription">
-                        Build practical digital skills and understand
-                        useful technologies.
-                    </p>
-
-                    <a
-                        href="courses.html?category=digital"
-                        data-i18n="learning.learnMore"
-                    >
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-                <!-- Business -->
-                <article class="learning-card">
-
-                    <div class="learning-card-icon">
-                        💼
-                    </div>
-
-                    <h3 data-i18n="learning.business">
-                        Business & Entrepreneurship
-                    </h3>
-
-                    <p data-i18n="learning.businessDescription">
-                        Learn practical approaches to services,
-                        entrepreneurship, and responsible innovation.
-                    </p>
-
-                    <a
-                        href="courses.html?category=business"
-                        data-i18n="learning.learnMore"
-                    >
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-                <!-- Community -->
-                <article class="learning-card">
-
-                    <div class="learning-card-icon">
-                        🤝
-                    </div>
-
-                    <h3 data-i18n="learning.community">
-                        Community Learning
-                    </h3>
-
-                    <p data-i18n="learning.communityDescription">
-                        Develop knowledge through participation,
-                        collaboration, and shared experience.
-                    </p>
-
-                    <a
-                        href="courses.html?category=community"
-                        data-i18n="learning.learnMore"
-                    >
-                        Learn more →
-                    </a>
-
-                </article>
-
-
-                <!-- Practical Skills -->
-                <article class="learning-card">
-
-                    <div class="learning-card-icon">
-                        🛠️
-                    </div>
-
-                    <h3 data-i18n="learning.practicalSkills">
-                        Practical Skills
-                    </h3>
-
-                    <p data-i18n="learning.practicalSkillsDescription">
-                        Discover useful knowledge that can be applied
-                        in everyday life and services.
-                    </p>
-
-                    <a
-                        href="courses.html?category=practical"
-                        data-i18n="learning.learnMore"
-                    >
-                        Learn more →
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- Featured Learning -->
-        <section class="learning-section learning-featured">
-
-            <div class="section-heading">
-                <span class="section-label" data-i18n="learning.featuredLabel">
-                    Featured
-                </span>
-
-                <h2 data-i18n="learning.featuredTitle">
-                    Continue your learning journey
-                </h2>
-
-                <p data-i18n="learning.featuredDescription">
-                    Choose a course or lesson and build your knowledge
-                    step by step.
-                </p>
-            </div>
-
-            <div class="learning-featured-actions">
-
-                <a
-                    href="courses.html"
-                    class="learning-featured-link"
-                    data-i18n="learning.viewCourses"
-                >
-                    View Courses
-                </a>
-
-                <a
-                    href="resources.html"
-                    class="learning-featured-link"
-                    data-i18n="learning.viewResources"
-                >
-                    View Resources
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-    <footer class="learning-footer">
+        <h1>Learn. Discover. Grow.</h1>
 
         <p>
-            © <span id="currentYear"></span> BISOVIA.
-            <span data-i18n="learning.footer">
-                Learning for practical utility and community growth.
-            </span>
+          Explore courses, lessons, subjects, videos, audio,
+          educational resources and knowledge in one place.
         </p>
 
-    </footer>
+        <div class="hero-actions">
+
+          <a href="courses.html" class="primary-btn">
+            Explore Courses
+          </a>
+
+          <a href="categories.html" class="secondary-btn">
+            Browse Categories
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
 
 
-    <!-- =========================
-         BISOVIA CORE
-    ========================== -->
-    <script src="../../core/core.js"></script>
-    <script src="../../core/translation.js"></script>
+    <!-- LEARNING HUB -->
+    <section class="learning-section">
 
-    <!-- Learning Module -->
-    <script src="learning.js"></script>
+      <div class="section-heading">
+
+        <span class="section-label">Learning Hub</span>
+
+        <h2>What do you want to explore?</h2>
+
+        <p>
+          Access all BISOVIA Learning experiences from one place.
+        </p>
+
+      </div>
+
+
+      <div class="learning-grid">
+
+        <!-- COURSES -->
+        <a href="courses.html" class="learning-card">
+
+          <div class="card-icon">📚</div>
+
+          <h3>Courses</h3>
+
+          <p>
+            Discover structured courses and learning paths.
+          </p>
+
+        </a>
+
+
+        <!-- LESSONS -->
+        <a href="lessons.html" class="learning-card">
+
+          <div class="card-icon">📖</div>
+
+          <h3>Lessons</h3>
+
+          <p>
+            Learn through individual lessons and educational content.
+          </p>
+
+        </a>
+
+
+        <!-- SUBJECTS -->
+        <a href="subjects.html" class="learning-card">
+
+          <div class="card-icon">🎓</div>
+
+          <h3>Subjects</h3>
+
+          <p>
+            Explore knowledge by subject and field.
+          </p>
+
+        </a>
+
+
+        <!-- CATEGORIES -->
+        <a href="categories.html" class="learning-card">
+
+          <div class="card-icon">🗂️</div>
+
+          <h3>Categories</h3>
+
+          <p>
+            Browse the different Learning categories.
+          </p>
+
+        </a>
+
+
+        <!-- VIDEOS -->
+        <a href="video.html" class="learning-card">
+
+          <div class="card-icon">🎥</div>
+
+          <h3>Videos</h3>
+
+          <p>
+            Watch educational and informative videos.
+          </p>
+
+        </a>
+
+
+        <!-- AUDIO -->
+        <a href="audio.html" class="learning-card">
+
+          <div class="card-icon">🎧</div>
+
+          <h3>Audio</h3>
+
+          <p>
+            Listen to educational audio and knowledge content.
+          </p>
+
+        </a>
+
+
+        <!-- MEDIA -->
+        <a href="media/media.html" class="learning-card">
+
+          <div class="card-icon">🎬</div>
+
+          <h3>Media</h3>
+
+          <p>
+            Explore multimedia learning experiences.
+          </p>
+
+        </a>
+
+
+        <!-- RESOURCES -->
+        <a href="resources.html" class="learning-card">
+
+          <div class="card-icon">📚</div>
+
+          <h3>Resources</h3>
+
+          <p>
+            Find useful educational materials and resources.
+          </p>
+
+        </a>
+
+
+        <!-- TEACHERS -->
+        <a href="teachers.html" class="learning-card">
+
+          <div class="card-icon">👨‍🏫</div>
+
+          <h3>Teachers</h3>
+
+          <p>
+            Discover teachers and learning professionals.
+          </p>
+
+        </a>
+
+
+        <!-- ASK EXPERT -->
+        <a href="ask-expert.html" class="learning-card">
+
+          <div class="card-icon">🧠</div>
+
+          <h3>Ask Expert</h3>
+
+          <p>
+            Ask questions and connect with expertise.
+          </p>
+
+        </a>
+
+
+        <!-- PROGRESS -->
+        <a href="progress.html" class="learning-card">
+
+          <div class="card-icon">📈</div>
+
+          <h3>My Progress</h3>
+
+          <p>
+            Track your learning progress and activities.
+          </p>
+
+        </a>
+
+
+        <!-- CERTIFICATES -->
+        <a href="certificates.html" class="learning-card">
+
+          <div class="card-icon">🏆</div>
+
+          <h3>Certificates</h3>
+
+          <p>
+            Access your learning achievements and certificates.
+          </p>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORIES PREVIEW -->
+    <section class="learning-section categories-section">
+
+      <div class="section-heading">
+
+        <span class="section-label">Discover</span>
+
+        <h2>Explore Knowledge</h2>
+
+        <p>
+          Discover different areas of learning and knowledge.
+        </p>
+
+      </div>
+
+
+      <div class="category-grid">
+
+        <a href="categories/sciences.html" class="category-item">
+          🔬
+          <span>Sciences</span>
+        </a>
+
+        <a href="categories/languages.html" class="category-item">
+          🌍
+          <span>Languages</span>
+        </a>
+
+        <a href="categories/philosophy.html" class="category-item">
+          🧠
+          <span>Philosophy & Theology</span>
+        </a>
+
+        <a href="categories/arts.html" class="category-item">
+          🎨
+          <span>Arts</span>
+        </a>
+
+        <a href="categories/music.html" class="category-item">
+          🎵
+          <span>Music</span>
+        </a>
+
+        <a href="categories/sports.html" class="category-item">
+          ⚽
+          <span>Sports & Games</span>
+        </a>
+
+        <a href="categories/cultures.html" class="category-item">
+          🌍
+          <span>Cultures & Traditions</span>
+        </a>
+
+        <a href="categories/tourism.html" class="category-item">
+          ✈️
+          <span>Tourism & Travel</span>
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+    <section class="learning-cta">
+
+      <div>
+
+        <span class="section-label">Start Learning</span>
+
+        <h2>Your knowledge journey starts here.</h2>
+
+        <p>
+          Choose a subject, discover a course, watch a video,
+          listen to audio or explore a new field.
+        </p>
+
+      </div>
+
+      <a href="categories.html" class="primary-btn">
+        Start Exploring
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="learning-footer">
+
+    <p>
+      © <span id="current-year"></span> BISOVIA.
+      Learning for practical knowledge and discovery.
+    </p>
+
+    <div class="footer-links">
+
+      <a href="../index.html">BISOVIA Home</a>
+      <a href="courses.html">Courses</a>
+      <a href="categories.html">Categories</a>
+      <a href="resources.html">Resources</a>
+
+    </div>
+
+  </footer>
+
+
+  <script src="learning.js"></script>
 
 </body>
 </html>
