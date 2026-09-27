@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>BISOVIA | Hospitality Service</title>
+  <title>BISOVIA | Community</title>
 
   <meta
     name="description"
-    content="BISOVIA Hospitality Service — view service details, request availability and connect with a hospitality provider."
+    content="BISOVIA Community — connect, discover community services, events, providers and requests."
   >
 
   <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
 
   <link rel="stylesheet" href="../../style.css">
-  <link rel="stylesheet" href="hospitality.css">
+  <link rel="stylesheet" href="community.css">
 </head>
 
 <body>
@@ -46,16 +45,24 @@
           Auto
         </a>
 
-        <a
-          href="hospitality.html"
-          class="active"
-          data-i18n="nav.hospitality"
-        >
+        <a href="../hospitality/hospitality.html" data-i18n="nav.hospitality">
           Hospitality
         </a>
 
-        <a href="../community/community/index.html" data-i18n="nav.community">
+        <a
+          href="index.html"
+          class="active"
+          data-i18n="nav.community"
+        >
           Community
+        </a>
+
+        <a href="../utilities/index.html" data-i18n="nav.utilities">
+          Utilities
+        </a>
+
+        <a href="../learning/index.html" data-i18n="nav.learning">
+          Learning
         </a>
 
         <a href="../../pages/payments.html" data-i18n="nav.payments">
@@ -105,43 +112,38 @@
   <!-- MAIN -->
   <main>
 
-    <!-- SERVICE HERO -->
-    <section class="module-hero hospitality-hero">
+    <!-- HERO -->
+    <section class="module-hero community-hero">
 
       <div class="container">
 
-        <p
-          class="section-eyebrow"
-          data-i18n="service.eyebrow"
-        >
-          HOSPITALITY SERVICE
+        <p class="section-eyebrow">
+          BISOVIA COMMUNITY
         </p>
 
-        <h1 data-i18n="service.title">
-          Explore a hospitality service.
+        <h1>
+          Connect. Participate. Grow.
         </h1>
 
-        <p data-i18n="service.description">
-          View service information, connect with a provider and
-          start a request or booking through BISOVIA.
+        <p>
+          Discover community services, events, providers,
+          requests and opportunities to participate through BISOVIA.
         </p>
 
         <div class="hero-actions">
 
           <a
-            href="requests.html"
+            href="services.html"
             class="btn btn-primary"
-            data-i18n="service.requestService"
           >
-            Request Service
+            Explore Services
           </a>
 
           <a
-            href="booking.html"
+            href="events.html"
             class="btn btn-secondary"
-            data-i18n="service.bookService"
           >
-            Book Service
+            Discover Events
           </a>
 
         </div>
@@ -151,27 +153,24 @@
     </section>
 
 
-    <!-- SERVICE DETAILS -->
+    <!-- COMMUNITY HUB -->
     <section class="services-section">
 
       <div class="container">
 
         <div class="section-heading">
 
-          <p
-            class="section-eyebrow"
-            data-i18n="service.detailsEyebrow"
-          >
-            SERVICE DETAILS
+          <p class="section-eyebrow">
+            COMMUNITY HUB
           </p>
 
-          <h2 data-i18n="service.detailsTitle">
-            Practical information before you request.
+          <h2>
+            Explore the Community
           </h2>
 
-          <p data-i18n="service.detailsDescription">
-            Each hospitality service can provide clear information
-            about the provider, availability, location and conditions.
+          <p>
+            Access community services, events, providers and
+            requests from one place.
           </p>
 
         </div>
@@ -179,86 +178,89 @@
 
         <div class="services-grid">
 
-          <!-- SERVICE CATEGORY -->
-          <article class="service-card">
-
-            <div class="service-icon">
-              🏷️
-            </div>
-
-            <h3 data-i18n="service.categoryTitle">
-              Service Category
-            </h3>
-
-            <p data-i18n="service.categoryText">
-              Accommodation, meals, events or another hospitality
-              service category.
-            </p>
-
-          </article>
-
-
-          <!-- PROVIDER -->
           <article class="service-card">
 
             <div class="service-icon">
               🤝
             </div>
 
-            <h3 data-i18n="service.providerTitle">
-              Provider
+            <h3>
+              Community Services
             </h3>
 
-            <p data-i18n="service.providerText">
-              See the participating provider responsible for the
-              selected hospitality service.
+            <p>
+              Discover practical services created for
+              community participation and interaction.
             </p>
 
-            <a
-              href="providers.html"
-              class="service-link"
-              data-i18n="service.viewProviders"
-            >
-              View Providers →
+            <a href="services.html" class="service-link">
+              View Services →
             </a>
 
           </article>
 
 
-          <!-- AVAILABILITY -->
           <article class="service-card">
 
             <div class="service-icon">
               📅
             </div>
 
-            <h3 data-i18n="service.availabilityTitle">
-              Availability
+            <h3>
+              Events
             </h3>
 
-            <p data-i18n="service.availabilityText">
-              Availability and scheduling will be confirmed through
-              the provider and booking flow.
+            <p>
+              Discover community events, activities and
+              opportunities to participate.
             </p>
+
+            <a href="events.html" class="service-link">
+              View Events →
+            </a>
 
           </article>
 
 
-          <!-- PAYMENT -->
           <article class="service-card">
 
             <div class="service-icon">
-              π
+              👥
             </div>
 
-            <h3 data-i18n="service.paymentTitle">
-              Pi Payment
+            <h3>
+              Providers
             </h3>
 
-            <p data-i18n="service.paymentText">
-              Eligible services can connect to the BISOVIA Pi payment
-              infrastructure after confirmation.
+            <p>
+              Explore community service providers participating
+              in the BISOVIA ecosystem.
             </p>
+
+            <a href="providers.html" class="service-link">
+              View Providers →
+            </a>
+
+          </article>
+
+
+          <article class="service-card">
+
+            <div class="service-icon">
+              📝
+            </div>
+
+            <h3>
+              Requests
+            </h3>
+
+            <p>
+              Send and manage requests for community services.
+            </p>
+
+            <a href="requests.html" class="service-link">
+              View Requests →
+            </a>
 
           </article>
 
@@ -269,22 +271,19 @@
     </section>
 
 
-    <!-- SERVICE FLOW -->
+    <!-- COMMUNITY ACTIONS -->
     <section class="how-section">
 
       <div class="container">
 
         <div class="section-heading">
 
-          <p
-            class="section-eyebrow"
-            data-i18n="service.flowEyebrow"
-          >
-            SERVICE FLOW
+          <p class="section-eyebrow">
+            PARTICIPATION
           </p>
 
-          <h2 data-i18n="service.flowTitle">
-            How a service becomes a confirmed booking.
+          <h2>
+            Take Part in the Community
           </h2>
 
         </div>
@@ -298,12 +297,12 @@
               01
             </div>
 
-            <h3 data-i18n="service.step1Title">
+            <h3>
               Discover
             </h3>
 
-            <p data-i18n="service.step1Text">
-              Explore the service and provider information.
+            <p>
+              Explore services, events and community opportunities.
             </p>
 
           </article>
@@ -315,13 +314,12 @@
               02
             </div>
 
-            <h3 data-i18n="service.step2Title">
-              Request
+            <h3>
+              Connect
             </h3>
 
-            <p data-i18n="service.step2Text">
-              Send your preferred date, requirements and other
-              relevant details.
+            <p>
+              Connect with providers and other participants.
             </p>
 
           </article>
@@ -333,12 +331,12 @@
               03
             </div>
 
-            <h3 data-i18n="service.step3Title">
-              Confirm
+            <h3>
+              Request or Book
             </h3>
 
-            <p data-i18n="service.step3Text">
-              Review the provider response and confirm the service.
+            <p>
+              Request a service or participate in a supported activity.
             </p>
 
           </article>
@@ -350,12 +348,12 @@
               04
             </div>
 
-            <h3 data-i18n="service.step4Title">
-              Pay with Pi
+            <h3>
+              Participate
             </h3>
 
-            <p data-i18n="service.step4Text">
-              Complete the supported Pi payment after confirmation.
+            <p>
+              Build practical community interaction through BISOVIA.
             </p>
 
           </article>
@@ -367,7 +365,7 @@
     </section>
 
 
-    <!-- PROVIDER CONNECTION -->
+    <!-- QUICK LINKS -->
     <section class="provider-section">
 
       <div class="container">
@@ -376,82 +374,44 @@
 
           <div>
 
-            <p
-              class="section-eyebrow"
-              data-i18n="service.providerEyebrow"
-            >
-              PROVIDER CONNECTION
+            <p class="section-eyebrow">
+              COMMUNITY ACCESS
             </p>
 
-            <h2 data-i18n="service.providerHeading">
-              Connect with a participating provider.
+            <h2>
+              Everything starts from here.
             </h2>
 
-            <p data-i18n="service.providerDescription">
-              BISOVIA is designed to connect users with hospitality
-              providers while keeping provider-specific business
-              logic inside the Hospitality module.
+            <p>
+              Choose a community service, discover an event,
+              explore providers or create a request.
             </p>
 
           </div>
 
+
           <div class="hero-actions">
 
             <a
-              href="providers.html"
+              href="services.html"
               class="btn btn-primary"
-              data-i18n="service.exploreProviders"
             >
-              Explore Providers
+              Services
+            </a>
+
+            <a
+              href="providers.html"
+              class="btn btn-secondary"
+            >
+              Providers
             </a>
 
             <a
               href="requests.html"
               class="btn btn-secondary"
-              data-i18n="service.sendRequest"
             >
-              Send Request
+              Requests
             </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PI / CORE -->
-    <section class="pi-section">
-
-      <div class="container">
-
-        <div class="pi-card">
-
-          <div class="pi-icon">
-            π
-          </div>
-
-          <div>
-
-            <p
-              class="section-eyebrow"
-              data-i18n="service.piEyebrow"
-            >
-              BISOVIA CORE
-            </p>
-
-            <h2 data-i18n="service.piTitle">
-              The service connects to the BISOVIA Core.
-            </h2>
-
-            <p data-i18n="service.piText">
-              Identity, trust, notifications and Pi payment
-              infrastructure are provided through the Core,
-              while hospitality-specific service logic remains
-              inside the Hospitality module.
-            </p>
 
           </div>
 
@@ -477,7 +437,7 @@
           class="footer-logo"
         >
 
-        <p data-i18n="footer.description">
+        <p>
           A Pi-native utility platform for practical digital services
           and community interaction.
         </p>
@@ -487,27 +447,35 @@
 
       <div class="footer-links">
 
-        <a href="../../index.html" data-i18n="nav.home">
+        <a href="../../index.html">
           Home
         </a>
 
-        <a href="../mobility/mobility.html" data-i18n="nav.mobility">
+        <a href="../mobility/mobility.html">
           Mobility
         </a>
 
-        <a href="../auto/auto.html" data-i18n="nav.auto">
+        <a href="../auto/auto.html">
           Auto
         </a>
 
-        <a href="hospitality.html" data-i18n="nav.hospitality">
+        <a href="../hospitality/hospitality.html">
           Hospitality
         </a>
 
-        <a href="../community/community/index.html" data-i18n="nav.community">
+        <a href="index.html">
           Community
         </a>
 
-        <a href="../../pages/payments.html" data-i18n="nav.payments">
+        <a href="../utilities/index.html">
+          Utilities
+        </a>
+
+        <a href="../learning/index.html">
+          Learning
+        </a>
+
+        <a href="../../pages/payments.html">
           Payments
         </a>
 
@@ -520,9 +488,7 @@
 
       <p>
         © <span id="currentYear"></span> BISOVIA.
-        <span data-i18n="footer.rights">
-          All rights reserved.
-        </span>
+        All rights reserved.
       </p>
 
     </div>
@@ -532,7 +498,7 @@
 
   <!-- SCRIPTS -->
   <script src="../../script.js"></script>
-  <script src="hospitality.js"></script>
+  <script src="community.js"></script>
 
 </body>
 </html>
