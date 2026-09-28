@@ -1,212 +1,83 @@
-/* =========================================================
-   BISOVIA GLOBAL FRONTEND INTEGRATION
-   ========================================================= */
-
 (function () {
   "use strict";
 
-  const GLOBAL = {
-    initialized: false,
+  window.BISOVIA = window.BISOVIA || {};
 
-    init() {
-      if (this.initialized) return;
+  function getBasePath() {
+    const path = window.location.pathname;
 
-      this.markActiveNavigation();
-      this.setupMobileNavigation();
-      this.setupGlobalLinks();
-      this.updateCurrentYear();
-      this.updatePiStatus();
+    if (path.includes("/modules/")) {
+      return "../../";
+    }
 
-      document.addEventListener(
-        "bisovia:coreReady",
-        () => {
-          this.markActiveNavigation();
-          this.updatePiStatus();
-        }
-      );
+    if (path.includes("/pages/")) {
+      return "../";
+    }
 
-      document.addEventListener(
-        "bisovia:piReady",
-        () => {
-          this.updatePiStatus();
-        }
-      );
+    return "./";
+  }
 
-      document.addEventListener(
-        "bisovia:translationsApplied",
-        () => {
-          this.markActiveNavigation();
-          this.updateCurrentYear();
-        }
-      );
+  function resolveLink(link) {
+    const href = link.getAttribute("href");
 
-      this.initialized = true;
+    if (!href) return;
 
-      console.info(
-        "BISOVIA Global Frontend initialized."
-      );
-    },
+    if (
+      href.startsWith("#") ||
+      href.startsWith("http://") ||
+      href.startsWith("https://") ||
+      href.startsWith("mailto:") ||
+      href.startsWith("tel:") ||
+      href.startsWith("javascript:")
+    ) {
+      return;
+    }
 
-    /* =======================================================
-       ACTIVE NAVIGATION
-       ======================================================= */
+    /*
+     * Links beginning with / are treated as frontend-root links.
+     */
+    if (href.startsWith("/")) {
+      const clean = href.replace(/^\/+/, "");
+      link.setAttribute("href", getBasePath() + clean);
+    }
+  }
 
-    markActiveNavigation() {
-      const currentPath =
-        window.location.pathname
-          .split("/")
-          .pop() || "index.html";
+  function initLinks() {
+    document.querySelectorAll("a[href]").forEach(resolveLink);
+  }
 
-      document
-        .querySelectorAll(
-          "[data-global-nav], .bisovia-nav-links a"
-        )
-        .forEach((link) => {
-          const href =
-            link.getAttribute("href");
+  function initExternalLinks() {
+    document.querySelectorAll("a[target='_blank']").forEach(function (link) {
+      link.setAttribute("rel", "noopener noreferrer");
+    });
+  }
 
-          if (!href) return;
+  function initCurrentYear() {
+    document.querySelectorAll("[data-current-year]").forEach(function (element) {
+      element.textContent = new Date().getFullYear();
+    });
+  }
 
-          const linkPath =
-            href.split("?")[0]
-              .split("#")[0]
-              .split("/")
-              .pop();
+  function initMobileMenu() {
+    const buttons = document.querySelectorAll("[data-mobile-menu-toggle]");
 
-          link.classList.toggle(
-            "active",
-            linkPath === currentPath
-          );
-        });
-    },
+    buttons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        document.body.classList.toggle("mobile-menu-open");
+      });
+    });
+  }
 
-    /* =======================================================
-       MOBILE NAVIGATION
-       ======================================================= */
-
-    setupMobileNavigation() {
-      const toggle =
-        document.querySelector(
-          "[data-mobile-menu]"
-        );
-
-      const nav =
-        document.querySelector(
-          "[data-mobile-nav]"
-        );
-
-      if (!toggle || !nav) return;
-
-      toggle.addEventListener(
-        "click",
-        () => {
-          const open =
-            nav.classList.toggle("open");
-
-          toggle.setAttribute(
-            "aria-expanded",
-            open ? "true" : "false"
-          );
-        }
-      );
-
-      nav.querySelectorAll("a").forEach(
-        (link) => {
-          link.addEventListener(
-            "click",
-            () => {
-              nav.classList.remove("open");
-
-              toggle.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-            }
-          );
-        }
-      );
-    },
-
-    /* =======================================================
-       GLOBAL LINKS
-       ======================================================= */
-
-    setupGlobalLinks() {
-      document
-        .querySelectorAll("[data-global-link]")
-        .forEach((element) => {
-          element.addEventListener(
-            "click",
-            (event) => {
-              const target =
-                element.getAttribute(
-                  "data-global-link"
-                );
-
-              if (!target) return;
-
-              event.preventDefault();
-              window.location.href = target;
-            }
-          );
-        });
-    },
-
-    /* =======================================================
-       CURRENT YEAR
-       ======================================================= */
-
-    updateCurrentYear() {
-      document
-        .querySelectorAll(
-          "[data-current-year]"
-        )
-        .forEach((element) => {
-          element.textContent =
-            new Date().getFullYear();
-        });
-    },
-
-    /* =======================================================
-       PI STATUS
-       ======================================================= */
-
-    updatePiStatus() {
-      const ready =
-        window.BISOVIA &&
-        window.BISOVIA.state &&
-        window.BISOVIA.state.piReady;
-
-      document
-        .querySelectorAll(
-          "[data-pi-status]"
-        )
-        .forEach((element) => {
-          element.textContent = ready
-            ? "Pi connection is ready"
-            : "Pi connection is unavailable";
-
-          element.classList.toggle(
-            "connected",
-            Boolean(ready)
-          );
-        });
+  BISOVIA.global = {
+    init: function () {
+      initLinks();
+      initExternalLinks();
+      initCurrentYear();
+      initMobileMenu();
     }
   };
 
-  window.BISOVIA_GLOBAL = GLOBAL;
-
-  if (
-    document.readyState ===
-    "loading"
-  ) {
-    document.addEventListener(
-      "DOMContentLoaded",
-      () => GLOBAL.init(),
-      { once: true }
-    );
-  } else {
-    GLOBAL.init();
-  }
-
+  BISOVIA.ready(function () {
+    BISOVIA.global.init();
+  });
 })();
